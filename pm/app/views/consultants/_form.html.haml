@@ -8,15 +8,16 @@
 
   .form-group
     = f.label :family_name, 'Фамилия'
-    = f.text_field :family_name, :class => 'form-control', :html => {:placeholder => 'Например, Иванов'}
+    = f.text_field :family_name, :class => 'form-control', :placeholder => 'Например, Иванов'
 
   .form-group
     = f.label :first_name, 'Имя'
-    = f.text_field :first_name, :class => 'form-control', :html => {:placeholder => 'Например, Дмитрий'}
+    = f.text_field :first_name, :class => 'form-control', :placeholder => 'Например, Дмитрий'
 
   .form-group
     = f.label :second_name, 'Отчество'
-    = f.text_field :second_name, :class => 'form-control', :html => {:placeholder => 'Например, Петрович'}
+    = f.text_field :second_name, :class => 'form-control', :placeholder => 'Например, Петрович'
 
-  .form-group
+  .col-md-offset-4
     = f.submit 'Добавить', :class => 'btn btn-primary'
+    = link_to 'Назад', consultants_path, :class => 'btn btn-default'
