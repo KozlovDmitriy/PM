@@ -28,7 +28,7 @@ class ConsultantsController < ApplicationController
 
     respond_to do |format|
       if @consultant.save
-        format.html { redirect_to @consultant, notice: 'Consultant was successfully created.' }
+        format.html { redirect_to consultants_path, notice: 'Consultant was successfully created.' }
         format.json { render action: 'show', status: :created, location: @consultant }
       else
         format.html { render action: 'new' }

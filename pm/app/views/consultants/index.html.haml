@@ -1,10 +1,12 @@
-%h1 Listing consultants
+%h1 Список консультантов
 
-%table
+%p= link_to 'Добавить', new_consultant_path, :class => 'btn btn-primary'
+
+%table.table.table-hover
   %tr
-    %th Family name
-    %th First name
-    %th Second name
+    %th Фамилия
+    %th Имя
+    %th Отчество
     %th
     %th
     %th
@@ -14,10 +16,9 @@
       %td= consultant.family_name
       %td= consultant.first_name
       %td= consultant.second_name
-      %td= link_to 'Show', consultant
-      %td= link_to 'Edit', edit_consultant_path(consultant)
-      %td= link_to 'Destroy', consultant, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Просмотр', consultant, :class => 'btn btn-info'
+      %td= link_to 'Изменить', edit_consultant_path(consultant), :class => 'btn btn-warning'
+      %td= link_to 'Удалить', consultant, :method => :delete,
+      :data => { :confirm => 'Вы уверены, что хотите удалить консультанта?' }, :class => 'btn btn-danger'
 
 %br
-
-= link_to 'New Consultant', new_consultant_path
