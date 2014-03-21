@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Family name:
+  = @consultant.family_name
+%p
+  %b First name:
+  = @consultant.first_name
+%p
+  %b Second name:
+  = @consultant.second_name
+
+= link_to 'Edit', edit_consultant_path(@consultant)
+\|
+= link_to 'Back', consultants_path
