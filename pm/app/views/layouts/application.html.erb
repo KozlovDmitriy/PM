@@ -28,8 +28,8 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Работа с базой данных <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li class="dropdown-header">Работа с консультантами</li>
-            <li><a href="/consultants/new">Добавить нового консультанта</a></li>
-            <li><a href="/consultants">Список консультантов</a></li>
+            <li><%= link_to 'Добавить нового консультанта', new_consultant_path %></li>
+            <li><%= link_to 'Список консультантов', consultants_path %></li>
             <li class="divider"></li>
             <li class="dropdown-header">Работа с проблемами</li>
             <li><a href="/problems/new">Добавить новую проблему</a></li>
