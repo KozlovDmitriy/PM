@@ -38,3 +38,10 @@ Thumbs.db
 # Ignore file with login/password 
 pass.yml
 config/initializers/mongodb_logger.rb
+
+# java app
+*.jar
+
+# debug files
+t.txt
+debug.txt
