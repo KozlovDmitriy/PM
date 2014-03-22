@@ -1,7 +1,8 @@
-%h1 Editing solution
 
-= render 'form'
+.blog-header
+  %h1= yield(:title)
+  = title 'Изменить рекомендацию'
 
-= link_to 'Show', @solution
-\|
-= link_to 'Back', solutions_path
+.row
+  .col-md-6.col-md-offset-3
+    = render 'form'
