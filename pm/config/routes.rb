@@ -1,4 +1,6 @@
 Pm::Application.routes.draw do
+  resources :solutions
+
   resources :problems
 
   resources :consultants
