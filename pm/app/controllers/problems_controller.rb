@@ -28,7 +28,7 @@ class ProblemsController < ApplicationController
 
     respond_to do |format|
       if @problem.save
-        format.html { redirect_to @problem, notice: 'Problem was successfully created.' }
+        format.html { redirect_to problems_path, notice: 'Problem was successfully created.' }
         format.json { render action: 'show', status: :created, location: @problem }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class ProblemsController < ApplicationController
   def update
     respond_to do |format|
       if @problem.update(problem_params)
-        format.html { redirect_to @problem, notice: 'Problem was successfully updated.' }
+        format.html { redirect_to problems_path, notice: 'Problem was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

@@ -42,7 +42,7 @@ class ConsultantsController < ApplicationController
   def update
     respond_to do |format|
       if @consultant.update(consultant_params)
-        format.html { redirect_to @consultant, notice: 'Consultant was successfully updated.' }
+        format.html { redirect_to consultants_path, notice: 'Consultant was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
