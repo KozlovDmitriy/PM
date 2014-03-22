@@ -13,4 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap
+//= require docs.min
+//= require globalize
+//= require dx.chartjs
 //= require_tree .

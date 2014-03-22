@@ -1,15 +1,108 @@
 %p#notice= notice
 
-%p
-  %b Family name:
-  = @consultant.family_name
-%p
-  %b First name:
-  = @consultant.first_name
-%p
-  %b Second name:
-  = @consultant.second_name
+.blog-header
+  %h1="История работы консультанта: #{@consultant.short_name}"
+  = title "История работы консультанта: #{@consultant.short_name}"
 
-= link_to 'Edit', edit_consultant_path(@consultant)
-\|
-= link_to 'Back', consultants_path
+.row
+  %ul.nav.nav-tabs
+    %li.active= link_to 'График', '#home', :data => {:toggle => 'tab'}
+    %li= link_to 'Таблица', '#profile', :data => {:toggle => 'tab'}
+
+  .tab-content
+    .tab-pane.active#home
+      .row
+        .col-md-4
+          %table.table.table-bordered
+            %tr
+              %th Параметр
+              %th Отображение
+            %tr
+              %td Инд. план
+              %td
+                %input{:type => 'radio', :name => 'param', :checked => 'checked'}
+            %tr
+              %td Вып. плана
+              %td
+                %input{:type => 'radio', :name => 'param', :checked => 'checked'}
+            %tr
+              %td Выполнение
+              %td
+                %input{:type => 'radio', :name => 'param', :checked => 'checked'}
+            %tr
+              %td Ср. чек
+              %td
+                %input{:type => 'radio', :name => 'param', :checked => 'checked'}
+            %tr
+              %td Кол-во позиций в чеке
+              %td
+                %input{:type => 'radio', :name => 'param', :checked => 'checked'}
+            %tr
+              %td Кол-во чеков
+              %td
+                %input{:type => 'radio', :name => 'param', :checked => 'checked'}
+        .col-md-8
+          #chartContainer{:style => "max-width: 800px;height: 400px;"}
+    .tab-pane#profile
+      %table.table.table-bordered
+        %tr
+          %th Параметр
+          %th 01.01.2014
+          %th 15.01.2014
+          %th 01.02.2014
+        %tr
+          %td Инд. план
+          %td 1200
+          %td 1200
+          %td 1200
+        %tr
+          %td Вып. плана
+          %td 1200
+          %td 1200
+          %td 1200
+        %tr
+          %td Выполнение
+          %td 1200
+          %td 1200
+          %td 1200
+        %tr
+          %td Ср. чек
+          %td 1200
+          %td 1200
+          %td 1200
+        %tr
+          %td Кол-во позиций в чеке
+          %td 1200
+          %td 1200
+          %td 1200
+        %tr
+          %td Кол-во чеков
+          %td 1200
+          %td 1200
+          %td 1200
+
+%script
+  var chartDataSource = [
+  {year: 1950, Africa: 227, Americans: 331, Asia: 1436, Europe: 547, Oceania: 12},
+  {year: 1960, Africa: 285, Americas: 416, Asia: 1718, Europe: 605, Oceania: 15},
+  {year: 1970, Africa: 365, Americas: 512, Asia: 2156, Europe: 657, Oceania: 19},
+  {year: 1980, Africa: 478, Americas: 612, Asia: 2644, Europe: 695, Oceania: 22},
+  {year: 1990, Africa: 633, Americas: 720, Asia: 3180, Europe: 722, Oceania: 26},
+  {year: 2000, Africa: 810, Americas: 833, Asia: 3678, Europe: 731, Oceania: 30},
+  {year: 2010, Africa: 1016, Americas: 936, Asia: 4149, Europe: 728, Oceania: 35}
+  ];
+
+  $(function(){
+  $('#chartContainer').dxChart({
+  dataSource: chartDataSource,
+  commonSeriesSettings: {
+  argumentField: 'year'
+  },
+  series: [{
+  name: 'Asia',
+  valueField: 'Asia'
+  }]
+  });
+  });
+
+= link_to 'Вернуться', consultants_path, :class => 'btn btn-default'
