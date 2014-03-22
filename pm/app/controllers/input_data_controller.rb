@@ -15,6 +15,10 @@ class InputDataController < ApplicationController
   # GET /input_data/new
   def new
     @input_datum = InputDatum.new
+
+    @consultants = Consultant.all
+    @params_main = Param.where(:role => 'main').order(:sorting => :asc)
+    @params_add = Param.where(:role => 'additional').order(:sorting => :asc)
   end
 
   # GET /input_data/1/edit

@@ -7,7 +7,57 @@
           %li= msg
 
   .field
-    = f.label :date
+    = f.label :date, 'Дата анализа'
     = f.datetime_select :date
-  .actions
-    = f.submit 'Save'
+
+  -# Nav tabs
+  %ul.nav.nav-tabs
+    %li.active= link_to 'Экспорт данных', '#home', :data => {:toggle => 'tab'}
+    %li= link_to 'Ввод данных', '#profile', :data => {:toggle => 'tab'}
+
+  -# Tab panes
+  .tab-content
+    -# TAB CHART
+    .tab-pane.active#home
+      .row
+        .col-md-10
+          %table.table.table-bordered
+            %tr
+              %th ФИО
+              - @params_main.each do |param|
+                %th= param.label
+            - @consultants.each do |consultant|
+              %tr
+                %td= consultant.short_name
+                - @params_main.each do |param|
+                  %td= tag_from param.input_type, param.name
+
+        .col-md-2
+          %form
+            %p
+              %input{:type => 'file', :value => 'Файл с данными', :id => 'file', :name => 'file'}
+            %p
+              %button{:class => 'btn btn-primary'} Экспорт данных
+
+    -# TAB TABLE
+    .tab-pane#profile
+      %table.table.table-bordered
+        %tr
+          %th ФИО
+          - @params_add.each do |param|
+            %th= param.label
+        - @consultants.each do |consultant|
+          %tr
+            %td= consultant.short_name
+            - @params_add.each do |param|
+              %td= tag_from param.input_type, param.name
+
+%p
+  %label{:for => 'is_finish'} Ввод данных завершен?
+  %br
+  %input{:type => 'checkbox', :id => 'is_finish'}
+%p
+  %button{:class => 'btn btn-success'} Сохранить данные
+
+%p
+  %button{:class => 'btn btn-warning'} Сохранить данные и перейти к анализу
