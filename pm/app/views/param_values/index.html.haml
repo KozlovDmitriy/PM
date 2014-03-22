@@ -1,0 +1,21 @@
+%h1 Listing param_values
+
+%table
+  %tr
+    %th Value
+    %th Param
+    %th
+    %th
+    %th
+
+  - @param_values.each do |param_value|
+    %tr
+      %td= param_value.value
+      %td= param_value.param_id
+      %td= link_to 'Show', param_value
+      %td= link_to 'Edit', edit_param_value_path(param_value)
+      %td= link_to 'Destroy', param_value, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Param value', new_param_value_path
