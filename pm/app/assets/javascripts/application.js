@@ -17,4 +17,7 @@
 //= require docs.min
 //= require globalize
 //= require dx.chartjs
+//= require jquery-fileupload/vendor/jquery.ui.widget
+//= require jquery-fileupload/jquery.iframe-transport
+//= require jquery-fileupload/jquery.fileupload
 //= require_tree .

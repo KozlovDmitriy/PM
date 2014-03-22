@@ -17,6 +17,10 @@ Pm::Application.routes.draw do
 
   root 'pages#index'
 
+  get '/upload/excel.json' => 'input_data#parse_excel'
+
+  post '/upload/excel.json' => 'input_data#parse_excel'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

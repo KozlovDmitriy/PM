@@ -12,6 +12,17 @@ class InputDataController < ApplicationController
   def show
   end
 
+  # Парсинг excel файла.
+  def parse_excel
+    data = '123'
+
+    excel = params[:file].tempfile
+    string = excel.readlines.to_s
+    File.open('debug.txt', 'w'){ |file| file.write string }
+
+    render :json => data
+  end
+
   # GET /input_data/new
   def new
     @input_datum = InputDatum.new
