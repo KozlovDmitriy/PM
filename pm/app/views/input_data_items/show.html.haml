@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Consultant:
+  = @input_data_item.consultant_id
+%p
+  %b Input data:
+  = @input_data_item.input_data_id
+
+= link_to 'Edit', edit_input_data_item_path(@input_data_item)
+\|
+= link_to 'Back', input_data_items_path

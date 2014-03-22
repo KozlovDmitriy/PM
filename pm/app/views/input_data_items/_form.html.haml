@@ -1,0 +1,16 @@
+= form_for @input_data_item do |f|
+  - if @input_data_item.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@input_data_item.errors.count, "error")} prohibited this input_data_item from being saved:"
+      %ul
+        - @input_data_item.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :consultant_id
+    = f.number_field :consultant_id
+  .field
+    = f.label :input_data_id
+    = f.number_field :input_data_id
+  .actions
+    = f.submit 'Save'

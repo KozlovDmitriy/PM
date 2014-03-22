@@ -10,4 +10,6 @@ class Consultant < ActiveRecord::Base
     "#{family_name} #{first_name} #{second_name}"
   end
 
+  has_many :input_data_items
+
 end

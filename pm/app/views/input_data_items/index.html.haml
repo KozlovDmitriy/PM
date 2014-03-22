@@ -1,0 +1,21 @@
+%h1 Listing input_data_items
+
+%table
+  %tr
+    %th Consultant
+    %th Input data
+    %th
+    %th
+    %th
+
+  - @input_data_items.each do |input_data_item|
+    %tr
+      %td= input_data_item.consultant_id
+      %td= input_data_item.input_data_id
+      %td= link_to 'Show', input_data_item
+      %td= link_to 'Edit', edit_input_data_item_path(input_data_item)
+      %td= link_to 'Destroy', input_data_item, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Input data item', new_input_data_item_path

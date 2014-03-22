@@ -1,4 +1,6 @@
 Pm::Application.routes.draw do
+  resources :input_data_items
+
   resources :input_data
 
   resources :param_values
