@@ -1,4 +1,6 @@
 Pm::Application.routes.draw do
+  resources :problems
+
   resources :consultants
 
   get "pages/index"
