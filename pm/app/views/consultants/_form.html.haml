@@ -19,5 +19,8 @@
     = f.text_field :second_name, :class => 'form-control', :placeholder => 'Например, Петрович'
 
   .col-md-offset-4
-    = f.submit 'Добавить', :class => 'btn btn-primary'
+    - if request.fullpath.match(/\/consultants\/new/).nil?
+      = f.submit 'Изменить', :class => 'btn btn-primary'
+    - else
+      = f.submit 'Добавить', :class => 'btn btn-primary'
     = link_to 'Назад', consultants_path, :class => 'btn btn-default'
