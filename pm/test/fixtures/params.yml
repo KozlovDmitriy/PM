@@ -1,19 +1,101 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  type: 
-  input_type: MyString
-  label: MyString
-  excel_label: MyString
-  owl_class: MyString
-  local_similarity: MyString
+# Параметры по умолчанию.
+a:
+  name: "Индивидуальный план"
+  type: "float"
+  input_type: "number"
+  label: "Инд. план"
+  excel_label: "Инд. план"
+  owl_class: "PersonalPlan"
+  local_similarity: "equal"
 
-two:
-  name: MyString
-  type: 
-  input_type: MyString
-  label: MyString
-  excel_label: MyString
-  owl_class: MyString
-  local_similarity: MyString
+b:
+  name: "Выполнение плана"
+  type: "float"
+  input_type: "number"
+  label: "Вып. плана"
+  excel_label: "Выпа. план"
+  owl_class: "ImplPlan"
+  local_similarity: "equal"
+
+c:
+  name: "Выполнение"
+  type: "float"
+  input_type: "number"
+  label: "Выполнение"
+  excel_label: "Выполнение"
+  owl_class: "Implementation"
+  local_similarity: "equal"
+
+d:
+  name: "Средний чек"
+  type: "float"
+  input_type: "number"
+  label: "Ср. чек"
+  excel_label: "Ср. чек"
+  owl_class: "AvCheck"
+  local_similarity: "equal"
+
+e:
+  name: "Количество позиций в чеке"
+  type: "float"
+  input_type: "number"
+  label: "Кол-во поз. в чеке"
+  excel_label: "Кол-во поз. в чеке"
+  owl_class: "ItemsCount"
+  local_similarity: "equal"
+
+f:
+  name: "Количество чеков"
+  type: "float"
+  input_type: "number"
+  label: "Кол-во чеков"
+  excel_label: "Кол-во чеков"
+  owl_class: "ChecksCount"
+  local_similarity: "equal"
+
+g:
+  name: "Отпуск"
+  type: "float"
+  input_type: "number"
+  label: "Сколько дней в отпуске"
+  excel_label: ""
+  owl_class: "OnVacation"
+  local_similarity: "equal"
+
+q:
+  name: "На больничном"
+  type: "float"
+  input_type: "number"
+  label: "Сколько дней на больничном"
+  excel_label: ""
+  owl_class: "InHospital"
+  local_similarity: "equal"
+
+q:
+  name: "Декретный отпуск"
+  type: "float"
+  input_type: "number"
+  label: "Сколько дней в декретном отпуске"
+  excel_label: ""
+  owl_class: "OnWomenVacation"
+  local_similarity: "equal"
+
+w:
+  name: "Низкий стаж"
+  type: "float"
+  input_type: "number"
+  label: "Низкий стаж"
+  excel_label: ""
+  owl_class: "SmallExperience"
+  local_similarity: "equal"
+
+r:
+  name: "Увольнение"
+  type: "float"
+  input_type: "number"
+  label: "Консультант был уволен"
+  excel_label: ""
+  owl_class: "Dismiss"
+  local_similarity: "equal"
