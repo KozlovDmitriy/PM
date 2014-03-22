@@ -6,8 +6,13 @@
         - @solution.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :description
-    = f.text_area :description
-  .actions
-    = f.submit 'Save'
+  .form-group
+    = f.label :description, 'Текст рекомендации'
+    = f.text_area :description, :class => 'form-control'
+
+  .col-md-offset-4
+    - if request.fullpath.match(/\/solutions\/new/).nil?
+      = f.submit 'Изменить', :class => 'btn btn-primary'
+    - else
+      = f.submit 'Добавить', :class => 'btn btn-primary'
+    = link_to 'Назад', solutions_path
