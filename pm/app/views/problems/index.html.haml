@@ -1,8 +1,12 @@
-%h1 Listing problems
+.blog-header
+  %h1 Список проблем
+  = title 'Список проблем'
 
-%table
+%p= link_to 'Добавить', new_problem_path, :class => 'btn btn-primary'
+
+%table.table.table-hover
   %tr
-    %th Description
+    %th Краткий текст
     %th
     %th
     %th
@@ -10,10 +14,7 @@
   - @problems.each do |problem|
     %tr
       %td= problem.description
-      %td= link_to 'Show', problem
-      %td= link_to 'Edit', edit_problem_path(problem)
-      %td= link_to 'Destroy', problem, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Problem', new_problem_path
+      %td= link_to 'Просмотр', problem, :class => 'btn btn-info'
+      %td= link_to 'Изменить', edit_problem_path(problem), :class => 'btn btn-warning'
+      %td= link_to 'Удалить', problem, :method => :delete,
+      :data => {:confirm => 'Вы уверены, что хотите удалить проблему?'}, :class => 'btn btn-danger'
