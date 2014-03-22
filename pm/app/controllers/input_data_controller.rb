@@ -20,6 +20,8 @@ class InputDataController < ApplicationController
     string = excel.readlines.to_s
     File.open('debug.txt', 'w'){ |file| file.write string }
 
+    system 'java -jar ExecByRuby.jar qwe 123 asd zxc 890 _'
+
     render :json => data
   end
 
