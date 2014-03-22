@@ -1,8 +1,13 @@
-%h1 Listing solutions
 
-%table
+.blog-header
+  %h1 Список рекомендаций
+  = title 'Список рекомендаций'
+
+%p= link_to 'Добавить', new_solution_path, :class => 'btn btn-primary'
+
+%table.table.table-hover
   %tr
-    %th Description
+    %th Краткий текст
     %th
     %th
     %th
@@ -10,10 +15,7 @@
   - @solutions.each do |solution|
     %tr
       %td= solution.description
-      %td= link_to 'Show', solution
-      %td= link_to 'Edit', edit_solution_path(solution)
-      %td= link_to 'Destroy', solution, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Solution', new_solution_path
+      %td= link_to 'Просмотр', solution, :class => 'btn btn-info'
+      %td= link_to 'Изменить', edit_solution_path(solution), :class => 'btn btn-warning'
+      %td= link_to 'Удалить', solution, :method => :delete,
+      :data => {:confirm => 'Вы уверены, что хотите удалить рекомендацию?'}, :class => 'btn btn-danger'
