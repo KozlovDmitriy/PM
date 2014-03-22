@@ -1,0 +1,19 @@
+%h1 Listing input_data
+
+%table
+  %tr
+    %th Date
+    %th
+    %th
+    %th
+
+  - @input_data.each do |input_datum|
+    %tr
+      %td= input_datum.date
+      %td= link_to 'Show', input_datum
+      %td= link_to 'Edit', edit_input_datum_path(input_datum)
+      %td= link_to 'Destroy', input_datum, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Input datum', new_input_datum_path

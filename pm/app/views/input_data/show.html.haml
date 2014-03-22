@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Date:
+  = @input_datum.date
+
+= link_to 'Edit', edit_input_datum_path(@input_datum)
+\|
+= link_to 'Back', input_data_path
