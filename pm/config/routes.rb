@@ -1,4 +1,6 @@
 Pm::Application.routes.draw do
+  resources :params
+
   resources :solutions
 
   resources :problems

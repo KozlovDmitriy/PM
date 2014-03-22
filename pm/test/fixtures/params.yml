@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type: 
+  input_type: MyString
+  label: MyString
+  excel_label: MyString
+  owl_class: MyString
+  local_similarity: MyString
+
+two:
+  name: MyString
+  type: 
+  input_type: MyString
+  label: MyString
+  excel_label: MyString
+  owl_class: MyString
+  local_similarity: MyString

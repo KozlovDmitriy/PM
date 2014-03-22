@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @param.name
+%p
+  %b Type:
+  = @param.type
+%p
+  %b Input type:
+  = @param.input_type
+%p
+  %b Label:
+  = @param.label
+%p
+  %b Excel label:
+  = @param.excel_label
+%p
+  %b Owl class:
+  = @param.owl_class
+%p
+  %b Local similarity:
+  = @param.local_similarity
+
+= link_to 'Edit', edit_param_path(@param)
+\|
+= link_to 'Back', params_path

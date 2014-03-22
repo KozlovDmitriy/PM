@@ -1,0 +1,31 @@
+%h1 Listing params
+
+%table
+  %tr
+    %th Name
+    %th Type
+    %th Input type
+    %th Label
+    %th Excel label
+    %th Owl class
+    %th Local similarity
+    %th
+    %th
+    %th
+
+  - @params.each do |param|
+    %tr
+      %td= param.name
+      %td= param.type
+      %td= param.input_type
+      %td= param.label
+      %td= param.excel_label
+      %td= param.owl_class
+      %td= param.local_similarity
+      %td= link_to 'Show', param
+      %td= link_to 'Edit', edit_param_path(param)
+      %td= link_to 'Destroy', param, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Param', new_param_path
