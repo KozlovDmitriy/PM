@@ -1,4 +1,5 @@
 Pm::Application.routes.draw do
+  get "analysis_controller/index"
   resources :input_data_items
 
   resources :input_data
