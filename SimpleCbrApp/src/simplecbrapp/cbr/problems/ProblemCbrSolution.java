@@ -18,6 +18,25 @@ public class ProblemCbrSolution implements CaseComponent {
     private Instance problem;
 
     /**
+     * Конструктор с параметрами.
+     * @param mainConcept Значение главного концепта.
+     * @param problem Значение проблемы.
+     */
+    public ProblemCbrSolution(Instance mainConcept, Instance problem) {
+        this.mainConcept = mainConcept;
+        this.problem = problem;
+    }
+
+    /**
+     * Конструктор по умолчанию.
+     * Инициализирует все поля в null.
+     */
+    public ProblemCbrSolution() {
+        this.mainConcept = null;
+        this.problem = null;
+    }
+
+    /**
      * Метод изменения значения проблемы.
      * @param problem Новое значение проблемы.
      */
