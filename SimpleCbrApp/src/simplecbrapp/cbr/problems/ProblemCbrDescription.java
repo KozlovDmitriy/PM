@@ -22,6 +22,24 @@ public class ProblemCbrDescription implements CaseComponent {
     private Instance totalChecksCount;
     /** Проблема в работе персонала. */
     private Instance problem;
+    /** Главный концепт. */
+    private Instance mainConcept;
+
+    /**
+     * Метод изменения значения главного концепта.
+     * @param mainConcept Значение главного концепта.
+     */
+    public void setMainConcept(Instance mainConcept) {
+        this.mainConcept = mainConcept;
+    }
+
+    /**
+     * Метод получения значения главного концепта.
+     * @return Значение главного концепта.
+     */
+    public Instance getMainConcept() {
+        return mainConcept;
+    }
 
     /**
      * Метод изменения общего количества чеков.
