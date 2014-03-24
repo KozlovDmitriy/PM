@@ -1,5 +1,6 @@
 package simplecbrapp.cbr.problems;
 
+import com.google.gson.Gson;
 import jcolibri.cbrcore.Attribute;
 import jcolibri.cbrcore.CaseComponent;
 import jcolibri.datatypes.Instance;
@@ -16,6 +17,15 @@ public class ProblemCbrSolution implements CaseComponent {
     private Instance mainConcept;
     /** Проблема. */
     private Instance problem;
+
+    /**
+     * Метод преобразования объекта в строку.
+     * @return Объект в виде json строки.
+     */
+    @Override
+    public String toString() {
+        return (new Gson()).toJson(this);
+    }
 
     /**
      * Конструктор с параметрами.
