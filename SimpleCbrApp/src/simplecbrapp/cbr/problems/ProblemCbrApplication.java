@@ -32,6 +32,14 @@ public class ProblemCbrApplication implements StandardCBRApplication {
     /** Близкий прецедент. */
     private CBRCase result;
 
+    /**
+     * Метод получения результата cbr цикла.
+     * @return Значение результата CBR.
+     */
+    public CBRCase getResult() {
+        return result;
+    }
+
     @Override
     public void configure() throws ExecutionException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
