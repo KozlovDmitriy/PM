@@ -1,2 +1,11 @@
-%h1 AnalysisController#index
-%p Find me in app/views/analysis_controller/index.html.haml
+
+.blog-header
+  %h1 Список всех анализов
+  = title 'Список всех анализов'
+
+  -# Таблица со всеми анализами.
+  %table.table.table-bordered
+    %tr
+      %th Дата, когда данные для анализа были введены
+      %th Состояние анализа
+      %th
