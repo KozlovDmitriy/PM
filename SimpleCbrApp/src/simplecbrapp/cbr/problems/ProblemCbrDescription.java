@@ -26,6 +26,41 @@ public class ProblemCbrDescription implements CaseComponent {
     private Instance mainConcept;
 
     /**
+     * Конструктор с параметрами.
+     * Инициализирует все поля класса.
+     * @param implPlan Выполнение плана.
+     * @param avCheck Средний чек.
+     * @param itemsCount Количество позиций в чеке.
+     * @param totalChecksCount Общее число чеков.
+     * @param problem Проблема.
+     * @param mainConcept Главный концепт.
+     */
+    public ProblemCbrDescription(Instance implPlan, Instance avCheck, 
+            Instance itemsCount, Instance totalChecksCount, Instance problem, 
+            Instance mainConcept) {
+        this.implPlan = implPlan;
+        this.avCheck = avCheck;
+        this.itemsCount = itemsCount;
+        this.totalChecksCount = totalChecksCount;
+        this.problem = problem;
+        this.mainConcept = mainConcept;
+    }
+
+    /**
+     * Конструктор по умолчанию.
+     * Инициализирует все поля как null.
+     */
+    public ProblemCbrDescription() {
+        
+        this.avCheck = null;
+        this.implPlan = null;
+        this.itemsCount = null;
+        this.mainConcept = null;
+        this.problem = null;
+        this.totalChecksCount = null;
+    }
+
+    /**
      * Метод изменения значения главного концепта.
      * @param mainConcept Значение главного концепта.
      */
