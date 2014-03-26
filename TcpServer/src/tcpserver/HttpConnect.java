@@ -31,6 +31,7 @@ public class HttpConnect extends Thread {
         
         this.socket = socket;
         this.setPriority(Thread.NORM_PRIORITY - 1);
+        System.out.println("client successfully connected");
         this.start();
     }
     
