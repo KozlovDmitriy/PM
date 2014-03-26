@@ -6,17 +6,31 @@
 
 package tcpserver;
 
+import java.io.IOException;
+import java.net.ServerSocket;
+
 /**
- *
- * @author mikhail
+ * Главный класс приложения.
+ * @author M. Navrotskiy
+ * @version 1.0
  */
 public class TcpServer {
 
     /**
-     * @param args the command line arguments
+     * Главная функция приложения.
+     * @param args Аргументы коммандной строки.
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        try {
+            ServerSocket socket = new ServerSocket(50125); // TODO добавить файл настроек.
+            
+            while (true) {                
+                new HttpConnect(socket.accept());
+            }
+        } catch (IOException e) {
+            System.out.println(e);
+        }
     }
     
 }

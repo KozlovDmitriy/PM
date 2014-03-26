@@ -49,7 +49,7 @@ public class HttpConnect extends Thread {
             StringTokenizer st = new StringTokenizer(req);
             if ((st.countTokens() >= 2) && st.nextToken().equals("POST")) {
                 if ((req = st.nextToken()).endsWith("/") || req.equals("")) {
-                    req += "index.html";
+                    req += "build.xml";
                 }
                 try {
                     File f = new File(req);
