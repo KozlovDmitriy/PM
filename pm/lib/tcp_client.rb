@@ -5,9 +5,10 @@ require 'socket'
 class TcpClient
 
   # Поля классов
-  attr_accessor :port,  # Порт сервера.
-                :host,  # Хост сервера.
-                :socket # Сокет для связи с сервером.
+  attr_accessor :port,    # Порт сервера.
+                :host,    # Хост сервера.
+                :socket,  # Сокет для связи с сервером.
+                :is_close # Флаг закрытия соединения.
 
   # Константы связи с Java сервером.
   # Конец общения.
@@ -29,6 +30,14 @@ class TcpClient
   def initialize port, host
     @host, @port = host, port
     @socket = TCPSocket.open @host, @port
+    @is_close = false
+  end
+
+  # Метод закрытия соединения с сервером.
+  def close
+    raise 'Connection already closed!' if @is_close
+    @socket.puts END_CONNECTION
+    @socket.close
   end
 
 end
