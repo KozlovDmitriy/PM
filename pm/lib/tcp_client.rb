@@ -31,6 +31,7 @@ class TcpClient
     @host, @port = host, port
     @socket = TCPSocket.open @host, @port
     @is_close = false
+    log 'Connection open!'
   end
 
   # Метод закрытия соединения с сервером.
@@ -38,6 +39,49 @@ class TcpClient
     raise 'Connection already closed!' if @is_close
     @socket.puts END_CONNECTION
     @socket.close
+    log 'Connection close!'
+  end
+
+  # Метод проведения поиска проблем.
+  def analise_params params_hash
+    raise 'Connection already closed!' if @is_close
+    log 'Analise params start'
+    @socket.p PARAMS_BLOCK_START
+    @socket.p PARAMS_BLOCK_END
+    response = @socket.gets
+
+    if response.eql? RESPONSE_PROBLEM_BLOCK_START
+      response = @socket.gets
+      until response.eql? RESPONSE_PROBLEM_BLOCK_END
+        log "Read value: #{response}"
+      end
+    end
+
+    log 'Analise params end!'
+  end
+
+  # Метод проведения поиска рекомендаций.
+  def analise_problems problems_hash
+    raise 'Connection already closed' if @is_close
+    log 'Analise problems start!'
+    @socket.p PROBLEM_BLOCK_START
+    @socket.p PROBLEM_BLOCK_END
+    response = @socket.gets
+
+    if response.eql? RESPONSE_SOLUTION_BLOCK_START
+      response = @socket.gets
+      until response.eql? RESPONSE_SOLUTION_BLOCK_END
+        log "Read value: #{response}"
+      end
+    end
+
+    log 'Analise problems end!'
+  end
+
+  private
+  # Закрытый метод ведения лога.
+  def log message
+    File.open("#{Rails.root}/logs/rails_client.log", 'a') {|file| file.write "#{Time.now}: #{message}\n" }
   end
 
 end
