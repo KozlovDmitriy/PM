@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Date;
 import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,14 +28,34 @@ public class HttpConnect extends Thread {
     /** Сокет. */
     private Socket socket;
     
+    /* Константы общения с клиентом. */
+    /** Конец общения. */
+    public static final int END_CONNECTION = 0x01;
+    /** Начало блока параметров работы консультанта. */
+    public static final int PARAMS_BLOCK_START = 0x02;
+    /** Конец блока параметров работы консультанта. */
+    public static final int PARAMS_BLOCK_END = 0x03;
+    /** Начало блока проблем в работе консультанта. */
+    public static final int PROBLEM_BLOCK_START = 0x04;
+    /** Конец блока проблем в работе консультанта. */
+    public static final int PROBLEM_BLOCK_END = 0x05;
+    /** Начало блока ответа в виде множества проблем. */
+    public static final int RESPONSE_PROBLEM_BLOCK_START = 0x06;
+    /** Конец блока ответа в виде множества проблем. */
+    public static final int RESPONSE_PROBLEM_BLOCK_END = 0x07;
+    /** Начало блока ответа в виде множества рекомендаций. */
+    public static final int RESPONSE_SOLUTION_BLOCK_START = 0x08;
+    /** Конец блока ответа в виде множества рекомендаций. */
+    public static final int RESPONSE_SOLUTION_BLOCK_END = 0x09;
+    
     /**
      * Метод ведения лога.
      * @param message Сообщение в лог.
      */
     private void log (String message) {
         
-        try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("/log/server.log", true)))) {
-            out.println(message);
+        try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("/logs/server.log", true)))) {
+            out.println((new Date()).toString() + ": " + message + "\n");
         } catch (IOException ex) {
             Logger.getLogger(HttpConnect.class.getName()).log(Level.SEVERE, null, ex);
         }    
