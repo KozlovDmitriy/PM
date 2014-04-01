@@ -2,15 +2,19 @@
 package tcpserver;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.StringTokenizer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Класс создания сокетного соединения.
@@ -22,6 +26,19 @@ public class HttpConnect extends Thread {
     /* Поля класса. */
     /** Сокет. */
     private Socket socket;
+    
+    /**
+     * Метод ведения лога.
+     * @param message Сообщение в лог.
+     */
+    private void log (String message) {
+        
+        try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("/log/server.log", true)))) {
+            out.println(message);
+        } catch (IOException ex) {
+            Logger.getLogger(HttpConnect.class.getName()).log(Level.SEVERE, null, ex);
+        }    
+    }
 
     /**
      * Конструктор с параметром.
