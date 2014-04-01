@@ -3,9 +3,6 @@ package tcpserver;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,7 +10,6 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Date;
-import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -83,30 +79,13 @@ public class HttpConnect extends Thread {
                     new OutputStreamWriter(this.socket.getOutputStream()), true);
             BufferedReader br = new BufferedReader(
                     new InputStreamReader(this.socket.getInputStream()));
-            String req = br.readLine();
-            System.out.println("Request: " + req);
-            StringTokenizer st = new StringTokenizer(req);
-            if ((st.countTokens() >= 2) && st.nextToken().equals("POST")) {
-                if ((req = st.nextToken()).endsWith("/") || req.equals("")) {
-                    req += "build.xml";
-                }
-                try {
-                    File f = new File(req);
-                    BufferedReader bfr = new BufferedReader(new FileReader(f));
-                    char[] data = new char[(int)f.length()];
-                    bfr.read(data);
-                    pw.println("HTTP/1.1 200 OK\n");
-                    pw.write(data);
-                    pw.flush();
-                } catch (FileNotFoundException ex) {
-                    pw.println("HTTP/1.1 404 Not Found\n");
-                } catch (IOException e) {
-                    System.out.println(e);
-                }
-            } else {
-                pw.println("HTTP/1.1 400 Bad Request\n");
-                this.socket.close();
-            }
+            String req; // Строка запроса.
+            
+            do { // Чтение запросов клиента.
+                req = br.readLine();
+                this.log(req);
+            } while (!req.equals(Integer.toString(HttpConnect.END_CONNECTION)));
+            
         } catch (IOException exception) {
             System.out.println(exception);
         }
