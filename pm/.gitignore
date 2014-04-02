@@ -22,6 +22,7 @@ config/database.yml
 /db/schema.rb
 /public/uploads
 /log
+*.log
 
 
 # OS generated files #
@@ -41,6 +42,11 @@ config/initializers/mongodb_logger.rb
 
 # java app
 *.jar
+ExecByRuby/build/
+ExecByRuby/nbproject/private/
+SimpleCbrApp/build/
+TcpServer/build/
+TcpServer/nbproject/private/
 
 # debug files
 t.txt
