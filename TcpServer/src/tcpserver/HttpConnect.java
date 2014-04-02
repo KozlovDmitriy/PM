@@ -69,6 +69,14 @@ public class HttpConnect extends Thread {
         this.start();
     }
     
+    /**
+     * Метод чтения... TODO
+     * @param request 
+     */
+    private void parseClientRequest(String request) {
+        System.out.println(request);
+    }
+    
     @Override
     /**
      * Метод запска процесса.
@@ -84,6 +92,7 @@ public class HttpConnect extends Thread {
             do { // Чтение запросов клиента.
                 req = br.readLine();
                 this.log(req);
+                this.parseClientRequest(req); // Парсинг команды.
             } while (!req.equals(Integer.toString(HttpConnect.END_CONNECTION)));
             
         } catch (IOException exception) {
