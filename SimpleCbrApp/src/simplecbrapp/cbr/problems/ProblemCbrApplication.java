@@ -33,6 +33,13 @@ public class ProblemCbrApplication implements StandardCBRApplication {
     private CBRCase result;
 
     /**
+     * Конструктор по умолчанию.
+     * Закрытый конструктор.
+     */
+    private ProblemCbrApplication() {
+    }
+
+    /**
      * Метод получения результата cbr цикла.
      * @return Значение результата CBR.
      */
