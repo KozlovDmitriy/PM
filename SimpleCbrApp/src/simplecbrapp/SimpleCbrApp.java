@@ -32,9 +32,11 @@ public class SimpleCbrApp {
             app.preCycle();
             
             ProblemCbrDescription description = 
-                    new ProblemCbrDescription(new Instance(""), new Instance(""), 
-                            new Instance(""), new Instance(""), new Instance(""), 
-                            new Instance(""));
+                    new ProblemCbrDescription(
+                            new Instance("ImplPlan_24"),
+                            new Instance("AvCheck_58"), 
+                            new Instance("ItemsCount_20"), 
+                            new Instance("TotalChecksCount_112"));
             
             CBRQuery query = new CBRQuery();
             query.setDescription(description);

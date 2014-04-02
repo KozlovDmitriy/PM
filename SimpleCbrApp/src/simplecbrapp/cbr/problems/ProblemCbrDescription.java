@@ -43,18 +43,13 @@ public class ProblemCbrDescription implements CaseComponent {
      * @param avCheck Средний чек.
      * @param itemsCount Количество позиций в чеке.
      * @param totalChecksCount Общее число чеков.
-     * @param problem Проблема.
-     * @param mainConcept Главный концепт.
      */
     public ProblemCbrDescription(Instance implPlan, Instance avCheck, 
-            Instance itemsCount, Instance totalChecksCount, Instance problem, 
-            Instance mainConcept) {
+            Instance itemsCount, Instance totalChecksCount) {
         this.implPlan = implPlan;
         this.avCheck = avCheck;
         this.itemsCount = itemsCount;
         this.totalChecksCount = totalChecksCount;
-        this.problem = problem;
-        this.mainConcept = mainConcept;
     }
 
     /**
