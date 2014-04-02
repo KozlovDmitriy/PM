@@ -48,14 +48,18 @@ class TcpClient
     log 'Analise params start'
     @socket.puts PARAMS_BLOCK_START
     @socket.puts PARAMS_BLOCK_END
-    #response = @socket.gets
+    response = @socket.gets
 
-    #if response.eql? RESPONSE_PROBLEM_BLOCK_START
-    #  response = @socket.gets
-    #  until response.eql? RESPONSE_PROBLEM_BLOCK_END
-    #    log "Read value: #{response}"
-    #  end
-    #end
+    log "Read value: #{response}"
+
+    if response.to_i == RESPONSE_PROBLEM_BLOCK_START
+      log 'Read problems start!'
+      until response.to_i == RESPONSE_PROBLEM_BLOCK_END
+        response = @socket.gets
+        log "Read value: #{response}"
+      end
+      log 'Read problems end!'
+    end
 
     log 'Analise params end!'
   end

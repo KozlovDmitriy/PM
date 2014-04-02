@@ -74,11 +74,34 @@ public class HttpConnect extends Thread {
     }
     
     /**
-     * Метод чтения... TODO
-     * @param request 
+     * Метод чтения запросов клиента.
+     * @param request Запрос клиента.
+     * @param pw Канал ответа.
      */
-    private void parseClientRequest(String request) {
+    private void parseClientRequest(String request, PrintWriter pw) {
         System.out.println(request);
+        
+        if (Integer.parseInt(request) == HttpConnect.PARAMS_BLOCK_END) {
+            // Окончание получения параметров и отправка ответа.
+            this.sendProblems(pw);
+        }
+    }
+    
+    /**
+     * Метод отсылки проблем клиенту.
+     * @param pw Канал ответа клиенту.
+     */
+    private void sendProblems(PrintWriter pw) {
+        String[] problems = {"problem1", "problem2", "problem3"}; // Фейковые проблемы.
+        this.log("start write problems");
+        pw.println(HttpConnect.RESPONSE_PROBLEM_BLOCK_START);
+        for (String item : problems) {
+            pw.println(item);
+            this.log("write " + item);
+        }
+        pw.println(HttpConnect.RESPONSE_PROBLEM_BLOCK_END);
+        this.log("end write problems");
+        pw.flush();
     }
     
     @Override
@@ -96,7 +119,7 @@ public class HttpConnect extends Thread {
             do { // Чтение запросов клиента.
                 req = br.readLine();
                 this.log(req);
-                this.parseClientRequest(req); // Парсинг команды.
+                this.parseClientRequest(req, pw); // Парсинг команды.
             } while (!req.equals(Integer.toString(HttpConnect.END_CONNECTION)));
             
         } catch (IOException exception) {
