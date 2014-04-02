@@ -3,11 +3,15 @@ package simplecbrapp.cbr.problems;
 import java.util.Collection;
 import jcolibri.casebase.LinealCaseBase;
 import jcolibri.cbraplications.StandardCBRApplication;
+import jcolibri.cbrcore.Attribute;
 import jcolibri.cbrcore.CBRCase;
 import jcolibri.cbrcore.CBRCaseBase;
 import jcolibri.cbrcore.CBRQuery;
 import jcolibri.connector.OntologyConnector;
 import jcolibri.exception.ExecutionException;
+import jcolibri.method.retrieve.NNretrieval.NNConfig;
+import jcolibri.method.retrieve.NNretrieval.similarity.LocalSimilarityFunction;
+import jcolibri.method.retrieve.NNretrieval.similarity.local.Equal;
 import jcolibri.method.retrieve.RetrievalResult;
 import jcolibri.util.FileIO;
 
@@ -89,6 +93,45 @@ public class ProblemCbrApplication implements StandardCBRApplication {
         }
         
         return this.caseBase;
+    }
+    
+    /**
+     * Метод формирования case, весов и мер близости.
+     * @return Конфигурация case.
+     */
+    private static NNConfig getSimilarityConfig() {
+        
+        NNConfig result = new NNConfig();
+        Attribute attribute;
+        LocalSimilarityFunction function = new Equal();
+        
+        // 1) implPlan
+        attribute = new Attribute("implPlan", ProblemCbrDescription.class);
+        result.addMapping(attribute, function);
+        result.setWeight(attribute, new Double(1.0));
+        
+        // 2) avCheck
+        attribute = new Attribute("avCheck", ProblemCbrDescription.class);
+        result.addMapping(attribute, function);
+        result.setWeight(attribute, new Double(1.0));
+        
+        // 3) itemsCount
+        attribute = new Attribute("itemsCount", ProblemCbrDescription.class);
+        result.addMapping(attribute, function);
+        result.setWeight(attribute, new Double(1.0));
+        
+        // 4) totalChecksCount
+        attribute = new Attribute("totalChecksCount",
+                ProblemCbrDescription.class);
+        result.addMapping(attribute, function);
+        result.setWeight(attribute, new Double(1.0));
+        
+        // 5) problem
+        attribute = new Attribute("problem", ProblemCbrDescription.class);
+        result.addMapping(attribute, function);
+        result.setWeight(attribute, new Double(1.0));
+        
+        return result;
     }
 
     @Override
