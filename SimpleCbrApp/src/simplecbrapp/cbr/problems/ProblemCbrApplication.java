@@ -10,9 +10,12 @@ import jcolibri.cbrcore.CBRQuery;
 import jcolibri.connector.OntologyConnector;
 import jcolibri.exception.ExecutionException;
 import jcolibri.method.retrieve.NNretrieval.NNConfig;
+import jcolibri.method.retrieve.NNretrieval.NNScoringMethod;
 import jcolibri.method.retrieve.NNretrieval.similarity.LocalSimilarityFunction;
+import jcolibri.method.retrieve.NNretrieval.similarity.global.Average;
 import jcolibri.method.retrieve.NNretrieval.similarity.local.Equal;
 import jcolibri.method.retrieve.RetrievalResult;
+import jcolibri.method.retrieve.selection.SelectCases;
 import jcolibri.util.FileIO;
 
 /**
@@ -134,9 +137,29 @@ public class ProblemCbrApplication implements StandardCBRApplication {
         return result;
     }
 
+    /**
+     * Метод реализации CBR цикла.
+     * @param query Запрос к онтологии.
+     */
     @Override
     public void cycle(CBRQuery query) throws ExecutionException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        NNConfig conf = ProblemCbrApplication.getSimilarityConfig();
+        conf.setDescriptionSimFunction(new Average());
+        
+        this.query = query;
+        
+        this.eval = NNScoringMethod.evaluateSimilarity(this.caseBase.getCases(), 
+                this.query, conf);
+        
+        this.selectedCase = SelectCases.selectTopK(this.eval, 1);
+        
+        System.out.println("==================================");
+        for (CBRCase c : this.selectedCase) {
+            System.out.println(c);
+            System.out.println(((RetrievalResult)this.eval.toArray()[0]).getEval());
+            this.result = c;
+        }
     }
 
     /**
