@@ -3,6 +3,7 @@ package tcpserver;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -50,7 +51,10 @@ public class HttpConnect extends Thread {
      */
     private void log (String message) {
         
-        try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("/logs/server.log", true)))) {
+        File file = new File("./log/java_server.log");
+        
+        try(PrintWriter out = new PrintWriter(new BufferedWriter
+        (new FileWriter(file.getName(), true)))) {
             out.println((new Date()).toString() + ": " + message + "\n");
         } catch (IOException ex) {
             Logger.getLogger(HttpConnect.class.getName()).log(Level.SEVERE, null, ex);

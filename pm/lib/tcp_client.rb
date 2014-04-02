@@ -46,16 +46,16 @@ class TcpClient
   def analise_params params_hash
     raise 'Connection already closed!' if @is_close
     log 'Analise params start'
-    @socket.p PARAMS_BLOCK_START
-    @socket.p PARAMS_BLOCK_END
-    response = @socket.gets
+    @socket.puts PARAMS_BLOCK_START
+    @socket.puts PARAMS_BLOCK_END
+    #response = @socket.gets
 
-    if response.eql? RESPONSE_PROBLEM_BLOCK_START
-      response = @socket.gets
-      until response.eql? RESPONSE_PROBLEM_BLOCK_END
-        log "Read value: #{response}"
-      end
-    end
+    #if response.eql? RESPONSE_PROBLEM_BLOCK_START
+    #  response = @socket.gets
+    #  until response.eql? RESPONSE_PROBLEM_BLOCK_END
+    #    log "Read value: #{response}"
+    #  end
+    #end
 
     log 'Analise params end!'
   end
@@ -64,16 +64,16 @@ class TcpClient
   def analise_problems problems_hash
     raise 'Connection already closed' if @is_close
     log 'Analise problems start!'
-    @socket.p PROBLEM_BLOCK_START
-    @socket.p PROBLEM_BLOCK_END
-    response = @socket.gets
+    @socket.puts PROBLEM_BLOCK_START
+    @socket.puts PROBLEM_BLOCK_END
+    #response = @socket.gets
 
-    if response.eql? RESPONSE_SOLUTION_BLOCK_START
-      response = @socket.gets
-      until response.eql? RESPONSE_SOLUTION_BLOCK_END
-        log "Read value: #{response}"
-      end
-    end
+    #if response.eql? RESPONSE_SOLUTION_BLOCK_START
+    #  response = @socket.gets
+    #  until response.eql? RESPONSE_SOLUTION_BLOCK_END
+    #    log "Read value: #{response}"
+    #  end
+    #end
 
     log 'Analise problems end!'
   end
@@ -81,7 +81,7 @@ class TcpClient
   private
   # Закрытый метод ведения лога.
   def log message
-    File.open("#{Rails.root}/logs/rails_client.log", 'a') {|file| file.write "#{Time.now}: #{message}\n" }
+    File.open("#{Rails.root}/log/rails_client.log", 'a') {|file| file.write "#{Time.now}: #{message}\n" }
   end
 
 end
