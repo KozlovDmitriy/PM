@@ -40,11 +40,9 @@ public class SimpleCbrApp {
             query.setDescription(description);
             app.cycle(query);
             CBRCase c = app.getResult();
-            ProblemCbrSolution solution = (ProblemCbrSolution) c.getSolution()
+            ProblemCbrSolution solution = (ProblemCbrSolution) c.getSolution();
             
-        } catch (ExecutionException ex) {
-            Logger.getLogger(SimpleCbrApp.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (OntologyAccessException ex) {
+        } catch (ExecutionException | OntologyAccessException ex) {
             Logger.getLogger(SimpleCbrApp.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
