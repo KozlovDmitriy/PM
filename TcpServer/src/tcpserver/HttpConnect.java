@@ -84,6 +84,9 @@ public class HttpConnect extends Thread {
         if (Integer.parseInt(request) == HttpConnect.PARAMS_BLOCK_END) {
             // Окончание получения параметров и отправка ответа.
             this.sendProblems(pw);
+        } else if (Integer.parseInt(request) == HttpConnect.PROBLEM_BLOCK_END) {
+            // Окончание получения проблем и отправка рекомендаций.
+            this.sendSolutions(pw);
         }
     }
     
@@ -101,6 +104,23 @@ public class HttpConnect extends Thread {
         }
         pw.println(HttpConnect.RESPONSE_PROBLEM_BLOCK_END);
         this.log("end write problems");
+        pw.flush();
+    }
+    
+    /**
+     * Метод отсылки рекомендаций клиенту.
+     * @param pw Канал ответа клиенту.
+     */
+    private void sendSolutions (PrintWriter pw) {
+        String[] solutions = {"solution1", "solution2"}; // Фейковые рекомендации.
+        this.log("start write solutions");
+        pw.println(HttpConnect.RESPONSE_SOLUTION_BLOCK_START);
+        for (String item : solutions) {
+            pw.println(item);
+            this.log("write " + item);
+        }
+        pw.println(HttpConnect.RESPONSE_SOLUTION_BLOCK_END);
+        this.log("end write solutions");
         pw.flush();
     }
     

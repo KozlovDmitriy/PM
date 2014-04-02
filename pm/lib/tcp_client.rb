@@ -70,14 +70,18 @@ class TcpClient
     log 'Analise problems start!'
     @socket.puts PROBLEM_BLOCK_START
     @socket.puts PROBLEM_BLOCK_END
-    #response = @socket.gets
+    response = @socket.gets
 
-    #if response.eql? RESPONSE_SOLUTION_BLOCK_START
-    #  response = @socket.gets
-    #  until response.eql? RESPONSE_SOLUTION_BLOCK_END
-    #    log "Read value: #{response}"
-    #  end
-    #end
+    log "Read value: #{response}"
+
+    if response.to_i == RESPONSE_SOLUTION_BLOCK_START
+      log 'Read solutions start!'
+      until response.to_i == RESPONSE_SOLUTION_BLOCK_END
+        response = @socket.gets
+        log "Read value: #{response}"
+      end
+      log 'Read solutions end!'
+    end
 
     log 'Analise problems end!'
   end
