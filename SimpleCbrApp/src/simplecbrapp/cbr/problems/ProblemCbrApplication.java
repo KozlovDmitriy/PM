@@ -96,9 +96,10 @@ public class ProblemCbrApplication implements StandardCBRApplication {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     * Метод выполнения действий после CBR цикла.
+     */
     @Override
-    public void postCycle() throws ExecutionException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void postCycle() throws ExecutionException {}
     
 }
