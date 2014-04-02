@@ -38,6 +38,17 @@ public class ProblemCbrApplication implements StandardCBRApplication {
      */
     private ProblemCbrApplication() {
     }
+    
+    /**
+     * Метод создания экземпляра класса - CBR приложения.
+     * @return Экземпляр класса.
+     */
+    public static ProblemCbrApplication getInstance() {
+        if (app == null)
+            app = new ProblemCbrApplication();
+        
+        return app;
+    }
 
     /**
      * Метод получения результата cbr цикла.
