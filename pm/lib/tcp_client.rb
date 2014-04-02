@@ -47,6 +47,7 @@ class TcpClient
     raise 'Connection already closed!' if @is_close
     log 'Analise params start'
     @socket.puts PARAMS_BLOCK_START
+    params_hash.each { |item| @socket.puts item[:value]; log "write param #{item[:name]}" }
     @socket.puts PARAMS_BLOCK_END
     response = @socket.gets
 

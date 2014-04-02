@@ -76,18 +76,38 @@ public class HttpConnect extends Thread {
     /**
      * Метод чтения запросов клиента.
      * @param request Запрос клиента.
+     * @param br Канал чтения.
      * @param pw Канал ответа.
      */
-    private void parseClientRequest(String request, PrintWriter pw) {
+    private void parseClientRequest
+        (String request, BufferedReader br, PrintWriter pw) throws IOException {
         System.out.println(request);
         
-        if (Integer.parseInt(request) == HttpConnect.PARAMS_BLOCK_END) {
-            // Окончание получения параметров и отправка ответа.
-            this.sendProblems(pw);
+        if (Integer.parseInt(request) == HttpConnect.PARAMS_BLOCK_START) {
+            // Чтение параметров и отправка ответа.
+            this.readParams(br, pw);
         } else if (Integer.parseInt(request) == HttpConnect.PROBLEM_BLOCK_END) {
             // Окончание получения проблем и отправка рекомендаций.
             this.sendSolutions(pw);
         }
+    }
+    
+    /**
+     * Метод чтения параметров анализа.
+     * @param br Канал чтения.
+     * @param pw Канал записи.
+     * @throws IOException Исключение ошибки чтения канала.
+     */
+    private void readParams(BufferedReader br, PrintWriter pw) throws IOException {
+        String value;
+        this.log("start read params");
+        do {
+            value = br.readLine();
+            this.log("read param value is " + value);
+        } while (!value.equals(Integer.toString(HttpConnect.PARAMS_BLOCK_END)));
+        this.log("end read params");
+        // Отправка ответа.
+        this.sendProblems(pw);
     }
     
     /**
@@ -139,7 +159,7 @@ public class HttpConnect extends Thread {
             do { // Чтение запросов клиента.
                 req = br.readLine();
                 this.log(req);
-                this.parseClientRequest(req, pw); // Парсинг команды.
+                this.parseClientRequest(req, br, pw); // Парсинг команды.
             } while (!req.equals(Integer.toString(HttpConnect.END_CONNECTION)));
             
         } catch (IOException exception) {
