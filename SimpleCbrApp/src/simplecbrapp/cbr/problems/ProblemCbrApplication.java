@@ -1,9 +1,13 @@
 package simplecbrapp.cbr.problems;
 
+import es.ucm.fdi.gaia.ontobridge.OntoBridge;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import jcolibri.casebase.LinealCaseBase;
@@ -24,6 +28,7 @@ import jcolibri.method.retrieve.NNretrieval.similarity.local.Equal;
 import jcolibri.method.retrieve.RetrievalResult;
 import jcolibri.method.retrieve.selection.SelectCases;
 import jcolibri.util.FileIO;
+import jcolibri.util.OntoBridgeSingleton;
 import simplecbrapp.SimpleCbrApp;
 
 /**
@@ -190,12 +195,44 @@ public class ProblemCbrApplication implements StandardCBRApplication {
         
         try {
             BufferedWriter out = new BufferedWriter(new FileWriter("result.txt"));
-            out.write(solution.getProblem().toString());
-            out.newLine();
+            for (String item : ProblemCbrApplication.getProblemsText(solution.getProblem().toString())) {
+                out.write(item);
+                out.newLine();
+                out.flush();
+            }
             out.close();
         } catch (IOException ex) {
             Logger.getLogger(ProblemCbrApplication.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    /**
+     * Метод преобразования объекта результата CBR в массив проблем.
+     * @param uri URI результата в онтологии.
+     * @return Массив строк - проблемы.
+     */
+    public static String[] getProblemsText (String uri) {
+        String[] result = null;
+        
+        ArrayList list = new ArrayList();
+        OntoBridge bridge = OntoBridgeSingleton.getOntoBridge();
+        Iterator it = bridge.listPropertyValue(uri, "simpleProblemHasText");
+        
+        while (it.hasNext()) {
+            
+            String item = it.next().toString();
+            
+            if (item.contains("^")) {
+                item = item.substring(0, item.indexOf('^'));
+            } else if (item.contains("@")) {
+                item = item.substring(0, item.indexOf("@"));
+            }
+            
+            list.addAll(Arrays.asList(item.split("#")));
+        }
+        
+        result = new String[list.size()];
+        return result = (String[]) list.toArray(result);
     }
 
     /**
