@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
@@ -112,24 +113,29 @@ public class HttpConnect extends Thread {
         this.log("end read params");
         // Анализ
         String[] args = new String[params.size()];
-        ProblemCbrApplication.doAnalise((String[]) params.toArray(args));
+        String[] ps = ProblemCbrApplication.doAnalise((String[]) params.toArray(args));
         // Отправка ответа.
-        this.sendProblems(pw);
+        this.sendProblems(pw, ps);
     }
     
     /**
      * Метод отсылки проблем клиенту.
      * @param pw Канал ответа клиенту.
+     * @param ps Массив проблем после анализа.
      */
-    private void sendProblems(PrintWriter pw) {
-        String[] problems = {"problem1", "problem2", "problem3"}; // Фейковые проблемы.
+    private void sendProblems(PrintWriter pw, String[] ps) throws IOException {
+        String[] problems = ps;
+//        DataOutputStream out = new DataOutputStream(this.socket.getOutputStream());
         this.log("start write problems");
         pw.println(HttpConnect.RESPONSE_PROBLEM_BLOCK_START);
+//        out.writeUTF(Integer.toString(HttpConnect.RESPONSE_PROBLEM_BLOCK_START));
         for (String item : problems) {
             pw.println(item);
+//            out.writeUTF(item);
             this.log("write " + item);
         }
         pw.println(HttpConnect.RESPONSE_PROBLEM_BLOCK_END);
+//        out.writeUTF(Integer.toString(HttpConnect.RESPONSE_PROBLEM_BLOCK_END));
         this.log("end write problems");
         pw.flush();
     }
@@ -158,9 +164,9 @@ public class HttpConnect extends Thread {
     public void run() {
         try {
             PrintWriter pw = new PrintWriter(
-                    new OutputStreamWriter(this.socket.getOutputStream()), true);
+                    new OutputStreamWriter(this.socket.getOutputStream(), "UTF8"), true);
             BufferedReader br = new BufferedReader(
-                    new InputStreamReader(this.socket.getInputStream()));
+                    new InputStreamReader(this.socket.getInputStream(), Charset.forName("UTF-8")));
             String req; // Строка запроса.
             
             do { // Чтение запросов клиента.

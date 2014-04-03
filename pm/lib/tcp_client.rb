@@ -30,6 +30,7 @@ class TcpClient
   def initialize port, host
     @host, @port = host, port
     @socket = TCPSocket.open @host, @port
+    @socket.set_encoding 'UTF-8'
     @is_close = false
     log 'Connection open!'
   end
@@ -49,7 +50,7 @@ class TcpClient
     @socket.puts PARAMS_BLOCK_START
     params_hash.each { |item| @socket.puts item[:value]; log "write param #{item[:name]}" }
     @socket.puts PARAMS_BLOCK_END
-    response = @socket.gets
+    response = @socket.readline
 
     log "Read value: #{response}"
 

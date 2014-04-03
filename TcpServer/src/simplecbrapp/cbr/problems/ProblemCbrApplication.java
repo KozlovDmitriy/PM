@@ -153,7 +153,7 @@ public class ProblemCbrApplication implements StandardCBRApplication {
      * Статический метод проведения анализа.
      * @param args Значение параметров персонала.
      */
-    public static void doAnalise (String[] args) {
+    public static String[] doAnalise (String[] args) {
         
         try {
             String result = "";
@@ -177,13 +177,15 @@ public class ProblemCbrApplication implements StandardCBRApplication {
             CBRCase c = app.getResult();
             ProblemCbrSolution solution = (ProblemCbrSolution) c.getSolution();
             
-            ProblemCbrApplication.writeResultToFile(solution);
+            return getProblemsText(solution.getProblem().toString());
             
         } catch (ExecutionException | OntologyAccessException ex) {
             Logger.getLogger(ProblemCbrApplication.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
             Logger.getLogger(ProblemCbrApplication.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        return null;
     }
     
     /**
