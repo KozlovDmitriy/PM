@@ -1,5 +1,6 @@
 package simplecbrapp.cbr.solutions;
 
+import com.google.gson.Gson;
 import jcolibri.cbrcore.Attribute;
 import jcolibri.cbrcore.CaseComponent;
 import jcolibri.datatypes.Instance;
@@ -16,6 +17,15 @@ public class SolutionCbrSolution implements CaseComponent {
     private Instance mainConcept;
     /** Рекомендация. */
     private Instance solution;
+
+    /**
+     * Метод преобразования объекта в json строку.
+     * @return Объект в виде json строки.
+     */
+    @Override
+    public String toString() {
+        return (new Gson()).toJson(this);
+    }
 
     /**
      * Метод изменения значения рекомендации.
