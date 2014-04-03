@@ -10,9 +10,11 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import simplecbrapp.cbr.problems.ProblemCbrApplication;
 
 /**
  * Класс создания сокетного соединения.
@@ -100,12 +102,17 @@ public class HttpConnect extends Thread {
      */
     private void readParams(BufferedReader br, PrintWriter pw) throws IOException {
         String value;
+        ArrayList params = new ArrayList();
         this.log("start read params");
         do {
             value = br.readLine();
+            params.add(value);
             this.log("read param value is " + value);
         } while (!value.equals(Integer.toString(HttpConnect.PARAMS_BLOCK_END)));
         this.log("end read params");
+        // Анализ
+        String[] args = new String[params.size()];
+        ProblemCbrApplication.doAnalise((String[]) params.toArray(args));
         // Отправка ответа.
         this.sendProblems(pw);
     }
