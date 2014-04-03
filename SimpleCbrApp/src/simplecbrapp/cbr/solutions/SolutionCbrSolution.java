@@ -18,6 +18,38 @@ public class SolutionCbrSolution implements CaseComponent {
     private Instance solution;
 
     /**
+     * Метод изменения значения рекомендации.
+     * @param solution Новое значение рекомендации.
+     */
+    public void setSolution(Instance solution) {
+        this.solution = solution;
+    }
+
+    /**
+     * Метод изменения значения главного концепта.
+     * @param mainConcept Новое значение главного концепта.
+     */
+    public void setMainConcept(Instance mainConcept) {
+        this.mainConcept = mainConcept;
+    }
+
+    /**
+     * Метод получения значения рекомендации.
+     * @return Значение рекомендации.
+     */
+    public Instance getSolution() {
+        return solution;
+    }
+
+    /**
+     * Метод получения значения главного концепта.
+     * @return Значение главного концепта.
+     */
+    public Instance getMainConcept() {
+        return mainConcept;
+    }
+
+    /**
      * Конструктор с параметрами.
      * @param mainConcept Значение главного концепта.
      * @param solution Значение рекомендации.
