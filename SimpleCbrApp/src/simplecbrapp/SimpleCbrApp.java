@@ -1,5 +1,7 @@
 package simplecbrapp;
 
+import simplecbrapp.cbr.problems.ProblemCbrApplication;
+
 /**
  * Простое cbr приложения для построения основы взаимодействия Rails и Java.
  * @author M. Navrotskiy.
@@ -13,6 +15,7 @@ public class SimpleCbrApp {
      */
     public static void main(String[] args) {
         
+        ProblemCbrApplication.doAnalise(args);
     }
     
 }
