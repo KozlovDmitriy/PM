@@ -2,6 +2,7 @@ package simplecbrapp.cbr.solutions;
 
 import jcolibri.cbrcore.Attribute;
 import jcolibri.cbrcore.CaseComponent;
+import jcolibri.datatypes.Instance;
 
 /**
  * Класс описания прецедента при поиске рекомендаций.
@@ -9,6 +10,14 @@ import jcolibri.cbrcore.CaseComponent;
  * @version 1.0
  */
 public class SolutionCbrDescription implements CaseComponent {
+    
+    /* Поля класса. */
+    /** Проблема в работе персонала. */
+    private Instance problem;
+    /** Рекомендация по устранению проблемы. */
+    private Instance solution;
+    /** Главный концепт. */
+    private Instance mainConcept;
 
     @Override
     public Attribute getIdAttribute() {
