@@ -27,16 +27,18 @@ public class SimpleCbrApp {
         try {
             String result = "";
             
+            if (args.length < 4) throw new Exception("Invalid size of input array!");
+            
             ProblemCbrApplication app = ProblemCbrApplication.getInstance();
             app.configure();
             app.preCycle();
             
             ProblemCbrDescription description = 
                     new ProblemCbrDescription(
-                            new Instance("ImplPlan_24"),
-                            new Instance("AvCheck_58"), 
-                            new Instance("ItemsCount_20"), 
-                            new Instance("TotalChecksCount_112"));
+                            new Instance(args[0]),
+                            new Instance(args[1]), 
+                            new Instance(args[2]), 
+                            new Instance(args[3]));
             
             CBRQuery query = new CBRQuery();
             query.setDescription(description);
@@ -45,6 +47,8 @@ public class SimpleCbrApp {
             ProblemCbrSolution solution = (ProblemCbrSolution) c.getSolution();
             
         } catch (ExecutionException | OntologyAccessException ex) {
+            Logger.getLogger(SimpleCbrApp.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
             Logger.getLogger(SimpleCbrApp.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
