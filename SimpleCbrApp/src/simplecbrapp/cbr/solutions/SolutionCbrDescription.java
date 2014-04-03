@@ -19,6 +19,54 @@ public class SolutionCbrDescription implements CaseComponent {
     /** Главный концепт. */
     private Instance mainConcept;
 
+    /**
+     * Метод изменения значения рекомендации.
+     * @param solution Новое значение рекомендации.
+     */
+    public void setSolution(Instance solution) {
+        this.solution = solution;
+    }
+
+    /**
+     * Метод изменения значения проблемы.
+     * @param problem Новое значение проблемы.
+     */
+    public void setProblem(Instance problem) {
+        this.problem = problem;
+    }
+
+    /**
+     * Метод изменения значения главного концепта.
+     * @param mainConcept Новое значение главного концепта.
+     */
+    public void setMainConcept(Instance mainConcept) {
+        this.mainConcept = mainConcept;
+    }
+
+    /**
+     * Метод получения значения рекомендации.
+     * @return Значение рекомендации.
+     */
+    public Instance getSolution() {
+        return solution;
+    }
+
+    /**
+     * Метод получения значения проблемы.
+     * @return Значение проблемы.
+     */
+    public Instance getProblem() {
+        return problem;
+    }
+
+    /**
+     * Метод получения значения главного концепта.
+     * @return Значение главного концепта.
+     */
+    public Instance getMainConcept() {
+        return mainConcept;
+    }
+
     @Override
     public Attribute getIdAttribute() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
