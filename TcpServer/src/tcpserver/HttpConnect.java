@@ -83,10 +83,10 @@ public class HttpConnect extends Thread {
         (String request, BufferedReader br, PrintWriter pw) throws IOException {
         System.out.println(request);
         
-        if (Integer.parseInt(request) == HttpConnect.PARAMS_BLOCK_START) {
+        if (request.equals(Integer.toString(HttpConnect.PARAMS_BLOCK_START))) {
             // Чтение параметров и отправка ответа.
             this.readParams(br, pw);
-        } else if (Integer.parseInt(request) == HttpConnect.PROBLEM_BLOCK_END) {
+        } else if (request.equals(Integer.toString(HttpConnect.PROBLEM_BLOCK_END))) {
             // Окончание получения проблем и отправка рекомендаций.
             this.sendSolutions(pw);
         }
