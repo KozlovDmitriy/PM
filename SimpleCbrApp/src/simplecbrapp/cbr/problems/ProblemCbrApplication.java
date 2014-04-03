@@ -190,7 +190,7 @@ public class ProblemCbrApplication implements StandardCBRApplication {
         
         try {
             BufferedWriter out = new BufferedWriter(new FileWriter("result.txt"));
-            out.write(solution.toString());
+            out.write(solution.getProblem().toString());
             out.newLine();
             out.close();
         } catch (IOException ex) {
