@@ -1,15 +1,6 @@
 package simplecbrapp;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import jcolibri.cbrcore.CBRCase;
-import jcolibri.cbrcore.CBRQuery;
-import jcolibri.datatypes.Instance;
-import jcolibri.exception.ExecutionException;
-import jcolibri.exception.OntologyAccessException;
 import simplecbrapp.cbr.problems.ProblemCbrApplication;
-import simplecbrapp.cbr.problems.ProblemCbrDescription;
-import simplecbrapp.cbr.problems.ProblemCbrSolution;
 
 /**
  * Простое cbr приложения для построения основы взаимодействия Rails и Java.
@@ -24,33 +15,7 @@ public class SimpleCbrApp {
      */
     public static void main(String[] args) {
         
-        try {
-            String result = "";
-            
-            if (args.length < 4) throw new Exception("Invalid size of input array!");
-            
-            ProblemCbrApplication app = ProblemCbrApplication.getInstance();
-            app.configure();
-            app.preCycle();
-            
-            ProblemCbrDescription description = 
-                    new ProblemCbrDescription(
-                            new Instance(args[0]),
-                            new Instance(args[1]), 
-                            new Instance(args[2]), 
-                            new Instance(args[3]));
-            
-            CBRQuery query = new CBRQuery();
-            query.setDescription(description);
-            app.cycle(query);
-            CBRCase c = app.getResult();
-            ProblemCbrSolution solution = (ProblemCbrSolution) c.getSolution();
-            
-        } catch (ExecutionException | OntologyAccessException ex) {
-            Logger.getLogger(SimpleCbrApp.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
-            Logger.getLogger(SimpleCbrApp.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        ProblemCbrApplication.doAnalise(args);
     }
     
 }

@@ -1,6 +1,8 @@
 package simplecbrapp.cbr.problems;
 
 import java.util.Collection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import jcolibri.casebase.LinealCaseBase;
 import jcolibri.cbraplications.StandardCBRApplication;
 import jcolibri.cbrcore.Attribute;
@@ -8,7 +10,9 @@ import jcolibri.cbrcore.CBRCase;
 import jcolibri.cbrcore.CBRCaseBase;
 import jcolibri.cbrcore.CBRQuery;
 import jcolibri.connector.OntologyConnector;
+import jcolibri.datatypes.Instance;
 import jcolibri.exception.ExecutionException;
+import jcolibri.exception.OntologyAccessException;
 import jcolibri.method.retrieve.NNretrieval.NNConfig;
 import jcolibri.method.retrieve.NNretrieval.NNScoringMethod;
 import jcolibri.method.retrieve.NNretrieval.similarity.LocalSimilarityFunction;
@@ -17,6 +21,7 @@ import jcolibri.method.retrieve.NNretrieval.similarity.local.Equal;
 import jcolibri.method.retrieve.RetrievalResult;
 import jcolibri.method.retrieve.selection.SelectCases;
 import jcolibri.util.FileIO;
+import simplecbrapp.SimpleCbrApp;
 
 /**
  * Класс cbr приложения для поиска проблем.
@@ -135,6 +140,41 @@ public class ProblemCbrApplication implements StandardCBRApplication {
         result.setWeight(attribute, new Double(1.0));
         
         return result;
+    }
+    
+    /**
+     * Статический метод проведения анализа.
+     * @param args Значение параметров персонала.
+     */
+    public static void doAnalise (String[] args) {
+        
+        try {
+            String result = "";
+            
+            if (args.length < 4) throw new Exception("Invalid size of input array!");
+            
+            ProblemCbrApplication app = ProblemCbrApplication.getInstance();
+            app.configure();
+            app.preCycle();
+            
+            ProblemCbrDescription description = 
+                    new ProblemCbrDescription(
+                            new Instance(args[0]),
+                            new Instance(args[1]), 
+                            new Instance(args[2]), 
+                            new Instance(args[3]));
+            
+            CBRQuery query = new CBRQuery();
+            query.setDescription(description);
+            app.cycle(query);
+            CBRCase c = app.getResult();
+            ProblemCbrSolution solution = (ProblemCbrSolution) c.getSolution();
+            
+        } catch (ExecutionException | OntologyAccessException ex) {
+            Logger.getLogger(SimpleCbrApp.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(SimpleCbrApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
