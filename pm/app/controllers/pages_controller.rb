@@ -3,9 +3,10 @@ class PagesController < ApplicationController
     require_relative '../../lib/tcp_client'
     client = TcpClient.new 50125, 'localhost'
 
-    client.analise_params [{:name => 'implPlan', :value => 100},
-                           {:name => 'AvCheck', :value => 1233.22},
-                           {:name => 'Name', :value => 'Alex'}]
+    client.analise_params [{:name => 'ImplPlan', :value => 'ImplPlan_24'},
+                           {:name => 'AvCheck', :value => 'AvCheck_58'},
+                           {:name => 'ItemsCount', :value => 'ItemsCount_20'},
+                           {:name => 'TotalChecksCount', :value => 'TotalChecksCount_112'}]
     client.analise_problems nil
     client.close
   end
