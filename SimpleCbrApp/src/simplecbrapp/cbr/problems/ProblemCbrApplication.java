@@ -1,5 +1,8 @@
 package simplecbrapp.cbr.problems;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -170,10 +173,28 @@ public class ProblemCbrApplication implements StandardCBRApplication {
             CBRCase c = app.getResult();
             ProblemCbrSolution solution = (ProblemCbrSolution) c.getSolution();
             
+            ProblemCbrApplication.writeResultToFile(solution);
+            
         } catch (ExecutionException | OntologyAccessException ex) {
             Logger.getLogger(SimpleCbrApp.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
             Logger.getLogger(SimpleCbrApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    /**
+     * Метод записи результатов CBR в файл.
+     * @param solution Результат CBR.
+     */
+    public static void writeResultToFile (ProblemCbrSolution solution) {
+        
+        try {
+            BufferedWriter out = new BufferedWriter(new FileWriter("result.txt"));
+            out.write(solution.toString());
+            out.newLine();
+            out.close();
+        } catch (IOException ex) {
+            Logger.getLogger(ProblemCbrApplication.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
