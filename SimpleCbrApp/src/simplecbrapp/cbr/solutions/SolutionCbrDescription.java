@@ -21,6 +21,28 @@ public class SolutionCbrDescription implements CaseComponent {
     private Instance mainConcept;
 
     /**
+     * Конструктор с параметрами.
+     * @param problem Значение проблемы.
+     * @param solution Значение рекомендации.
+     * @param mainConcept Значение главного концепта.
+     */
+    public SolutionCbrDescription(Instance problem, Instance solution, Instance mainConcept) {
+        this.problem = problem;
+        this.solution = solution;
+        this.mainConcept = mainConcept;
+    }
+
+    /**
+     * Конструктор по умолчанию.
+     * Инициализирует все поля в null.
+     */
+    public SolutionCbrDescription() {
+        this.mainConcept = null;
+        this.problem = null;
+        this.solution = null;
+    }
+
+    /**
      * Метод преобразования объекта класса в строку.
      * @return Объект класса в виде json строки.
      */
