@@ -99,9 +99,13 @@ public class SolutionCbrDescription implements CaseComponent {
         return mainConcept;
     }
 
+    /**
+     * Метод получения идентификатора аттрибута.
+     * @return Значение идентификатора аттрибута.
+     */
     @Override
     public Attribute getIdAttribute() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new Attribute("mainConcept", this.getClass());
     }
     
 }
