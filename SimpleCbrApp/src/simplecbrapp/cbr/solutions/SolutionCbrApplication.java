@@ -31,6 +31,12 @@ public class SolutionCbrApplication implements StandardCBRApplication {
     private SolutionCbrApplication app;
     /** Ближайший прецедент. */
     private CBRCase result;
+
+    /**
+     * Конструктор по умолчанию.
+     * Закрытый конструктор.
+     */
+    private SolutionCbrApplication() {}
     
     @Override
     public void configure() throws ExecutionException {

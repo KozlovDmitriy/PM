@@ -58,8 +58,7 @@ public class ProblemCbrApplication implements StandardCBRApplication {
      * Конструктор по умолчанию.
      * Закрытый конструктор.
      */
-    private ProblemCbrApplication() {
-    }
+    private ProblemCbrApplication() {}
     
     /**
      * Метод создания экземпляра класса - CBR приложения.
