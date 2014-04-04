@@ -28,7 +28,7 @@ public class SolutionCbrApplication implements StandardCBRApplication {
     /** Соединение с онтологией. */
     private OntologyConnector connector;
     /** Объект класса. */
-    private SolutionCbrApplication app;
+    private static SolutionCbrApplication app;
     /** Ближайший прецедент. */
     private CBRCase result;
 
@@ -37,6 +37,18 @@ public class SolutionCbrApplication implements StandardCBRApplication {
      * Закрытый конструктор.
      */
     private SolutionCbrApplication() {}
+    
+    /**
+     * Метод создания экземпляра класса - CBR приложения.
+     * @return Экземпляр класса.
+     */
+    public static SolutionCbrApplication getInstance() {
+        if (app == null) {
+            app = new SolutionCbrApplication();
+        }
+        
+        return app;
+    }
     
     @Override
     public void configure() throws ExecutionException {
