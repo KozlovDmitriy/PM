@@ -50,6 +50,14 @@ public class SolutionCbrApplication implements StandardCBRApplication {
         return app;
     }
     
+    /** 
+     * Метод получения результата CBR цикла.
+     * @return Значение результата CBR.
+     */
+    public CBRCase getResult() {
+        return this.result;
+    }
+    
     @Override
     public void configure() throws ExecutionException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
