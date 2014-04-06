@@ -1,6 +1,9 @@
 package simplecbrapp.cbr.solutions;
 
 import es.ucm.fdi.gaia.ontobridge.OntoBridge;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -152,9 +155,30 @@ public class SolutionCbrApplication implements StandardCBRApplication {
             
             SolutionCbrSolution solution = (SolutionCbrSolution) result.getDescription();
             
-//            SolutionCbrApplication.writeResultToFile(solution);
+            SolutionCbrApplication.writeResultToFile(solution);
             
         } catch (Exception ex) {
+            Logger.getLogger(SolutionCbrApplication.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    /**
+     * Метод записи результатов CBR в файл.
+     * @param solution Результат CBR.
+     */
+    public static void writeResultToFile (SolutionCbrSolution solution) {
+        
+        try {
+            BufferedWriter out = new BufferedWriter(new FileWriter("solutions.txt"));
+            
+            for (String item : SolutionCbrApplication.getSolutionsText(solution.getSolution().toString())) {
+                out.write(item);
+                out.newLine();
+                out.flush();
+            }
+            
+            out.close();
+        } catch (IOException ex) {
             Logger.getLogger(SolutionCbrApplication.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
