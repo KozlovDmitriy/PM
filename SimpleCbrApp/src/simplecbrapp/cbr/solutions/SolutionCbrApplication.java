@@ -153,7 +153,7 @@ public class SolutionCbrApplication implements StandardCBRApplication {
             app.cycle(query);
             CBRCase result = app.getResult();
             
-            SolutionCbrSolution solution = (SolutionCbrSolution) result.getDescription();
+            SolutionCbrSolution solution = (SolutionCbrSolution) result.getSolution();
             
             SolutionCbrApplication.writeResultToFile(solution);
             
@@ -194,7 +194,7 @@ public class SolutionCbrApplication implements StandardCBRApplication {
         
         ArrayList list = new ArrayList();
         OntoBridge bridge = OntoBridgeSingleton.getOntoBridge();
-        Iterator it = bridge.listPropertyValue(uri, "simpleSolutionHasText");
+        Iterator it = bridge.listPropertyValue(uri, "simpleConclusionHasText");
         
         while (it.hasNext()) {
             

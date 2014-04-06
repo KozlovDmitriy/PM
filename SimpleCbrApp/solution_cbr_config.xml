@@ -1,0 +1,31 @@
+<OntologyConfiguration>
+	<MainOntology>
+		<URL>http://www.owl-ontologies.com/PersonalManagement.owl</URL>
+		<LocalCopy>pm.owl</LocalCopy>
+	</MainOntology>
+	
+	<CaseMainConcept>CaseBase</CaseMainConcept>
+	
+	<DescriptionClassName>simplecbrapp.cbr.solutions.SolutionCbrDescription</DescriptionClassName>
+	
+	<DescriptionMappings>
+		<Map>
+			<Property>caseBaseHasProblem</Property>
+			<Concept>Problem</Concept>
+			<Attribute>problem</Attribute>
+		</Map>
+<Map>
+			<Property>caseBaseHasConclusions</Property>
+			<Concept>Conclusion</Concept>
+			<Attribute>solution</Attribute>
+		</Map>
+	</DescriptionMappings>
+	<SolutionClassName>simplecbrapp.cbr.solutions.SolutionCbrSolution</SolutionClassName>
+	<SolutionMappings>
+            <Map>
+                    <Property>caseBaseHasConclusions</Property>
+                    <Concept>Conclusion</Concept>
+                    <Attribute>solution</Attribute>
+		</Map>
+	</SolutionMappings>
+</OntologyConfiguration>
