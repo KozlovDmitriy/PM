@@ -1,6 +1,10 @@
 package simplecbrapp.cbr.solutions;
 
+import es.ucm.fdi.gaia.ontobridge.OntoBridge;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import jcolibri.casebase.LinealCaseBase;
@@ -20,6 +24,7 @@ import jcolibri.method.retrieve.NNretrieval.similarity.local.Equal;
 import jcolibri.method.retrieve.RetrievalResult;
 import jcolibri.method.retrieve.selection.SelectCases;
 import jcolibri.util.FileIO;
+import jcolibri.util.OntoBridgeSingleton;
 
 /**
  * Класс CBR приложения для поиска рекомендаций.
@@ -152,6 +157,36 @@ public class SolutionCbrApplication implements StandardCBRApplication {
         } catch (Exception ex) {
             Logger.getLogger(SolutionCbrApplication.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    /**
+     * Метод преобразования результата CBR в массив рекомендаций.
+     * @param uri URI результата в онтологии.
+     * @return Массив строк - рекомендации.
+     */
+    public static String[] getSolutionsText (String uri) {
+        
+        String[] result = null;
+        
+        ArrayList list = new ArrayList();
+        OntoBridge bridge = OntoBridgeSingleton.getOntoBridge();
+        Iterator it = bridge.listPropertyValue(uri, "simpleSolutionHasText");
+        
+        while (it.hasNext()) {
+            
+            String item = it.next().toString();
+            
+            if (item.contains("^")) {
+                item = item.substring(0, item.indexOf('^'));
+            } else if (item.contains("@")) {
+                item = item.substring(0, item.indexOf("@"));
+            }
+            
+            list.addAll(Arrays.asList(item.split("#")));
+        }
+        
+        result = new String[list.size()];
+        return result = (String[]) list.toArray(result);
     }
 
     /**
