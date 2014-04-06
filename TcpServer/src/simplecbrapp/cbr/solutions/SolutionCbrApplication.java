@@ -157,7 +157,7 @@ public class SolutionCbrApplication implements StandardCBRApplication {
             SolutionCbrSolution solution = (SolutionCbrSolution) result.getSolution();
             
 //            SolutionCbrApplication.writeResultToFile(solution);
-            return SolutionCbrApplication.getSolutionsText(args);
+            return SolutionCbrApplication.getSolutionsText(solution.getSolution().toString());
             
         } catch (Exception ex) {
             Logger.getLogger(SolutionCbrApplication.class.getName()).log(Level.SEVERE, null, ex);

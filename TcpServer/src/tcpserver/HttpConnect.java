@@ -90,9 +90,8 @@ public class HttpConnect extends Thread {
         if (request.equals(Integer.toString(HttpConnect.PARAMS_BLOCK_START))) {
             // Чтение параметров и отправка ответа.
             this.readParams(br, pw);
-        } else if (request.equals(Integer.toString(HttpConnect.PROBLEM_BLOCK_END))) {
-            // Окончание получения проблем и отправка рекомендаций.
-            this.sendSolutions(pw);
+        } else if (request.equals(Integer.toString(HttpConnect.PROBLEM_BLOCK_START))) {
+            this.readProblems(br, pw);
         }
     }
         
@@ -104,15 +103,19 @@ public class HttpConnect extends Thread {
      */
     private void readProblems (BufferedReader br, PrintWriter pw) throws IOException {
         String value;
+        ArrayList problems = new ArrayList();
         this.log("start read problems");
         do {
             value = br.readLine();
+            problems.add(value);
             this.log("read value " + value);
         } while (!value.equals(Integer.toString(HttpConnect.PROBLEM_BLOCK_END)));
         this.log("end read problems");
         // Анализ
-        String[] ss = SolutionCbrApplication.doAnalise(value);
+        String[] args = new String[problems.size()];
+        String[] ss = SolutionCbrApplication.doAnalise(((String[]) problems.toArray(args))[0]);
         // Отправка ответа.
+        this.sendSolutions(pw, ss);
     }
     
     /**
@@ -157,6 +160,24 @@ public class HttpConnect extends Thread {
         pw.println(HttpConnect.RESPONSE_PROBLEM_BLOCK_END);
 //        out.writeUTF(Integer.toString(HttpConnect.RESPONSE_PROBLEM_BLOCK_END));
         this.log("end write problems");
+        pw.flush();
+    }
+    
+    /**
+     * Метод отсыкли рекомендаций клиенту.
+     * @param pw Канал ответа клиенту.
+     * @param solutions Массив рекомендаций после анализа.
+     */
+    private void sendSolutions (PrintWriter pw, String[] solutions) {
+        
+        this.log("start write solutions");
+        pw.println(HttpConnect.RESPONSE_SOLUTION_BLOCK_START);
+        for (String item : solutions) {
+            pw.println(item);
+            this.log("write " + item);
+        }
+        pw.println(HttpConnect.RESPONSE_SOLUTION_BLOCK_END);
+        this.log("end write solutions");
         pw.flush();
     }
     

@@ -71,6 +71,7 @@ class TcpClient
     raise 'Connection already closed' if @is_close
     log 'Analise problems start!'
     @socket.puts PROBLEM_BLOCK_START
+    problems_hash.each { |item| @socket.puts item[:value]; log "write param #{item[:name]}" }
     @socket.puts PROBLEM_BLOCK_END
     response = @socket.gets
 

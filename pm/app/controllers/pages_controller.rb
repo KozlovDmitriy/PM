@@ -7,7 +7,7 @@ class PagesController < ApplicationController
                            {:name => 'AvCheck', :value => 'AvCheck_58'},
                            {:name => 'ItemsCount', :value => 'ItemsCount_20'},
                            {:name => 'TotalChecksCount', :value => 'TotalChecksCount_112'}]
-    client.analise_problems nil
+    client.analise_problems [:name => 'CDGI', :value => 'CDGI']
     client.close
   end
 end
