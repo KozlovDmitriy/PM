@@ -10,9 +10,12 @@ import jcolibri.cbrcore.CBRQuery;
 import jcolibri.connector.OntologyConnector;
 import jcolibri.exception.ExecutionException;
 import jcolibri.method.retrieve.NNretrieval.NNConfig;
+import jcolibri.method.retrieve.NNretrieval.NNScoringMethod;
 import jcolibri.method.retrieve.NNretrieval.similarity.LocalSimilarityFunction;
+import jcolibri.method.retrieve.NNretrieval.similarity.global.Average;
 import jcolibri.method.retrieve.NNretrieval.similarity.local.Equal;
 import jcolibri.method.retrieve.RetrievalResult;
+import jcolibri.method.retrieve.selection.SelectCases;
 import jcolibri.util.FileIO;
 
 /**
@@ -117,14 +120,37 @@ public class SolutionCbrApplication implements StandardCBRApplication {
         return result;
     }
 
+    /**
+     * Метод реализации CBR-цикла.
+     * @param query Запрос к CBR.
+     * @throws ExecutionException 
+     */
     @Override
     public void cycle(CBRQuery query) throws ExecutionException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        NNConfig conf = SolutionCbrApplication.getSimilarityConfig();
+        conf.setDescriptionSimFunction(new Average());
+        
+        this.query = query;
+        
+        this.eval = NNScoringMethod.evaluateSimilarity(this.caseBase.getCases(),
+                this.query, conf);
+        this.selectedCase = SelectCases.selectTopK(this.eval, 1);
+        
+        System.out.println("==================================");
+        for (CBRCase item : this.selectedCase) {
+            System.out.println(item);
+            System.out.println(
+                    ((RetrievalResult)this.eval.toArray()[0]).getEval());
+            this.result = item;
+        }
     }
 
+    /**
+     * Метод выполнения действий после CBR цикла.
+     * @throws ExecutionException 
+     */
     @Override
-    public void postCycle() throws ExecutionException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void postCycle() throws ExecutionException {}
     
 }
