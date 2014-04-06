@@ -1,6 +1,8 @@
 package simplecbrapp.cbr.solutions;
 
 import java.util.Collection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import jcolibri.casebase.LinealCaseBase;
 import jcolibri.cbraplications.StandardCBRApplication;
 import jcolibri.cbrcore.Attribute;
@@ -8,6 +10,7 @@ import jcolibri.cbrcore.CBRCase;
 import jcolibri.cbrcore.CBRCaseBase;
 import jcolibri.cbrcore.CBRQuery;
 import jcolibri.connector.OntologyConnector;
+import jcolibri.datatypes.Instance;
 import jcolibri.exception.ExecutionException;
 import jcolibri.method.retrieve.NNretrieval.NNConfig;
 import jcolibri.method.retrieve.NNretrieval.NNScoringMethod;
@@ -118,6 +121,37 @@ public class SolutionCbrApplication implements StandardCBRApplication {
         result.setWeight(attribute, 1.0);
         
         return result;
+    }
+    
+    /**
+     * Статический метод проведения анализа.
+     * @param args Значение проблемы.
+     */
+    public static void doAnalise (String args) {
+        
+        try {
+            if (args == null || args.equals("")) throw new Exception("Invalid value of request!");
+            
+            SolutionCbrApplication app = SolutionCbrApplication.getInstance();
+            
+            app.configure();
+            app.preCycle();
+            
+            SolutionCbrDescription description = 
+                    new SolutionCbrDescription(new Instance(args), null, null);
+            CBRQuery query = new CBRQuery();
+            query.setDescription(description);
+            
+            app.cycle(query);
+            CBRCase result = app.getResult();
+            
+            SolutionCbrSolution solution = (SolutionCbrSolution) result.getDescription();
+            
+//            SolutionCbrApplication.writeResultToFile(solution);
+            
+        } catch (Exception ex) {
+            Logger.getLogger(SolutionCbrApplication.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
