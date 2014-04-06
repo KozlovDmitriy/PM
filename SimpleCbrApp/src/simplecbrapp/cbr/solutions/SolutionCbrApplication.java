@@ -72,9 +72,22 @@ public class SolutionCbrApplication implements StandardCBRApplication {
         this.caseBase = new LinealCaseBase();
     }
 
+    /**
+     * Метод выполнения действий перед CBR-циклом.
+     * @return База прецедентов.
+     * @throws ExecutionException 
+     */
     @Override
     public CBRCaseBase preCycle() throws ExecutionException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        this.caseBase.init(this.connector);
+        Collection<CBRCase> cases = this.caseBase.getCases();
+        
+        for (CBRCase item : cases) {
+            System.out.println(item);
+        }
+        
+        return this.caseBase;
     }
 
     @Override
