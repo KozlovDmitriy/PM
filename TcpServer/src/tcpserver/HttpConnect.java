@@ -16,6 +16,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import simplecbrapp.cbr.problems.ProblemCbrApplication;
+import simplecbrapp.cbr.solutions.SolutionCbrApplication;
 
 /**
  * Класс создания сокетного соединения.
@@ -93,6 +94,25 @@ public class HttpConnect extends Thread {
             // Окончание получения проблем и отправка рекомендаций.
             this.sendSolutions(pw);
         }
+    }
+        
+    /**
+     * Метод чтения проблем от клиента.
+     * @param br Канал чтения.
+     * @param pw Канал записи.
+     * @throws IOException 
+     */
+    private void readProblems (BufferedReader br, PrintWriter pw) throws IOException {
+        String value;
+        this.log("start read problems");
+        do {
+            value = br.readLine();
+            this.log("read value " + value);
+        } while (!value.equals(Integer.toString(HttpConnect.PROBLEM_BLOCK_END)));
+        this.log("end read problems");
+        // Анализ
+        String[] ss = SolutionCbrApplication.doAnalise(value);
+        // Отправка ответа.
     }
     
     /**
