@@ -123,28 +123,28 @@ public class ProblemCbrApplication implements StandardCBRApplication {
         // 1) implPlan
         attribute = new Attribute("implPlan", ProblemCbrDescription.class);
         result.addMapping(attribute, function);
-        result.setWeight(attribute, new Double(1.0));
+        result.setWeight(attribute, 1.0);
         
         // 2) avCheck
         attribute = new Attribute("avCheck", ProblemCbrDescription.class);
         result.addMapping(attribute, function);
-        result.setWeight(attribute, new Double(1.0));
+        result.setWeight(attribute, 1.0);
         
         // 3) itemsCount
         attribute = new Attribute("itemsCount", ProblemCbrDescription.class);
         result.addMapping(attribute, function);
-        result.setWeight(attribute, new Double(1.0));
+        result.setWeight(attribute, 1.0);
         
         // 4) totalChecksCount
         attribute = new Attribute("totalChecksCount",
                 ProblemCbrDescription.class);
         result.addMapping(attribute, function);
-        result.setWeight(attribute, new Double(1.0));
+        result.setWeight(attribute, 1.0);
         
         // 5) problem
         attribute = new Attribute("problem", ProblemCbrDescription.class);
         result.addMapping(attribute, function);
-        result.setWeight(attribute, new Double(1.0));
+        result.setWeight(attribute, 1.0);
         
         return result;
     }

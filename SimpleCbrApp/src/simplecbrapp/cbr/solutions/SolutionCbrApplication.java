@@ -3,11 +3,15 @@ package simplecbrapp.cbr.solutions;
 import java.util.Collection;
 import jcolibri.casebase.LinealCaseBase;
 import jcolibri.cbraplications.StandardCBRApplication;
+import jcolibri.cbrcore.Attribute;
 import jcolibri.cbrcore.CBRCase;
 import jcolibri.cbrcore.CBRCaseBase;
 import jcolibri.cbrcore.CBRQuery;
 import jcolibri.connector.OntologyConnector;
 import jcolibri.exception.ExecutionException;
+import jcolibri.method.retrieve.NNretrieval.NNConfig;
+import jcolibri.method.retrieve.NNretrieval.similarity.LocalSimilarityFunction;
+import jcolibri.method.retrieve.NNretrieval.similarity.local.Equal;
 import jcolibri.method.retrieve.RetrievalResult;
 import jcolibri.util.FileIO;
 
@@ -88,6 +92,29 @@ public class SolutionCbrApplication implements StandardCBRApplication {
         }
         
         return this.caseBase;
+    }
+    
+    /**
+     * Метод формирования структуры case.
+     * @return Конфигурация case.
+     */
+    private static NNConfig getSimilarityConfig() {
+        
+        NNConfig result = new NNConfig();
+        Attribute attribute;
+        LocalSimilarityFunction function = new Equal();
+        
+        // 1) problem
+        attribute = new Attribute("problem", SolutionCbrDescription.class);
+        result.addMapping(attribute, function);
+        result.setWeight(attribute, 1.0);
+        
+        // 2) solution
+        attribute = new Attribute("solution", SolutionCbrDescription.class);
+        result.addMapping(attribute, function);
+        result.setWeight(attribute, 1.0);
+        
+        return result;
     }
 
     @Override
