@@ -9,6 +9,7 @@ import jcolibri.connector.OntologyConnector;
 import jcolibri.exception.InitializingException;
 import jcolibri.util.FileIO;
 import jcolibri.util.OntoBridgeSingleton;
+import owlreader.model.OwlCaseParam;
 
 /**
  * Главный класс приложения.
@@ -16,13 +17,12 @@ import jcolibri.util.OntoBridgeSingleton;
  * @version 1.0
  */
 public class OwlReader {
-
+    
     /**
-     * Главная функция приложения
-     * @param args Аргументы коммандной строки.
+     * Функция чтения выполнения плана из онтологии.
+     * @return Список всех объектов класса.
      */
-    public static void main(String[] args) {
-        
+    private static ArrayList getImplPlan() {
         try {
             OntologyConnector connector = new OntologyConnector();
             connector.initFromXMLfile(FileIO.findFile("configurate.xml"));
@@ -32,7 +32,6 @@ public class OwlReader {
             OntoBridge bridge = OntoBridgeSingleton.getOntoBridge();
             Iterator it = bridge.listInstances("ImplPlan");
             
-            System.out.println("===================================");
             while (it.hasNext()) {
                 
                 String item = it.next().toString();
@@ -49,13 +48,26 @@ public class OwlReader {
                         string = string.substring(0, string.indexOf("@"));
                     }
                     
-                    System.out.println(string);
+                    OwlCaseParam param = new OwlCaseParam(item, string);
+                    list.add(param);
                 }
             }
-            System.out.println("===================================");
+            
+            return list;
         } catch (InitializingException ex) {
             Logger.getLogger(OwlReader.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        return null;
+    }
+
+    /**
+     * Главная функция приложения
+     * @param args Аргументы коммандной строки.
+     */
+    public static void main(String[] args) {
+        
+        OwlReader.getImplPlan(); // Чтение выполнения плана.
     }
     
 }
