@@ -1,6 +1,10 @@
 package owlreader;
 
+import com.google.gson.Gson;
 import es.ucm.fdi.gaia.ontobridge.OntoBridge;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.logging.Level;
@@ -26,16 +30,14 @@ public class OwlReader {
         try {
             OntologyConnector connector = new OntologyConnector();
             connector.initFromXMLfile(FileIO.findFile("configurate.xml"));
-            String[] result = null;
-            
+            String[] result = null;        
             ArrayList list = new ArrayList();
             OntoBridge bridge = OntoBridgeSingleton.getOntoBridge();
             Iterator it = bridge.listInstances("ImplPlan");
             
             while (it.hasNext()) {
                 
-                String item = it.next().toString();
-                
+                String item = it.next().toString();                
                 Iterator jt = bridge.listPropertyValue(item, "implPlanHasValue");
                 
                 while (jt.hasNext()) {
@@ -60,14 +62,46 @@ public class OwlReader {
         
         return null;
     }
+    
+    /**
+     * Метод записи в файл.
+     * @param list Список элементов класса онтологии.
+     * @param out Поток вывода.
+     */
+    private static void toFile (ArrayList list, BufferedWriter out) {
+        
+        try {
+            Gson gson = new Gson();
+            String str = gson.toJson(list);
+            
+            out.write(str);
+            out.newLine();
+            out.flush();
+        } catch (IOException ex) {
+            Logger.getLogger(OwlReader.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     /**
      * Главная функция приложения
      * @param args Аргументы коммандной строки.
      */
     public static void main(String[] args) {
-        
-        OwlReader.getImplPlan(); // Чтение выполнения плана.
+       
+        BufferedWriter out = null;
+        try {
+            out = new BufferedWriter(new FileWriter("r.txt"));
+            toFile(OwlReader.getImplPlan(), out); // Чтение выполнения плана.
+            out.close();
+        } catch (IOException ex) {
+            Logger.getLogger(OwlReader.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                out.close();
+            } catch (IOException ex) {
+                Logger.getLogger(OwlReader.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
     
 }
