@@ -8,4 +8,10 @@ package owlreader.model;
  */
 public class OwlCaseParam {
     
+    /* Поля класса. */
+    /** URI параметра в онтологии. */
+    private String uri;
+    /** Значение параметра в онтологии. */
+    private String value;
+    
 }
