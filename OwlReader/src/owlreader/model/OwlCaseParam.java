@@ -1,6 +1,8 @@
 
 package owlreader.model;
 
+import com.google.gson.Gson;
+
 /**
  * Класс параметра case в owl.
  * @author M. Navrotskiy
@@ -13,6 +15,15 @@ public class OwlCaseParam {
     private String uri;
     /** Значение параметра в онтологии. */
     private String value;
+
+    /**
+     * Метод преобразования объекта класса в JSON строку.
+     * @return Объект класса в виде JSON строки.
+     */
+    @Override
+    public String toString() {
+        return (new Gson()).toJson(this);
+    }
 
     /**
      * Метод изменения значения параметра в онтологии.
