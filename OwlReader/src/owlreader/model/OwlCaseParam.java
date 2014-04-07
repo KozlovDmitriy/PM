@@ -15,6 +15,38 @@ public class OwlCaseParam {
     private String value;
 
     /**
+     * Метод изменения значения параметра в онтологии.
+     * @param value Новое значение параметра в онтологии.
+     */
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    /**
+     * Метод изменения значения URI параметра в онтологии.
+     * @param uri Новое значение URI параметра в онтологии.
+     */
+    public void setUri(String uri) {
+        this.uri = uri;
+    }
+
+    /**
+     * Метод получения значения параметра в онтологии.
+     * @return Значение параметра в онтологии.
+     */
+    public String getValue() {
+        return value;
+    }
+
+    /**
+     * Метод получения значения URI параметра в онтологии.
+     * @return Значение URI параметра в онтологии.
+     */
+    public String getUri() {
+        return uri;
+    }
+
+    /**
      * Конструктор по умолчанию.
      */
     public OwlCaseParam() {
