@@ -14,15 +14,18 @@
       .form-group
         %label{:for => 'av_check'} Значение среднего чека
         %select#av_check.form-control
-          %option AvCheck_58
+          - @params[:av_check].each do |a|
+            %option{:value => a['uri']}= a['value']
       .form-group
         %label{:for => 'items_count'} Количество позиций в чеке
         %select#items_count.form-control
-          %option ItemsCount_20
+          - @params[:items_count].each do |i|
+            %option{:value => i['uri']}= i['value']
       .form-group
         %label{:for => 'total_checks_count'} Общее количество чеков
         %select#total_checks_count.form-control
-          %option TotalChecksCount_112
+          - @params[:total_checks_count].each do |t|
+            %option{:value => t['uri']}= t['value']
       .form-group
         %label{:for => 'problems'} Проблемы
         %ul#problems.list-group

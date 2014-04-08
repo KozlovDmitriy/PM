@@ -116,6 +116,12 @@ public class HttpConnect extends Thread {
             this.readProblems(br, pw);
         } else if (request.equals(Integer.toString(HttpConnect.IMPL_PLAN))) {
             this.getParam("ImplPlan", "ImplPlan", pw);
+        } else if (request.equals(Integer.toString(HttpConnect.AV_CHECK))) {
+            this.getParam("AvCheck", "avCheckHasValue", pw);
+        } else if (request.equals(Integer.toString(HttpConnect.ITEMS_COUNT))) {
+            this.getParam("ItemsCount", "itemsCountHasValue", pw);
+        } else if (request.equals(Integer.toString(HttpConnect.TOTAL_CHECKS_COUNT))) {
+            this.getParam("TotalChecksCount", "totalChecksCountHasValue", pw);
         }
     }
         
