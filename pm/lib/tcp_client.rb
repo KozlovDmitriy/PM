@@ -46,12 +46,7 @@ class TcpClient
   def impl_plan
     raise 'Connection already closed!' if @is_close
     log 'Get all values of impl. plan start'
-    @socket.puts IMPL_PLAN
-    response = @socket.readline
-    require 'json'
-    hash = JSON.parse response
-    log 'Get all values of impl. plan end'
-    hash
+    hash = read_param IMPL_PLAN
   end
 
   # Конструктор.
