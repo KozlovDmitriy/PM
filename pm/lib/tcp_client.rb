@@ -34,6 +34,13 @@ class TcpClient
   # Запрос на получение общего числа чеков.
   TOTAL_CHECKS_COUNT = 0x13
 
+  #def av_check
+  #  raise 'Connection already closed!' if @is_close
+  #  log 'Get all values of av. check start'
+  #  @socket.puts AV_CHECK
+  #  log 'Get all values of av. check end'
+  #end
+
   # Метод получения всех значений выполнения плана из онтологии.
   # @return [Array] - массив хешей из значения и uri параметра в онтологии.
   def impl_plan
@@ -114,6 +121,16 @@ class TcpClient
   # Закрытый метод ведения лога.
   def log message
     File.open("#{Rails.root}/log/rails_client.log", 'a') {|file| file.write "#{Time.now}: #{message}\n" }
+  end
+
+  # Закрытый метод чтения параметра из owl.
+  # @param const [int] - Константа тип считываемого параметра.
+  # @return [Array] - все значения параметра из онтологии.
+  def read_param const
+    @socket.puts const
+    response = @socket.readline
+    require 'json'
+    hash = JSON.parse response
   end
 
 end
