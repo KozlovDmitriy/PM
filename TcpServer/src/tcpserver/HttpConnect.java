@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import owlreader.OwlReader;
 import simplecbrapp.cbr.problems.ProblemCbrApplication;
 import simplecbrapp.cbr.solutions.SolutionCbrApplication;
 
@@ -71,6 +72,17 @@ public class HttpConnect extends Thread {
         } catch (IOException ex) {
             Logger.getLogger(HttpConnect.class.getName()).log(Level.SEVERE, null, ex);
         }    
+    }
+    
+    /**
+     * Метод чтения параметра из онтологии.
+     * @param className Имя класса параметра.
+     * @param propertyName Свойство значения параметра.
+     * @param pw Канал записи.
+     */
+    public void getParam (String className, String propertyName, PrintWriter pw) {
+        
+        OwlReader.toFile(OwlReader.getParamByName(className, propertyName), new BufferedWriter(pw));
     }
 
     /**

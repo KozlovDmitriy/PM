@@ -27,7 +27,7 @@ public class OwlReader {
      * @param propertyName Имя свойства класса, которое хранит значения.
      * @return Список всех объектов класса.
      */
-    private static ArrayList getParamByName (String className, String propertyName) {
+    public static ArrayList getParamByName (String className, String propertyName) {
         try {
             OntologyConnector connector = new OntologyConnector();
             connector.initFromXMLfile(FileIO.findFile("configurate.xml"));
@@ -69,7 +69,7 @@ public class OwlReader {
      * @param list Список элементов класса онтологии.
      * @param out Поток вывода.
      */
-    private static void toFile (ArrayList list, BufferedWriter out) {
+    public static void toFile (ArrayList list, BufferedWriter out) {
         
         try {
             Gson gson = new Gson();
