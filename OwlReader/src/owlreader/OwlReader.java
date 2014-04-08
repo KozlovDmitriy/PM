@@ -23,22 +23,24 @@ import owlreader.model.OwlCaseParam;
 public class OwlReader {
     
     /**
-     * Функция чтения выполнения плана из онтологии.
+     * Файл чтения параметра из онтологии.
+     * @param className Имя класса в онтологии.
+     * @param propertyName Имя свойства класса, которое хранит значения.
      * @return Список всех объектов класса.
      */
-    private static ArrayList getImplPlan() {
+    private static ArrayList getParamByName (String className, String propertyName) {
         try {
             OntologyConnector connector = new OntologyConnector();
             connector.initFromXMLfile(FileIO.findFile("configurate.xml"));
             String[] result = null;        
             ArrayList list = new ArrayList();
             OntoBridge bridge = OntoBridgeSingleton.getOntoBridge();
-            Iterator it = bridge.listInstances("ImplPlan");
+            Iterator it = bridge.listInstances(className);
             
             while (it.hasNext()) {
                 
                 String item = it.next().toString();                
-                Iterator jt = bridge.listPropertyValue(item, "implPlanHasValue");
+                Iterator jt = bridge.listPropertyValue(item, propertyName);
                 
                 while (jt.hasNext()) {
                     
@@ -91,7 +93,7 @@ public class OwlReader {
         BufferedWriter out = null;
         try {
             out = new BufferedWriter(new FileWriter("r.txt"));
-            toFile(OwlReader.getImplPlan(), out); // Чтение выполнения плана.
+            toFile(OwlReader.getParamByName("ImplPlan", "implPlanHasValue"), out); // Чтение выполнения плана.
             out.close();
         } catch (IOException ex) {
             Logger.getLogger(OwlReader.class.getName()).log(Level.SEVERE, null, ex);
