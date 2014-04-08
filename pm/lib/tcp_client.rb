@@ -34,6 +34,18 @@ class TcpClient
   # Запрос на получение общего числа чеков.
   TOTAL_CHECKS_COUNT = 0x13
 
+  # Метод получения всех значений количества позиций в чеке в онтологии.
+  # @return [Array] - массив хешей из значения и uri параметра в онтологии.
+  def items_count
+    raise 'Connection already closed!' if @is_close
+    log 'Get all values of items count start'
+    hash = read_param ITEMS_COUNT
+    log 'Get all values of items count end'
+    hash
+  end
+
+  # Метод получения всех значений среднего чека из онтологии.
+  # @return [Array] - массив хешей из значения и uri параметра в онтологии.
   def av_check
     raise 'Connection already closed!' if @is_close
     log 'Get all values of av. check start'
