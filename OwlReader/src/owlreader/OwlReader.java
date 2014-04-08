@@ -94,6 +94,9 @@ public class OwlReader {
         try {
             out = new BufferedWriter(new FileWriter("r.txt"));
             toFile(OwlReader.getParamByName("ImplPlan", "implPlanHasValue"), out); // Чтение выполнения плана.
+            OwlReader.toFile(OwlReader.getParamByName("AvCheck", "avCheckHasValue"), out); // Чтение значения средненго чека.
+            OwlReader.toFile(OwlReader.getParamByName("ItemsCount", "itemsCountHasValue"), out); // Чтение количества позиций в чеке.
+            OwlReader.toFile(OwlReader.getParamByName("TotalChecksCount", "totalChecksCountHasValue"), out); // Чтение количества чеков.
             out.close();
         } catch (IOException ex) {
             Logger.getLogger(OwlReader.class.getName()).log(Level.SEVERE, null, ex);
