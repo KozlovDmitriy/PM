@@ -34,6 +34,19 @@ class TcpClient
   # Запрос на получение общего числа чеков.
   TOTAL_CHECKS_COUNT = 0x13
 
+  # Метод получения всех значений выполнения плана из онтологии.
+  # @return [Array] - массив хешей из значения и uri параметра в онтологии.
+  def impl_plan
+    raise 'Connection already closed!' if @is_close
+    log 'Get all values of impl. plan start'
+    @socket.puts IMPL_PLAN
+    response = @socket.readline
+    require 'json'
+    hash = JSON.parse response
+    log 'Get all values of impl. plan end'
+    hash
+  end
+
   # Конструктор.
   def initialize port, host
     @host, @port = host, port
