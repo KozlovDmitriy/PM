@@ -48,6 +48,14 @@ public class HttpConnect extends Thread {
     public static final int RESPONSE_SOLUTION_BLOCK_START = 0x08;
     /** Конец блока ответа в виде множества рекомендаций. */
     public static final int RESPONSE_SOLUTION_BLOCK_END = 0x09;
+    /** Запрос на получение всех значений выполнения индивидуального плана. */
+    public static final int IMPL_PLAN = 0x10;
+    /** Запрос на получение всех значений среднего чека. */
+    public static final int AV_CHECK = 0x11;
+    /** Запрос на получение всех значений количества позиций в чеке. */
+    public static final int ITEMS_COUNT = 0x12;
+    /** Запрос на получение общего числа чеков. */
+    public static final int TOTAL_CHECKS_COUNT = 0x13;
     
     /**
      * Метод ведения лога.
