@@ -34,12 +34,13 @@ class TcpClient
   # Запрос на получение общего числа чеков.
   TOTAL_CHECKS_COUNT = 0x13
 
-  #def av_check
-  #  raise 'Connection already closed!' if @is_close
-  #  log 'Get all values of av. check start'
-  #  @socket.puts AV_CHECK
-  #  log 'Get all values of av. check end'
-  #end
+  def av_check
+    raise 'Connection already closed!' if @is_close
+    log 'Get all values of av. check start'
+    hash = read_param AV_CHECK
+    log 'Get all values of av. check end'
+    hash
+  end
 
   # Метод получения всех значений выполнения плана из онтологии.
   # @return [Array] - массив хешей из значения и uri параметра в онтологии.
@@ -47,6 +48,8 @@ class TcpClient
     raise 'Connection already closed!' if @is_close
     log 'Get all values of impl. plan start'
     hash = read_param IMPL_PLAN
+    log 'Get all values of impl. plan end'
+    hash
   end
 
   # Конструктор.
