@@ -9,7 +9,8 @@
       .form-group
         %label{:for => 'impl_plan'} Выполнение плана
         %select.form-control{:id => 'impl_plan'}
-          %option ImplPlan_24
+          - @params[:impl_plan].each do |p|
+            %option{:value => p['uri']}= p['value']
       .form-group
         %label{:for => 'av_check'} Значение среднего чека
         %select#av_check.form-control

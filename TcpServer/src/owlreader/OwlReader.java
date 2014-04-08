@@ -51,8 +51,10 @@ public class OwlReader {
                         string = string.substring(0, string.indexOf("@"));
                     }
                     
-                    OwlCaseParam param = new OwlCaseParam(item, string);
-                    list.add(param);
+                    if (string.matches("^[0-9]+-[0-9]+")) {
+                        OwlCaseParam param = new OwlCaseParam(item, string);
+                        list.add(param);
+                    }
                 }
             }
             

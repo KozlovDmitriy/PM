@@ -82,7 +82,9 @@ public class HttpConnect extends Thread {
      */
     public void getParam (String className, String propertyName, PrintWriter pw) {
         
+        this.log("read param " + className + " strart");
         OwlReader.toFile(OwlReader.getParamByName(className, propertyName), new BufferedWriter(pw));
+        this.log("read param " + className + " end");
     }
 
     /**
@@ -112,6 +114,8 @@ public class HttpConnect extends Thread {
             this.readParams(br, pw);
         } else if (request.equals(Integer.toString(HttpConnect.PROBLEM_BLOCK_START))) {
             this.readProblems(br, pw);
+        } else if (request.equals(Integer.toString(HttpConnect.IMPL_PLAN))) {
+            this.getParam("ImplPlan", "ImplPlan", pw);
         }
     }
         
@@ -168,17 +172,13 @@ public class HttpConnect extends Thread {
      */
     private void sendProblems(PrintWriter pw, String[] ps) throws IOException {
         String[] problems = ps;
-//        DataOutputStream out = new DataOutputStream(this.socket.getOutputStream());
         this.log("start write problems");
         pw.println(HttpConnect.RESPONSE_PROBLEM_BLOCK_START);
-//        out.writeUTF(Integer.toString(HttpConnect.RESPONSE_PROBLEM_BLOCK_START));
         for (String item : problems) {
             pw.println(item);
-//            out.writeUTF(item);
             this.log("write " + item);
         }
         pw.println(HttpConnect.RESPONSE_PROBLEM_BLOCK_END);
-//        out.writeUTF(Integer.toString(HttpConnect.RESPONSE_PROBLEM_BLOCK_END));
         this.log("end write problems");
         pw.flush();
     }

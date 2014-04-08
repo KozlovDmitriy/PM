@@ -70,6 +70,7 @@ class TcpClient
     raise 'Connection already closed!' if @is_close
     log 'Get all values of impl. plan start'
     hash = read_param IMPL_PLAN
+    File.open('debug.txt', 'w') {|file| file.write hash.to_yaml}
     log 'Get all values of impl. plan end'
     hash
   end
