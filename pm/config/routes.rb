@@ -1,5 +1,6 @@
 Pm::Application.routes.draw do
   get "analysis_controller/index"
+  post '/analyse/problems.json' => 'analysis_controller#analyse_problems'
   resources :input_data_items
 
   resources :input_data
