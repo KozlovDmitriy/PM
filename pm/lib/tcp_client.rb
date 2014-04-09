@@ -115,13 +115,14 @@ class TcpClient
     end
 
     log 'Analise params end!'
-    result
+    {:uri => result.shift, :value => result}
   end
 
   # Метод проведения поиска рекомендаций.
   def analise_problems problems_hash
     raise 'Connection already closed' if @is_close
     log 'Analise problems start!'
+    result = []
     @socket.puts PROBLEM_BLOCK_START
     problems_hash.each { |item| @socket.puts item[:value]; log "write param #{item[:name]}" }
     @socket.puts PROBLEM_BLOCK_END
@@ -131,7 +132,9 @@ class TcpClient
 
     if response.to_i == RESPONSE_SOLUTION_BLOCK_START
       log 'Read solutions start!'
+      response = @socket.gets
       until response.to_i == RESPONSE_SOLUTION_BLOCK_END
+        result.push response
         response = @socket.gets
         log "Read value: #{response}"
       end
@@ -139,6 +142,7 @@ class TcpClient
     end
 
     log 'Analise problems end!'
+    {:uri => result.shift, :value => result}
   end
 
   private

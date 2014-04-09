@@ -196,6 +196,7 @@ public class SolutionCbrApplication implements StandardCBRApplication {
         String[] result = null;
         
         ArrayList list = new ArrayList();
+        list.add(uri);
         OntoBridge bridge = OntoBridgeSingleton.getOntoBridge();
         Iterator it = bridge.listPropertyValue(uri, "simpleConclusionHasText");
         

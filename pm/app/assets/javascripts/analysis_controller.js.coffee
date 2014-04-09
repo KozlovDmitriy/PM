@@ -23,7 +23,21 @@ jQuery(document).ready ->
     ).done (response) ->
       console.log(response)
       jQuery('#problems').html('')
-      for item in response
+      jQuery('#problems_uri').val(response.uri)
+      for item in response.value
         jQuery('#problems').append("<li class='list-group-item-warning'>#{item}</li>")
+
+      problems =
+        problems: response.uri
+      jQuery.ajax(
+        url: '/analyse/solutions.json'
+        type: 'POST'
+        data: problems
+        dataType: 'json'
+      ).done (result) ->
+        console.log(result)
+        jQuery('#solutions').html('')
+        for item in result.value
+          jQuery('#solutions').append "<li class='list-group-item-danger'>#{item}</li>"
 
     false

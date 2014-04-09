@@ -21,4 +21,14 @@ class AnalysisControllerController < ApplicationController
     render :json => problems
   end
 
+  # POST /analyse/solutions.json
+  def analyse_solution
+    require_relative '../../lib/tcp_client'
+    client = TcpClient.new 50125, 'localhost'
+
+    solutions = client.analise_problems [:name => params[:problems], :value => params[:problems]]
+    client.close
+    render :json => solutions
+  end
+
 end

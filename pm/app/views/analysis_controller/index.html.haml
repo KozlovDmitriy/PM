@@ -28,6 +28,7 @@
             %option{:value => t['uri']}= t['value']
       .form-group
         %label{:for => 'problems'} Проблемы
+        %input#problems_uri{:type => 'hidden', :value => ''}
         %ul#problems.list-group
           %li.list-group-item-warning Cras justo odio
           %li.list-group-item-warning Dapibus ac facilisis in
