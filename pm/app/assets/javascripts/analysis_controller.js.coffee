@@ -39,6 +39,4 @@ jQuery(document).ready ->
         jQuery('#solutions').html('')
         for item in result.value
           jQuery('#solutions').append "<li class='list-group-item-danger'>#{item}</li>"
-
     false
-
