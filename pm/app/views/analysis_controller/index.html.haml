@@ -1,5 +1,6 @@
 
 .blog-header
+<<<<<<< HEAD
   %h1 Список всех анализов
   = title 'Список всех анализов'
 
@@ -9,3 +10,47 @@
       %th Дата, когда данные для анализа были введены
       %th Состояние анализа
       %th
+=======
+  %h1 Анализ работы консультантов
+  = title 'Анализ работы консультантов'
+
+.row
+  .col-md-6.col-md-offset-2
+    %form{:role => 'form'}
+      .form-group
+        %label{:for => 'impl_plan'} Выполнение плана
+        %select.form-control{:id => 'impl_plan'}
+          - @params[:impl_plan].each do |p|
+            %option{:value => p['uri']}= p['value']
+      .form-group
+        %label{:for => 'av_check'} Значение среднего чека
+        %select#av_check.form-control
+          - @params[:av_check].each do |a|
+            %option{:value => a['uri']}= a['value']
+      .form-group
+        %label{:for => 'items_count'} Количество позиций в чеке
+        %select#items_count.form-control
+          - @params[:items_count].each do |i|
+            %option{:value => i['uri']}= i['value']
+      .form-group
+        %label{:for => 'total_checks_count'} Общее количество чеков
+        %select#total_checks_count.form-control
+          - @params[:total_checks_count].each do |t|
+            %option{:value => t['uri']}= t['value']
+      .form-group
+        %label{:for => 'problems'} Проблемы
+        %input#problems_uri{:type => 'hidden', :value => ''}
+        %ul#problems.list-group
+          %li.list-group-item-warning Cras justo odio
+          %li.list-group-item-warning Dapibus ac facilisis in
+          %li.list-group-item-warning Morbi leo risus
+          %li.list-group-item-warning Porta ac consectetur ac
+          %li.list-group-item-warning Vestibulum at eros
+      .form-group
+        %label{:for => 'solutions'} Рекомендации
+        %ul#solutions.list-group
+          %li.list-group-item-danger Donec id elit non mi porta gravida at eget metus.
+          %li.list-group-item-danger Maecenas sed diam eget risus varius blandit.
+      .form-group
+        %button.btn.btn-primary#do_analyse Провести анализ
+>>>>>>> tcp-server

@@ -1,0 +1,1982 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:bp="http://bioportal.bioontology.org#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://www.owl-ontologies.com/PersonalManagement.owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.owl-ontologies.com/PersonalManagement.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Analisys"/>
+  <owl:Class rdf:ID="MLeave"/>
+  <owl:Class rdf:ID="ItemsCount"/>
+  <owl:Class rdf:ID="Personal"/>
+  <owl:Class rdf:ID="TotalChecksCount"/>
+  <owl:Class rdf:ID="ComplexConclusion">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Conclusion"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ExternalReference"/>
+  <owl:Class rdf:ID="Dismissal"/>
+  <owl:Class rdf:ID="Problem"/>
+  <owl:Class rdf:ID="Consultant"/>
+  <owl:Class rdf:ID="ImplPlan"/>
+  <owl:Class rdf:ID="CaseBase"/>
+  <owl:Class rdf:ID="AvCheck"/>
+  <owl:Class rdf:ID="LittleWork"/>
+  <owl:Class rdf:ID="InHospital"/>
+  <owl:Class rdf:ID="SimpleConclusion">
+    <rdfs:subClassOf rdf:resource="#Conclusion"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ComplexProblem">
+    <rdfs:subClassOf rdf:resource="#Problem"/>
+  </owl:Class>
+  <owl:Class rdf:ID="OnVacation"/>
+  <owl:Class rdf:ID="AnalysIstem"/>
+  <owl:Class rdf:ID="SimpleProblem">
+    <rdfs:subClassOf rdf:resource="#Problem"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="caseBaseLittleWork">
+    <rdfs:domain rdf:resource="#CaseBase"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#LittleWork"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="analysisitem_consultant">
+    <rdfs:domain rdf:resource="#AnalysIstem"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#Consultant"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="caseBaseHasItemsCount">
+    <rdfs:range rdf:resource="#ItemsCount"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#CaseBase"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="caseBaseInHospital">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#InHospital"/>
+    <rdfs:domain rdf:resource="#CaseBase"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="caseBaseHasDismissal">
+    <rdfs:domain rdf:resource="#CaseBase"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#Dismissal"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="ai_solutions">
+    <rdfs:domain rdf:resource="#AnalysIstem"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#Conclusion"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="caseBaseTotalChecksCount">
+    <rdfs:domain rdf:resource="#CaseBase"/>
+    <rdfs:range rdf:resource="#TotalChecksCount"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="caseBaseHasConclusions">
+    <rdfs:range rdf:resource="#Conclusion"/>
+    <rdfs:domain rdf:resource="#CaseBase"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="analysis_items">
+    <rdfs:range rdf:resource="#AnalysIstem"/>
+    <rdfs:domain rdf:resource="#Analisys"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="ai_problems">
+    <rdfs:domain rdf:resource="#AnalysIstem"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#Problem"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="caseBaseHasMLeave">
+    <rdfs:domain rdf:resource="#CaseBase"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#MLeave"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="caseBaseHasOnVacation">
+    <rdfs:domain rdf:resource="#CaseBase"/>
+    <rdfs:range rdf:resource="#OnVacation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="caseBaseHasAvCheck">
+    <rdfs:domain rdf:resource="#CaseBase"/>
+    <rdfs:range rdf:resource="#AvCheck"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="caseBaseHasProblems">
+    <rdfs:range rdf:resource="#Problem"/>
+    <rdfs:domain rdf:resource="#CaseBase"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="caseBaseHasImplPlan">
+    <rdfs:range rdf:resource="#ImplPlan"/>
+    <rdfs:domain rdf:resource="#CaseBase"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="analisys_date">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Analisys"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="inHospitalHasValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#InHospital"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="dismissalHasValue">
+    <rdfs:domain rdf:resource="#Dismissal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="itemsCountHasValue">
+    <rdfs:domain rdf:resource="#ItemsCount"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="simpleConclusionHasText">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Conclusion"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="onVacationHasValue">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#OnVacation"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="cons_sname">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Consultant"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="simpleProblemHasText">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Problem"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="cons_family">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Consultant"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="avCheckHasValue">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#AvCheck"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="ai_indPlan">
+    <rdfs:domain rdf:resource="#AnalysIstem"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="mLeaveHasValue">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#MLeave"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="problem_id">
+    <rdfs:domain rdf:resource="#Problem"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="totalChecksCountHasValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#TotalChecksCount"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="littleWorkHasValue">
+    <rdfs:domain rdf:resource="#LittleWork"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="cons_name">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Consultant"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="cons_id">
+    <rdfs:domain rdf:resource="#Consultant"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="conclusion_id">
+    <rdfs:domain rdf:resource="#Conclusion"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:ID="ai_avCheck">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#AnalysIstem"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="implPlanHasValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#ImplPlan"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="PersonalHasName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Personal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="ai_itemsCount">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#AnalysIstem"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="cb_avcheck">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#CaseBase"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="ai_totalCheckCount">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#AnalysIstem"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="ai_impPlanPS">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#AnalysIstem"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="ai_impPlan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#AnalysIstem"/>
+  </owl:FunctionalProperty>
+  <ImplPlan rdf:ID="ImplPlan_51">
+    <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >201</implPlanHasValue>
+  </ImplPlan>
+  <CaseBase rdf:ID="CaseBase_13">
+    <caseBaseHasMLeave>
+      <MLeave rdf:ID="MLeave_87">
+        <mLeaveHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >NO</mLeaveHasValue>
+      </MLeave>
+    </caseBaseHasMLeave>
+    <caseBaseTotalChecksCount>
+      <TotalChecksCount rdf:ID="TotalChecksCount_108">
+        <totalChecksCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >161-170</totalChecksCountHasValue>
+      </TotalChecksCount>
+    </caseBaseTotalChecksCount>
+    <caseBaseHasAvCheck>
+      <AvCheck rdf:ID="AvCheck_51">
+        <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >1601-1700</avCheckHasValue>
+      </AvCheck>
+    </caseBaseHasAvCheck>
+    <caseBaseInHospital>
+      <InHospital rdf:ID="InHospital_81">
+        <inHospitalHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >NO</inHospitalHasValue>
+      </InHospital>
+    </caseBaseInHospital>
+    <caseBaseHasProblems>
+      <ComplexProblem rdf:ID="BCDEFG">
+        <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >10</problem_id>
+        <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Низкие продажи собственной марки#Низкие продажи эксклюзивных марок#Низкий индивидуальный план#Низкий средний чек#Низкое количество позиций в чеке#Низкое участие в акциях</simpleProblemHasText>
+      </ComplexProblem>
+    </caseBaseHasProblems>
+    <caseBaseLittleWork>
+      <LittleWork rdf:ID="LittleWork_84">
+        <littleWorkHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >NO</littleWorkHasValue>
+      </LittleWork>
+    </caseBaseLittleWork>
+    <caseBaseHasOnVacation>
+      <OnVacation rdf:ID="OnVacation_90">
+        <onVacationHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >NO</onVacationHasValue>
+      </OnVacation>
+    </caseBaseHasOnVacation>
+    <caseBaseHasImplPlan>
+      <ImplPlan rdf:ID="ImplPlan_18">
+        <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >71-75</implPlanHasValue>
+      </ImplPlan>
+    </caseBaseHasImplPlan>
+    <caseBaseHasDismissal>
+      <Dismissal rdf:ID="Dismissal_78">
+        <dismissalHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >NO</dismissalHasValue>
+      </Dismissal>
+    </caseBaseHasDismissal>
+    <caseBaseHasItemsCount>
+      <ItemsCount rdf:ID="ItemsCount_22">
+        <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >3.0</itemsCountHasValue>
+      </ItemsCount>
+    </caseBaseHasItemsCount>
+    <caseBaseHasConclusions>
+      <ComplexConclusion rdf:ID="_DHLOP">
+        <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Выявление потребностей покупателя#Мини-тренинг выгоды текущей акции#Мини-тренинг стандарты сети#Направить на продажу люксовых марок#Направить на продажу экс брендов</simpleConclusionHasText>
+        <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >28</conclusion_id>
+      </ComplexConclusion>
+    </caseBaseHasConclusions>
+  </CaseBase>
+  <CaseBase rdf:ID="CaseBase_15">
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseHasProblems>
+      <SimpleProblem rdf:ID="H">
+        <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >7</problem_id>
+        <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Проблемы нет</simpleProblemHasText>
+      </SimpleProblem>
+    </caseBaseHasProblems>
+    <caseBaseLittleWork>
+      <LittleWork rdf:ID="LittleWork_83">
+        <littleWorkHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >YES</littleWorkHasValue>
+      </LittleWork>
+    </caseBaseLittleWork>
+    <caseBaseTotalChecksCount>
+      <TotalChecksCount rdf:ID="TotalChecksCount_94">
+        <totalChecksCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >21-30</totalChecksCountHasValue>
+      </TotalChecksCount>
+    </caseBaseTotalChecksCount>
+    <caseBaseHasImplPlan>
+      <ImplPlan rdf:ID="ImplPlan_15">
+        <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >56-60</implPlanHasValue>
+      </ImplPlan>
+    </caseBaseHasImplPlan>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseHasAvCheck>
+      <AvCheck rdf:ID="AvCheck_73">
+        <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >3801-3900</avCheckHasValue>
+      </AvCheck>
+    </caseBaseHasAvCheck>
+    <caseBaseHasConclusions>
+      <SimpleConclusion rdf:ID="_Q">
+        <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Нет</simpleConclusionHasText>
+        <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >16</conclusion_id>
+      </SimpleConclusion>
+    </caseBaseHasConclusions>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseHasItemsCount>
+      <ItemsCount rdf:ID="ItemsCount_30">
+        <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >3.8</itemsCountHasValue>
+      </ItemsCount>
+    </caseBaseHasItemsCount>
+  </CaseBase>
+  <CaseBase rdf:ID="CaseBase_29">
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseHasImplPlan>
+      <ImplPlan rdf:ID="ImplPlan_19">
+        <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >76-80</implPlanHasValue>
+      </ImplPlan>
+    </caseBaseHasImplPlan>
+    <caseBaseHasItemsCount>
+      <ItemsCount rdf:ID="ItemsCount_29">
+        <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >3.7</itemsCountHasValue>
+      </ItemsCount>
+    </caseBaseHasItemsCount>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseHasProblems>
+      <ComplexProblem rdf:ID="DI">
+        <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Низкий индивидуальный план#Низкое количество чеков</simpleProblemHasText>
+        <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >29</problem_id>
+      </ComplexProblem>
+    </caseBaseHasProblems>
+    <caseBaseHasConclusions>
+      <ComplexConclusion rdf:ID="_MOP">
+        <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >39</conclusion_id>
+        <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Мини-тренинг экс марки#Направить на продажу люксовых марок#Направить на продажу экс брендов</simpleConclusionHasText>
+      </ComplexConclusion>
+    </caseBaseHasConclusions>
+    <caseBaseTotalChecksCount>
+      <TotalChecksCount rdf:ID="TotalChecksCount_112">
+        <totalChecksCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >201</totalChecksCountHasValue>
+      </TotalChecksCount>
+    </caseBaseTotalChecksCount>
+    <caseBaseHasAvCheck>
+      <AvCheck rdf:ID="AvCheck_68">
+        <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >3301-3400</avCheckHasValue>
+      </AvCheck>
+    </caseBaseHasAvCheck>
+  </CaseBase>
+  <ItemsCount rdf:ID="ItemsCount_5">
+    <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1.3</itemsCountHasValue>
+  </ItemsCount>
+  <SimpleConclusion rdf:ID="_F">
+    <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ежедневный план собственная марка</simpleConclusionHasText>
+    <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >5</conclusion_id>
+  </SimpleConclusion>
+  <ItemsCount rdf:ID="ItemsCount_18">
+    <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >2.6</itemsCountHasValue>
+  </ItemsCount>
+  <Personal rdf:ID="Personal_5">
+    <PersonalHasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Консультант 2</PersonalHasName>
+  </Personal>
+  <TotalChecksCount rdf:ID="TotalChecksCount_98">
+    <totalChecksCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >61-70</totalChecksCountHasValue>
+  </TotalChecksCount>
+  <ImplPlan rdf:ID="ImplPlan_38">
+    <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >171-175</implPlanHasValue>
+  </ImplPlan>
+  <CaseBase rdf:ID="CaseBase_12">
+    <caseBaseHasImplPlan>
+      <ImplPlan rdf:ID="ImplPlan_16">
+        <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >61-65</implPlanHasValue>
+      </ImplPlan>
+    </caseBaseHasImplPlan>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseHasAvCheck>
+      <AvCheck rdf:ID="AvCheck_57">
+        <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >2201-2300</avCheckHasValue>
+      </AvCheck>
+    </caseBaseHasAvCheck>
+    <caseBaseHasConclusions>
+      <SimpleConclusion rdf:ID="_I">
+        <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Мини-тренинг дополнительные продажи</simpleConclusionHasText>
+        <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >8</conclusion_id>
+      </SimpleConclusion>
+    </caseBaseHasConclusions>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseTotalChecksCount>
+      <TotalChecksCount rdf:ID="TotalChecksCount_103">
+        <totalChecksCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >111-120</totalChecksCountHasValue>
+      </TotalChecksCount>
+    </caseBaseTotalChecksCount>
+    <caseBaseHasItemsCount>
+      <ItemsCount rdf:ID="ItemsCount_34">
+        <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >4.2</itemsCountHasValue>
+      </ItemsCount>
+    </caseBaseHasItemsCount>
+    <caseBaseHasProblems>
+      <ComplexProblem rdf:ID="BCDI">
+        <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >14</problem_id>
+        <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Низкие продажи собственной марки#Низкие продажи эксклюзивных марок#Низкий индивидуальный план#Низкое количество чеков
+\</simpleProblemHasText>
+      </ComplexProblem>
+    </caseBaseHasProblems>
+  </CaseBase>
+  <CaseBase rdf:ID="CaseBase_14">
+    <caseBaseHasItemsCount>
+      <ItemsCount rdf:ID="ItemsCount_21">
+        <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >2.9</itemsCountHasValue>
+      </ItemsCount>
+    </caseBaseHasItemsCount>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseHasImplPlan>
+      <ImplPlan rdf:ID="ImplPlan_12">
+        <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >41-45</implPlanHasValue>
+      </ImplPlan>
+    </caseBaseHasImplPlan>
+    <caseBaseHasProblems>
+      <ComplexProblem rdf:ID="BCDEG">
+        <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >11</problem_id>
+        <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Низкие продажи собственной марки#Низкие продажи эксклюзивных марок#Низкий индивидуальный план#Низкий средний чек#Низкое участие в акциях</simpleProblemHasText>
+      </ComplexProblem>
+    </caseBaseHasProblems>
+    <caseBaseHasAvCheck>
+      <AvCheck rdf:ID="AvCheck_64">
+        <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >2901-3000</avCheckHasValue>
+      </AvCheck>
+    </caseBaseHasAvCheck>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseTotalChecksCount>
+      <TotalChecksCount rdf:ID="TotalChecksCount_105">
+        <totalChecksCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >131-140</totalChecksCountHasValue>
+      </TotalChecksCount>
+    </caseBaseTotalChecksCount>
+    <caseBaseHasConclusions>
+      <ComplexConclusion rdf:ID="_DHIJ">
+        <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >25</conclusion_id>
+        <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Выявления потребностей покупателя#Мини-тренинг выгоды текущей акции#Мини-тренинг дополнительные продажи#Мини-тренинг повышение среднего чека</simpleConclusionHasText>
+      </ComplexConclusion>
+    </caseBaseHasConclusions>
+  </CaseBase>
+  <Analisys rdf:ID="Analisys_1">
+    <analysis_items>
+      <AnalysIstem rdf:ID="AnalysIstem_1">
+        <ai_impPlan rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >100</ai_impPlan>
+        <ai_solutions>
+          <ComplexConclusion rdf:ID="_CI">
+            <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >23</conclusion_id>
+            <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Штраф#Мини-тренинг дополнительные продажи</simpleConclusionHasText>
+          </ComplexConclusion>
+        </ai_solutions>
+        <ai_itemsCount rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >600.0</ai_itemsCount>
+        <analysisitem_consultant>
+          <Consultant rdf:ID="Consultant_1">
+            <cons_sname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Александрович</cons_sname>
+            <cons_family rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Навроцкий</cons_family>
+            <cons_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</cons_id>
+            <cons_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Михаил</cons_name>
+          </Consultant>
+        </analysisitem_consultant>
+        <ai_totalCheckCount rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >300</ai_totalCheckCount>
+        <ai_impPlanPS rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >200</ai_impPlanPS>
+        <ai_avCheck rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >400.0</ai_avCheck>
+        <ai_indPlan rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >500.0</ai_indPlan>
+        <ai_problems>
+          <ComplexProblem rdf:ID="BCDE">
+            <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >9</problem_id>
+            <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Низкие продажи собственной марки#Низкие продажи эксклюзивных марок#Низкий индивидуальный план#Низкий средний чек</simpleProblemHasText>
+          </ComplexProblem>
+        </ai_problems>
+      </AnalysIstem>
+    </analysis_items>
+    <analisys_date rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2013-06-01</analisys_date>
+  </Analisys>
+  <CaseBase rdf:ID="CaseBase_28">
+    <caseBaseHasImplPlan rdf:resource="#ImplPlan_19"/>
+    <caseBaseHasAvCheck>
+      <AvCheck rdf:ID="AvCheck_74">
+        <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >3901-4000</avCheckHasValue>
+      </AvCheck>
+    </caseBaseHasAvCheck>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseHasProblems>
+      <ComplexProblem rdf:ID="CD">
+        <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >19</problem_id>
+        <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Низкие продажи эксклюзивных марок#Низкий индивидуальный план</simpleProblemHasText>
+      </ComplexProblem>
+    </caseBaseHasProblems>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseHasItemsCount>
+      <ItemsCount rdf:ID="ItemsCount_32">
+        <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >4.0</itemsCountHasValue>
+      </ItemsCount>
+    </caseBaseHasItemsCount>
+    <caseBaseTotalChecksCount rdf:resource="#TotalChecksCount_112"/>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseHasConclusions>
+      <ComplexConclusion rdf:ID="_HNOP">
+        <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >36</conclusion_id>
+        <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Мини-тренинг выгоды текущей акции#Мотивация подарок штраф#Направить на продажу люксовых марок#Направить на продажу экс марок</simpleConclusionHasText>
+      </ComplexConclusion>
+    </caseBaseHasConclusions>
+  </CaseBase>
+  <AvCheck rdf:ID="AvCheck_52">
+    <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1701-1800</avCheckHasValue>
+  </AvCheck>
+  <ItemsCount rdf:ID="ItemsCount_19">
+    <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >2.7</itemsCountHasValue>
+  </ItemsCount>
+  <ItemsCount rdf:ID="ItemsCount_4">
+    <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1.2</itemsCountHasValue>
+  </ItemsCount>
+  <Personal rdf:ID="Personal_4">
+    <PersonalHasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Консультант 1</PersonalHasName>
+  </Personal>
+  <ImplPlan rdf:ID="ImplPlan_39">
+    <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >176-180</implPlanHasValue>
+  </ImplPlan>
+  <ItemsCount rdf:ID="ItemsCount_41">
+    <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >4.9</itemsCountHasValue>
+  </ItemsCount>
+  <ImplPlan rdf:ID="ImplPlan_25">
+    <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >106-110</implPlanHasValue>
+  </ImplPlan>
+  <CaseBase rdf:ID="CaseBase_17">
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseHasProblems>
+      <ComplexProblem rdf:ID="CDI">
+        <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Низкие продажи эксклюзивных марок#Низкий индивидуальный план#Низкое количество чеков</simpleProblemHasText>
+        <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >24</problem_id>
+      </ComplexProblem>
+    </caseBaseHasProblems>
+    <caseBaseHasImplPlan>
+      <ImplPlan rdf:ID="ImplPlan_21">
+        <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >86-90</implPlanHasValue>
+      </ImplPlan>
+    </caseBaseHasImplPlan>
+    <caseBaseHasConclusions rdf:resource="#_I"/>
+    <caseBaseHasItemsCount>
+      <ItemsCount rdf:ID="ItemsCount_23">
+        <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >3.1</itemsCountHasValue>
+      </ItemsCount>
+    </caseBaseHasItemsCount>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseTotalChecksCount rdf:resource="#TotalChecksCount_112"/>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseHasAvCheck rdf:resource="#AvCheck_74"/>
+  </CaseBase>
+  <Analisys rdf:ID="Analisys_2">
+    <analisys_date rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2013-06-08</analisys_date>
+    <analysis_items>
+      <AnalysIstem rdf:ID="AnalysIstem_2">
+        <analysisitem_consultant>
+          <Consultant rdf:ID="Consultant_2">
+            <cons_family rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Жукова</cons_family>
+            <cons_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >2</cons_id>
+            <cons_sname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Георгиевна</cons_sname>
+            <cons_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Ирина</cons_name>
+          </Consultant>
+        </analysisitem_consultant>
+        <ai_avCheck rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >204.0</ai_avCheck>
+        <ai_impPlanPS rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >202</ai_impPlanPS>
+        <ai_problems>
+          <ComplexProblem rdf:ID="BG">
+            <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Низкие продажи собственной марки#Низкое участие в акциях</simpleProblemHasText>
+            <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >18</problem_id>
+          </ComplexProblem>
+        </ai_problems>
+        <ai_impPlan rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >101</ai_impPlan>
+        <ai_totalCheckCount rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >203</ai_totalCheckCount>
+        <ai_solutions>
+          <SimpleConclusion rdf:ID="_E">
+            <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Ежедневный план PL</simpleConclusionHasText>
+            <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >4</conclusion_id>
+          </SimpleConclusion>
+        </ai_solutions>
+        <ai_indPlan rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >205.0</ai_indPlan>
+        <ai_itemsCount rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >206.0</ai_itemsCount>
+      </AnalysIstem>
+    </analysis_items>
+  </Analisys>
+  <CaseBase rdf:ID="CaseBase_11">
+    <caseBaseHasItemsCount>
+      <ItemsCount rdf:ID="ItemsCount_37">
+        <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >4.5</itemsCountHasValue>
+      </ItemsCount>
+    </caseBaseHasItemsCount>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseTotalChecksCount>
+      <TotalChecksCount rdf:ID="TotalChecksCount_110">
+        <totalChecksCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >181-190</totalChecksCountHasValue>
+      </TotalChecksCount>
+    </caseBaseTotalChecksCount>
+    <caseBaseHasAvCheck>
+      <AvCheck rdf:ID="AvCheck_65">
+        <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >3001-3100</avCheckHasValue>
+      </AvCheck>
+    </caseBaseHasAvCheck>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseHasConclusions>
+      <ComplexConclusion rdf:ID="_IK">
+        <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Мини-тренинг дополнительные продажи#Мини-тренинг собственная марка</simpleConclusionHasText>
+        <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >37</conclusion_id>
+      </ComplexConclusion>
+    </caseBaseHasConclusions>
+    <caseBaseHasImplPlan>
+      <ImplPlan rdf:ID="ImplPlan_24">
+        <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >101-105</implPlanHasValue>
+      </ImplPlan>
+    </caseBaseHasImplPlan>
+    <caseBaseHasProblems>
+      <ComplexProblem rdf:ID="BEG">
+        <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Низкие продажи собственной марки#Низкий средний чек#Низкое участие в акциях</simpleProblemHasText>
+        <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >17</problem_id>
+      </ComplexProblem>
+    </caseBaseHasProblems>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+  </CaseBase>
+  <AvCheck rdf:ID="AvCheck_61">
+    <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >2601-2700</avCheckHasValue>
+  </AvCheck>
+  <CaseBase rdf:ID="CaseBase_9">
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseHasItemsCount rdf:resource="#ItemsCount_32"/>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseHasAvCheck>
+      <AvCheck rdf:ID="AvCheck_60">
+        <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >2501-2600</avCheckHasValue>
+      </AvCheck>
+    </caseBaseHasAvCheck>
+    <caseBaseTotalChecksCount>
+      <TotalChecksCount rdf:ID="TotalChecksCount_107">
+        <totalChecksCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >151-160</totalChecksCountHasValue>
+      </TotalChecksCount>
+    </caseBaseTotalChecksCount>
+    <caseBaseHasConclusions>
+      <ComplexConclusion rdf:ID="_JNOP">
+        <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Мини-тренинг повышение среднего чека#Мотивация подарок штраф#Направить на продажу люксовых марок#Направить на продажу экс брендов PL</simpleConclusionHasText>
+        <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >38</conclusion_id>
+      </ComplexConclusion>
+    </caseBaseHasConclusions>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseHasImplPlan>
+      <ImplPlan rdf:ID="ImplPlan_10">
+        <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >31-35</implPlanHasValue>
+      </ImplPlan>
+    </caseBaseHasImplPlan>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseHasProblems>
+      <ComplexProblem rdf:ID="DE">
+        <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >26</problem_id>
+        <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Низкий индивидуальный план#Низкий средний чек</simpleProblemHasText>
+      </ComplexProblem>
+    </caseBaseHasProblems>
+  </CaseBase>
+  <TotalChecksCount rdf:ID="TotalChecksCount_96">
+    <totalChecksCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >41-50</totalChecksCountHasValue>
+  </TotalChecksCount>
+  <CaseBase rdf:ID="CaseBase_27">
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseHasItemsCount>
+      <ItemsCount rdf:ID="ItemsCount_25">
+        <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >3.3</itemsCountHasValue>
+      </ItemsCount>
+    </caseBaseHasItemsCount>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseTotalChecksCount>
+      <TotalChecksCount rdf:ID="TotalChecksCount_109">
+        <totalChecksCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >171-180</totalChecksCountHasValue>
+      </TotalChecksCount>
+    </caseBaseTotalChecksCount>
+    <caseBaseHasConclusions>
+      <SimpleConclusion rdf:ID="_D">
+        <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >3</conclusion_id>
+        <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Выявление потребностей покупателя</simpleConclusionHasText>
+      </SimpleConclusion>
+    </caseBaseHasConclusions>
+    <caseBaseHasProblems>
+      <SimpleProblem rdf:ID="G">
+        <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Низкое участие в акциях</simpleProblemHasText>
+        <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >6</problem_id>
+      </SimpleProblem>
+    </caseBaseHasProblems>
+    <caseBaseHasImplPlan>
+      <ImplPlan rdf:ID="ImplPlan_30">
+        <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >131-135</implPlanHasValue>
+      </ImplPlan>
+    </caseBaseHasImplPlan>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseHasAvCheck rdf:resource="#AvCheck_65"/>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+  </CaseBase>
+  <ImplPlan rdf:ID="ImplPlan_36">
+    <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >161-165</implPlanHasValue>
+  </ImplPlan>
+  <ImplPlan rdf:ID="ImplPlan_11">
+    <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >36-40</implPlanHasValue>
+  </ImplPlan>
+  <ImplPlan rdf:ID="ImplPlan_26">
+    <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >111-115</implPlanHasValue>
+  </ImplPlan>
+  <ItemsCount rdf:ID="ItemsCount_40">
+    <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >4.8</itemsCountHasValue>
+  </ItemsCount>
+  <CaseBase rdf:ID="CaseBase_16">
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseHasProblems rdf:resource="#CD"/>
+    <caseBaseTotalChecksCount rdf:resource="#TotalChecksCount_112"/>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseHasConclusions>
+      <ComplexConclusion rdf:ID="_HI">
+        <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >33</conclusion_id>
+        <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Мини-тренинг выгоды текущей акции#Мини-тренинг дполнительные продажи</simpleConclusionHasText>
+      </ComplexConclusion>
+    </caseBaseHasConclusions>
+    <caseBaseHasImplPlan rdf:resource="#ImplPlan_21"/>
+    <caseBaseHasAvCheck rdf:resource="#AvCheck_74"/>
+    <caseBaseHasItemsCount rdf:resource="#ItemsCount_37"/>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+  </CaseBase>
+  <Analisys rdf:ID="Analisys_3">
+    <analisys_date rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2013-06-15</analisys_date>
+    <analysis_items rdf:resource="#AnalysIstem_1"/>
+    <analysis_items rdf:resource="#AnalysIstem_2"/>
+  </Analisys>
+  <CaseBase rdf:ID="CaseBase_26">
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseHasImplPlan>
+      <ImplPlan rdf:ID="ImplPlan_20">
+        <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >81-85</implPlanHasValue>
+      </ImplPlan>
+    </caseBaseHasImplPlan>
+    <caseBaseTotalChecksCount rdf:resource="#TotalChecksCount_109"/>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseHasItemsCount rdf:resource="#ItemsCount_25"/>
+    <caseBaseHasProblems>
+      <SimpleProblem rdf:ID="E">
+        <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >4</problem_id>
+        <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Низкий средний чек</simpleProblemHasText>
+      </SimpleProblem>
+    </caseBaseHasProblems>
+    <caseBaseHasConclusions>
+      <SimpleConclusion rdf:ID="_H">
+        <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Мини-тренинг выгоды текущей акции</simpleConclusionHasText>
+        <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >7</conclusion_id>
+      </SimpleConclusion>
+    </caseBaseHasConclusions>
+    <caseBaseHasAvCheck rdf:resource="#AvCheck_60"/>
+  </CaseBase>
+  <CaseBase rdf:ID="CaseBase_8">
+    <caseBaseHasItemsCount>
+      <ItemsCount rdf:ID="ItemsCount_12">
+        <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >2.0</itemsCountHasValue>
+      </ItemsCount>
+    </caseBaseHasItemsCount>
+    <caseBaseTotalChecksCount>
+      <TotalChecksCount rdf:ID="TotalChecksCount_95">
+        <totalChecksCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >31-40</totalChecksCountHasValue>
+      </TotalChecksCount>
+    </caseBaseTotalChecksCount>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseHasConclusions>
+      <ComplexConclusion rdf:ID="_DHNOP">
+        <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >29</conclusion_id>
+        <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Выявление потребностей покупателя#Мини-тренинг выгоды текущей акции#Мотивация подарок штраф#Направить на продажу люксовых марок#Направить на продажу экс брендов PL</simpleConclusionHasText>
+      </ComplexConclusion>
+    </caseBaseHasConclusions>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseHasProblems>
+      <ComplexProblem rdf:ID="DEF">
+        <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >27</problem_id>
+        <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Низкий индивидуальный план#Низкий средний чек#Низкое количество позиций в чеке</simpleProblemHasText>
+      </ComplexProblem>
+    </caseBaseHasProblems>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseHasAvCheck>
+      <AvCheck rdf:ID="AvCheck_47">
+        <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >1201-1300</avCheckHasValue>
+      </AvCheck>
+    </caseBaseHasAvCheck>
+    <caseBaseHasImplPlan>
+      <ImplPlan rdf:ID="ImplPlan_5">
+        <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >6-10</implPlanHasValue>
+      </ImplPlan>
+    </caseBaseHasImplPlan>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+  </CaseBase>
+  <ImplPlan rdf:ID="ImplPlan_37">
+    <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >161-170</implPlanHasValue>
+  </ImplPlan>
+  <ItemsCount rdf:ID="ItemsCount_6">
+    <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1.4</itemsCountHasValue>
+  </ItemsCount>
+  <ItemsCount rdf:ID="ItemsCount_17">
+    <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >2.5</itemsCountHasValue>
+  </ItemsCount>
+  <CaseBase rdf:ID="CaseBase_10">
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseTotalChecksCount rdf:resource="#TotalChecksCount_112"/>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseHasImplPlan rdf:resource="#ImplPlan_12"/>
+    <caseBaseHasAvCheck>
+      <AvCheck rdf:ID="AvCheck_54">
+        <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >1901-2000</avCheckHasValue>
+      </AvCheck>
+    </caseBaseHasAvCheck>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseHasConclusions rdf:resource="#_HNOP"/>
+    <caseBaseHasProblems rdf:resource="#DE"/>
+    <caseBaseHasItemsCount>
+      <ItemsCount rdf:ID="ItemsCount_28">
+        <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >3.6</itemsCountHasValue>
+      </ItemsCount>
+    </caseBaseHasItemsCount>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+  </CaseBase>
+  <ImplPlan rdf:ID="ImplPlan_27">
+    <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >116-120</implPlanHasValue>
+  </ImplPlan>
+  <CaseBase rdf:ID="CaseBase_19">
+    <caseBaseHasAvCheck>
+      <AvCheck rdf:ID="AvCheck_58">
+        <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >2301-2400</avCheckHasValue>
+      </AvCheck>
+    </caseBaseHasAvCheck>
+    <caseBaseHasImplPlan>
+      <ImplPlan rdf:ID="ImplPlan_17">
+        <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >66-70</implPlanHasValue>
+      </ImplPlan>
+    </caseBaseHasImplPlan>
+    <caseBaseTotalChecksCount rdf:resource="#TotalChecksCount_112"/>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseHasConclusions>
+      <ComplexConclusion rdf:ID="_DIM">
+        <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >30</conclusion_id>
+        <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Выявление потребностей покупателя#Мини-тренинг дополнительные продажи#Мини-тренинг экс марки</simpleConclusionHasText>
+      </ComplexConclusion>
+    </caseBaseHasConclusions>
+    <caseBaseHasItemsCount rdf:resource="#ItemsCount_22"/>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseHasProblems>
+      <ComplexProblem rdf:ID="CDGI">
+        <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >23</problem_id>
+        <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Низкие продажи эксклюзивных марок#Низкий индивидуальный план#Низкое участие в акциях#Низкое количество чеков</simpleProblemHasText>
+      </ComplexProblem>
+    </caseBaseHasProblems>
+  </CaseBase>
+  <SimpleConclusion rdf:ID="_B">
+    <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Аттестация экс марки</simpleConclusionHasText>
+    <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >1</conclusion_id>
+  </SimpleConclusion>
+  <ImplPlan rdf:ID="ImplPlan_28">
+    <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >121-125</implPlanHasValue>
+  </ImplPlan>
+  <ItemsCount rdf:ID="ItemsCount_9">
+    <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1.7</itemsCountHasValue>
+  </ItemsCount>
+  <AvCheck rdf:ID="AvCheck_46">
+    <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1101-1200</avCheckHasValue>
+  </AvCheck>
+  <SimpleConclusion rdf:ID="_S">
+    <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >18</conclusion_id>
+    <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Подарок</simpleConclusionHasText>
+  </SimpleConclusion>
+  <CaseBase rdf:ID="CaseBase_18">
+    <caseBaseHasProblems>
+      <ComplexProblem rdf:ID="CDEF">
+        <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Низкие продажи эксклюзивных марок#Низкий индивидуальный план#Низкий средний чек#Низкое количество позиций в чеке</simpleProblemHasText>
+        <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >21</problem_id>
+      </ComplexProblem>
+    </caseBaseHasProblems>
+    <caseBaseHasImplPlan rdf:resource="#ImplPlan_19"/>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseHasItemsCount rdf:resource="#ItemsCount_23"/>
+    <caseBaseHasAvCheck rdf:resource="#AvCheck_57"/>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseTotalChecksCount rdf:resource="#TotalChecksCount_112"/>
+    <caseBaseHasConclusions>
+      <ComplexConclusion rdf:ID="_DHL">
+        <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >26</conclusion_id>
+        <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Выявление потребностей покупателя#Мини-тренинг выгоды текущей акции#Мини-тренинг стандарты сети</simpleConclusionHasText>
+      </ComplexConclusion>
+    </caseBaseHasConclusions>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+  </CaseBase>
+  <SimpleConclusion rdf:ID="SimpleConclusion_2">
+    <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >40</conclusion_id>
+    <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Рекомендаций нет</simpleConclusionHasText>
+  </SimpleConclusion>
+  <Dismissal rdf:ID="Dismissal_76">
+    <dismissalHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >YES</dismissalHasValue>
+  </Dismissal>
+  <SimpleConclusion rdf:ID="_R">
+    <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Опрос предложения продукции</simpleConclusionHasText>
+    <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >17</conclusion_id>
+  </SimpleConclusion>
+  <ItemsCount rdf:ID="ItemsCount_8">
+    <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1.6</itemsCountHasValue>
+  </ItemsCount>
+  <AvCheck rdf:ID="AvCheck_45">
+    <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1001-1100</avCheckHasValue>
+  </AvCheck>
+  <SimpleConclusion rdf:ID="_T">
+    <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >19</conclusion_id>
+    <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Повышение работы с ассортиментом</simpleConclusionHasText>
+  </SimpleConclusion>
+  <AvCheck rdf:ID="AvCheck_71">
+    <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >3601-3700</avCheckHasValue>
+  </AvCheck>
+  <rdf:Description rdf:about="#5.0">
+    <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >5.0</itemsCountHasValue>
+  </rdf:Description>
+  <TotalChecksCount rdf:ID="TotalChecksCount_99">
+    <totalChecksCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >71-80</totalChecksCountHasValue>
+  </TotalChecksCount>
+  <SimpleConclusion rdf:ID="_C">
+    <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Штраф</simpleConclusionHasText>
+    <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >2</conclusion_id>
+  </SimpleConclusion>
+  <CaseBase rdf:ID="CaseBase_32">
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseHasItemsCount rdf:resource="#ItemsCount_22"/>
+    <caseBaseHasConclusions rdf:resource="#_HNOP"/>
+    <caseBaseHasAvCheck rdf:resource="#AvCheck_57"/>
+    <caseBaseTotalChecksCount rdf:resource="#TotalChecksCount_112"/>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseHasProblems>
+      <ComplexProblem rdf:ID="CDE">
+        <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Низкие продажи эксклюзивных марок#Низкий индивидуальный план#Низкий средний чек</simpleProblemHasText>
+        <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >20</problem_id>
+      </ComplexProblem>
+    </caseBaseHasProblems>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseHasImplPlan>
+      <ImplPlan rdf:ID="ImplPlan_7">
+        <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >16-20</implPlanHasValue>
+      </ImplPlan>
+    </caseBaseHasImplPlan>
+  </CaseBase>
+  <ItemsCount rdf:ID="ItemsCount_10">
+    <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1.8</itemsCountHasValue>
+  </ItemsCount>
+  <SimpleConclusion rdf:ID="_M">
+    <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >12</conclusion_id>
+    <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Мини-тренинг экс марки</simpleConclusionHasText>
+  </SimpleConclusion>
+  <SimpleProblem rdf:ID="I">
+    <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Низкое количество чеков</simpleProblemHasText>
+    <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >8</problem_id>
+  </SimpleProblem>
+  <ImplPlan rdf:ID="ImplPlan_9">
+    <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >26-30</implPlanHasValue>
+  </ImplPlan>
+  <ItemsCount rdf:ID="ItemsCount_38">
+    <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >4.6</itemsCountHasValue>
+  </ItemsCount>
+  <CaseBase rdf:ID="CaseBase_3">
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseHasProblems rdf:resource="#BCDEG"/>
+    <caseBaseHasImplPlan rdf:resource="#ImplPlan_20"/>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseTotalChecksCount>
+      <TotalChecksCount rdf:ID="TotalChecksCount_104">
+        <totalChecksCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >121-130</totalChecksCountHasValue>
+      </TotalChecksCount>
+    </caseBaseTotalChecksCount>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseHasConclusions>
+      <ComplexConclusion rdf:ID="_CDFHP">
+        <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >20</conclusion_id>
+        <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Штраф#Выявление потребностей покупателя#Ежедневный план собственная марка#Мини-тренинг выгоды текущей акции#Направить на продажу экс брендов PL</simpleConclusionHasText>
+      </ComplexConclusion>
+    </caseBaseHasConclusions>
+    <caseBaseHasAvCheck rdf:resource="#AvCheck_64"/>
+    <caseBaseHasItemsCount>
+      <ItemsCount rdf:ID="ItemsCount_31">
+        <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >3.9</itemsCountHasValue>
+      </ItemsCount>
+    </caseBaseHasItemsCount>
+  </CaseBase>
+  <CaseBase rdf:ID="CaseBase_1">
+    <caseBaseHasProblems rdf:resource="#BG"/>
+    <caseBaseHasItemsCount rdf:resource="#ItemsCount_32"/>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <cb_avcheck rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >3.2</cb_avcheck>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseHasConclusions>
+      <SimpleConclusion rdf:ID="_G">
+        <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >6</conclusion_id>
+        <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Мини-тренинг PL</simpleConclusionHasText>
+      </SimpleConclusion>
+    </caseBaseHasConclusions>
+    <caseBaseHasAvCheck>
+      <AvCheck rdf:ID="AvCheck_69">
+        <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >3401-3500</avCheckHasValue>
+      </AvCheck>
+    </caseBaseHasAvCheck>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseHasImplPlan rdf:resource="#ImplPlan_24"/>
+    <caseBaseTotalChecksCount rdf:resource="#TotalChecksCount_108"/>
+  </CaseBase>
+  <ItemsCount rdf:ID="ItemsCount_11">
+    <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1.9</itemsCountHasValue>
+  </ItemsCount>
+  <ImplPlan rdf:ID="ImplPlan_31">
+    <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >136-140</implPlanHasValue>
+  </ImplPlan>
+  <SimpleConclusion rdf:ID="_N">
+    <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >13</conclusion_id>
+    <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Мотивация подарок штраф</simpleConclusionHasText>
+  </SimpleConclusion>
+  <ItemsCount rdf:ID="ItemsCount_3">
+    <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1.1</itemsCountHasValue>
+  </ItemsCount>
+  <owl:AnnotationProperty rdf:ID="label">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#ExternalReference"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:AnnotationProperty>
+  <ImplPlan rdf:ID="ImplPlan_8">
+    <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >21-25</implPlanHasValue>
+  </ImplPlan>
+  <CaseBase rdf:ID="CaseBase_33">
+    <caseBaseHasConclusions>
+      <ComplexConclusion rdf:ID="_CGIS">
+        <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Штраф#Мини-тренинг PL#Мини-тренинг дополнительные продажи#Подарок</simpleConclusionHasText>
+        <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >21</conclusion_id>
+      </ComplexConclusion>
+    </caseBaseHasConclusions>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseHasImplPlan rdf:resource="#ImplPlan_30"/>
+    <caseBaseTotalChecksCount rdf:resource="#TotalChecksCount_104"/>
+    <caseBaseHasAvCheck>
+      <AvCheck rdf:ID="AvCheck_72">
+        <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >3701-3800</avCheckHasValue>
+      </AvCheck>
+    </caseBaseHasAvCheck>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseHasItemsCount>
+      <ItemsCount rdf:ID="ItemsCount_36">
+        <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >4.4</itemsCountHasValue>
+      </ItemsCount>
+    </caseBaseHasItemsCount>
+    <caseBaseHasProblems rdf:resource="#BG"/>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+  </CaseBase>
+  <ItemsCount rdf:ID="ItemsCount_39">
+    <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >4.7</itemsCountHasValue>
+  </ItemsCount>
+  <CaseBase rdf:ID="CaseBase_2">
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseHasAvCheck rdf:resource="#AvCheck_68"/>
+    <caseBaseTotalChecksCount>
+      <TotalChecksCount rdf:ID="TotalChecksCount_97">
+        <totalChecksCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >51-60</totalChecksCountHasValue>
+      </TotalChecksCount>
+    </caseBaseTotalChecksCount>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseHasConclusions>
+      <ComplexConclusion rdf:ID="_FI">
+        <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >32</conclusion_id>
+        <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Ежедневный план собственная марка#Мини-тренинг дополнительные продажи</simpleConclusionHasText>
+      </ComplexConclusion>
+    </caseBaseHasConclusions>
+    <caseBaseHasProblems>
+      <ComplexProblem rdf:ID="BDGI">
+        <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >16</problem_id>
+        <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Низкие продажи собственной марки#Низкий индивидуальный план#Низкое участие в акциях#Низкое количество чеков</simpleProblemHasText>
+      </ComplexProblem>
+    </caseBaseHasProblems>
+    <caseBaseHasItemsCount rdf:resource="#ItemsCount_31"/>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseHasImplPlan>
+      <ImplPlan rdf:ID="ImplPlan_22">
+        <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >91-95</implPlanHasValue>
+      </ImplPlan>
+    </caseBaseHasImplPlan>
+  </CaseBase>
+  <CaseBase rdf:ID="CaseBase_30">
+    <caseBaseHasConclusions>
+      <ComplexConclusion rdf:ID="_HJNOP">
+        <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Мини-тренинг выгоды текущей акции#Мини-тренинг повышение среднего чека#Мотивация подарок штраф#Направить на продажу люксовых марок#Направить на продажу экс брендов PL</simpleConclusionHasText>
+        <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >35</conclusion_id>
+      </ComplexConclusion>
+    </caseBaseHasConclusions>
+    <caseBaseHasImplPlan>
+      <ImplPlan rdf:ID="ImplPlan_4">
+        <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >0-5</implPlanHasValue>
+      </ImplPlan>
+    </caseBaseHasImplPlan>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseTotalChecksCount>
+      <TotalChecksCount rdf:ID="TotalChecksCount_92">
+        <totalChecksCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >0-10</totalChecksCountHasValue>
+      </TotalChecksCount>
+    </caseBaseTotalChecksCount>
+    <caseBaseHasItemsCount>
+      <ItemsCount rdf:ID="ItemsCount_7">
+        <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >1.5</itemsCountHasValue>
+      </ItemsCount>
+    </caseBaseHasItemsCount>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseHasProblems>
+      <ComplexProblem rdf:ID="CEF">
+        <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >25</problem_id>
+        <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Низкие продажи эксклюзивных марок#Низкий средний чек#Низкое количество позиций в чеке</simpleProblemHasText>
+      </ComplexProblem>
+    </caseBaseHasProblems>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseHasAvCheck>
+      <AvCheck rdf:ID="AvCheck_43">
+        <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >1000</avCheckHasValue>
+      </AvCheck>
+    </caseBaseHasAvCheck>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+  </CaseBase>
+  <SimpleConclusion rdf:ID="_O">
+    <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >14</conclusion_id>
+    <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Направить на продажу люксовых марок</simpleConclusionHasText>
+  </SimpleConclusion>
+  <CaseBase rdf:ID="CaseBase_20">
+    <caseBaseHasItemsCount rdf:resource="#ItemsCount_23"/>
+    <caseBaseTotalChecksCount rdf:resource="#TotalChecksCount_112"/>
+    <caseBaseLittleWork rdf:resource="#LittleWork_83"/>
+    <caseBaseHasConclusions>
+      <ComplexConclusion rdf:ID="_HIOP">
+        <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Мини-тренинг выгоды текущей акции#Мини-тренинг дополнительные продажи#Направить на продажу люксовых марок#Направить на продажу экс брендов PL</simpleConclusionHasText>
+        <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >34</conclusion_id>
+      </ComplexConclusion>
+    </caseBaseHasConclusions>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseHasProblems>
+      <ComplexProblem rdf:ID="CDF">
+        <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Низкие продажи эксклюзивных марок#Низкий индивидуальный план#Низкое количество позиций в чеке</simpleProblemHasText>
+        <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >22</problem_id>
+      </ComplexProblem>
+    </caseBaseHasProblems>
+    <caseBaseHasImplPlan>
+      <ImplPlan rdf:ID="ImplPlan_13">
+        <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >46-50</implPlanHasValue>
+      </ImplPlan>
+    </caseBaseHasImplPlan>
+    <caseBaseHasAvCheck rdf:resource="#AvCheck_65"/>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+  </CaseBase>
+  <AvCheck rdf:ID="AvCheck_49">
+    <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1401-1500</avCheckHasValue>
+  </AvCheck>
+  <ItemsCount rdf:ID="ItemsCount_26">
+    <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >3.4</itemsCountHasValue>
+  </ItemsCount>
+  <CaseBase rdf:ID="CaseBase_31">
+    <caseBaseHasImplPlan rdf:resource="#ImplPlan_16"/>
+    <caseBaseTotalChecksCount rdf:resource="#TotalChecksCount_112"/>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseHasProblems rdf:resource="#CDE"/>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseHasAvCheck>
+      <AvCheck rdf:ID="AvCheck_55">
+        <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >2001-2100</avCheckHasValue>
+      </AvCheck>
+    </caseBaseHasAvCheck>
+    <caseBaseHasItemsCount rdf:resource="#ItemsCount_23"/>
+    <caseBaseHasConclusions>
+      <ComplexConclusion rdf:ID="_DJNOP">
+        <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Выявление потребностей покупателя#Мини-тренинг повышение среднего чека#Мотивация подарок штраф#Направить на продажу люксовых марок#Направить на продажу экс брендов PL</simpleConclusionHasText>
+        <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >31</conclusion_id>
+      </ComplexConclusion>
+    </caseBaseHasConclusions>
+  </CaseBase>
+  <ItemsCount rdf:ID="ItemsCount_1">
+    <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1.0</itemsCountHasValue>
+  </ItemsCount>
+  <SimpleConclusion rdf:ID="_P">
+    <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Направить на продажу экс брендов PL</simpleConclusionHasText>
+    <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >15</conclusion_id>
+  </SimpleConclusion>
+  <CaseBase rdf:ID="CaseBase_21">
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseHasImplPlan rdf:resource="#ImplPlan_13"/>
+    <caseBaseTotalChecksCount>
+      <TotalChecksCount rdf:ID="TotalChecksCount_111">
+        <totalChecksCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >191-200</totalChecksCountHasValue>
+      </TotalChecksCount>
+    </caseBaseTotalChecksCount>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseHasAvCheck>
+      <AvCheck rdf:ID="AvCheck_50">
+        <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >1501-1600</avCheckHasValue>
+      </AvCheck>
+    </caseBaseHasAvCheck>
+    <caseBaseHasConclusions>
+      <ComplexConclusion rdf:ID="_DHLMN">
+        <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Выявление потребностей покупателя#Мини-тренинг выгоды текущей акции#Мини-тренинг стандарты сети#Мини-тренинг экс марки#Мотивация подарок штраф</simpleConclusionHasText>
+        <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >27</conclusion_id>
+      </ComplexConclusion>
+    </caseBaseHasConclusions>
+    <caseBaseHasProblems rdf:resource="#CDEF"/>
+    <caseBaseHasItemsCount>
+      <ItemsCount rdf:ID="ItemsCount_16">
+        <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >2.4</itemsCountHasValue>
+      </ItemsCount>
+    </caseBaseHasItemsCount>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+  </CaseBase>
+  <ImplPlan rdf:ID="ImplPlan_6">
+    <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >11-15</implPlanHasValue>
+  </ImplPlan>
+  <owl:AnnotationProperty rdf:about="http://bioportal.bioontology.org#ontologyLabel">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#ExternalReference"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:AnnotationProperty>
+  <SimpleProblem rdf:ID="F">
+    <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >5</problem_id>
+    <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Низкое количество позиций в чеке</simpleProblemHasText>
+  </SimpleProblem>
+  <AvCheck rdf:ID="AvCheck_48">
+    <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1301-1400</avCheckHasValue>
+  </AvCheck>
+  <OnVacation rdf:ID="OnVacation_89">
+    <onVacationHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >YES</onVacationHasValue>
+  </OnVacation>
+  <ItemsCount rdf:ID="ItemsCount_27">
+    <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >3.5</itemsCountHasValue>
+  </ItemsCount>
+  <ItemsCount rdf:ID="ItemsCount_14">
+    <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >2.2</itemsCountHasValue>
+  </ItemsCount>
+  <ImplPlan rdf:ID="ImplPlan_34">
+    <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >151-155</implPlanHasValue>
+  </ImplPlan>
+  <owl:AnnotationProperty rdf:about="http://bioportal.bioontology.org#ontologyId">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#ExternalReference"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:AnnotationProperty>
+  <ImplPlan rdf:ID="ImplPlan_40">
+    <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >181-185</implPlanHasValue>
+  </ImplPlan>
+  <CaseBase rdf:ID="CaseBase_7">
+    <caseBaseHasConclusions rdf:resource="#_DHNOP"/>
+    <caseBaseHasAvCheck>
+      <AvCheck rdf:ID="AvCheck_63">
+        <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >2801-2900</avCheckHasValue>
+      </AvCheck>
+    </caseBaseHasAvCheck>
+    <caseBaseTotalChecksCount>
+      <TotalChecksCount rdf:ID="TotalChecksCount_106">
+        <totalChecksCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >141-150</totalChecksCountHasValue>
+      </TotalChecksCount>
+    </caseBaseTotalChecksCount>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseInHospital>
+      <InHospital rdf:ID="InHospital_80">
+        <inHospitalHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >YES</inHospitalHasValue>
+      </InHospital>
+    </caseBaseInHospital>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseHasProblems>
+      <SimpleProblem rdf:ID="D">
+        <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Низкий индивидуальный план</simpleProblemHasText>
+        <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >3</problem_id>
+      </SimpleProblem>
+    </caseBaseHasProblems>
+    <caseBaseHasItemsCount rdf:resource="#ItemsCount_32"/>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseHasImplPlan rdf:resource="#ImplPlan_13"/>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+  </CaseBase>
+  <ItemsCount rdf:ID="ItemsCount_20">
+    <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >2.8</itemsCountHasValue>
+  </ItemsCount>
+  <owl:AnnotationProperty rdf:ID="ontologyId"/>
+  <AvCheck rdf:ID="AvCheck_66">
+    <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >3101-3200</avCheckHasValue>
+  </AvCheck>
+  <owl:AnnotationProperty rdf:about="http://bioportal.bioontology.org#shortTermId"/>
+  <CaseBase rdf:ID="CaseBase_22">
+    <caseBaseHasImplPlan rdf:resource="#ImplPlan_13"/>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseHasConclusions rdf:resource="#_D"/>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseHasItemsCount rdf:resource="#ItemsCount_37"/>
+    <caseBaseHasAvCheck>
+      <rdf:Description rdf:about="#4001">
+        <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >4001</avCheckHasValue>
+      </rdf:Description>
+    </caseBaseHasAvCheck>
+    <caseBaseHasProblems rdf:resource="#G"/>
+    <caseBaseTotalChecksCount>
+      <TotalChecksCount rdf:ID="TotalChecksCount_101">
+        <totalChecksCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >91-100</totalChecksCountHasValue>
+      </TotalChecksCount>
+    </caseBaseTotalChecksCount>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+  </CaseBase>
+  <ItemsCount rdf:ID="ItemsCount_15">
+    <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >2.3</itemsCountHasValue>
+  </ItemsCount>
+  <SimpleConclusion rdf:ID="_J">
+    <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Мини-тренинг повышение среднего чека</simpleConclusionHasText>
+    <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >9</conclusion_id>
+  </SimpleConclusion>
+  <ImplPlan rdf:ID="ImplPlan_35">
+    <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >156-160</implPlanHasValue>
+  </ImplPlan>
+  <owl:AnnotationProperty rdf:ID="termId">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#ExternalReference"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:AnnotationProperty>
+  <CaseBase rdf:ID="CaseBase_6">
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseTotalChecksCount rdf:resource="#TotalChecksCount_111"/>
+    <caseBaseHasAvCheck rdf:resource="#AvCheck_68"/>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseHasItemsCount rdf:resource="#ItemsCount_31"/>
+    <caseBaseHasProblems>
+      <ComplexProblem rdf:ID="DF">
+        <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Низкий индивидуальный план#Низкое количество позиций в чеке</simpleProblemHasText>
+        <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >28</problem_id>
+      </ComplexProblem>
+    </caseBaseHasProblems>
+    <caseBaseHasImplPlan rdf:resource="#ImplPlan_15"/>
+    <caseBaseHasConclusions rdf:resource="#_HNOP"/>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+  </CaseBase>
+  <ImplPlan rdf:ID="ImplPlan_41">
+    <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >186-190</implPlanHasValue>
+  </ImplPlan>
+  <TotalChecksCount rdf:ID="TotalChecksCount_93">
+    <totalChecksCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >11-20</totalChecksCountHasValue>
+  </TotalChecksCount>
+  <AvCheck rdf:ID="AvCheck_67">
+    <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >3201-3300</avCheckHasValue>
+  </AvCheck>
+  <CaseBase rdf:ID="CaseBase_23">
+    <caseBaseHasImplPlan>
+      <ImplPlan rdf:ID="ImplPlan_29">
+        <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >126-130</implPlanHasValue>
+      </ImplPlan>
+    </caseBaseHasImplPlan>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseHasProblems rdf:resource="#G"/>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseTotalChecksCount rdf:resource="#TotalChecksCount_111"/>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseHasItemsCount rdf:resource="#ItemsCount_28"/>
+    <caseBaseHasAvCheck>
+      <AvCheck rdf:ID="AvCheck_70">
+        <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >3501-3600</avCheckHasValue>
+      </AvCheck>
+    </caseBaseHasAvCheck>
+    <caseBaseHasConclusions rdf:resource="#_D"/>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+  </CaseBase>
+  <ItemsCount rdf:ID="ItemsCount_35">
+    <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >4.3</itemsCountHasValue>
+  </ItemsCount>
+  <SimpleConclusion rdf:ID="_K">
+    <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >10</conclusion_id>
+    <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Мини-тренинг собственная марка</simpleConclusionHasText>
+  </SimpleConclusion>
+  <ImplPlan rdf:ID="ImplPlan_32">
+    <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >141-145</implPlanHasValue>
+  </ImplPlan>
+  <owl:AnnotationProperty rdf:ID="url">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#ExternalReference"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:AnnotationProperty>
+  <SimpleProblem rdf:ID="C">
+    <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Низкие продажи эксклюзивных марок</simpleProblemHasText>
+    <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >2</problem_id>
+  </SimpleProblem>
+  <CaseBase rdf:ID="CaseBase_5">
+    <caseBaseTotalChecksCount>
+      <TotalChecksCount rdf:ID="TotalChecksCount_102">
+        <totalChecksCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >101-110</totalChecksCountHasValue>
+      </TotalChecksCount>
+    </caseBaseTotalChecksCount>
+    <caseBaseHasConclusions>
+      <ComplexConclusion rdf:ID="_CIM">
+        <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Штраф#Мини-тренинг дополнительные продажи#Мини-тренинг экс марки</simpleConclusionHasText>
+        <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >24</conclusion_id>
+      </ComplexConclusion>
+    </caseBaseHasConclusions>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseHasProblems>
+      <ComplexProblem rdf:ID="BDFGI">
+        <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >15</problem_id>
+        <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Низкие продажи собственной марки#Низкий индивидуальный план#Низкое количество позиций в чеке#Низкое участие в акциях#Низкое количество чеков</simpleProblemHasText>
+      </ComplexProblem>
+    </caseBaseHasProblems>
+    <caseBaseHasImplPlan rdf:resource="#ImplPlan_20"/>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseHasAvCheck>
+      <AvCheck rdf:ID="AvCheck_53">
+        <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >1801-1900</avCheckHasValue>
+      </AvCheck>
+    </caseBaseHasAvCheck>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseHasItemsCount rdf:resource="#ItemsCount_22"/>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+  </CaseBase>
+  <CaseBase rdf:ID="CaseBase_34">
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseHasItemsCount rdf:resource="#ItemsCount_23"/>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseHasAvCheck>
+      <AvCheck rdf:ID="AvCheck_59">
+        <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >2401-2500</avCheckHasValue>
+      </AvCheck>
+    </caseBaseHasAvCheck>
+    <caseBaseHasImplPlan rdf:resource="#ImplPlan_17"/>
+    <caseBaseTotalChecksCount rdf:resource="#TotalChecksCount_101"/>
+    <caseBaseHasProblems rdf:resource="#BCDE"/>
+    <caseBaseHasConclusions>
+      <ComplexConclusion rdf:ID="_CHP">
+        <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Штраф#Мини-тренинг выгоды текущей акции#Направить на продажу экс брендов PL</simpleConclusionHasText>
+        <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >22</conclusion_id>
+      </ComplexConclusion>
+    </caseBaseHasConclusions>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+  </CaseBase>
+  <ImplPlan rdf:ID="ImplPlan_42">
+    <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >191-195</implPlanHasValue>
+  </ImplPlan>
+  <CaseBase rdf:ID="CaseBase_24">
+    <caseBaseHasConclusions rdf:resource="#_D"/>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseTotalChecksCount rdf:resource="#TotalChecksCount_110"/>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseHasItemsCount rdf:resource="#ItemsCount_22"/>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseHasImplPlan rdf:resource="#ImplPlan_30"/>
+    <caseBaseHasAvCheck>
+      <AvCheck rdf:ID="AvCheck_62">
+        <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >2701-2800</avCheckHasValue>
+      </AvCheck>
+    </caseBaseHasAvCheck>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseHasProblems rdf:resource="#E"/>
+  </CaseBase>
+  <ImplPlan rdf:ID="ImplPlan_14">
+    <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >51-55</implPlanHasValue>
+  </ImplPlan>
+  <ItemsCount rdf:ID="ItemsCount_13">
+    <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >2.1</itemsCountHasValue>
+  </ItemsCount>
+  <SimpleConclusion rdf:ID="_L">
+    <conclusion_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >11</conclusion_id>
+    <simpleConclusionHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Мини-тренинг стандарты сети</simpleConclusionHasText>
+  </SimpleConclusion>
+  <SimpleProblem rdf:ID="SimpleProblem_1">
+    <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >31</problem_id>
+    <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Проблем нет</simpleProblemHasText>
+  </SimpleProblem>
+  <ImplPlan rdf:ID="ImplPlan_33">
+    <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >146-150</implPlanHasValue>
+  </ImplPlan>
+  <CaseBase rdf:ID="CaseBase_4">
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseHasItemsCount>
+      <ItemsCount rdf:ID="ItemsCount_24">
+        <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >3.2</itemsCountHasValue>
+      </ItemsCount>
+    </caseBaseHasItemsCount>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseTotalChecksCount rdf:resource="#TotalChecksCount_106"/>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseHasImplPlan rdf:resource="#ImplPlan_17"/>
+    <caseBaseHasProblems>
+      <ComplexProblem rdf:ID="BCDEI">
+        <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Низкие продажи собственной марки#Низкие продажи эксклюзивных марок#Низкий индивидуальный план#Низкий средний чек#Низкое количество чеков</simpleProblemHasText>
+        <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >12</problem_id>
+      </ComplexProblem>
+    </caseBaseHasProblems>
+    <caseBaseHasAvCheck>
+      <AvCheck rdf:ID="AvCheck_56">
+        <avCheckHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >2101-2200</avCheckHasValue>
+      </AvCheck>
+    </caseBaseHasAvCheck>
+    <caseBaseHasConclusions rdf:resource="#_CI"/>
+  </CaseBase>
+  <SimpleProblem rdf:ID="B">
+    <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >1</problem_id>
+    <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Низкие продажи собственной марки</simpleProblemHasText>
+  </SimpleProblem>
+  <ImplPlan rdf:ID="ImplPlan_43">
+    <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >196-200</implPlanHasValue>
+  </ImplPlan>
+  <CaseBase rdf:ID="CaseBase_35">
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseHasItemsCount rdf:resource="#ItemsCount_37"/>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseHasImplPlan>
+      <ImplPlan rdf:ID="ImplPlan_23">
+        <implPlanHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >96-100</implPlanHasValue>
+      </ImplPlan>
+    </caseBaseHasImplPlan>
+    <caseBaseHasAvCheck rdf:resource="#4001"/>
+    <caseBaseTotalChecksCount>
+      <TotalChecksCount rdf:ID="TotalChecksCount_100">
+        <totalChecksCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >81-90</totalChecksCountHasValue>
+      </TotalChecksCount>
+    </caseBaseTotalChecksCount>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseHasProblems>
+      <ComplexProblem rdf:ID="BCDG">
+        <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >13</problem_id>
+        <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Низкие продажи собственной марки#Низкие продажи эксклюзивных марок#Низкий индивидуальный план#Низкое участие в акциях</simpleProblemHasText>
+      </ComplexProblem>
+    </caseBaseHasProblems>
+    <caseBaseHasConclusions rdf:resource="#_CI"/>
+  </CaseBase>
+  <CaseBase rdf:ID="CaseBase_25">
+    <caseBaseHasDismissal rdf:resource="#Dismissal_78"/>
+    <caseBaseTotalChecksCount rdf:resource="#TotalChecksCount_109"/>
+    <caseBaseHasMLeave rdf:resource="#MLeave_87"/>
+    <caseBaseHasItemsCount rdf:resource="#ItemsCount_25"/>
+    <caseBaseHasOnVacation rdf:resource="#OnVacation_90"/>
+    <caseBaseHasProblems>
+      <ComplexProblem rdf:ID="EG">
+        <simpleProblemHasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Низкий средний чек#Низкое участие в акциях</simpleProblemHasText>
+        <problem_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >30</problem_id>
+      </ComplexProblem>
+    </caseBaseHasProblems>
+    <caseBaseHasAvCheck rdf:resource="#AvCheck_62"/>
+    <caseBaseLittleWork rdf:resource="#LittleWork_84"/>
+    <caseBaseInHospital rdf:resource="#InHospital_81"/>
+    <caseBaseHasImplPlan rdf:resource="#ImplPlan_23"/>
+    <caseBaseHasConclusions rdf:resource="#_D"/>
+  </CaseBase>
+  <ItemsCount rdf:ID="ItemsCount_33">
+    <itemsCountHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >4.1</itemsCountHasValue>
+  </ItemsCount>
+  <MLeave rdf:ID="MLeave_86">
+    <mLeaveHasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >YES</mLeaveHasValue>
+  </MLeave>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.5, Build 663)  http://protege.stanford.edu -->

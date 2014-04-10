@@ -1,0 +1,46 @@
+<OntologyConfiguration>
+	<MainOntology>
+		<URL>http://www.owl-ontologies.com/PersonalManagement.owl</URL>
+		<LocalCopy>pm.owl</LocalCopy>
+	</MainOntology>
+	
+	<CaseMainConcept>CaseBase</CaseMainConcept>
+	
+	<DescriptionClassName>simplecbrapp.cbr.problems.ProblemCbrDescription</DescriptionClassName>
+	
+	<DescriptionMappings>
+		<Map>
+			<Property>caseBaseHasImplPlan</Property>
+			<Concept>ImplPlan</Concept>
+			<Attribute>implPlan</Attribute>
+		</Map>
+		<Map>
+			<Property>caseBaseHasAvCheck</Property>
+			<Concept>AvCheck</Concept>
+			<Attribute>avCheck</Attribute>
+		</Map>
+		<Map>
+			<Property>caseBaseHasItemsCount</Property>
+			<Concept>ItemsCount</Concept>
+			<Attribute>itemsCount</Attribute>
+		</Map>
+		<Map>
+			<Property>caseBaseHasTotalChecksCount</Property>
+			<Concept>TotalChecksCount</Concept>
+			<Attribute>totalChecksCount</Attribute>
+		</Map>
+		<Map>
+			<Property>caseBaseHasProblem</Property>
+			<Concept>Problem</Concept>
+			<Attribute>problem</Attribute>
+		</Map>
+	</DescriptionMappings>
+	<SolutionClassName>simplecbrapp.cbr.problems.ProblemCbrSolution</SolutionClassName>
+	<SolutionMappings>
+            <Map>
+                    <Property>caseBaseHasProblem</Property>
+                    <Concept>Problem</Concept>
+                    <Attribute>problem</Attribute>
+		</Map>
+	</SolutionMappings>
+</OntologyConfiguration>
