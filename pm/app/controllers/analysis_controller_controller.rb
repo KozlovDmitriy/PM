@@ -30,5 +30,4 @@ class AnalysisControllerController < ApplicationController
     client.close
     render :json => solutions
   end
-
 end

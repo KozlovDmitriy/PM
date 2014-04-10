@@ -42,6 +42,7 @@ config/initializers/mongodb_logger.rb
 
 # java app
 *.jar
+
 ExecByRuby/build/
 ExecByRuby/nbproject/private/
 SimpleCbrApp/build/

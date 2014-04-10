@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 /ExecByRuby/nbproject/private/
 /ExecByRuby/build/
@@ -59,3 +60,9 @@ debug.txt
 /OwlReader/nbproject/private/
 /OwlReader/build/
 
+=======
+/ExecByRuby/nbproject/private/
+/ExecByRuby/build/
+/ExecByRuby/dist/
+/SimpleCbrApp/nbproject/private/
+>>>>>>> 964761a56507ac55b2b1bc565f8fffd679c8be31
