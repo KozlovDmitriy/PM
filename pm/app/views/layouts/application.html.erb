@@ -53,13 +53,7 @@
     </div><!--/.nav-collapse -->
   </div>
 </div><div class="container">
-  <div class="alert alert-info alert-dismissable">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <strong>Внимание!</strong> В таком виде будет выводится текущая версия приложения и
-    краткое описание очередного обновления. Например:<br><hr>
-    <strong>1.0.0.148</strong> - Выгрузка текущей версии приложения на VDS. На странице анализа создана форма для
-    реализации 'старого' варианта CBR.
-  </div>
+  <%= File.open("#{Rails.root}/README.rdoc").read.html_safe %>
 <%= yield %>
   <div class="footer">
     <p>&copy; Company 2014</p>
