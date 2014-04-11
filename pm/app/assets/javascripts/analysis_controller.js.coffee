@@ -39,4 +39,7 @@ jQuery(document).ready ->
         jQuery('#solutions').html('')
         for item in result.value
           jQuery('#solutions').append "<li class='list-group-item-danger'>#{item}</li>"
+        jQuery('.alert#alert').append "<div class=\"alert alert-success alert-dismissable\">
+          <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>
+          <strong>Ура!</strong> Анализ успешно завершен.</div>"
     false

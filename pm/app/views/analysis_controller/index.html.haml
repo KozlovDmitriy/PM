@@ -1,3 +1,4 @@
+.alert#alert
 
 .blog-header
   %h1 Анализ работы консультантов
@@ -30,15 +31,10 @@
         %label{:for => 'problems'} Проблемы
         %input#problems_uri{:type => 'hidden', :value => ''}
         %ul#problems.list-group
-          %li.list-group-item-warning Cras justo odio
-          %li.list-group-item-warning Dapibus ac facilisis in
-          %li.list-group-item-warning Morbi leo risus
-          %li.list-group-item-warning Porta ac consectetur ac
-          %li.list-group-item-warning Vestibulum at eros
+
       .form-group
         %label{:for => 'solutions'} Рекомендации
         %ul#solutions.list-group
-          %li.list-group-item-danger Donec id elit non mi porta gravida at eget metus.
-          %li.list-group-item-danger Maecenas sed diam eget risus varius blandit.
+
       .form-group
         %button.btn.btn-primary#do_analyse Провести анализ
