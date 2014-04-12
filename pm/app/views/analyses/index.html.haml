@@ -1,0 +1,19 @@
+%h1 Listing analyses
+
+%table
+  %tr
+    %th Date
+    %th
+    %th
+    %th
+
+  - @analyses.each do |analysis|
+    %tr
+      %td= analysis.date
+      %td= link_to 'Show', analysis
+      %td= link_to 'Edit', edit_analysis_path(analysis)
+      %td= link_to 'Destroy', analysis, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Analysis', new_analysis_path
