@@ -43,6 +43,11 @@ config/initializers/mongodb_logger.rb
 # java app
 *.jar
 
+# Excel files
+*.xls
+*.xlsx
+*.ods
+
 ExecByRuby/build/
 ExecByRuby/nbproject/private/
 SimpleCbrApp/build/
