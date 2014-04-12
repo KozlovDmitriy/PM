@@ -14,15 +14,16 @@ class InputDataController < ApplicationController
 
   # Парсинг excel файла.
   def parse_excel
-    data = '123'
 
-    excel = params[:file].tempfile
-    string = excel.readlines.to_s
-    File.open('debug.txt', 'w'){ |file| file.write string }
+    filename = "#{Rails.root}/upload/input/#{params[:file].original_filename}"
+    File.open(filename, 'wb') {
+        |file| file.write params[:file].read
+    }
 
-    system 'java -jar ExecByRuby.jar qwe 123 asd zxc 890 _'
+    require_relative '../../lib/read_excel'
+    ods = ReadExcel.new filename
 
-    render :json => data
+    render :json => ods.get_params
   end
 
   # GET /input_data/new

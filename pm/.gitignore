@@ -57,3 +57,6 @@ TcpServer/nbproject/private/
 # debug files
 t.txt
 debug.txt
+
+# upload folder
+upload/

@@ -9,6 +9,6 @@ $(document).ready ->
       dataType: 'json',
       url: '/upload/excel.json'
       done: (e, data) ->
-        console.log data
+        console.log data.result
     )
   )
