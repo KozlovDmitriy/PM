@@ -2,6 +2,7 @@
 
 # Параметры по умолчанию.
 a:
+  id: 1
   name: "Индивидуальный план"
   data_type: "float"
   input_type: "number"
@@ -13,6 +14,7 @@ a:
   sorting: 1
 
 b:
+  id: 2
   name: "Выполнение плана"
   data_type: "float"
   input_type: "number"
@@ -24,6 +26,7 @@ b:
   sorting: 2
 
 c:
+  id: 3
   name: "Выполнение"
   data_type: "float"
   input_type: "number"
@@ -35,6 +38,7 @@ c:
   sorting: 3
 
 d:
+  id: 4
   name: "Средний чек"
   data_type: "float"
   input_type: "number"
@@ -46,6 +50,7 @@ d:
   sorting: 4
 
 e:
+  id: 5
   name: "Количество позиций в чеке"
   data_type: "float"
   input_type: "number"
@@ -57,6 +62,7 @@ e:
   sorting: 5
 
 f:
+  id: 6
   name: "Количество чеков"
   data_type: "float"
   input_type: "number"
@@ -68,6 +74,7 @@ f:
   sorting: 6
 
 g:
+  id: 7
   name: "Отпуск"
   data_type: "float"
   input_type: "number"
@@ -79,6 +86,7 @@ g:
   sorting: 7
 
 z:
+  id: 8
   name: "На больничном"
   data_type: "float"
   input_type: "number"
@@ -90,6 +98,7 @@ z:
   sorting: 8
 
 q:
+  id: 9
   name: "Декретный отпуск"
   data_type: "float"
   input_type: "number"
@@ -101,6 +110,7 @@ q:
   sorting: 9
 
 w:
+  id: 10
   name: "Низкий стаж"
   data_type: "float"
   input_type: "checkbox"
@@ -112,6 +122,7 @@ w:
   sorting: 10
 
 r:
+  id: 11
   name: "Увольнение"
   data_type: "float"
   input_type: "checkbox"
