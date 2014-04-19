@@ -22,6 +22,19 @@ class InputDataController < ApplicationController
 
     require_relative '../../lib/read_excel'
     ods = ReadExcel.new filename
+    
+    analise = Analysis.new :date => Date.today
+    analise.save
+    ods.get_params.each do |item|
+      
+      consultant_family = item[:fio].match(/^[А-Я][а-я]+/).to_s
+      pv = ParamValue.new :param_id => Param.find_by(:name => 'Индивидуальный план').id, 
+                          :value => item[:ind_plan],
+                          :date_id => analise.id,
+                          :consultant_id => Consultant.find_by(:family_name => consultant_family).id
+      
+      File.open('debug.txt', 'a') { |file| file.write pv.to_yaml }
+    end
 
     render :json => ods.get_params
   end
