@@ -1,9 +1,378 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  value: MyString
+pv1:
+  id: 1
+  value: 234057.28
   param_id: 1
+  date_id: 19
+  consultant_id: 1
 
-two:
-  value: MyString
+pv2:
+  id: 2
+  value: 195589.87
+  param_id: 2
+  date_id: 19
+  consultant_id: 1
+
+pv3:
+  id: 3
+  value: 83.56
+  param_id: 3
+  date_id: 19
+  consultant_id: 1
+
+pv4:
+  id: 4
+  value: 2274.3
+  param_id: 4
+  date_id: 19
+  consultant_id: 1
+
+pv5:
+  id: 5
+  value: 3.66
+  param_id: 5
+  date_id: 19
+  consultant_id: 1
+
+pv6:
+  id: 6
+  value: 86
+  param_id: 6
+  date_id: 19
+  consultant_id: 1
+
+pv7:
+  id: 7
+  value: 234057.28
   param_id: 1
+  date_id: 19
+  consultant_id: 2
+
+pv8:
+  id: 8
+  value: 260580.24
+  param_id: 2
+  date_id: 19
+  consultant_id: 2
+
+pv9:
+  id: 9
+  value: 111.33
+  param_id: 3
+  date_id: 19
+  consultant_id: 2
+
+pv10:
+  id: 10
+  value: 3065.65
+  param_id: 4
+  date_id: 19
+  consultant_id: 2
+
+pv11:
+  id: 11
+  value: 3.47
+  param_id: 5
+  date_id: 19
+  consultant_id: 2
+
+pv12:
+  id: 12
+  value: 85
+  param_id: 6
+  date_id: 19
+  consultant_id: 2
+
+pv13:
+  id: 13
+  value: 234057.28
+  param_id: 1
+  date_id: 19
+  consultant_id: 3
+
+pv14:
+  id: 14
+  value: 188619.38
+  param_id: 2
+  date_id: 19
+  consultant_id: 3
+
+pv15:
+  id: 15
+  value: 80.59
+  param_id: 3
+  date_id: 19
+  consultant_id: 3
+
+pv16:
+  id: 16
+  value: 2733.61
+  param_id: 4
+  date_id: 19
+  consultant_id: 3
+
+pv17:
+  id: 17
+  value: 3.85
+  param_id: 5
+  date_id: 19
+  consultant_id: 3
+
+pv18:
+  id: 18
+  value: 69
+  param_id: 6
+  date_id: 19
+  consultant_id: 3
+
+pv19:
+  id: 19
+  value: 234057.28
+  param_id: 1
+  date_id: 19
+  consultant_id: 4
+
+pv20:
+  id: 20
+  value: 181743.58
+  param_id: 2
+  date_id: 19
+  consultant_id: 4
+
+pv21:
+  id: 21
+  value: 77.65
+  param_id: 3
+  date_id: 19
+  consultant_id: 4
+
+pv22:
+  id: 22
+  value: 1835.79
+  param_id: 4
+  date_id: 19
+  consultant_id: 4
+
+pv23:
+  id: 23
+  value: 3.2
+  param_id: 5
+  date_id: 19
+  consultant_id: 4
+
+pv24:
+  id: 24
+  value: 99
+  param_id: 6
+  date_id: 19
+  consultant_id: 4
+
+pv25:
+  id: 25
+  value: 234057.28
+  param_id: 1
+  date_id: 19
+  consultant_id: 5
+
+pv26:
+  id: 26
+  value: 96630.91
+  param_id: 2
+  date_id: 19
+  consultant_id: 5
+
+pv27:
+  id: 27
+  value: 41.29
+  param_id: 3
+  date_id: 19
+  consultant_id: 5
+
+pv28:
+  id: 28
+  value: 1323.71
+  param_id: 4
+  date_id: 19
+  consultant_id: 5
+
+pv29:
+  id: 29
+  value: 2.76
+  param_id: 5
+  date_id: 19
+  consultant_id: 5
+
+pv30:
+  id: 30
+  value: 74
+  param_id: 6
+  date_id: 19
+  consultant_id: 5
+
+pv31:
+  id: 31
+  value: 234057.28
+  param_id: 1
+  date_id: 19
+  consultant_id: 6
+
+pv32:
+  id: 32
+  value: 116676.87
+  param_id: 2
+  date_id: 19
+  consultant_id: 6
+
+pv33:
+  id: 33
+  value: 49.85
+  param_id: 3
+  date_id: 19
+  consultant_id: 6
+
+pv34:
+  id: 34
+  value: 2201.45
+  param_id: 4
+  date_id: 19
+  consultant_id: 6
+
+pv35:
+  id: 35
+  value: 3.62
+  param_id: 5
+  date_id: 19
+  consultant_id: 6
+
+pv36:
+  id: 36
+  value: 53
+  param_id: 6
+  date_id: 19
+  consultant_id: 6
+
+pv37:
+  id: 37
+  value: 623500.00
+  param_id: 1
+  date_id: 18
+  consultant_id: 1
+
+pv38:
+  id: 38
+  value: 343144.43
+  param_id: 2
+  date_id: 18
+  consultant_id: 1
+
+pv39:
+  id: 39
+  value: 55.04
+  param_id: 3
+  date_id: 18
+  consultant_id: 1
+
+pv40:
+  id: 40
+  value: 1545.70
+  param_id: 4
+  date_id: 18
+  consultant_id: 1
+
+pv41:
+  id: 41
+  value: 2.07
+  param_id: 5
+  date_id: 18
+  consultant_id: 1
+
+pv42:
+  id: 42
+  value: 222
+  param_id: 6
+  date_id: 18
+  consultant_id: 1
+
+pv43:
+  id: 43
+  value: 623500.00
+  param_id: 1
+  date_id: 18
+  consultant_id: 2
+
+pv44:
+  id: 44
+  value: 508436.53
+  param_id: 2
+  date_id: 18
+  consultant_id: 2
+
+pv45:
+  id: 45
+  value: 81.55
+  param_id: 3
+  date_id: 18
+  consultant_id: 2
+
+pv46:
+  id: 46
+  value: 2387.03
+  param_id: 4
+  date_id: 18
+  consultant_id: 2
+
+pv47:
+  id: 47
+  value: 2.49
+  param_id: 5
+  date_id: 18
+  consultant_id: 2
+
+pv48:
+  id: 48
+  value: 213
+  param_id: 6
+  date_id: 18
+  consultant_id: 2
+
+pv49:
+  id: 49
+  value: 623500.00
+  param_id: 1
+  date_id: 18
+  consultant_id: 3
+
+pv50:
+  id: 50
+  value: 421229.82
+  param_id: 2
+  date_id: 18
+  consultant_id: 3
+
+pv51:
+  id: 51
+  value: 67.56
+  param_id: 3
+  date_id: 18
+  consultant_id: 3
+
+pv52:
+  id: 52
+  value: 2182.54
+  param_id: 4
+  date_id: 18
+  consultant_id: 3
+
+pv53:
+  id: 52
+  value: 1.97
+  param_id: 5
+  date_id: 18
+  consultant_id: 3
+
+pv54:
+  id: 54
+  value: 193
+  param_id: 6
+  date_id: 18
+  consultant_id: 3
