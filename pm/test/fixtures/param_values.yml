@@ -1091,3 +1091,212 @@ pv156:
   date_id: 21
   consultant_id: 2
 
+pv157:
+  id: 157
+  value: 521289.69
+  param_id: 1
+  date_id: 21
+  consultant_id: 3
+
+pv158:
+  id: 158
+  value: 252306.19
+  param_id: 2
+  date_id: 21
+  consultant_id: 3
+
+pv159:
+  id: 159
+  value: 48.40
+  param_id: 3
+  date_id: 21
+  consultant_id: 3
+
+pv160:
+  id: 160
+  value: 3553.60
+  param_id: 4
+  date_id: 21
+  consultant_id: 3
+
+pv161:
+  id: 161
+  value: 3.78
+  param_id: 5
+  date_id: 21
+  consultant_id: 3
+
+pv162:
+  id: 162
+  value: 71
+  param_id: 6
+  date_id: 21
+  consultant_id: 3
+
+pv163:
+  id: 163
+  value: 289530.15
+  param_id: 1
+  date_id: 21
+  consultant_id: 8
+
+pv164:
+  id: 164
+  value: 57280.05
+  param_id: 2
+  date_id: 21
+  consultant_id: 8
+
+pv165:
+  id: 165
+  value: 19.78
+  param_id: 3
+  date_id: 21
+  consultant_id: 8
+
+pv166:
+  id: 166
+  value: 2121.48
+  param_id: 4
+  date_id: 21
+  consultant_id: 8
+
+pv167:
+  id: 167
+  value: 2.31
+  param_id: 5
+  date_id: 21
+  consultant_id: 8
+
+pv168:
+  id: 168
+  value: 27
+  param_id: 6
+  date_id: 21
+  consultant_id: 8
+
+pv169:
+  id: 169
+  value: 599263.87
+  param_id: 1
+  date_id: 21
+  consultant_id: 7
+
+pv170:
+  id: 170
+  value: 331536.10
+  param_id: 2
+  date_id: 21
+  consultant_id: 7
+
+pv171:
+  id: 171
+  value: 55.32
+  param_id: 3
+  date_id: 21
+  consultant_id: 7
+
+pv172:
+  id: 172
+  value: 1961.75
+  param_id: 4
+  date_id: 21
+  consultant_id: 7
+
+pv173:
+  id: 173
+  value: 2.42
+  param_id: 5
+  date_id: 21
+  consultant_id: 7
+
+pv174:
+  id: 174
+  value: 169
+  param_id: 1
+  date_id: 21
+  consultant_id: 7
+
+pv175:
+  id: 175
+  value: 231199.79
+  param_id: 1
+  date_id: 21
+  consultant_id: 9
+
+pv176:
+  id: 176
+  value: 33711.45
+  param_id: 2
+  date_id: 21
+  consultant_id: 9
+
+pv177:
+  id: 177
+  value: 14.58
+  param_id: 3
+  date_id: 21
+  consultant_id: 9
+
+pv178:
+  id: 178
+  value: 2247.43
+  param_id: 4
+  date_id: 21
+  consultant_id: 9
+
+pv179:
+  id: 179
+  value: 3
+  param_id: 5
+  date_id: 21
+  consultant_id: 9
+
+pv180:
+  id: 180
+  value: 15
+  param_id: 1
+  date_id: 21
+  consultant_id: 9
+
+pv181:
+  id: 181
+  value: 714899.35
+  param_id: 1
+  date_id: 21
+  consultant_id: 6
+
+pv182:
+  id: 182
+  value: 356643.64
+  param_id: 2
+  date_id: 21
+  consultant_id: 6
+
+pv183:
+  id: 183
+  value: 49.89
+  param_id: 3
+  date_id: 21
+  consultant_id: 6
+
+pv184:
+  id: 184
+  value: 2286.18
+  param_id: 4
+  date_id: 21
+  consultant_id: 6
+
+pv185:
+  id: 185
+  value: 3.01
+  param_id: 5
+  date_id: 21
+  consultant_id: 6
+
+pv186:
+  id: 186
+  value: 156
+  param_id: 6
+  date_id: 21
+  consultant_id: 6

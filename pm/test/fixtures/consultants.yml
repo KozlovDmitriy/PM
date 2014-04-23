@@ -42,3 +42,14 @@ consultant_7:
   first_name: Светалана
   second_name: Александровна
 
+consultant_8:
+  id: 8
+  family_name: Ахмедгариева
+  first_name: Светлана
+  second_name: Марковна
+
+consultant_9:
+  id: 9
+  family_name: Искалова
+  first_name: Раиса
+  second_name: Михайловна
