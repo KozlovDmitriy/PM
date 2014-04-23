@@ -36,3 +36,9 @@ consultant_6:
   first_name: Анна
   second_name: Сергеевна
 
+consultant_7:
+  id: 7
+  family_name: Кузьмина
+  first_name: Светалана
+  second_name: Александровна
+
