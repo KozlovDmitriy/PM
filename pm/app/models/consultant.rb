@@ -11,5 +11,11 @@ class Consultant < ActiveRecord::Base
   end
 
   has_many :input_data_items
+  has_many :param_values
+
+  # Метод получения отсортированных значений.
+  def get_params_values
+    ParamValue.where(:consultant_id => id).order(:analysis, :desc)
+  end
 
 end
