@@ -9,7 +9,7 @@
     <div class="modal-content"  style="width: 950px; margin-left: -230px">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Экспорт данных из сводного отчета</h4>
+        <h4 class="modal-title" id="myModalLabel">Результаты анализа</h4>
       </div>
       <div class="modal-body">
         <table class="table table-bordered">
@@ -24,9 +24,17 @@
             <th>Вывод</th>
             <th>Меры</th>
           </tr>
-          <% @consultants.each do |item| %>
+          <% array.each do |item| %>
             <tr>
-              <td><%= item.short_name %></td>
+              <td><%= item[:name] %></td>
+              <td><%= item[:ind_plan] %></td>
+              <td><%= item[:impl_plan] %></td>
+              <td><%= item[:impl] %></td>
+              <td><%= item[:av_check] %></td>
+              <td><%= item[:items_count] %></td>
+              <td><%= item[:total_checks_count] %></td>
+              <td><%= %></td>
+              <td><%= %></td>
             </tr>
           <% end %>
         </table>

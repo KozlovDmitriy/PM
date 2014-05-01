@@ -8,6 +8,6 @@
       %tr
         %td= Russian::strftime(item.date, '%d.%m.%Y')
         %td
-          = render 'modal', :local => {:array => item.array}
+          = render :partial => 'modal', :locals => {:array => item.array}
         %td
           %button.btn.btn-warning Сформировать отчет
