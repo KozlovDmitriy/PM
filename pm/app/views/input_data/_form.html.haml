@@ -9,49 +9,102 @@
   .field
     = f.label :date, 'Дата анализа'
     = f.datetime_select :date
+%br
+.row
+  .col-md-4
+    %table.table.table-bordered.table-hover
+      %tr
+        %th #
+        %th ФИО
+      - @consultants.each_with_index do |item, index|
+        %tr{:id => "consultant_#{item.id}"}
+          %td= index + 1
+          %td= item.full_name
 
-  -# Nav tabs
-  %ul.nav.nav-tabs
-    %li.active= link_to 'Экспорт данных', '#home', :data => {:toggle => 'tab'}
-    %li= link_to 'Ввод данных', '#profile', :data => {:toggle => 'tab'}
+  .col-md-8
+    -# Nav tabs
+    %ul.nav.nav-tabs
+      %li.active= link_to 'Основные параметры', '#home', :data => {:toggle => 'tab'}
+      %li= link_to 'Дополнительные параметры', '#profile', :data => {:toggle => 'tab'}
+    -# Tab panes
+    .tab-content
+      .tab-pane.active#home
+        %br
+        %form.form-horizontal{:role => 'form'}
+          .form-group
+            %label.control-label.col-sm-3{:for => 'ind-plan'} Индивидуальный план
+            .col-sm-3
+              %input.form-control#ind-plan{:type => 'number'}
+          .form-group
+            %label.control-label.col-sm-3{:for => 'impl-plan'} Выполнение плана
+            .col-sm-3
+              %input.form-control#impl-plan{:type => 'number'}
+          .form-group
+            %label.control-label.col-sm-3{:for => 'impl'} Выполнение
+            .col-sm-3
+              %input.form-control#impl{:type => 'number'}
+          .form-group
+            %label.control-label.col-sm-3{:for => 'av-check'} Средний чек
+            .col-sm-3
+              %input.form-control#av-check{:type => 'number'}
+          .form-group
+            %label.control-label.col-sm-3{:for => 'items-count'} Количество позиций в чеке
+            .col-sm-3
+              %input.form-control#items-count{:type => 'number'}
+          .form-group
+            %label.control-label.col-sm-3{:for => 'total-checks'} Общее количество чеков
+            .col-sm-3
+              %input.form-control#total-checks{:type => 'number'}
+          .form-group
+            .col-sm-offset-2.col-sm-10
+              %button.btn.btn-primary Сохранить
+      .tab-pane#profile
+        %br
+          %form.form-horizontal{:role => 'form'}
+            .form-group
+              %label.control-label.col-sm-3{:for => 'ind-plan'} Отпуск
+              .col-sm-3
+                %input.form-control#ind-plan{:type => 'checkbox'}
+            .form-group
+              %label.control-label.col-sm-3{:for => 'impl-plan'} Больничный
+              .col-sm-3
+                %input.form-control#impl-plan{:type => 'checkbox'}
+            .form-group
+              %label.control-label.col-sm-3{:for => 'impl'} Декретный отпуск
+              .col-sm-3
+                %input.form-control#impl{:type => 'checkbox'}
+            .form-group
+              %label.control-label.col-sm-3{:for => 'av-check'} Низкий стаж
+              .col-sm-3
+                %input.form-control#av-check{:type => 'checkbox'}
+            .form-group
+              %label.control-label.col-sm-3{:for => 'items-count'} Увольнение
+              .col-sm-3
+                %input.form-control#items-count{:type => 'checkbox'}
+            .form-group
+              .col-sm-offset-2.col-sm-10
+                %button.btn.btn-primary Сохранить
 
-  -# Tab panes
-  .tab-content
-    -# TAB CHART
-    .tab-pane.active#home
-      .row
-        .col-md-10
-          %table.table.table-bordered
-            %tr
-              %th ФИО
-              - @params_main.each do |param|
-                %th= param.label
-            - @consultants.each do |consultant|
-              %tr
-                %td= consultant.short_name
-                - @params_main.each do |param|
-                  %td= tag_from param.input_type, param.name
+%hr
+  %h4 Цветовые обозначения строк таблицы консультантов
+  .form-horizontal
+    .form-group
+      %label.label-danger Данные по консультанту не введены
+    .form-group
+      %label.label-warning Данные по консультанту введены не полностью
+    .form-group
+      %label.label-success Данные по консультанту введены полностью
+    .form-group
+      %label.label-info Текущий (выбранный) консультант
 
-        .col-md-2
-          %form
-            %p
-              %input{:type => 'file', :value => 'Файл с данными', :id => 'file', :name => 'file'}
-            %p
-              %button{:class => 'btn btn-primary'} Экспорт данных
-
-    -# TAB TABLE
-    .tab-pane#profile
-      %table.table.table-bordered
-        %tr
-          %th ФИО
-          - @params_add.each do |param|
-            %th= param.label
-        - @consultants.each do |consultant|
-          %tr
-            %td= consultant.short_name
-            - @params_add.each do |param|
-              %td= tag_from param.input_type, param.name
-
+%hr
+%form
+  %label Экспорт данных из сводного отчета
+  %p
+    %input{:type => 'file', :value => 'Файл с данными', :id => 'file', :name => 'file'}
+  %p
+    %button{:class => 'btn btn-primary'} Экспорт данных
+%hr
 %p
   %label{:for => 'is_finish'} Ввод данных завершен?
   %br

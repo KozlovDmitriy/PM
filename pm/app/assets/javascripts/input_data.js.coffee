@@ -12,3 +12,15 @@ $(document).ready ->
         console.log data.result
     )
   )
+
+ready_form = ->
+
+  $('tr').click ->
+    $.each $('tr'), (index, item) ->
+      $(item).removeAttr 'class'
+
+    tr = $(@)
+    tr.attr 'class', 'info'
+
+$(document).ready(ready_form)
+$(document).on('page:load', ready_form)
