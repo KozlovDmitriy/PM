@@ -1,5 +1,6 @@
 <div class="alert alert-info alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <strong>1.2.2.27</strong> - Реализовано чтение и запись ods файла (сводного отчета).
-     Добавлено отображение графика работы консультанта.
+    <strong>1.2.3.30</strong> - Реализовано:<ul> <li>Чтение и запись ods файла (сводного отчета).</li>
+     <li>Добавлено отображение графика работы консультанта.</li>
+     <li>Формирование отчета.</li></ul>
   </div>
