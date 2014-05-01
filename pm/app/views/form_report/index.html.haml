@@ -1,2 +1,13 @@
-%h1 FormReport#index
-%p Find me in app/views/form_report/index.html.haml
+- title 'Формирование отчетов для анализов'
+%h1 Формирование отчетов для анализов
+
+.row
+  %table.table
+    %caption Выберите анализ по дате, для формирования отчета по нему.
+    - @analysis.each do |item|
+      %tr
+        %td= Russian::strftime(item.date, '%d.%m.%Y')
+        %td
+          %button.btn.btn-default Посмотреть результаты анализа
+        %td
+          %button.btn.btn-warning Сформировать отчет
