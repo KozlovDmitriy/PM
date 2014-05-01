@@ -43,3 +43,16 @@ jQuery(document).ready ->
           <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>
           <strong>Ура!</strong> Анализ успешно завершен.</div>"
     false
+
+
+ready_form_analyse = ->
+
+  $('tr.consultant_tr').click ->
+    $.each $('tr'), (index, item) ->
+      $(item).removeAttr 'class'
+
+    tr = $(@)
+    tr.attr 'class', 'info'
+
+$(document).ready(ready_form_analyse)
+$(document).on('page:load', ready_form_analyse)

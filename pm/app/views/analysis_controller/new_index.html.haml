@@ -1,0 +1,99 @@
+- title 'Новый вариант анализа работы консультантов'
+
+.row
+  .col-sm-2
+    %ul.nav.nav-sidebar
+      %li= link_to 'Список всех дат анализов', '#'
+      %li= link_to 'Начать новый анализ', '#'
+      %li= link_to 'Сравнить консультантов', '#'
+  .col-sm-10
+    %h1 Новый вариант анализа работы консультантов
+    %button.btn.btn-info Выбрать другую дату для анализа
+    .row
+      .col-md-3
+        %br
+        %table.table.table-bordered
+          - @consultants.each do |item|
+            %tr.analyse_consultant_tr
+              %td= item.short_name
+        .panel.panel-default
+          .panel-body
+            %button.btn.btn-info Сформировать отчет
+      .col-md-9
+        %br
+        .panel.panel-default
+          .panel-heading
+            .panel-title
+              %h4 Основные параметры
+          .panel-body
+            %form.form-horizontal{:role => 'form'}
+              .form-group
+                %label.control-label.col-sm-4{:for => 'ind-plan'} Индивидуальный план
+                .col-sm-3
+                  %input.form-control#ind-plan{:type => 'number'}
+              .form-group
+                %label.control-label.col-sm-4{:for => 'impl-plan'} Выполнение плана
+                .col-sm-3
+                  %input.form-control#impl-plan{:type => 'number'}
+              .form-group
+                %label.control-label.col-sm-4{:for => 'impl'} Выполнение
+                .col-sm-3
+                  %input.form-control#impl{:type => 'number'}
+              .form-group
+                %label.control-label.col-sm-4{:for => 'av-check'} Средний чек
+                .col-sm-3
+                  %input.form-control#av-check{:type => 'number'}
+              .form-group
+                %label.control-label.col-sm-4{:for => 'items-count'} Количество позиций в чеке
+                .col-sm-3
+                  %input.form-control#items-count{:type => 'number'}
+              .form-group
+                %label.control-label.col-sm-4{:for => 'total-checks'} Общее количество чеков
+                .col-sm-3
+                  %input.form-control#total-checks{:type => 'number'}
+        .panel.panel-default
+          .panel-heading
+            .panel-title
+              %h4 Дополнительные параметры
+          .panel-body
+            %form.form-horizontal{:role => 'form'}
+              .form-group
+                %label.control-label.col-sm-3{:for => 'ind-plan'} Отпуск
+                .col-sm-3
+                  %input.form-control#ind-plan{:type => 'checkbox'}
+              .form-group
+                %label.control-label.col-sm-3{:for => 'impl-plan'} Больничный
+                .col-sm-3
+                  %input.form-control#impl-plan{:type => 'checkbox'}
+              .form-group
+                %label.control-label.col-sm-3{:for => 'impl'} Декретный отпуск
+                .col-sm-3
+                  %input.form-control#impl{:type => 'checkbox'}
+              .form-group
+                %label.control-label.col-sm-3{:for => 'av-check'} Низкий стаж
+                .col-sm-3
+                  %input.form-control#av-check{:type => 'checkbox'}
+              .form-group
+                %label.control-label.col-sm-3{:for => 'items-count'} Увольнение
+                .col-sm-3
+                  %input.form-control#items-count{:type => 'checkbox'}
+        .panel.panel-default
+          .panel-heading
+            .panel-title
+              %h4 Проблемы
+            %button.btn.btn-primary Выделить
+          .panel-body
+            %ul
+              %li Проблем нет
+        .panel.panel-default
+          .panel-heading
+            .panel-title
+              %h4 Рекомендации
+            %button.btn.btn-primary Выделить
+          .panel-body
+            %ul
+              %li Рекомендаций нет
+        .panel.panel-info
+          .panel-body
+            %button.btn.btn-primary Провести полный анализ консультанта
+            %button.btn.btn-warning Провести полный анализ всех консультантов

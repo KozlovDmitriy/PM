@@ -15,7 +15,7 @@ $(document).ready ->
 
 ready_form = ->
 
-  $('tr.consultant_tr').click ->
+  $('tr.analyse_consultant_tr').click ->
     $.each $('tr'), (index, item) ->
       $(item).removeAttr 'class'
 

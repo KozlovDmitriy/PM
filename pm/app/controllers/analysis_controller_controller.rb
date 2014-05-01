@@ -30,4 +30,8 @@ class AnalysisControllerController < ApplicationController
     client.close
     render :json => solutions
   end
+
+  def new_index
+    @consultants = Consultant.all
+  end
 end
