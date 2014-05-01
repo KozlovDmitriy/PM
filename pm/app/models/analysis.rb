@@ -1,5 +1,7 @@
 class Analysis < ActiveRecord::Base
 
+  attr_accessor :status
+
   def array
     _id = 19
     result = []
@@ -18,6 +20,19 @@ class Analysis < ActiveRecord::Base
       end
     end
     result
+  end
+
+  # Описание статусов
+  #
+  # end_analysis - Анализ завершен
+  # not_end_analysis  - Анализ не завершен
+  # empty_analysis - Анализ не проводился
+  # full_data - Данные полностью введены
+  # not_full_data - Данные введены частично
+  # empty_data - Данные не введены
+
+  def self.statuses
+    %w[end_analysis not_end_analysis empty_analysis full_data not_full_data empty_data]
   end
 
 end
