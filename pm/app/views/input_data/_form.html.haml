@@ -98,12 +98,14 @@
       %label.label-info Текущий (выбранный) консультант
 
 %hr
-%form
-  %label Экспорт данных из сводного отчета
-  %p
-    %input{:type => 'file', :value => 'Файл с данными', :id => 'file', :name => 'file'}
-  %p
-    %button{:class => 'btn btn-primary'} Экспорт данных
+-#%label Экспорт данных из сводного отчета
+-#%p
+-#  %input{:type => 'file', :value => 'Файл с данными', :id => 'file', :name => 'file'}
+-#%p
+-#  %button{:class => 'btn btn-primary', :data => {:toggle => 'modal', :targer => '#myModal'}} Экспорт данных
+
+= render 'modal'
+
 %hr
 %p
   %label{:for => 'is_finish'} Ввод данных завершен?
