@@ -2,6 +2,8 @@ Pm::Application.routes.draw do
 
   get 'form_report/index'
   get 'new-analyse' => 'analysis_controller#new_index'
+  post 'form_report/get_report' => 'form_report#get_report'
+  get 'form_report/get_report' => 'form_report#get_report'
   resources :analyses
 
   get 'analysis_controller/index'

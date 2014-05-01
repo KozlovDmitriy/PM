@@ -10,4 +10,5 @@
         %td
           = render :partial => 'modal', :locals => {:array => item.array}
         %td
-          %button.btn.btn-warning Сформировать отчет
+          != link_to 'Сформировать отчет', "/form_report/get_report?analysis=#{item.id}",
+          {:class => 'btn btn-warning', :target => '_blank'}
