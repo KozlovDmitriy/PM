@@ -1,7 +1,9 @@
 Pm::Application.routes.draw do
+
+  get 'form_report/index'
   resources :analyses
 
-  get "analysis_controller/index"
+  get 'analysis_controller/index'
 
   post '/analyse/problems.json' => 'analysis_controller#analyse_problems'
   post '/analyse/solutions.json' => 'analysis_controller#analyse_solution'
