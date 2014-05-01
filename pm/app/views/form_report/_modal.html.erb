@@ -1,0 +1,39 @@
+<!-- Button trigger modal -->
+<button class="btn btn-default " data-toggle="modal" data-target="#myModal">
+  Посмотреть результаты анализа
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="max-width: 999px">
+    <div class="modal-content"  style="width: 950px; margin-left: -230px">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Экспорт данных из сводного отчета</h4>
+      </div>
+      <div class="modal-body">
+        <table class="table table-bordered">
+          <tr>
+            <th>ФИО</th>
+            <th>Инд. План, руб</th>
+            <th>Вып. Плана, руб.</th>
+            <th>Выполнение, %</th>
+            <th>Средний чек</th>
+            <th>Кол-во в чеке</th>
+            <th>Кол-во чеков</th>
+            <th>Вывод</th>
+            <th>Меры</th>
+          </tr>
+          <% @consultants.each do |item| %>
+            <tr>
+              <td><%= item.short_name %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">ОК</button>
+      </div>
+    </div>
+  </div>
+</div>
