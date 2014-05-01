@@ -50,6 +50,7 @@ window.consultant_show = ->
 
       sorting_by_date()
       get_chart_array 6, 'Общее количество чеков'
+      window.insert_data_table()
 
     fail: (data) ->
       console.log data
@@ -112,6 +113,32 @@ show_d2_chart = (chart_source, params_labels) ->
         valueField: 'impl_plan'
       }]
     })
+
+get_table_row = (tr, param_id) ->
+  for item in window.consultant.param_values
+    if item.param_id is param_id
+      tr.append("<td>#{item.value}</td>")
+  tr
+
+window.insert_data_table = ->
+  date_array = ['Параметр']
+  # Формируем шапку.
+  for item in window.consultant.param_values
+    unless item.analysis in date_array
+      date_array.push item.analysis
+  tr = $('<tr>')
+  for item in date_array
+    tr.append("<th>#{item}</th>")
+  $('#params thead').append(tr)
+  # Вставляем индивидуальный план.
+  names = ['Индивидуальный план', 'Выполнение плана', 'Выполнение', 'Средний чек',
+           'Количество позиций в чеке', 'Количество чеков']
+  for i in [1..6]
+    tr = $('<tr>')
+    tr.append("<td>#{names[i - 1]}</td>")
+    tr = get_table_row tr, i
+    $('#params tbody:last').append tr
+
 
 $(document).ready(ready)
 $(document).on('page:load', ready)

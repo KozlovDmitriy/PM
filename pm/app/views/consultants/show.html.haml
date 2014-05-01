@@ -44,42 +44,9 @@
         .col-md-8
           #chartContainer{:style => "max-width: 800px;height: 400px;"}
     .tab-pane#profile
-      %table.table.table-bordered
-        %tr
-          %th Параметр
-          %th 01.01.2014
-          %th 15.01.2014
-          %th 01.02.2014
-        %tr
-          %td Инд. план
-          %td 1200
-          %td 1200
-          %td 1200
-        %tr
-          %td Вып. плана
-          %td 1200
-          %td 1200
-          %td 1200
-        %tr
-          %td Выполнение
-          %td 1200
-          %td 1200
-          %td 1200
-        %tr
-          %td Ср. чек
-          %td 1200
-          %td 1200
-          %td 1200
-        %tr
-          %td Кол-во позиций в чеке
-          %td 1200
-          %td 1200
-          %td 1200
-        %tr
-          %td Кол-во чеков
-          %td 1200
-          %td 1200
-          %td 1200
+      %table.table.table-bordered#params
+        %thead
+        %tbody
 
 %script
   window.consultant_show();
