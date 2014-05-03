@@ -48,6 +48,55 @@ class InputDataController < ApplicationController
     @params_add = Param.where(:role => 'additional').order(:sorting => :asc)
   end
 
+  def save_form_params
+    # /save_params
+
+    File.open('debug.txt', 'w') { |file| file.write params.to_yaml }
+
+    analyse = Analysis.new :date => params[:date]
+    if params[:isFinish]
+      analyse.status = 'full_data'
+    else
+      analyse.status = 'not_full_data'
+    end
+    analyse.save
+
+    params[:params].each do |item|
+      c_id = item[:id].to_i
+      a_id = analyse.id
+      # Индивидуальный план
+      v1 = ParamValue.new(:value => item[:main][:indPlan], :param_id => 1, :date_id => a_id, :consultant_id => c_id)
+      v1.save
+      # Выполнение плана
+      v2 = ParamValue.new(:value => item[:main][:implPlan], :param_id => 2, :date_id => a_id, :consultant_id => c_id)
+      v2.save
+      # Выполнение
+      v3 = ParamValue.new :value => item[:main][:impl], :param_id => 3, :date_id => a_id, :consultant_id => c_id
+      v3.save
+      # Средний чек
+      v4 = ParamValue.new :value => item[:main][:avCheck], :param_id => 4, :date_id => a_id, :consultant_id => c_id
+      v4.save
+      # Количество позиций в чеке
+      v5 = ParamValue.new :value => item[:main][:itemsCount], :param_id => 5, :date_id => a_id, :consultant_id => c_id
+      v5.save
+      # Общее количество чеков
+      v6 = ParamValue.new :value => item[:main][:totalChecks], :param_id => 6, :date_id => a_id, :consultant_id => c_id
+      v6.save
+      # Отпуск
+      v7 = ParamValue.create :value => item[:additional][:holiday], :param_id => 7, :date_id => a_id, :consultant_id => c_id
+      # Больничный
+      v8 = ParamValue.create :value => item[:additional][:hospital], :param_id => 8, :date_id => a_id, :consultant_id => c_id
+      # Декретный отпуск
+      v9 = ParamValue.create :value => item[:additional][:mleave], :param_id => 9, :date_id => a_id, :consultant_id => c_id
+      # Низкий стаж
+      v10 = ParamValue.create :value => item[:additional][:exp], :param_id => 10, :date_id => a_id, :consultant_id => c_id
+      # Увольнение
+      v11 = ParamValue.create :value => item[:additional][:dismissal], :param_id => 11, :date_id => a_id, :consultant_id => c_id
+    end
+
+    render :json => true
+  end
+
   # GET /input_data/1/edit
   def edit
   end

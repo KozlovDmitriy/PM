@@ -32,9 +32,37 @@ appInputData.controller 'inputDataController', ($scope, $http) ->
   # Текущий консультант.
   $scope.currentConsultant = null
 
+  # Закончен ли ввод данных.
+  $scope.isFinish = false
+
+  # Отображение алерта
+  $scope.isProcess = false
+
   # Список всех консультантов
   $scope.consultants = []
 
+  # Метод сохранения данных.
+  $scope.save = ->
+    $scope.isProcess = true
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+    obj =
+      date: new Date()
+      isFinish: $scope.isFinish
+      params:
+        $scope.consultants
+    console.log obj
+    promise = $http.post '/save_params.json', obj
+    promise.success (data) ->
+      console.log data
+      $scope.isProcess = false
+      alert 'Сохранение данных прошло успешно!'
+      window.location.href = '/new-analyse'
+    promise.error (data) ->
+      console.log data
+      $scope.isProcess = false
+      alert 'Ошибка сохранения данных!'
+
+  # Функция смены текущего консультанта.
   $scope.changeCurrentConsultant = (item) ->
     angular.forEach $scope.consultants, (c) ->
       c.class = ''

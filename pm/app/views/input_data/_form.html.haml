@@ -1,14 +1,17 @@
-= form_for @input_datum do |f|
-  - if @input_datum.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@input_datum.errors.count, "error")} prohibited this input_datum from being saved:"
-      %ul
-        - @input_datum.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :date, 'Дата анализа'
-    = f.datetime_select :date
+-#= form_for @input_datum do |f|
+-#  - if @input_datum.errors.any?
+-#    #error_explanation
+-#      %h2= "#{pluralize(@input_datum.errors.count, "error")} prohibited this input_datum from being saved:"
+-#      %ul
+-#        - @input_datum.errors.full_messages.each do |msg|
+-#          %li= msg
+-#
+-#  -#.field
+-#  -#  = f.label :date, 'Дата анализа'
+-#  -#  = f.datetime_select :date, {:style => 'display: none;'}
+.alert.alert-warning{:ng => {:show => 'isProcess'}}
+  %b Внимание!
+  %p Происходит сохранение данных! Пожалуйста, подождите!
 %br
 .row
   .col-md-4
@@ -56,9 +59,6 @@
             %label.control-label.col-sm-3{:for => 'total-checks'} Общее количество чеков
             .col-sm-3
               %input.form-control#total-checks{:type => 'number', :ng => {:model => 'currentConsultant.main.totalChecks', :disabled => 'currentConsultant == null'}}
-          .form-group
-            .col-sm-offset-2.col-sm-10
-              %button.btn.btn-primary Сохранить
       .tab-pane#profile
         %br
           %form.form-horizontal{:role => 'form'}
@@ -82,9 +82,6 @@
               %label.control-label.col-sm-3{:for => 'items-count'} Увольнение
               .col-sm-3
                 %input.form-control#items-count{:type => 'checkbox', :ng => {:model => 'currentConsultant.main.dismissal', :disabled => 'currentConsultant == null'}}
-            .form-group
-              .col-sm-offset-2.col-sm-10
-                %button.btn.btn-primary Сохранить
 
 -#%hr
 -#  %h4 Цветовые обозначения строк таблицы консультантов
@@ -109,11 +106,11 @@
 
 %hr
 %p
-  %label{:for => 'is_finish'} Ввод данных завершен?
+  %label{:for => 'is_finish', :ng => {:hide => 'isProcess'}} Ввод данных завершен?
   %br
-  %input{:type => 'checkbox', :id => 'is_finish'}
+  %input{:type => 'checkbox', :id => 'is_finish', :ng => {:model => 'isFinish', :hide => 'isProcess'}}
 %p
-  %button{:class => 'btn btn-success'} Сохранить данные
+  %button{:class => 'btn btn-success', :ng => {:click => 'save()', :hide => 'isProcess'}} Сохранить данные
 
 %p
-  %button{:class => 'btn btn-warning'} Сохранить данные и перейти к анализу
+  %button{:class => 'btn btn-warning', :ng => {:click => 'save()', :hide => 'isProcess'}} Сохранить данные и перейти к анализу

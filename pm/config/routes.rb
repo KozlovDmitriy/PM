@@ -6,6 +6,8 @@ Pm::Application.routes.draw do
   get 'form_report/get_report' => 'form_report#get_report'
   resources :analyses
 
+  post '/save_params' => 'input_data#save_form_params'
+
   get 'analysis_controller/index'
 
   post '/analyse/problems.json' => 'analysis_controller#analyse_problems'
