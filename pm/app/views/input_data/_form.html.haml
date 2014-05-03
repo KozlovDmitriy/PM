@@ -16,10 +16,11 @@
       %tr
         %th #
         %th ФИО
-      - @consultants.each_with_index do |item, index|
-        %tr.consultant_tr{:id => "consultant_#{item.id}"}
-          %td= index + 1
-          %td= item.full_name
+      %tr.analyse_consultant_tr{:ng => {:repeat => 'item in consultants', :click => 'changeCurrentConsultant(item);', :class => 'item.class'}}
+        %td
+          {{item.id}}
+        %td
+          {{item.fio}}
 
   .col-md-8
     -# Nav tabs
@@ -34,27 +35,27 @@
           .form-group
             %label.control-label.col-sm-3{:for => 'ind-plan'} Индивидуальный план
             .col-sm-3
-              %input.form-control#ind-plan{:type => 'number'}
+              %input.form-control#ind-plan{:type => 'number', :ng => {:model => 'currentConsultant.main.indPlan', :disabled => 'currentConsultant == null'}}
           .form-group
             %label.control-label.col-sm-3{:for => 'impl-plan'} Выполнение плана
             .col-sm-3
-              %input.form-control#impl-plan{:type => 'number'}
+              %input.form-control#impl-plan{:type => 'number', :ng => {:model => 'currentConsultant.main.implPlan', :disabled => 'currentConsultant == null'}}
           .form-group
             %label.control-label.col-sm-3{:for => 'impl'} Выполнение
             .col-sm-3
-              %input.form-control#impl{:type => 'number'}
+              %input.form-control#impl{:type => 'number', :ng => {:model => 'currentConsultant.main.impl', :disabled => 'currentConsultant == null'}}
           .form-group
             %label.control-label.col-sm-3{:for => 'av-check'} Средний чек
             .col-sm-3
-              %input.form-control#av-check{:type => 'number'}
+              %input.form-control#av-check{:type => 'number', :ng => {:model => 'currentConsultant.main.avCheck', :disabled => 'currentConsultant == null'}}
           .form-group
             %label.control-label.col-sm-3{:for => 'items-count'} Количество позиций в чеке
             .col-sm-3
-              %input.form-control#items-count{:type => 'number'}
+              %input.form-control#items-count{:type => 'number', :ng => {:model => 'currentConsultant.main.itemsCount', :disabled => 'currentConsultant == null'}}
           .form-group
             %label.control-label.col-sm-3{:for => 'total-checks'} Общее количество чеков
             .col-sm-3
-              %input.form-control#total-checks{:type => 'number'}
+              %input.form-control#total-checks{:type => 'number', :ng => {:model => 'currentConsultant.main.totalChecks', :disabled => 'currentConsultant == null'}}
           .form-group
             .col-sm-offset-2.col-sm-10
               %button.btn.btn-primary Сохранить
@@ -64,38 +65,38 @@
             .form-group
               %label.control-label.col-sm-3{:for => 'ind-plan'} Отпуск
               .col-sm-3
-                %input.form-control#ind-plan{:type => 'checkbox'}
+                %input.form-control#ind-plan{:type => 'checkbox', :ng => {:model => 'currentConsultant.main.holiday', :disabled => 'currentConsultant == null'}}
             .form-group
               %label.control-label.col-sm-3{:for => 'impl-plan'} Больничный
               .col-sm-3
-                %input.form-control#impl-plan{:type => 'checkbox'}
+                %input.form-control#impl-plan{:type => 'checkbox', :ng => {:model => 'currentConsultant.main.hospital', :disabled => 'currentConsultant == null'}}
             .form-group
               %label.control-label.col-sm-3{:for => 'impl'} Декретный отпуск
               .col-sm-3
-                %input.form-control#impl{:type => 'checkbox'}
+                %input.form-control#impl{:type => 'checkbox', :ng => {:model => 'currentConsultant.main.mleave', :disabled => 'currentConsultant == null'}}
             .form-group
               %label.control-label.col-sm-3{:for => 'av-check'} Низкий стаж
               .col-sm-3
-                %input.form-control#av-check{:type => 'checkbox'}
+                %input.form-control#av-check{:type => 'checkbox', :ng => {:model => 'currentConsultant.main.exp', :disabled => 'currentConsultant == null'}}
             .form-group
               %label.control-label.col-sm-3{:for => 'items-count'} Увольнение
               .col-sm-3
-                %input.form-control#items-count{:type => 'checkbox'}
+                %input.form-control#items-count{:type => 'checkbox', :ng => {:model => 'currentConsultant.main.dismissal', :disabled => 'currentConsultant == null'}}
             .form-group
               .col-sm-offset-2.col-sm-10
                 %button.btn.btn-primary Сохранить
 
-%hr
-  %h4 Цветовые обозначения строк таблицы консультантов
-  .form-horizontal
-    .form-group
-      %label.label-danger Данные по консультанту не введены
-    .form-group
-      %label.label-warning Данные по консультанту введены не полностью
-    .form-group
-      %label.label-success Данные по консультанту введены полностью
-    .form-group
-      %label.label-info Текущий (выбранный) консультант
+-#%hr
+-#  %h4 Цветовые обозначения строк таблицы консультантов
+-#  .form-horizontal
+-#    .form-group
+-#      %label.label-danger Данные по консультанту не введены
+-#    .form-group
+-#      %label.label-warning Данные по консультанту введены не полностью
+-#    .form-group
+-#      %label.label-success Данные по консультанту введены полностью
+-#    .form-group
+-#      %label.label-info Текущий (выбранный) консультант
 
 %hr
 -#%label Экспорт данных из сводного отчета
