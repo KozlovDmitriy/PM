@@ -74,6 +74,10 @@ analyseApp.controller 'analyseAppController', ($scope, $http) ->
   # Список всех консультантов
   $scope.consultants = []
 
+  # Метод получения проблем на основе CBR.
+  $scope.getProblems = ->
+    console.log $scope.currentConsultant
+
   # Функция смены текущего консультанта.
   $scope.changeCurrentConsultant = (item) ->
     angular.forEach $scope.consultants, (c) ->

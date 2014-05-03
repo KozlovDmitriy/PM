@@ -84,7 +84,7 @@
           .panel-heading
             .panel-title
               %h4 Проблемы
-            %button.btn.btn-primary Выделить
+            %button.btn.btn-primary{:ng => {:click => 'getProblems()'}} Выделить
           .panel-body
             %ul
               %li{:ng => {:if => 'currentConsultant.problems.length == 0'}} Проблем нет
