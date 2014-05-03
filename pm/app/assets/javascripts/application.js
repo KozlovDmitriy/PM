@@ -22,3 +22,4 @@
 //= require jquery-fileupload/jquery.fileupload
 //= require angular.min
 //= require_tree .
+//= require turbolinks
