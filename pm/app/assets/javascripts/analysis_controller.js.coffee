@@ -74,12 +74,38 @@ analyseApp.controller 'analyseAppController', ($scope, $http) ->
   # Список всех консультантов
   $scope.consultants = []
 
+  # Провести полный анализ всех консультантов
+  $scope.all = ->
+    temp = $scope.currentConsultant
+    for item in $scope.consultants
+      $scope.currentConsultant = item
+      $scope.fullAnalyse()
+    $scope.currentConsultant = temp
+
+  # Полный анализ консультанта
+  $scope.fullAnalyse = ->
+    promise = $http.post '/analyse/new_analyse_problems.json', $scope.currentConsultant
+    promise.success (data) ->
+      console.log data
+      $scope.currentConsultant.problems = data
+      $scope.currentConsultant.isFinishProblem = true
+      promise = $http.post '/analyse/solutions.json', {problems: $scope.currentConsultant.problems.uri}
+      promise.success (data) ->
+        console.log data
+        $scope.currentConsultant.solutions = data
+        $scope.currentConsultant.isFinishSolution = true
+      promise.error (data) ->
+        console.log data
+    promise.error (data) ->
+      console.log data
+
   # Метод получения рекомендаций на основе CBR
   $scope.getSolutions = ->
     promise = $http.post '/analyse/solutions.json', {problems: $scope.currentConsultant.problems.uri}
     promise.success (data) ->
       console.log data
       $scope.currentConsultant.solutions = data
+      $scope.currentConsultant.isFinishSolution = true
     promise.error (data) ->
       console.log data
 
@@ -89,6 +115,7 @@ analyseApp.controller 'analyseAppController', ($scope, $http) ->
     promise.success (data) ->
       console.log data
       $scope.currentConsultant.problems = data
+      $scope.currentConsultant.isFinishProblem = true
     promise.error (data) ->
       console.log data
 

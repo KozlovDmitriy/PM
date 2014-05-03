@@ -21,7 +21,7 @@
             %td {{item.fio}}
         .panel.panel-default
           .panel-body
-            %button.btn.btn-info Сформировать отчет
+            %button.btn.btn-info{:disabled => 'disabled'} Сформировать отчет
       .col-md-9
         %br
         .panel.panel-default
@@ -84,7 +84,7 @@
           .panel-heading
             .panel-title
               %h4 Проблемы
-            %button.btn.btn-primary{:ng => {:click => 'getProblems()'}} Выделить
+            %button.btn.btn-primary{:ng => {:click => 'getProblems()', :disabled => 'currentConsultant == null'}} Выделить
           .panel-body
             %ul
               %li{:ng => {:if => 'currentConsultant.problems.length == 0 || currentConsultant.problems.value.length == 0'}} Проблем нет
@@ -94,7 +94,7 @@
           .panel-heading
             .panel-title
               %h4 Рекомендации
-            %button.btn.btn-primary{:ng => {:click => 'getSolutions()'}} Выделить
+            %button.btn.btn-primary{:ng => {:click => 'getSolutions()', :disabled => 'currentConsultant == null || !currentConsultant.isFinishProblem'}} Выделить
           .panel-body
             %ul
               %li{:ng => {:if => 'currentConsultant.solutions.length == 0 || currentConsultant.solutions.value.length == 0'}} Проблем нет
@@ -102,5 +102,5 @@
                 {{item}}
         .panel.panel-info
           .panel-body
-            %button.btn.btn-primary Провести полный анализ консультанта
-            %button.btn.btn-warning Провести полный анализ всех консультантов
+            %button.btn.btn-primary{:ng => {:click => 'fullAnalyse()', :disabled => 'currentConsultant == null'}} Провести полный анализ консультанта
+            -#%button.btn.btn-warning{:ng => {:click => 'all()'}} Провести полный анализ всех консультантов

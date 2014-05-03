@@ -23,5 +23,7 @@ json.array! @consultants.each do |item|
     end
     json.problems []
     json.solutions []
+    json.isFinishSolution false
+    json.isFinishProblem false
   end
 end
