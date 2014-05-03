@@ -74,6 +74,15 @@ analyseApp.controller 'analyseAppController', ($scope, $http) ->
   # Список всех консультантов
   $scope.consultants = []
 
+  # Метод получения рекомендаций на основе CBR
+  $scope.getSolutions = ->
+    promise = $http.post '/analyse/solutions.json', {problems: $scope.currentConsultant.problems.uri}
+    promise.success (data) ->
+      console.log data
+      $scope.currentConsultant.solutions = data
+    promise.error (data) ->
+      console.log data
+
   # Метод получения проблем на основе CBR.
   $scope.getProblems = ->
     promise = $http.post '/analyse/new_analyse_problems.json', $scope.currentConsultant

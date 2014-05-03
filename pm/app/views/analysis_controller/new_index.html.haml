@@ -94,11 +94,11 @@
           .panel-heading
             .panel-title
               %h4 Рекомендации
-            %button.btn.btn-primary Выделить
+            %button.btn.btn-primary{:ng => {:click => 'getSolutions()'}} Выделить
           .panel-body
             %ul
-              %li{:ng => {:if => 'currentConsultant.solutions.length == 0'}} Проблем нет
-              %li{:ng => {:repeat => 'item in currentConsultant.solutions'}}
+              %li{:ng => {:if => 'currentConsultant.solutions.length == 0 || currentConsultant.solutions.value.length == 0'}} Проблем нет
+              %li{:ng => {:repeat => 'item in currentConsultant.solutions.value'}}
                 {{item}}
         .panel.panel-info
           .panel-body
