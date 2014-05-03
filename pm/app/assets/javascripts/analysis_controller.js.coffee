@@ -56,3 +56,48 @@ ready_form_analyse = ->
 
 $(document).ready(ready_form_analyse)
 $(document).on('page:load', ready_form_analyse)
+
+analyseApp = angular.module('analyseApp', [])
+
+analyseApp.controller 'analyseAppController', ($scope, $http) ->
+
+  # Текущий консультант.
+  $scope.currentConsultant = null
+  $scope.aid = 19
+
+  # Закончен ли ввод данных.
+  $scope.isFinish = false
+
+  # Отображение алерта
+  $scope.isProcess = false
+
+  # Список всех консультантов
+  $scope.consultants = []
+
+  # Функция смены текущего консультанта.
+  $scope.changeCurrentConsultant = (item) ->
+    angular.forEach $scope.consultants, (c) ->
+      c.class = ''
+    item.class = 'info'
+    console.log item
+    $scope.currentConsultant = item
+
+  # Функция получения консультантов.
+  $scope.loadConsultants = ->
+    obj =
+      analyse_id: $scope.aid
+    console.log obj
+    promise = $http(
+      url: '/new-analyse.json'
+      method: 'GET'
+      params: obj
+    )
+    promise.success (data) ->
+      console.log data
+      for item in data
+        if item.id?
+          $scope.consultants.push item
+    promise.error (data) ->
+      console.log data
+
+  $scope.loadConsultants()

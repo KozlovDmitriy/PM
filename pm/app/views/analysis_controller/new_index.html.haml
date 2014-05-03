@@ -1,6 +1,6 @@
 - title 'Новый вариант анализа работы консультантов'
 
-.row
+.row{:ng => {:app => 'analyseApp', :controller => 'analyseAppController'}}
   .col-sm-2
     %ul.nav.nav-sidebar
       %li= link_to 'Список всех дат анализов', '#'
@@ -8,14 +8,17 @@
       %li= link_to 'Сравнить консультантов', '#'
   .col-sm-10
     %h1 Новый вариант анализа работы консультантов
+    %p
+      %h4 Дата анализа:
+      %u 01.10.2013
     %button.btn.btn-info Выбрать другую дату для анализа
     .row
       .col-md-3
         %br
         %table.table.table-bordered
-          - @consultants.each do |item|
-            %tr.analyse_consultant_tr
-              %td= item.short_name
+          %tr.analyse_consultant_tr{:ng => {:repeat => 'item in consultants', :click => 'changeCurrentConsultant(item);', :class => 'item.class'}}
+            %td {{item.id}}
+            %td {{item.fio}}
         .panel.panel-default
           .panel-body
             %button.btn.btn-info Сформировать отчет
@@ -30,27 +33,27 @@
               .form-group
                 %label.control-label.col-sm-4{:for => 'ind-plan'} Индивидуальный план
                 .col-sm-3
-                  %input.form-control#ind-plan{:type => 'number'}
+                  %input.form-control#ind-plan{:type => 'float', :ng => {:model => 'currentConsultant.main.indPlan', :disabled => 'currentConsultant == null'}, :readonly => 'readonly'}
               .form-group
                 %label.control-label.col-sm-4{:for => 'impl-plan'} Выполнение плана
                 .col-sm-3
-                  %input.form-control#impl-plan{:type => 'number'}
+                  %input.form-control#impl-plan{:type => 'float', :ng => {:model => 'currentConsultant.main.implPlan', :disabled => 'currentConsultant == null'}, :readonly => 'readonly'}
               .form-group
                 %label.control-label.col-sm-4{:for => 'impl'} Выполнение
                 .col-sm-3
-                  %input.form-control#impl{:type => 'number'}
+                  %input.form-control#impl{:type => 'float', :ng => {:model => 'currentConsultant.main.impl', :disabled => 'currentConsultant == null'}, :readonly => 'readonly'}
               .form-group
                 %label.control-label.col-sm-4{:for => 'av-check'} Средний чек
                 .col-sm-3
-                  %input.form-control#av-check{:type => 'number'}
+                  %input.form-control#av-check{:type => 'float', :ng => {:model => 'currentConsultant.main.avCheck', :disabled => 'currentConsultant == null'}, :readonly => 'readonly'}
               .form-group
                 %label.control-label.col-sm-4{:for => 'items-count'} Количество позиций в чеке
                 .col-sm-3
-                  %input.form-control#items-count{:type => 'number'}
+                  %input.form-control#items-count{:type => 'float', :ng => {:model => 'currentConsultant.main.itemsCount', :disabled => 'currentConsultant == null'}, :readonly => 'readonly'}
               .form-group
                 %label.control-label.col-sm-4{:for => 'total-checks'} Общее количество чеков
                 .col-sm-3
-                  %input.form-control#total-checks{:type => 'number'}
+                  %input.form-control#total-checks{:type => 'float', :ng => {:model => 'currentConsultant.main.totalChecks', :disabled => 'currentConsultant == null'}, :readonly => 'readonly'}
         .panel.panel-default
           .panel-heading
             .panel-title
@@ -60,23 +63,23 @@
               .form-group
                 %label.control-label.col-sm-3{:for => 'ind-plan'} Отпуск
                 .col-sm-3
-                  %input.form-control#ind-plan{:type => 'checkbox'}
+                  %input.form-control#ind-plan{:type => 'checkbox', :ng => {:model => 'currentConsultant.main.holiday', :disabled => 'currentConsultant == null'}, :onclick => 'return false'}
               .form-group
                 %label.control-label.col-sm-3{:for => 'impl-plan'} Больничный
                 .col-sm-3
-                  %input.form-control#impl-plan{:type => 'checkbox'}
+                  %input.form-control#impl-plan{:type => 'checkbox', :ng => {:model => 'currentConsultant.main.hospital', :disabled => 'currentConsultant == null'}, :onclick => 'return false'}
               .form-group
                 %label.control-label.col-sm-3{:for => 'impl'} Декретный отпуск
                 .col-sm-3
-                  %input.form-control#impl{:type => 'checkbox'}
+                  %input.form-control#impl{:type => 'checkbox', :ng => {:model => 'currentConsultant.main.mleave', :disabled => 'currentConsultant == null'}, :onclick => 'return false'}
               .form-group
                 %label.control-label.col-sm-3{:for => 'av-check'} Низкий стаж
                 .col-sm-3
-                  %input.form-control#av-check{:type => 'checkbox'}
+                  %input.form-control#av-check{:type => 'checkbox', :ng => {:model => 'currentConsultant.main.exp', :disabled => 'currentConsultant == null'}, :onclick => 'return false'}
               .form-group
                 %label.control-label.col-sm-3{:for => 'items-count'} Увольнение
                 .col-sm-3
-                  %input.form-control#items-count{:type => 'checkbox'}
+                  %input.form-control#items-count{:type => 'checkbox', :ng => {:model => 'currentConsultant.main.dismissal', :disabled => 'currentConsultant == null'}, :onclick => 'readonly'}
         .panel.panel-default
           .panel-heading
             .panel-title
@@ -84,7 +87,9 @@
             %button.btn.btn-primary Выделить
           .panel-body
             %ul
-              %li Проблем нет
+              %li{:ng => {:if => 'currentConsultant.problems.length == 0'}} Проблем нет
+              %li{:ng => {:repeat => 'item in currentConsultant.problems'}}
+                {{item}}
         .panel.panel-default
           .panel-heading
             .panel-title
@@ -92,7 +97,9 @@
             %button.btn.btn-primary Выделить
           .panel-body
             %ul
-              %li Рекомендаций нет
+              %li{:ng => {:if => 'currentConsultant.solutions.length == 0'}} Проблем нет
+              %li{:ng => {:repeat => 'item in currentConsultant.solutions'}}
+                {{item}}
         .panel.panel-info
           .panel-body
             %button.btn.btn-primary Провести полный анализ консультанта

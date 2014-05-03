@@ -33,5 +33,23 @@ class AnalysisControllerController < ApplicationController
 
   def new_index
     @consultants = Consultant.all
+
+    respond_to do |format|
+      format.html
+      format.json {
+        analyse = Analysis.find params[:analyse_id].to_i
+        @param_values = ParamValue.where :date_id => analyse.id
+      }
+    end
+
+  end
+
+  def get_new_index
+    File.open('debug.txt', 'w') { |file| file.write params.to_yaml }
+    analyse = Analysis.find params[:analyse_id].to_i
+
+    respond_to do |format|
+      format.json { render 'get_new_index' }
+    end
   end
 end
