@@ -21,6 +21,19 @@ class AnalysisControllerController < ApplicationController
     render :json => problems
   end
 
+  def new_analyse_problems
+    require_relative '../../lib/tcp_client'
+    client = TcpClient.new 50125, 'localhost'
+
+    problems = client.analise_params [{:name => 'ImplPlan', :value => get_impl_plan_value(params[:main][:impl].to_f)},
+                                      {:name => 'AvCheck', :value => get_av_check_value(params[:main][:avCheck].to_f)},
+                                      {:name => 'ItemsCount', :value => get_items_count_value(params[:main][:itemsCount].to_f)},
+                                      {:name => 'TotalChecksCount', :value => get_total_checks_value(params[:main][:totalChecks].to_f)}]
+
+    client.close
+    render :json => problems
+  end
+
   # POST /analyse/solutions.json
   def analyse_solution
     require_relative '../../lib/tcp_client'
@@ -59,7 +72,7 @@ class AnalysisControllerController < ApplicationController
     require 'yaml'
     thing = YAML.load_file "#{Rails.root}/config/impl_plan.yml"
     thing.each do |item|
-      if i_value >= item['min'].to_i and i_value <= item['max'].to_i
+      if i_value >= item['min'].to_f and i_value <= item['max'].to_f
         return item['uri']
       end
     end
@@ -70,7 +83,7 @@ class AnalysisControllerController < ApplicationController
     require 'yaml'
     thing = YAML.load_file "#{Rails.root}/config/av_check.yml"
     thing.each do |item|
-      if i_value >= item['min'].to_i and i_value <= item['max'].to_i
+      if i_value >= item['min'].to_f and i_value <= item['max'].to_f
         return item['uri']
       end
     end
@@ -81,7 +94,7 @@ class AnalysisControllerController < ApplicationController
     require 'yaml'
     thing = YAML.load_file "#{Rails.root}/config/items_count.yml"
     thing.each do |item|
-      if i_value == item['val'].to_i
+      if i_value == item['val'].to_f
         return item['uri']
       end
     end
@@ -92,7 +105,7 @@ class AnalysisControllerController < ApplicationController
     require 'yaml'
     thing = YAML.load_file "#{Rails.root}/config/total_checks.yml"
     thing.each do |item|
-      if i_value >= item['min'].to_i and i_value <= item['max'].to_i
+      if i_value >= item['min'].to_f and i_value <= item['max'].to_f
         return item['uri']
       end
     end

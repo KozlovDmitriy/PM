@@ -87,8 +87,8 @@
             %button.btn.btn-primary{:ng => {:click => 'getProblems()'}} Выделить
           .panel-body
             %ul
-              %li{:ng => {:if => 'currentConsultant.problems.length == 0'}} Проблем нет
-              %li{:ng => {:repeat => 'item in currentConsultant.problems'}}
+              %li{:ng => {:if => 'currentConsultant.problems.length == 0 || currentConsultant.problems.value.length == 0'}} Проблем нет
+              %li{:ng => {:repeat => 'item in currentConsultant.problems.value'}}
                 {{item}}
         .panel.panel-default
           .panel-heading

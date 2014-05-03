@@ -12,6 +12,7 @@ Pm::Application.routes.draw do
   get 'analysis_controller/index'
 
   post '/analyse/problems.json' => 'analysis_controller#analyse_problems'
+  post '/analyse/new_analyse_problems.json' => 'analysis_controller#new_analyse_problems'
   post '/analyse/solutions.json' => 'analysis_controller#analyse_solution'
   resources :input_data_items
 
@@ -27,7 +28,7 @@ Pm::Application.routes.draw do
 
   resources :consultants
 
-  get "pages/index"
+  get 'pages/index'
 
   root 'pages#index'
 

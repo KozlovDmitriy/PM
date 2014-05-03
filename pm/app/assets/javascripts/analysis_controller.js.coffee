@@ -76,7 +76,12 @@ analyseApp.controller 'analyseAppController', ($scope, $http) ->
 
   # Метод получения проблем на основе CBR.
   $scope.getProblems = ->
-    console.log $scope.currentConsultant
+    promise = $http.post '/analyse/new_analyse_problems.json', $scope.currentConsultant
+    promise.success (data) ->
+      console.log data
+      $scope.currentConsultant.problems = data
+    promise.error (data) ->
+      console.log data
 
   # Функция смены текущего консультанта.
   $scope.changeCurrentConsultant = (item) ->
