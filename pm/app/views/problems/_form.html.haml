@@ -9,6 +9,13 @@
   .form-group
     = f.label :description, 'Текст проблемы'
     = f.text_area :description, :class => 'form-control'
+  .form-group
+    = f.label :type, 'Тип проблемы'
+    = f.select :type, Problem.types, :include_blank => true, :class => 'form-control'
+  .form-group
+    .alert.alert-warning
+      %b Внимание!
+      %p При создании комплексной проблемы используйте редактор для добавления простых проблем через связку 'И'
 
   .col-md-offset-4
     - if request.fullpath.match(/\/problems\/new/).nil?
