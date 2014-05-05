@@ -84,7 +84,7 @@ analyseApp.controller 'analyseAppController', ($scope, $http) ->
 
   # Полный анализ консультанта
   $scope.fullAnalyse = ->
-    promise = $http.post '/analyse/new_analyse_problems.json', $scope.currentConsultant
+    promise = $http.post '/analyse/new_analyse_problems.json', {consultant: $scope.currentConsultant, date: $scope.aid}
     promise.success (data) ->
       console.log data
       $scope.currentConsultant.problems = data
@@ -111,7 +111,7 @@ analyseApp.controller 'analyseAppController', ($scope, $http) ->
 
   # Метод получения проблем на основе CBR.
   $scope.getProblems = ->
-    promise = $http.post '/analyse/new_analyse_problems.json', $scope.currentConsultant
+    promise = $http.post '/analyse/new_analyse_problems.json', {consultant: $scope.currentConsultant, date: $scope.aid}
     promise.success (data) ->
       console.log data
       $scope.currentConsultant.problems = data
