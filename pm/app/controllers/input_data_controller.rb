@@ -26,43 +26,33 @@ class InputDataController < ApplicationController
     
     analise = Analysis.new :date => Date.today
     analise.save
+    result = []
     ods.get_params.each do |item|
       
       consultant_family = item[:fio].match(/^[А-Я][а-я]+/).to_s
-      c_id = Consultant.find_by(:family_name => consultant_family).id
-      ParamValue.create :param_id => Param.find_by(:name => 'Индивидуальный план').id,
-                          :value => item[:ind_plan],
-                          :date_id => analise.id,
-                          :consultant_id => c_id
+      consultant = Consultant.find_by(:family_name => consultant_family)
+      hash = {}
+      hash[:id] = consultant.id
+      hash[:fio] = consultant.full_name
+      hash[:url] = ''
+      hash[:main] = {}
+      hash[:main][:indPlan] = item[:ind_plan]
+      hash[:main][:implPlan] = item[:impl_plan]
+      hash[:main][:impl] = item[:impl]
+      hash[:main][:avCheck] = item[:av_check]
+      hash[:main][:itemsCount] = item[:items]
+      hash[:main][:totalChecks] = item[:total_checks]
+      hash[:additional] = {}
+      hash[:additional][:holiday] = false
+      hash[:additional][:hospital] = false
+      hash[:additional][:mleave] = false
+      hash[:additional][:exp] = false
+      hash[:additional][:dismissal] = false
 
-      ParamValue.create :param_id => 2,
-                        :value => item[:impl_plan],
-                        :date_id => analise.id,
-                        :consultant_id => c_id
-
-      ParamValue.create :param_id => 3,
-                        :value => item[:impl],
-                        :date_id => analise.id,
-                        :consultant_id => c_id
-
-      ParamValue.create :param_id => 4,
-                        :value => item[:av_check],
-                        :date_id => analise.id,
-                        :consultant_id => c_id
-
-      ParamValue.create :param_id => 5,
-                        :value => item[:items],
-                        :date_id => analise.id,
-                        :consultant_id => c_id
-
-      ParamValue.create :param_id => 6,
-                        :value => item[:total_checks],
-                        :date_id => analise.id,
-                        :consultant_id => c_id
-
+      result.push hash
     end
 
-    render :json => ods.get_params
+    render :json => result.uniq
   end
 
   # GET /input_data/new

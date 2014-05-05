@@ -9,7 +9,10 @@ $(document).ready ->
       dataType: 'json',
       url: '/upload/excel.json'
       done: (e, data) ->
-        console.log data.result
+#        console.log data.result
+        window.ods = data.result
+        alert 'Данные успешно загружены'
+        window.odsRead()
     )
   )
 
@@ -40,6 +43,14 @@ appInputData.controller 'inputDataController', ($scope, $http) ->
 
   # Список всех консультантов
   $scope.consultants = []
+
+  # Загрузка отчета.
+  $scope.uploadOds = ->
+    $scope.consultants = []
+    $scope.consultants = window.ods
+    $scope.$apply()
+
+  window.odsRead = $scope.uploadOds
 
   # Метод сохранения данных.
   $scope.save = ->
