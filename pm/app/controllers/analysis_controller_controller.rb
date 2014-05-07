@@ -50,9 +50,20 @@ class AnalysisControllerController < ApplicationController
   def analyse_solution
     require_relative '../../lib/tcp_client'
     client = TcpClient.new 50125, 'localhost'
-
+    date_id = params[:date].to_i
     solutions = client.analise_problems [:name => params[:problems], :value => params[:problems]]
     client.close
+    solutions[:value].each do |item|
+      array = Solution.where :description => item
+      if array.blank?
+        solution = Solution.create :description => item
+      else
+        solution = array.first
+      end
+      AnalysisSolutionConnect.create :solution_id => solution.id,
+                                     :analysis_id => date_id,
+                                     :consultant_id => params[:consultant][:id].to_i
+    end
     render :json => solutions
   end
 
