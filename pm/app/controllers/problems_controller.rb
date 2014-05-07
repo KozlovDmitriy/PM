@@ -24,7 +24,9 @@ class ProblemsController < ApplicationController
   # POST /problems
   # POST /problems.json
   def create
-    @problem = Problem.new(problem_params)
+    @problem = Problem.new
+    @problem.description = params[:problem][:description]
+    @problem.problem_type = params[:problem][:type]
 
     respond_to do |format|
       if @problem.save
@@ -40,6 +42,7 @@ class ProblemsController < ApplicationController
   # PATCH/PUT /problems/1
   # PATCH/PUT /problems/1.json
   def update
+    @problem.type = params[:problem][:type]
     respond_to do |format|
       if @problem.update(problem_params)
         format.html { redirect_to problems_path, notice: 'Problem was successfully updated.' }
@@ -69,6 +72,9 @@ class ProblemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def problem_params
+       if params[:problem][:type] == 'complex'
+         params[:problem][:description] = params[:problem][:description].gsub /\s[И]$/, ''
+       end
       params.require(:problem).permit(:description)
     end
 end

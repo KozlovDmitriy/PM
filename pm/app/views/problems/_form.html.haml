@@ -7,12 +7,26 @@
           %li= msg
 
   .form-group
+    %label Текст проблемы
+    %textarea.form-control{:ng => {:model => 'problem.description'}}
+  .form-group
+    %label Тип проблемы
+    %select.form-control{:ng => {:model => 'problem.type', :change => 'changeType()'}}
+      - Problem.types.each do |item|
+        %option= item
+  .form-group{:ng => {:show => 'isShowRedactorBtn'}}
+    %select.form-control{:ng => {:model => 'currentProblem'}}
+      %option{:ng => {:repeat => 'problem in problems'}, :value => '{{problem.description}}'} {{problem.description}}
+    %input.btn.btn-info{:ng => {:click => 'addProblem()'}, :type => 'button', :value => 'Добавить простую проблему'}
+  .form-group{:style => 'display: none'}
     = f.label :description, 'Текст проблемы'
-    = f.text_area :description, :class => 'form-control'
-  .form-group
+    = f.text_area :description, :class => 'form-control', :value => '{{problem.description}}'
+  .form-group{:style => 'display: none'}
     = f.label :type, 'Тип проблемы'
-    = f.select :type, Problem.types, :include_blank => true, :class => 'form-control'
-  .form-group
+    = f.select :type, :value => '{{problem.type}}'
+  -#.form-group
+  -#  = f.button 'Редактор', :class => 'btn btn-info'
+  .form-group{:ng => {:show => 'isShowRedactorBtn'}}
     .alert.alert-warning
       %b Внимание!
       %p При создании комплексной проблемы используйте редактор для добавления простых проблем через связку 'И'

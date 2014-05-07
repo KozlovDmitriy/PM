@@ -3,6 +3,6 @@
   %h1 Добавить новую проблему
   = title 'Добавить новую проблему'
 
-.row
+.row{:ng => {:app => 'newProblemApp', :controller => 'newProblemController'}}
   .col-md-6.col-md-offset-3
     = render 'form'
