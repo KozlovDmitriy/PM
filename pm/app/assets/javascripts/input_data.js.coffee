@@ -8,9 +8,12 @@ $(document).ready ->
     $('#file').fileupload(
       dataType: 'json',
       url: '/upload/excel.json'
+      progressall: (e, data) ->
+        $('#progressBar').show()
       done: (e, data) ->
 #        console.log data.result
         window.ods = data.result
+        $('#progressBar').hide()
         alert 'Данные успешно загружены'
         window.odsRead()
     )
