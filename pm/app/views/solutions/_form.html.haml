@@ -7,9 +7,27 @@
           %li= msg
 
   .form-group
+    %label Текст рекомендации
+    %textarea.form-control{:ng => {:model => 'solution.description'}}
+  .form-group
+    %label Тип рекомендации
+    %select.form-control{:ng => {:model => 'solution.type', :change => 'changeType()'}}
+      - Solution.types.each do |item|
+        %option= item
+  .form-group{:ng => {:show => 'isShowRedactorBtn'}}
+    %select.form-control{:ng => {:model => 'currentSolution'}}
+      %option{:ng => {:repeat => 'solution in solutions'}, :value => '{{solution.description}}'} {{solution.description}}
+    %input.btn.btn-info{:ng => {:click => 'addSolution()'}, :type => 'button', :value => 'Добавить рекомендацию'}
+  .form-group{:style => 'display: none;'}
     = f.label :description, 'Текст рекомендации'
-    = f.text_area :description, :class => 'form-control'
-
+    = f.text_area :description, :class => 'form-control', :value => '{{solution.description}}'
+  .form-group{:style => 'display: none'}
+    = f.label :solution_type, 'Тип рекомендации'
+    = f.select :solution_type, :value => '{{solution.type}}'
+  .form-group{:ng => {:show => 'isShowRedactorBtn'}}
+    .alert.alert-warning
+      %b Внимание!
+      %p При создании комплексной рекомендации используйте редактор для добавления рекомендаций через связку 'И'
   .col-md-offset-4
     - if request.fullpath.match(/\/solutions\/new/).nil?
       = f.submit 'Изменить', :class => 'btn btn-primary'

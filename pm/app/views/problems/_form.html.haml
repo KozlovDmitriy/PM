@@ -17,7 +17,7 @@
   .form-group{:ng => {:show => 'isShowRedactorBtn'}}
     %select.form-control{:ng => {:model => 'currentProblem'}}
       %option{:ng => {:repeat => 'problem in problems'}, :value => '{{problem.description}}'} {{problem.description}}
-    %input.btn.btn-info{:ng => {:click => 'addProblem()'}, :type => 'button', :value => 'Добавить простую проблему'}
+    %input.btn.btn-info{:ng => {:click => 'addProblem()'}, :type => 'button', :value => 'Добавить проблему'}
   .form-group{:style => 'display: none'}
     = f.label :description, 'Текст проблемы'
     = f.text_area :description, :class => 'form-control', :value => '{{problem.description}}'
@@ -29,7 +29,7 @@
   .form-group{:ng => {:show => 'isShowRedactorBtn'}}
     .alert.alert-warning
       %b Внимание!
-      %p При создании комплексной проблемы используйте редактор для добавления простых проблем через связку 'И'
+      %p При создании комплексной проблемы используйте редактор для добавления проблем через связку 'И'
 
   .col-md-offset-4
     - if request.fullpath.match(/\/problems\/new/).nil?
