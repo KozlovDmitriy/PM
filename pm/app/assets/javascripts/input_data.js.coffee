@@ -55,6 +55,11 @@ appInputData.controller 'inputDataController', ($scope, $http) ->
 
   window.odsRead = $scope.uploadOds
 
+  # Сохранение данны и переход к анализу.
+  $scope.saveAndAnalyse = ->
+    $scope.isFinish = true
+    $scope.save()
+
   # Метод сохранения данных.
   $scope.save = ->
     $scope.isProcess = true
@@ -70,7 +75,7 @@ appInputData.controller 'inputDataController', ($scope, $http) ->
       console.log data
       $scope.isProcess = false
       alert 'Сохранение данных прошло успешно!'
-      window.location.href = '/new-analyse'
+      window.location.href = '/new-analyse' if $scope.isFinish is true
     promise.error (data) ->
       console.log data
       $scope.isProcess = false

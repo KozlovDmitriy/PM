@@ -67,8 +67,6 @@ class InputDataController < ApplicationController
   def save_form_params
     # /save_params
 
-    File.open('debug.txt', 'w') { |file| file.write params.to_yaml }
-
     analyse = Analysis.new :date => params[:date]
     if params[:isFinish]
       analyse.status = 'full_data'
