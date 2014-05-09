@@ -71,6 +71,12 @@ analyseApp.controller 'analyseAppController', ($scope, $http) ->
   # Отображение алерта
   $scope.isProcess = false
 
+  # Индикатор процесса поиска проблем.
+  $scope.isFindProblems = false
+
+  # Индикатор процесса поиска рекомендаций.
+  $scope.isFindSolutions = false
+
   # Список всех консультантов
   $scope.consultants = []
 
@@ -84,40 +90,52 @@ analyseApp.controller 'analyseAppController', ($scope, $http) ->
 
   # Полный анализ консультанта
   $scope.fullAnalyse = ->
+    $scope.isFindProblems = true
     promise = $http.post '/analyse/new_analyse_problems.json', {consultant: $scope.currentConsultant, date: $scope.aid}
     promise.success (data) ->
       console.log data
       $scope.currentConsultant.problems = data
       $scope.currentConsultant.isFinishProblem = true
+      $scope.isFindProblems = false
+      $scope.isFindSolutions = true
       promise = $http.post '/analyse/solutions.json', {problems: $scope.currentConsultant.problems.uri, consultant: $scope.currentConsultant, date: $scope.aid}
       promise.success (data) ->
         console.log data
         $scope.currentConsultant.solutions = data
         $scope.currentConsultant.isFinishSolution = true
+        $scope.isFindSolutions = false
       promise.error (data) ->
         console.log data
+        $scope.isFindSolutions = false
     promise.error (data) ->
       console.log data
+      $scope.isFindProblems = false
 
   # Метод получения рекомендаций на основе CBR
   $scope.getSolutions = ->
+    $scope.isFindSolutions = true
     promise = $http.post '/analyse/solutions.json', {problems: $scope.currentConsultant.problems.uri, consultant: $scope.currentConsultant, date: $scope.aid}
     promise.success (data) ->
       console.log data
       $scope.currentConsultant.solutions = data
       $scope.currentConsultant.isFinishSolution = true
+      $scope.isFindSolutions = false
     promise.error (data) ->
       console.log data
+      $scope.isFindSolutions = false
 
   # Метод получения проблем на основе CBR.
   $scope.getProblems = ->
+    $scope.isFindProblems = true
     promise = $http.post '/analyse/new_analyse_problems.json', {consultant: $scope.currentConsultant, date: $scope.aid}
     promise.success (data) ->
       console.log data
       $scope.currentConsultant.problems = data
       $scope.currentConsultant.isFinishProblem = true
+      $scope.isFindProblems = false
     promise.error (data) ->
       console.log data
+      $scope.isFindProblems = false
 
   # Функция смены текущего консультанта.
   $scope.changeCurrentConsultant = (item) ->

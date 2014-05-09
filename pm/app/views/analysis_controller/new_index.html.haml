@@ -84,7 +84,11 @@
           .panel-heading
             .panel-title
               %h4 Проблемы
-            %button.btn.btn-primary{:ng => {:click => 'getProblems()', :disabled => 'currentConsultant == null'}} Выделить
+            .well{:ng => {:show => 'isFindProblems'}}
+              .progress.progress-striped.active
+                .progress-bar{:role => 'progressbar', :aria => {:valuenow => '45', :valuemin => '0', :valuemax => '100'}, :style => 'width: 45%'}
+                  %span.sr-only 45% Complete
+            %button.btn.btn-primary{:ng => {:click => 'getProblems()', :hide => 'isFindProblems', :disabled => 'currentConsultant == null'}} Выделить
           .panel-body
             %ul
               %li{:ng => {:if => 'currentConsultant.problems.length == 0 || currentConsultant.problems.value.length == 0'}} Проблем нет
@@ -94,7 +98,11 @@
           .panel-heading
             .panel-title
               %h4 Рекомендации
-            %button.btn.btn-primary{:ng => {:click => 'getSolutions()', :disabled => 'currentConsultant == null || !currentConsultant.isFinishProblem'}} Выделить
+            .well{:ng => {:show => 'isFindSolutions'}}
+              .progress.progress-striped.active
+                .progress-bar{:role => 'progressbar', :aria => {:valuenow => '63', :valuemin => '0', :valuemax => '100'}, :style => 'width: 63%'}
+                  %span.sr-only 63% Complete
+            %button.btn.btn-primary{:ng => {:hide => 'isFindSolutions', :click => 'getSolutions()', :disabled => 'currentConsultant == null || !currentConsultant.isFinishProblem'}} Выделить
           .panel-body
             %ul
               %li{:ng => {:if => 'currentConsultant.solutions.length == 0 || currentConsultant.solutions.value.length == 0'}} Проблем нет
