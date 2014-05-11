@@ -24,7 +24,10 @@ class SolutionsController < ApplicationController
   # POST /solutions
   # POST /solutions.json
   def create
-    @solution = Solution.new(solution_params)
+    @solution = Solution.new
+    @solution.description = params[:solution][:description]
+    @solution.solution_type = params[:solution][:solution_type].to_s
+    @solution.cut_description!
 
     respond_to do |format|
       if @solution.save

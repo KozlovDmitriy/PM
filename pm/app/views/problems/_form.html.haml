@@ -22,8 +22,8 @@
     = f.label :description, 'Текст проблемы'
     = f.text_area :description, :class => 'form-control', :value => '{{problem.description}}'
   .form-group{:style => 'display: none'}
-    = f.label :type, 'Тип проблемы'
-    = f.select :type, :value => '{{problem.type}}'
+    = f.label :problem_type, 'Тип проблемы'
+    = f.select :problem_type, :value => '{{problem.type}}'
   -#.form-group
   -#  = f.button 'Редактор', :class => 'btn btn-info'
   .form-group{:ng => {:show => 'isShowRedactorBtn'}}

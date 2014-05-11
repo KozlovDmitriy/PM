@@ -26,7 +26,8 @@ class ProblemsController < ApplicationController
   def create
     @problem = Problem.new
     @problem.description = params[:problem][:description]
-    @problem.problem_type = params[:problem][:type]
+    @problem.problem_type = params[:problem][:problem_type]
+    @problem.cut_description!
 
     respond_to do |format|
       if @problem.save
