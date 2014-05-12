@@ -1,6 +1,12 @@
 
 package ontology.model;
 
+import es.ucm.fdi.gaia.ontobridge.OntoBridge;
+import jcolibri.connector.OntologyConnector;
+import jcolibri.exception.InitializingException;
+import jcolibri.util.FileIO;
+import jcolibri.util.OntoBridgeSingleton;
+
 /**
  * Класс простой проблемы в онтологии.
  * @author M. Navrotskiy
@@ -15,6 +21,19 @@ public class SimpleProblem {
     private String URI;
     /** Идентификатор проблемы в базе данных. */
     private int dbId;
+    
+    /**
+     * Метод сохранения экземпляра в онтологии.
+     * @throws InitializingException 
+     */
+    public void save() throws InitializingException {
+        
+        OntologyConnector connector = new OntologyConnector();
+        connector.initFromXMLfile(FileIO.findFile("configurate.xml"));
+        OntoBridge bridge = OntoBridgeSingleton.getOntoBridge();
+        bridge.createInstance("SimpleProblem", this.URI);
+        bridge.createDataTypeProperty(this.URI, "db_id", Integer.toString(this.dbId), "integer");
+    }
     
     /**
      * Метод получения значения типа проблемы.
