@@ -13,6 +13,24 @@ public class SimpleProblem {
     private String description;
     /** URI проблемы в онтологии. */
     private String URI;
+    /** Идентификатор проблемы в базе данных. */
+    private int dbId;
+
+    /**
+     * Метод изменения значения идентификатора проблемы в бд.
+     * @param id Идентификатор проблемы в бд.
+     */
+    public void setId(int id) {
+        this.dbId = id;
+    }
+
+    /**
+     * Метод получения значения идентификатора проблемы в бд.
+     * @return Значение идентификатора проблемы в онтологии.
+     */
+    public int getId() {
+        return dbId;
+    }
 
     /**
      * Метод изменения значения uri в онтологии.
