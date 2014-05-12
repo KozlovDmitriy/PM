@@ -23,6 +23,15 @@ public class SimpleProblem {
     private int dbId;
     
     /**
+     * Метод изменения проблемы в онтологии.
+     * @throws InitializingException 
+     */
+    public void update() throws InitializingException {
+        this.remove();
+        this.save();
+    }
+    
+    /**
      * Метод удаления проблемы из онтологии.
      * @throws InitializingException 
      */
