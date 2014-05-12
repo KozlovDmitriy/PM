@@ -23,6 +23,17 @@ public class SimpleProblem {
     private int dbId;
     
     /**
+     * Метод удаления проблемы из онтологии.
+     * @throws InitializingException 
+     */
+    public void remove() throws InitializingException {
+        OntologyConnector connector = new OntologyConnector();
+        connector.initFromXMLfile(FileIO.findFile("configurate.xml"));
+        OntoBridge bridge = OntoBridgeSingleton.getOntoBridge();
+        bridge.delete(this.URI);
+    }
+    
+    /**
      * Метод сохранения экземпляра в онтологии.
      * @throws InitializingException 
      */
@@ -33,6 +44,7 @@ public class SimpleProblem {
         OntoBridge bridge = OntoBridgeSingleton.getOntoBridge();
         bridge.createInstance("SimpleProblem", this.URI);
         bridge.createDataTypeProperty(this.URI, "db_id", Integer.toString(this.dbId), "integer");
+        bridge.createDataTypeProperty(this.URI, "description", this.description, "string");
     }
     
     /**
