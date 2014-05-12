@@ -15,6 +15,26 @@ public class SimpleProblem {
     private String URI;
     /** Идентификатор проблемы в базе данных. */
     private int dbId;
+    
+    /**
+     * Метод получения значения типа проблемы.
+     * @return Тип проблемы.
+     */
+    public String getType () {
+        return "simple";
+    }
+
+    /**
+     * Конструктор с параметрами.
+     * @param description Описание проблемы.
+     * @param URI uri проблемы в онтологии.
+     * @param dbId Идентификатор проблемы в бд.
+     */
+    public SimpleProblem(String description, String URI, int dbId) {
+        this.description = description;
+        this.URI = URI;
+        this.dbId = dbId;
+    }
 
     /**
      * Конструктор по умолчанию.
