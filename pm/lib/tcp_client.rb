@@ -33,6 +33,17 @@ class TcpClient
   ITEMS_COUNT = 0x12
   # Запрос на получение общего числа чеков.
   TOTAL_CHECKS_COUNT = 0x13
+  # Запрос на создание новой проблемы.
+  CREATE_NEW_PROBLEM = 0x14
+
+  def create_new_problem problem
+    raise 'Connection already closed!' if @is_close
+    log 'Create new problem start'
+    @socket.puts CREATE_NEW_PROBLEM
+    @socket.puts problem.problem_type
+    @socket.puts problem.description
+    log 'Create new problem end'
+  end
 
   # Метод получения всех значений общего числа чеков в онтологии.
   # @return [Array] - массив хешей из значения и uri параметра в онтологии.

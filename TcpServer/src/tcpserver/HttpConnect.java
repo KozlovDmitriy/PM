@@ -57,6 +57,8 @@ public class HttpConnect extends Thread {
     public static final int ITEMS_COUNT = 0x12;
     /** Запрос на получение общего числа чеков. */
     public static final int TOTAL_CHECKS_COUNT = 0x13;
+    /** Запрос на создание новой проблемы. */
+    public static final int CREATE_NEW_PROBLEM = 0x14;
     
     /**
      * Метод ведения лога.
@@ -99,6 +101,12 @@ public class HttpConnect extends Thread {
         this.start();
     }
     
+    private void createNewProblem (BufferedReader br) throws IOException {
+        
+        String type = br.readLine();
+        String description = br.readLine();
+    }
+    
     /**
      * Метод чтения запросов клиента.
      * @param request Запрос клиента.
@@ -122,6 +130,8 @@ public class HttpConnect extends Thread {
             this.getParam("ItemsCount", "itemsCountHasValue", pw);
         } else if (request.equals(Integer.toString(HttpConnect.TOTAL_CHECKS_COUNT))) {
             this.getParam("TotalChecksCount", "totalChecksCountHasValue", pw);
+        } else if (request.equals(Integer.toString(HttpConnect.CREATE_NEW_PROBLEM))) {
+            this.createNewProblem(br);
         }
     }
         
