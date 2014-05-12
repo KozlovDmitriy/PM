@@ -17,6 +17,15 @@ public class SimpleProblem {
     private int dbId;
 
     /**
+     * Конструктор по умолчанию.
+     */
+    public SimpleProblem() {
+        this.description = "qwe";
+        this.URI = "qwe";
+        this.dbId = -1;
+    }
+
+    /**
      * Метод изменения значения идентификатора проблемы в бд.
      * @param id Идентификатор проблемы в бд.
      */
