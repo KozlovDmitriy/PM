@@ -2,6 +2,8 @@
 package ontology.model;
 
 import es.ucm.fdi.gaia.ontobridge.OntoBridge;
+import java.util.ArrayList;
+import java.util.Iterator;
 import jcolibri.connector.OntologyConnector;
 import jcolibri.exception.InitializingException;
 import jcolibri.util.FileIO;
@@ -21,6 +23,68 @@ public class SimpleProblem {
     private String URI;
     /** Идентификатор проблемы в базе данных. */
     private int dbId;
+    
+    /**
+     * Метод поиск проблемы по uri.
+     * @param uri Значение uri.
+     * @return Проблема.
+     * @throws InitializingException 
+     */
+    public static SimpleProblem findByUri (String uri) throws InitializingException {
+        SimpleProblem result = null;
+        
+        OntologyConnector connector = new OntologyConnector();
+        connector.initFromXMLfile(FileIO.findFile("configurate.xml"));
+        ArrayList list = new ArrayList();
+        OntoBridge bridge = OntoBridgeSingleton.getOntoBridge();
+        Iterator it = bridge.listInstances("SimpleProblem");
+        
+        while (it.hasNext()) {
+            
+            String uriValue = (String) it.next();
+            Iterator jt = bridge.listPropertyValue(uriValue, "db_id");
+            
+            if (uriValue.equals(uri)) {
+                String desc = bridge.listPropertyValue(uriValue, "description").next();
+                return new SimpleProblem(desc, uriValue, Integer.parseInt(jt.next().toString()));
+            }
+        }
+        
+        return result;
+    }
+    
+    /**
+     * Метод поиска проблемы по идентификатору.
+     * @param id Идентификатор.
+     * @return Проблема.
+     * @throws InitializingException 
+     */
+    public static SimpleProblem find (int id) throws InitializingException {
+        SimpleProblem result = null;
+        
+        OntologyConnector connector = new OntologyConnector();
+        connector.initFromXMLfile(FileIO.findFile("configurate.xml"));
+        ArrayList list = new ArrayList();
+        OntoBridge bridge = OntoBridgeSingleton.getOntoBridge();
+        Iterator it = bridge.listInstances("SimpleProblem");
+        
+        while (it.hasNext()) {
+            
+            String uriValue = (String) it.next();
+            Iterator jt = bridge.listPropertyValue(uriValue, "db_id");
+            
+            while (jt.hasNext()) {
+                String temp = jt.next().toString();
+                
+                if (Integer.parseInt(temp) == id) {
+                    String desc = bridge.listPropertyValue(uriValue, "description").next();
+                    return new SimpleProblem(desc, uriValue, id);
+                }
+            }
+        }
+        
+        return result;
+    }
     
     /**
      * Метод изменения проблемы в онтологии.
