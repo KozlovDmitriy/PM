@@ -1,11 +1,73 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+dp1:
+  id: 1
   date_id: 1
-  plan: 1
-  value: 1
+  plan: 1494725 # E4
+  value: 1195092.27 # E5
 
-two:
-  date_id: 1
-  plan: 1
-  value: 1
+dp2:
+  id: 2
+  date_id: 2
+  plan: 3443050
+  value: 2343885,25
+
+dp3:
+  id: 3
+  date_id: 3
+  plan: 1903435.5
+  value: 1261097.67
+
+dp4:
+  id: 4
+  date_id: 4
+  plan: 1540551
+  value: 1023905.98
+
+dp5:
+  id: 5
+  date_id: 5
+  plan: 3801871
+  value: 2531772.03
+
+dp6:
+  id: 6
+  date_id: 6
+  plan: 3100425
+  value: 3229603.09
+
+dp7:
+  id: 7
+  date_id: 7
+  plan: 1845755.5
+  value: 1181964.31
+
+dp8:
+  id: 8
+  date_id: 8
+  plan: 1508843
+  value: 1317345.56
+
+dp9:
+  id: 9
+  date_id: 9
+  plan: 2057812
+  value: 852895.89
+
+dp10:
+  id: 10
+  date_id: 10
+  plan: 3691511
+  value: 2462652.46
+
+dp11:
+  id: 11
+  date_id: 11
+  plan: 4616816
+  value: 1939293.69
+
+dp12:
+  id: 12
+  date_id: 12
+  plan: 2940782
+  value: 3165918.97
