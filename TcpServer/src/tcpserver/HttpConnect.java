@@ -101,10 +101,16 @@ public class HttpConnect extends Thread {
         this.start();
     }
     
+    /**
+     * Функция создания новой проблемы.
+     * @param br Чтение потока rails.
+     * @throws IOException 
+     */
     private void createNewProblem (BufferedReader br) throws IOException {
         
         String type = br.readLine();
         String description = br.readLine();
+        this.log("create new problem");
     }
     
     /**
