@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns="http://www.owl-ontologies.com/pm-web.owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+  xml:base="http://www.owl-ontologies.com/pm-web.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Sales_per_employee">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Financial_indicators"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Объем продаж на одного сотрудника</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Disciplinary_action">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Recommendations"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Financial_problems">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Problem_identification"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Финансовые проблемы</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Vacation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Additional_indicators"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Нахождение в отпуске</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Financial_indicators">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="CASE_INDEX"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Финансовые параметры</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Sales_plan">
+    <rdfs:subClassOf rdf:resource="#Financial_indicators"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Общий план продаж</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Expierence">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Persоnal_indicators"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Опыт работы</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Leadership_qualities">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Persоnal_indicators"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Лидерские качества</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="EFFICIENCY">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Эффективность</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Certification">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Recommendations"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Average_sale_value">
+    <rdfs:subClassOf rdf:resource="#Financial_indicators"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Средний чек по количеству продаж</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Communication_abilities">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Способности к коммуникации</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Persоnal_indicators"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Problem_identification">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="SOLUTION"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Проблемы</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Recommendations">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SOLUTION"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Рекомендации</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Motivators">
+    <rdfs:subClassOf rdf:resource="#Recommendations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Organization_problems">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Организационные проблемы</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Problem_identification"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Educatione">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Persоnal_indicators"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Образование</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Conversion_rate">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Среднее значение продаж</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Financial_indicators"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Team_work_ability">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Способность работать в команде</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Persоnal_indicators"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Persоnal_indicators">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#CASE_INDEX"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Персональные параметры</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#SOLUTION">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Методы решения</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Sick-list">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Нахождение на больничном листе</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Additional_indicators"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Additional_indicators">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Дополнительные параметры</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#CASE_INDEX"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="CASE_NAME">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;span lang="RU" style="line-height: 115%"&gt;&lt;font size="12.0pt" face="Times New Roman"&gt;&amp;#1048;&amp;#1076;&amp;#1077;&amp;#1085;&amp;#1090;&amp;#1080;&amp;#1092;&amp;#1080;&amp;#1082;&amp;#1072;&amp;#1090;&amp;#1086;&amp;#1088;&lt;/font&gt;&lt;/span&gt;</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Идентификатор</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Customer_service_problems">
+    <rdfs:subClassOf rdf:resource="#Problem_identification"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Проблемы работы с клиентами</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Competence">
+    <rdfs:subClassOf rdf:resource="#Persоnal_indicators"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Компетентность</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Average_values_of_account_sum">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Средний чек по сумме</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Financial_indicators"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Training">
+    <rdfs:subClassOf rdf:resource="#Recommendations"/>
+  </owl:Class>
+  <owl:Class rdf:about="#CASE_INDEX">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;span lang="RU" style="line-height: 115%"&gt;&lt;font size="12.0pt" face="Times New Roman"&gt;&amp;#1055;&amp;#1072;&amp;#1088;&amp;#1072;&amp;#1084;&amp;#1077;&amp;#1090;&amp;#1088;&amp;#1099; 
+    &amp;#1072;&amp;#1085;&amp;#1072;&amp;#1083;&amp;#1080;&amp;#1079;&amp;#1072;&lt;/font&gt;&lt;/span&gt;</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Параметры анализа</rdfs:label>
+  </owl:Class>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.5, Build 663)  http://protege.stanford.edu -->
