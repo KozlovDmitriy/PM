@@ -1,0 +1,20 @@
+
+.blog-header
+  %h1 История выполнения плана магазином
+  = title 'История выполнения плана магазином'
+
+.row{:ng => {:app => 'showDepChartApp', :controller => 'showDepChartController'}}
+  %h3 Просмотреть результаты выполнения плана
+  .col-md-3
+    %label.control-label от
+  .col-md-3
+    %select.form-control{:ng => {:model => 'left_date', :change => 'showChart()'}}
+      %option{:ng => {:repeat => 'item in analyses'}, :value => '{{item.id}}'} {{item.str_date}}
+  .col-md-3
+    %label.control-label до
+  .col-md-3
+    %select.form-control{:ng => {:model => 'right_date', :change => 'showChart()'}}
+      %option{:ng => {:repeat => 'item in analyses'}, :value => '{{item.id}}'} {{item.str_date}}
+
+.row
+  #chart

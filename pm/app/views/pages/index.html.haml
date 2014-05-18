@@ -6,7 +6,8 @@
 .row
   %h3 Выполнение плана магазином за последние 3 месяца
   -#.col-md-10
-  #chart
+  %p
+    #chart
   -#.col-md-2
   -#  %p
   -#    = label_tag :analysis_date, 'Анализ от '
@@ -19,3 +20,5 @@
 
 .row
   .col-md-10
+    %p
+      = link_to 'Просмотреть историю выполнения планов магазином', '/month', :class => 'btn btn-default'

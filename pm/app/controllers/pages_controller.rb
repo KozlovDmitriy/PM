@@ -17,4 +17,17 @@ class PagesController < ApplicationController
     render 'department_plans'
   end
 
+  def month
+  end
+
+  def chart
+    
+    first = params[:first].to_i
+    last = params[:last].to_i
+
+    @result = DepartmentPlan.where(:date_id => first..last).order(:date_id => :asc)
+
+    render 'department_plans.json'
+  end
+
 end
