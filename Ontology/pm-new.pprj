@@ -1,4 +1,4 @@
-; Sun May 18 15:38:26 MSK 2014
+; Sun May 18 15:54:01 MSK 2014
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -6,11 +6,11 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[pm-new_ProjectKB_Class140]
-		[pm-new_ProjectKB_Class141]
-		[pm-new_ProjectKB_Class142]
-		[pm-new_ProjectKB_Class143]
-		[pm-new_ProjectKB_Class144]))
+		[pm-new_ProjectKB_Class3562]
+		[pm-new_ProjectKB_Class3563]
+		[pm-new_ProjectKB_Class3564]
+		[pm-new_ProjectKB_Class3565]
+		[pm-new_ProjectKB_Class3566]))
 
 ([CLSES_TAB] of  Widget
 
@@ -1001,7 +1001,7 @@
 ([KB_444675_Instance_0] of  String
 
 	(name "SwitchableClassDefinitionType")
-	(string_value "edu.stanford.smi.protegex.owl.ui.cls.PropertiesClassDefinitionWidgetType"))
+	(string_value "edu.stanford.smi.protegex.owl.ui.cls.PropertiesClassDefinitionWidget"))
 
 ([KB_465546_Instance_567] of  Widget
 
@@ -5585,27 +5585,27 @@
 	(x 0)
 	(y 0))
 
-([pm-new_ProjectKB_Class140] of  String
+([pm-new_ProjectKB_Class3562] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([pm-new_ProjectKB_Class141] of  String
+([pm-new_ProjectKB_Class3563] of  String
 
 	(name "http://www.w3.org/2002/07/owl#Thing")
 	(string_value "%3ANAME"))
 
-([pm-new_ProjectKB_Class142] of  String
+([pm-new_ProjectKB_Class3564] of  String
 
 	(name "http://www.w3.org/2002/07/owl#Class")
 	(string_value "%3ANAME"))
 
-([pm-new_ProjectKB_Class143] of  String
+([pm-new_ProjectKB_Class3565] of  String
 
 	(name ":PAL-CONSTRAINT")
 	(string_value "%3APAL-NAME"))
 
-([pm-new_ProjectKB_Class144] of  String
+([pm-new_ProjectKB_Class3566] of  String
 
 	(name ":META-CLASS")
 	(string_value "%3ANAME"))
