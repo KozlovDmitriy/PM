@@ -29,10 +29,10 @@ class ProblemsController < ApplicationController
     @problem.problem_type = params[:problem][:problem_type]
     @problem.cut_description!
 
-    require_relative '../../lib/tcp_client'
-    client = TcpClient.new 50125, 'localhost'
-    client.create_new_problem @problem
-    client.close
+    # require_relative '../../lib/tcp_client'
+    # client = TcpClient.new 50125, 'localhost'
+    # client.create_new_problem @problem
+    # client.close
 
     respond_to do |format|
       if @problem.save
