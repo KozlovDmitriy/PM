@@ -10,4 +10,11 @@ class PagesController < ApplicationController
     #client.analise_problems [:name => 'CDGI', :value => 'CDGI']
     #client.close
   end
+
+  def department_plans
+    @result = DepartmentPlan.all.order(:date_id => :desc).take 6
+
+    render 'department_plans'
+  end
+
 end

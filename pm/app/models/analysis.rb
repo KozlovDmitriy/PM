@@ -35,4 +35,10 @@ class Analysis < ActiveRecord::Base
     %w[end_analysis not_end_analysis empty_analysis full_data not_full_data empty_data]
   end
 
+  # Метод получения даты в виде строки.
+  # @return[String] - дата анализа в виде строки.
+  def str_date
+    Russian::strftime(date, '%d.%m.%y')
+  end
+
 end

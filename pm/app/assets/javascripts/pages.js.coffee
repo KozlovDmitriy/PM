@@ -2,15 +2,18 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+# Функция построения графика на главной.
 window.ready_chart = ->
-  Morris.Bar({
-    element: 'chart',
-    data: [
-      { y: '01.01.2014', a: 12000, b: 10756 },
-      { y: '15.01.2014', a: 12000,  b: 15234 },
-      { y: '01.02.2014', a: 17000,  b: 10671 },
-    ],
-    xkey: 'y',
-    ykeys: ['a', 'b'],
-    labels: ['Series A', 'Series B']
-  });
+  $.ajax({
+    url: 'department-plans.json'
+    data: ''
+    success: (data, textStatus, jqXHR) ->
+      Morris.Bar({
+        element: 'chart',
+        data: data,
+        xkey: 'date',
+        ykeys: ['plan', 'value'],
+        labels: ['План', 'Выполнение']
+      });
+    dataType: 'json'
+  })

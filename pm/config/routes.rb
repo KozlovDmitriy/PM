@@ -1,5 +1,6 @@
 Pm::Application.routes.draw do
 
+  get 'department-plans.json' => 'pages#department_plans'
   get 'form_report/index'
   get 'new-analyse' => 'analysis_controller#new_index'
   get '/get-new-analyse.json' => 'analysis_controller#get_new_index'

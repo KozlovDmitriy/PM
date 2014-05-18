@@ -4,14 +4,18 @@
   = title 'Главная страница'
 
 .row
-  .col-md-10
-    #chart
-  .col-md-2
-    %p
-      = label_tag :analysis_date, 'Анализ от '
-      = select_tag :analysis_date, options_for_select(%w[01.02.2014 15.01.2014]), :class => 'form-control'
-    %p
-      = link_to 'Подробнее по консультантам', '#', :class => 'btn btn-default'
+  %h3 Выполнение плана магазином за последние 3 месяца
+  -#.col-md-10
+  #chart
+  -#.col-md-2
+  -#  %p
+  -#    = label_tag :analysis_date, 'Анализ от '
+  -#    = select_tag :analysis_date, options_for_select(%w[01.02.2014 15.01.2014]), :class => 'form-control'
+  -#  %p
+  -#    = link_to 'Подробнее по консультантам', '#', :class => 'btn btn-default'
 
 %script
   window.ready_chart();
+
+.row
+  .col-md-10
