@@ -1,0 +1,21 @@
+%h1 Listing configures
+
+%table
+  %tr
+    %th Key
+    %th Value
+    %th
+    %th
+    %th
+
+  - @configures.each do |configure|
+    %tr
+      %td= configure.key
+      %td= configure.value
+      %td= link_to 'Show', configure
+      %td= link_to 'Edit', edit_configure_path(configure)
+      %td= link_to 'Destroy', configure, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Configure', new_configure_path

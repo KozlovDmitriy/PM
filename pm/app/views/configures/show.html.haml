@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Key:
+  = @configure.key
+%p
+  %b Value:
+  = @configure.value
+
+= link_to 'Edit', edit_configure_path(@configure)
+\|
+= link_to 'Back', configures_path
