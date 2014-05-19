@@ -75,6 +75,11 @@ class InputDataController < ApplicationController
     end
     analyse.save
 
+    # Сохранение плана магазина.
+    DepartmentPlan.create :date_id => analyse.id,
+                          :plan => params[:department][:plan].to_f,
+                          :value => params[:department][:value].to_f
+
     params[:params].each do |item|
       c_id = item[:id].to_i
       a_id = analyse.id

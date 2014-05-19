@@ -67,6 +67,9 @@ appInputData.controller 'inputDataController', ($scope, $http) ->
     obj =
       date: new Date()
       isFinish: $scope.isFinish
+      department:
+        plan: $scope.plan
+        value: $scope.value
       params:
         $scope.consultants
     console.log obj

@@ -1,17 +1,17 @@
--#= form_for @input_datum do |f|
--#  - if @input_datum.errors.any?
--#    #error_explanation
--#      %h2= "#{pluralize(@input_datum.errors.count, "error")} prohibited this input_datum from being saved:"
--#      %ul
--#        - @input_datum.errors.full_messages.each do |msg|
--#          %li= msg
--#
--#  -#.field
--#  -#  = f.label :date, 'Дата анализа'
--#  -#  = f.datetime_select :date, {:style => 'display: none;'}
+
 .alert.alert-warning{:ng => {:show => 'isProcess'}}
   %b Внимание!
   %p Происходит сохранение данных! Пожалуйста, подождите!
+%br
+
+.well
+  .row
+    .col-md-6
+      %label.control-label{:for => 'plan'} План для магазина
+      %input.form-control#plan{:type => 'number', :ng => {:model => 'plan'}}
+    .col-md-6
+      %label.control-label{:for => 'value'} Реальное выполнение плана магазином
+      %input.form-control#value{:type => 'number', :ng => {:model => 'value'}}
 %br
 .row
   .col-md-4
@@ -83,24 +83,7 @@
               .col-sm-3
                 %input.form-control#items-count{:type => 'checkbox', :ng => {:model => 'currentConsultant.main.dismissal', :disabled => 'currentConsultant == null'}}
 
--#%hr
--#  %h4 Цветовые обозначения строк таблицы консультантов
--#  .form-horizontal
--#    .form-group
--#      %label.label-danger Данные по консультанту не введены
--#    .form-group
--#      %label.label-warning Данные по консультанту введены не полностью
--#    .form-group
--#      %label.label-success Данные по консультанту введены полностью
--#    .form-group
--#      %label.label-info Текущий (выбранный) консультант
-
 %hr
--#%label Экспорт данных из сводного отчета
--#%p
--#  %input{:type => 'file', :value => 'Файл с данными', :id => 'file', :name => 'file'}
--#%p
--#  %button{:class => 'btn btn-primary', :data => {:toggle => 'modal', :targer => '#myModal'}} Экспорт данных
 
 = render 'modal'
 
