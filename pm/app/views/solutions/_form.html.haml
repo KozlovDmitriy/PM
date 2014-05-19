@@ -13,7 +13,7 @@
     %label Тип рекомендации
     %select.form-control{:ng => {:model => 'solution.type', :change => 'changeType()'}}
       - Solution.types.each do |item|
-        %option= item
+        %option= Solution.get_russian_type item
   .form-group{:ng => {:show => 'isShowRedactorBtn'}}
     %select.form-control{:ng => {:model => 'currentSolution'}}
       %option{:ng => {:repeat => 'solution in solutions'}, :value => '{{solution.description}}'} {{solution.description}}

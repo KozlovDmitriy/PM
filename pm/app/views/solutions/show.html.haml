@@ -10,6 +10,6 @@
       %p{:id => :solution, :name => :solution}= @solution.description
     .form-group
       = label_tag :type, 'Тип рекомендации'
-      %p{:id => :type, :name => :type}= @solution.solution_type
+      %p{:id => :type, :name => :type}= @solution.get_russian_type
 
     = link_to 'Назад', solutions_path, :class => 'btn btn-default'

@@ -13,4 +13,28 @@ class Solution < ActiveRecord::Base
   	end
   end
 
+  # Метод получения типа рекомендации на русском.
+  def self.get_russian_type type
+    case type
+      when 'simple'
+        return 'Простая'
+      when 'complex'
+        return 'Сложная'
+      else
+        return 'Другая'
+    end
+  end
+
+  # Метод получения типа рекомендации на русском.
+  def get_russian_type
+    case solution_type
+      when 'simple'
+        return 'Простая'
+      when 'complex'
+        return 'Сложная'
+      else
+        return 'Другая'
+    end
+  end
+
 end
