@@ -21,7 +21,7 @@
             %td {{item.fio}}
         .panel.panel-default
           .panel-body
-            %button.btn.btn-info{:disabled => 'disabled'} Сформировать отчет
+            %button.btn.btn-info{:ng => {:click => 'formReport()'}} Сформировать отчет
       .col-md-9
         %br
         .panel.panel-default

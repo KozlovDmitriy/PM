@@ -179,4 +179,8 @@ analyseApp.controller 'analyseAppController', ($scope, $http) ->
     promise.error (data) ->
       console.log data
 
+  # Формирование отчета
+   $scope.formReport = ->
+     window.location.href = "/form_report/get_report?analysis=#{$scope.aid}"
+
   $scope.loadConsultants()
