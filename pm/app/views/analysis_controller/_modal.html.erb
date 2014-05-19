@@ -1,0 +1,26 @@
+<!-- Button trigger modal -->
+<button class="btn btn-info " data-toggle="modal" data-target="#myModal">
+  Выбрать другую дату для анализа
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Изменить дату анализа</h4>
+      </div>
+      <div class="modal-body">
+        <select ng-model="new_date" class="form-control">
+          <% @analysis.each do |item| %>
+            <option value="<%= item.id %>"><%= item.str_date %></option>
+          <% end %>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="changeDate()">ОК</button>
+      </div>
+    </div>
+  </div>
+</div>

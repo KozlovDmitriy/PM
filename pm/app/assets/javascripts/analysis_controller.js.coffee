@@ -63,7 +63,10 @@ analyseApp.controller 'analyseAppController', ($scope, $http) ->
 
   # Текущий консультант.
   $scope.currentConsultant = null
+
+  # Дата анализа
   $scope.aid = 19
+  $scope.aid_value = '01.10.2013'
 
   # Закончен ли ввод данных.
   $scope.isFinish = false
@@ -157,9 +160,22 @@ analyseApp.controller 'analyseAppController', ($scope, $http) ->
     )
     promise.success (data) ->
       console.log data
+      $scope.consultants = []
+      $scope.currentConsultant = null
       for item in data
         if item.id?
           $scope.consultants.push item
+    promise.error (data) ->
+      console.log data
+
+  # Метод смены даты анализа.
+  $scope.changeDate = ->
+    console.log $scope.new_date
+    $scope.aid = $scope.new_date
+    promise = $http.get "/analyses/#{$scope.aid}.json"
+    promise.success (data) ->
+      $scope.aid_value = data.str_date
+      $scope.loadConsultants()
     promise.error (data) ->
       console.log data
 

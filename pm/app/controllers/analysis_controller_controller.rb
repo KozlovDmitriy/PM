@@ -69,6 +69,7 @@ class AnalysisControllerController < ApplicationController
 
   def new_index
     @consultants = Consultant.all
+    @analysis = Analysis.all.order :id => :desc
 
     respond_to do |format|
       format.html
