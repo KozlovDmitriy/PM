@@ -12,4 +12,28 @@ class Problem < ActiveRecord::Base
   	end
   end
 
+  # Метод получения типа проблемы на русском.
+  def self.get_russian_type type
+    case type
+      when 'simple'
+        return 'Простая'
+      when 'complex'
+        return 'Сложная'
+      else
+        return 'Другая'
+    end
+  end
+
+  # Метод получения типа проблемы на русском.
+  def get_russian_type
+    case problem_type
+      when 'simple'
+        return 'Простая'
+      when 'complex'
+        return 'Сложная'
+      else
+        return 'Другая'
+    end
+  end
+
 end
