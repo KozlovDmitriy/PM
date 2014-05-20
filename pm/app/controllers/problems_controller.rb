@@ -48,9 +48,12 @@ class ProblemsController < ApplicationController
   # PATCH/PUT /problems/1
   # PATCH/PUT /problems/1.json
   def update
-    @problem.type = params[:problem][:type]
+    @problem.description = params[:problem][:description]
+    @problem.problem_type = params[:problem][:problem_type]
+    @problem.cut_description!
+    params[:problem][:description] = @problem.description
     respond_to do |format|
-      if @problem.update(problem_params)
+      if @problem.save
         format.html { redirect_to problems_path, notice: 'Problem was successfully updated.' }
         format.json { head :no_content }
       else

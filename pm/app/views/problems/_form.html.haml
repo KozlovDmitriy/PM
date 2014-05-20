@@ -13,7 +13,7 @@
     %label Тип проблемы
     %select.form-control{:ng => {:model => 'problem.type', :change => 'changeType()'}}
       - Problem.types.each do |item|
-        %option= Problem.get_russian_type item
+        %option{:value => item}= Problem.get_russian_type item
   .form-group{:ng => {:show => 'isShowRedactorBtn'}}
     %select.form-control{:ng => {:model => 'currentProblem'}}
       %option{:ng => {:repeat => 'problem in problems'}, :value => '{{problem.description}}'} {{problem.description}}
