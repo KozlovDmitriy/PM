@@ -17,6 +17,11 @@ class AnalysesController < ApplicationController
     @analysis = Analysis.new
   end
 
+  # GET /compare
+  def compare
+
+  end
+
   # GET /analyses/1/edit
   def edit
   end

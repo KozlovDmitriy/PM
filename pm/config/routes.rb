@@ -2,6 +2,7 @@ Pm::Application.routes.draw do
 
   resources :configures
 
+  get 'compare' => 'analyses#compare'
   get 'department-plans.json' => 'pages#department_plans'
   get 'month' => 'pages#month'
   get 'chart.json' => 'pages#chart'

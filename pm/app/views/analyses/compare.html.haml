@@ -1,0 +1,24 @@
+
+- title 'Сравнение консультантов'
+
+%h1 Сравнение консультантов
+
+.row{:ng => {:app => 'compareConsultantsApp', :controller => 'compareConsultantsController'}}
+  .col-md-6
+    %label Консультанты
+    %select.form-control{:ng => {:model => 'left', :change => 'change()'}}
+      %option{:ng => {:repeat => 'item in consultants'}, :value => '{{item.id}}'} {{item.short_name}}
+  .col-md-6
+    %label Консультанты
+    %select.form-control{:ng => {:model => 'right', :change => 'change()'}}
+      %option{:ng => {:repeat => 'item in consultants'}, :value => '{{item.id}}'} {{item.short_name}}
+  .col-md-6
+    %br
+    %label Параметры
+    %select.form-control{:ng => {:model => 'param', :change => 'change()'}}
+      %option{:ng => {:repeat => 'item in params'}, :value => '{{item.index}}'} {{item.text}}
+
+  .form-group#ch
+    #chart
+
+%br

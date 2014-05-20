@@ -5,19 +5,19 @@
 ready = ->
 
   $('#indPlan').click ->
-    get_chart_array(1, 'Индивидуальный план')
+    window.get_chart_array(1, 'Индивидуальный план')
 
   $('#impl').click ->
-    get_chart_array 3, 'Выполнение плана в %'
+    window.get_chart_array 3, 'Выполнение плана в %'
 
   $('#avCheck').click ->
-    get_chart_array 4, 'Значение среднего чека'
+    window.get_chart_array 4, 'Значение среднего чека'
 
   $('#itemsCount').click ->
-    get_chart_array 5, 'Количество позиций в чеке'
+    window.get_chart_array 5, 'Количество позиций в чеке'
 
   $('#checksCount').click ->
-    get_chart_array 6, 'Общее количество чеков'
+    window.get_chart_array 6, 'Общее количество чеков'
 
   $('#implPlan').click ->
     window.chart_options = []
@@ -48,15 +48,15 @@ window.consultant_show = ->
     success: (msg) ->
       window.consultant = msg
 
-      sorting_by_date()
-      get_chart_array 6, 'Общее количество чеков'
+      window.sorting_by_date()
+      window.get_chart_array 6, 'Общее количество чеков'
       window.insert_data_table()
 
     fail: (data) ->
       console.log data
   })
 
-sorting_by_date = ->
+window.sorting_by_date = ->
   for item in window.consultant.param_values
     date_options = item.analysis.split '.'
     date = new Date(parseInt(date_options[2]), parseInt(date_options[1]) - 1, parseInt(date_options[0]))
@@ -71,20 +71,20 @@ sorting_by_date = ->
 
 
 
-get_chart_array = (params_id, param_label) ->
+window.get_chart_array = (params_id, param_label) ->
   window.chart_options = []
   for item in window.consultant.param_values
     if item.param_id is params_id
       window.chart_options.push {
         date: item.analysis
-      value: parseFloat(item.value)
+        value: parseFloat(item.value)
       }
 
-  show_chart window.chart_options, param_label
+  window.show_chart window.chart_options, param_label
 
-show_chart = (chart_source, param_label) ->
+window.show_chart = (chart_source, param_label, chart_id = '#chartContainer') ->
   $ ->
-    $('#chartContainer').dxChart({
+    $(chart_id).dxChart({
       dataSource: chart_source
       commonSeriesSettings:
         argumentField: 'date'
