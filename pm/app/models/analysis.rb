@@ -7,6 +7,10 @@ class Analysis < ActiveRecord::Base
     result = []
     Consultant.all.each do |consultant|
       unless ParamValue.find_by(:consultant_id => consultant.id, :date_id => _id, :param_id => [1, 2, 3, 4, 5, 6]).nil?
+        problems = []
+        AnalysisProblemConnect.where(:analysis_id => _id, :consultant_id => consultant.id).each { |it| problems.push it.problem.description }
+        solutions = []
+        AnalysisSolutionConnect.where(:analysis_id => _id, :consultant_id => consultant.id).each { |it| solutions.push it.solution.description }
         hash = {
             :name => consultant.short_name,
             :ind_plan => ParamValue.find_by(:consultant_id => consultant.id, :date_id => _id, :param_id => 1).value,
@@ -14,7 +18,9 @@ class Analysis < ActiveRecord::Base
             :impl => ParamValue.find_by(:consultant_id => consultant.id, :date_id => _id, :param_id => 3).value,
             :av_check => ParamValue.find_by(:consultant_id => consultant.id, :date_id => _id, :param_id => 4).value,
             :items_count => ParamValue.find_by(:consultant_id => consultant.id, :date_id => _id, :param_id => 5).value,
-            :total_checks_count => ParamValue.find_by(:consultant_id => consultant.id, :date_id => _id, :param_id => 6).value
+            :total_checks_count => ParamValue.find_by(:consultant_id => consultant.id, :date_id => _id, :param_id => 6).value,
+            :problems => problems.uniq,
+            :solutions => solutions.uniq
         }
         result.push hash
       end

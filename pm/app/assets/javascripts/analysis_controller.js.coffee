@@ -147,12 +147,13 @@ analyseApp.controller 'analyseAppController', ($scope, $http) ->
     item.class = 'info'
     console.log item
     $scope.currentConsultant = item
+    if $scope.currentConsultant.problems.value.length > 0
+      $scope.currentConsultant.isFinishProblem = true
 
   # Функция получения консультантов.
   $scope.loadConsultants = ->
     obj =
       analyse_id: $scope.aid
-    console.log obj
     promise = $http(
       url: '/new-analyse.json'
       method: 'GET'
@@ -162,6 +163,7 @@ analyseApp.controller 'analyseAppController', ($scope, $http) ->
       console.log data
       $scope.consultants = []
       $scope.currentConsultant = null
+      console.log data
       for item in data
         if item.id?
           $scope.consultants.push item

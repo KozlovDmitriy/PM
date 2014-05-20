@@ -33,8 +33,14 @@
               <td><%= item[:av_check] %></td>
               <td><%= item[:items_count] %></td>
               <td><%= item[:total_checks_count] %></td>
-              <td><%= %></td>
-              <td><%= %></td>
+              <td><% item[:problems].each do |it| %>
+                  <%= "#{it};\n" %>
+                <% end %>
+              </td>
+              <td><% item[:solutions].each do |it| %>
+                    <%= "#{it};\n" %>
+                <% end %>
+              </td>
             </tr>
           <% end %>
         </table>

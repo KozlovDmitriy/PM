@@ -21,8 +21,20 @@ json.array! @consultants.each do |item|
         json.exp buffer.include?(10) ? buffer.find(8).value.to_i : false
         json.dismissal buffer.include?(11) ? buffer.find(8).value.to_i : false
     end
-    json.problems []
-    json.solutions []
+    problems = []
+    AnalysisProblemConnect.where(:analysis_id => @analyse.id, :consultant_id => item.id).each { |it| problems.push it.problem.description }
+    json.problems do
+      json.value do
+        json.array! problems.uniq
+      end
+    end
+    solutions = []
+    AnalysisSolutionConnect.where(:analysis_id => @analyse.id, :consultant_id => item.id).each { |it| solutions.push it.solution.description }
+    json.solutions do
+      json.value do
+        json.array! solutions.uniq
+      end
+    end
     json.isFinishSolution false
     json.isFinishProblem false
   end

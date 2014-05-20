@@ -74,8 +74,8 @@ class AnalysisControllerController < ApplicationController
     respond_to do |format|
       format.html
       format.json {
-        analyse = Analysis.find params[:analyse_id].to_i
-        @param_values = ParamValue.where :date_id => analyse.id
+        @analyse = Analysis.find params[:analyse_id].to_i
+        @param_values = ParamValue.where :date_id => @analyse.id
       }
     end
 
