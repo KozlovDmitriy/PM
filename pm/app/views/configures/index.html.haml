@@ -1,21 +1,13 @@
-%h1 Listing configures
+- title 'Настройки приложения'
+%h1 Настройки приложения
 
-%table
-  %tr
-    %th Key
-    %th Value
-    %th
-    %th
-    %th
-
-  - @configures.each do |configure|
-    %tr
-      %td= configure.key
-      %td= configure.value
-      %td= link_to 'Show', configure
-      %td= link_to 'Edit', edit_configure_path(configure)
-      %td= link_to 'Destroy', configure, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Configure', new_configure_path
+.row
+  .col-md-offset-1.col-md-6
+    %form.form-horizontal{:role => 'form'}
+      .form-group
+        %label.col-sm-6.control-label{:for => 'java_port'} Порт сервера-решателя
+        .col-sm-6
+          %input.form-control#java_port{:placeholder => 'порт сервера-решателя'}
+      .form-group
+        .col-sm-offset-2.col-sm-10
+          %button.btn.btn-primary{:type => 'submit'} Сохранить
