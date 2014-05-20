@@ -27,7 +27,7 @@ editProblemApp.controller 'editProblemController', ($scope, $http) ->
 
   # Добавление проблемы в описание
   $scope.addProblem = ->
-    val = $scope.problem.description if $scope.problem.description?
+    val = "#{$scope.problem.description} И" if $scope.problem.description?
     val = '' unless $scope.problem.description?
     $scope.problem.description = "#{val} #{$scope.currentProblem} И"
 
@@ -38,7 +38,7 @@ editProblemApp.controller 'editProblemController', ($scope, $http) ->
     else
       $scope.isShowRedactorBtn = false
 
-  # Метод получения рекомендации.
+  # Метод получения проблемы.
   $scope.get_problem = ->
     promise = $http.get "/problems/#{$scope.id}.json"
     promise.success (data) ->

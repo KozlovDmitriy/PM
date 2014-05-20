@@ -43,8 +43,11 @@ class SolutionsController < ApplicationController
   # PATCH/PUT /solutions/1
   # PATCH/PUT /solutions/1.json
   def update
+    @solution.description = params[:solution][:description]
+    @solution.solution_type = params[:solution][:solution_type].to_s
+    @solution.cut_description!
     respond_to do |format|
-      if @solution.update(solution_params)
+      if @solution.save
         format.html { redirect_to solutions_path, notice: 'Solution was successfully updated.' }
         format.json { head :no_content }
       else
