@@ -8,6 +8,7 @@ package tcpserver;
 
 import java.io.IOException;
 import java.net.ServerSocket;
+import tcpserver.config.ReasonerPort;
 
 /**
  * Главный класс приложения.
@@ -23,7 +24,8 @@ public class TcpServer {
     public static void main(String[] args) {
         
         try {
-            ServerSocket socket = new ServerSocket(50125); // TODO добавить файл настроек.
+            ReasonerPort port = ReasonerPort.fromJson("config/reasoner.config");
+            ServerSocket socket = new ServerSocket(Integer.parseInt(port.getValue()));
             
             while (true) {                
                 new HttpConnect(socket.accept());

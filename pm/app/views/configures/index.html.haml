@@ -1,13 +1,17 @@
 - title 'Настройки приложения'
 %h1 Настройки приложения
 
-.row
+.row{:ng => {:app => 'configApp', :controller => 'configController'}}
+  .alert.alert-success{:ng => {:show => 'result == true'}}
+    %b Настройки успешно сохранены.
+  .alert.alert-danger{:ng => {:show => 'result == false'}}
+    %b Ошибка сохранения настроек.
   .col-md-offset-1.col-md-6
     %form.form-horizontal{:role => 'form'}
       .form-group
         %label.col-sm-6.control-label{:for => 'java_port'} Порт сервера-решателя
         .col-sm-6
-          %input.form-control#java_port{:placeholder => 'порт сервера-решателя'}
+          %input.form-control#java_port{:placeholder => 'порт сервера-решателя', :ng => {:model => 'reasoner_port'}}
       .form-group
         .col-sm-offset-2.col-sm-10
-          %button.btn.btn-primary{:type => 'submit'} Сохранить
+          %button.btn.btn-primary{:type => 'button', :ng => {:click => 'save()'}} Сохранить

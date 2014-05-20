@@ -24,17 +24,16 @@ class ConfiguresController < ApplicationController
   # POST /configures
   # POST /configures.json
   def create
-    @configure = Configure.new(configure_params)
+    java_port = Configure.find params[:reasoner_id].to_i
+    java_port.value = params[:reasoner_value]
+    java_port.save
 
-    respond_to do |format|
-      if @configure.save
-        format.html { redirect_to @configure, notice: 'Configure was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @configure }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @configure.errors, status: :unprocessable_entity }
-      end
+    require 'json'
+    File.open("#{Rails.root}/config/reasoner.config", 'w') do |file|
+      file.write java_port.to_json
     end
+
+    render :json => true
   end
 
   # PATCH/PUT /configures/1
