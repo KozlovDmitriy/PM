@@ -32,8 +32,10 @@ class AnalysisControllerController < ApplicationController
                                       {:name => 'TotalChecksCount', :value => get_total_checks_value(params[:consultant][:main][:totalChecks].to_f)}]
 
     client.close
+    complex_text = ''
     problems[:value].each do |item|
       arr = Problem.where :description => item
+      complex_text = "#{complex_text} #{item} И"
       if arr.blank?
         problem = Problem.create :description => item
       else
@@ -42,6 +44,12 @@ class AnalysisControllerController < ApplicationController
       AnalysisProblemConnect.create :problem_id => problem.id,
                                     :analysis_id => date_id,
                                     :consultant_id => params[:consultant][:id].to_i
+    end
+    sol = Problem.new :description => complex_text, :problem_type => 'complex'
+    sol.cut_description!
+    cs = Problem.where :description => sol.description
+    if cs.blank? and problems[:value].count > 1
+      sol.save
     end
     render :json => problems
   end
@@ -53,16 +61,24 @@ class AnalysisControllerController < ApplicationController
     date_id = params[:date].to_i
     solutions = client.analise_problems [:name => params[:problems], :value => params[:problems]]
     client.close
+    complex_text = ''
     solutions[:value].each do |item|
       array = Solution.where :description => item
+      complex_text = "#{complex_text} #{item} И"
       if array.blank?
-        solution = Solution.create :description => item
+        solution = Solution.create :description => item, :solution_type => 'simple'
       else
         solution = array.first
       end
       AnalysisSolutionConnect.create :solution_id => solution.id,
                                      :analysis_id => date_id,
                                      :consultant_id => params[:consultant][:id].to_i
+    end
+    sol = Solution.new :description => complex_text, :solution_type => 'complex'
+    sol.cut_description!
+    cs = Solution.where :description => sol.description
+    if cs.blank? && solutions[:value].count > 1
+      sol.save
     end
     render :json => solutions
   end

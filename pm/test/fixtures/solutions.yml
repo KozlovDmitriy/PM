@@ -2,6 +2,8 @@
 
 one:
   description: MyText
+  solution_type: simple
 
 two:
   description: MyT
+  solution_type: simple

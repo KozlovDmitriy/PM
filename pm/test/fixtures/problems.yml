@@ -2,6 +2,8 @@
 
 one:
   description: MyText
+  problem_type: simple
 
 two:
   description: My_Text
+  problem_type: simple
