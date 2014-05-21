@@ -29,16 +29,17 @@ class ReadExcel
   # @return [Array] - массив значений параметров.
   def read_excel
     @start_row.upto(@end_row) do |line|
-      fio = @file.cell line, 2
-      ind_plan = @file.cell line, 6
-      impl_plan = @file.cell line, 8
-      impl = @file.cell line, 10
-      av_check = @file.cell line, 12
-      items = @file.cell line, 14
-      total_checks = @file.cell line, 16
+      fio = @file.cell line, 'A'
+      ind_plan = @file.cell line, 'C'
+      impl_plan = @file.cell line, 'D'
+      impl = @file.cell line, 'E'
+      av_check = @file.cell line, 'F'
+      items = @file.cell line, 'G'
+      total_checks = @file.cell line, 'H'
       @params_values.push({:fio => fio, :ind_plan => ind_plan, :impl_plan => impl_plan, :impl => impl,
                            :av_check => av_check, :items => items, :total_checks => total_checks})
     end
+    File.open('ods', 'w') { |file| file.write @params_values.to_yaml }
     @params_values
   end
 
