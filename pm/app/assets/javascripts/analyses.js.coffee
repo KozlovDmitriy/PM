@@ -32,6 +32,11 @@ varCompareConsultantApp.controller 'compareConsultantsController', ($scope, $htt
     promise.error (data) ->
       console.log data
 
+  # Получение консультанта по id
+  $scope.get_consultant = (id) ->
+    result = item for item in $scope.consultants when "#{item.id}" == "#{id}"
+    return result
+
   # Построение графика
   $scope.change = ->
     if !$scope.left? or !$scope.right or !$scope.param
@@ -58,6 +63,9 @@ varCompareConsultantApp.controller 'compareConsultantsController', ($scope, $htt
           if parseInt(item.param_id) is parseInt($scope.param)
             window.chart_options[index].value2 = parseFloat(item.value)
             index++
+        $scope.left_fio = $scope.get_consultant($scope.left).short_name
+        $scope.right_fio = $scope.get_consultant($scope.right).short_name
+        $scope.table_values = window.chart_options
         $ ->
           $('#ch').html ''
           $('#ch').append('<div id="chart">')
@@ -68,10 +76,10 @@ varCompareConsultantApp.controller 'compareConsultantsController', ($scope, $htt
             tooltip:
               enabled: true
             series: [{
-              name: 'Левый консультант'
+              name: $scope.left_fio
               valueField: 'value1'
             },{
-              name: 'Правый консультант'
+              name: $scope.right_fio
               valueField: 'value2'
             }]
           })

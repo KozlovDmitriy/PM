@@ -3,22 +3,37 @@
 
 %h1 Сравнение консультантов
 
-.row{:ng => {:app => 'compareConsultantsApp', :controller => 'compareConsultantsController'}}
-  .col-md-6
-    %label Консультанты
-    %select.form-control{:ng => {:model => 'left', :change => 'change()'}}
-      %option{:ng => {:repeat => 'item in consultants'}, :value => '{{item.id}}'} {{item.short_name}}
-  .col-md-6
-    %label Консультанты
-    %select.form-control{:ng => {:model => 'right', :change => 'change()'}}
-      %option{:ng => {:repeat => 'item in consultants'}, :value => '{{item.id}}'} {{item.short_name}}
-  .col-md-6
-    %br
-    %label Параметры
-    %select.form-control{:ng => {:model => 'param', :change => 'change()'}}
-      %option{:ng => {:repeat => 'item in params'}, :value => '{{item.index}}'} {{item.text}}
+%div{:ng => {:app => 'compareConsultantsApp', :controller => 'compareConsultantsController'}}
+  .row
+    .col-md-6
+      %label Консультанты
+      %select.form-control{:ng => {:model => 'left', :change => 'change()'}}
+        %option{:ng => {:repeat => 'item in consultants'}, :value => '{{item.id}}'} {{item.short_name}}
+    .col-md-6
+      %label Консультанты
+      %select.form-control{:ng => {:model => 'right', :change => 'change()'}}
+        %option{:ng => {:repeat => 'item in consultants'}, :value => '{{item.id}}'} {{item.short_name}}
+    .col-md-6
+      %br
+      %label Параметры
+      %select.form-control{:ng => {:model => 'param', :change => 'change()'}}
+        %option{:ng => {:repeat => 'item in params'}, :value => '{{item.index}}'} {{item.text}}
 
-  .form-group#ch
-    #chart
+    .form-group#ch
+      #chart
 
-%br
+  %br
+
+  .row
+    %table.table.table-bordered{:ng => {:hide => 'left == null || right == null || param == null'}}
+      %thead
+        %tr
+          %th
+          %th {{left_fio}}
+          %th {{right_fio}}
+      %tbody
+        %tr{:ng =>{:repeat => 'it in table_values'}}
+          %td {{it.date}}
+          %td{:ng => {:class => '{true:"danger", false:"success"}[it.value1<it.value2]'}} {{it.value1}}
+          %td{:ng => {:class => '{true:"danger", false:"success"}[it.value2<it.value1]'}} {{it.value2}}
+  %br

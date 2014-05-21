@@ -39,7 +39,6 @@ class ReadExcel
       @params_values.push({:fio => fio, :ind_plan => ind_plan, :impl_plan => impl_plan, :impl => impl,
                            :av_check => av_check, :items => items, :total_checks => total_checks})
     end
-    File.open('ods', 'w') { |file| file.write @params_values.to_yaml }
     @params_values
   end
 
