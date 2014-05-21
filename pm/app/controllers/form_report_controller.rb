@@ -2,7 +2,6 @@ class FormReportController < ApplicationController
 
   def index
     @analysis = Analysis.all.order(:date).uniq!
-    File.open('debug.txt', 'w') { |file| file.write @analysis.to_yaml }
     @consultants = Consultant.all
   end
 

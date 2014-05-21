@@ -3,7 +3,7 @@ class Analysis < ActiveRecord::Base
   attr_accessor :status
 
   def array
-    _id = 19
+    _id = self.id
     result = []
     Consultant.all.each do |consultant|
       unless ParamValue.find_by(:consultant_id => consultant.id, :date_id => _id, :param_id => [1, 2, 3, 4, 5, 6]).nil?
@@ -11,17 +11,22 @@ class Analysis < ActiveRecord::Base
         AnalysisProblemConnect.where(:analysis_id => _id, :consultant_id => consultant.id).each { |it| problems.push it.problem.description }
         solutions = []
         AnalysisSolutionConnect.where(:analysis_id => _id, :consultant_id => consultant.id).each { |it| solutions.push it.solution.description }
-        hash = {
-            :name => consultant.short_name,
-            :ind_plan => ParamValue.find_by(:consultant_id => consultant.id, :date_id => _id, :param_id => 1).value,
-            :impl_plan => ParamValue.find_by(:consultant_id => consultant.id, :date_id => _id, :param_id => 2).value,
-            :impl => ParamValue.find_by(:consultant_id => consultant.id, :date_id => _id, :param_id => 3).value,
-            :av_check => ParamValue.find_by(:consultant_id => consultant.id, :date_id => _id, :param_id => 4).value,
-            :items_count => ParamValue.find_by(:consultant_id => consultant.id, :date_id => _id, :param_id => 5).value,
-            :total_checks_count => ParamValue.find_by(:consultant_id => consultant.id, :date_id => _id, :param_id => 6).value,
-            :problems => problems.uniq,
-            :solutions => solutions.uniq
-        }
+        hash = {}
+        hash[:name] = consultant.short_name
+        ind_plan = ParamValue.find_by(:consultant_id => consultant.id, :date_id => _id, :param_id => 1)
+        hash[:ind_plan] = ind_plan.nil? ? nil : ind_plan.value
+        impl_plan = ParamValue.find_by(:consultant_id => consultant.id, :date_id => _id, :param_id => 2)
+        hash[:impl_plan] = impl_plan.nil? ? nil : impl_plan.value
+        impl = ParamValue.find_by(:consultant_id => consultant.id, :date_id => _id, :param_id => 3)
+        hash[:impl] = impl.nil? ? nil : impl.value
+        av_check = ParamValue.find_by(:consultant_id => consultant.id, :date_id => _id, :param_id => 4)
+        hash[:av_check] = av_check.nil? ? nil : av_check.value
+        items_count = ParamValue.find_by(:consultant_id => consultant.id, :date_id => _id, :param_id => 5)
+        hash[:items_count] = items_count.nil? ? nil : items_count.value
+        total_checks_count = ParamValue.find_by(:consultant_id => consultant.id, :date_id => _id, :param_id => 6)
+        hash[:total_checks_count] = total_checks_count.nil? ? nil : total_checks_count.value
+        hash[:problems] = problems.uniq
+        hash[:solutions] = solutions.uniq
         result.push hash
       end
     end

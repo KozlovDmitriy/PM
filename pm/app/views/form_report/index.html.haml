@@ -8,7 +8,7 @@
       %tr
         %td= Russian::strftime(item.date, '%d.%m.%Y')
         %td
-          = render :partial => 'modal', :locals => {:array => item.array}
+          = render :partial => 'modal', :locals => {:array => item.array, :analysis => item}
         %td
           != link_to 'Сформировать отчет', "/form_report/get_report?analysis=#{item.id}",
           {:class => 'btn btn-warning', :target => '_blank'}

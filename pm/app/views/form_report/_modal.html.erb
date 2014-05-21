@@ -1,15 +1,15 @@
 <!-- Button trigger modal -->
-<button class="btn btn-default " data-toggle="modal" data-target="#myModal">
+<button class="btn btn-default " data-toggle="modal" data-target="#myModal_<%= analysis.id %>">
   Посмотреть результаты анализа
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="myModal_<%= analysis.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" style="max-width: 999px">
     <div class="modal-content"  style="width: 950px; margin-left: -230px">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Результаты анализа</h4>
+        <h4 class="modal-title" id="myModalLabel">Результаты анализа - <%= analysis.str_date %></h4>
       </div>
       <div class="modal-body">
         <table class="table table-bordered">
