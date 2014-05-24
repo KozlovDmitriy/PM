@@ -14,7 +14,7 @@ class ReadExcel
 
     @start_row = 15
     @end_row = 20
-    @params_values = []
+    @params_values = {:plan => 11, :value => 11, :report => []}
   end
 
   # Метод получения параметров из файла.
@@ -28,6 +28,8 @@ class ReadExcel
   # Метод чтения файла.
   # @return [Array] - массив значений параметров.
   def read_excel
+    @params_values[:plan] = @file.cell 4, 'E'
+    @params_values[:value] = @file.cell 5, 'E'
     @start_row.upto(@end_row) do |line|
       fio = @file.cell line, 'A'
       ind_plan = @file.cell line, 'C'
@@ -36,7 +38,7 @@ class ReadExcel
       av_check = @file.cell line, 'F'
       items = @file.cell line, 'G'
       total_checks = @file.cell line, 'H'
-      @params_values.push({:fio => fio, :ind_plan => ind_plan, :impl_plan => impl_plan, :impl => impl,
+      @params_values[:report].push({:fio => fio, :ind_plan => ind_plan, :impl_plan => impl_plan, :impl => impl,
                            :av_check => av_check, :items => items, :total_checks => total_checks})
     end
     @params_values

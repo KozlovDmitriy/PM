@@ -22,12 +22,13 @@ class InputDataController < ApplicationController
 
     require_relative '../../lib/read_excel'
     ods = ReadExcel.new filename
-    File.open('debug.txt', 'a') { |file| file.write ods.get_params.to_yaml }
     
     analise = Analysis.new :date => Date.today
     analise.save
     result = []
-    ods.get_params.each do |item|
+    r = ods.get_params
+    File.open('debug.txt', 'w') { |file| file.write r.to_yaml }
+    r[:report].each do |item|
       
       consultant_family = item[:fio].match(/^[А-Я][а-я]+/).to_s
       consultant = Consultant.find_by(:family_name => consultant_family)
@@ -52,7 +53,9 @@ class InputDataController < ApplicationController
       result.push hash
     end
 
-    render :json => result.uniq
+    report = {:plan => r[:plan], :value => r[:value], :report => result.uniq}
+
+    render :json => report
   end
 
   # GET /input_data/new

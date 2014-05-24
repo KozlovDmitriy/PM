@@ -50,7 +50,9 @@ appInputData.controller 'inputDataController', ($scope, $http) ->
   # Загрузка отчета.
   $scope.uploadOds = ->
     $scope.consultants = []
-    $scope.consultants = window.ods
+    $scope.consultants = window.ods.report
+    $scope.plan = window.ods.plan
+    $scope.value = window.ods.value
     $scope.$apply()
 
   window.odsRead = $scope.uploadOds
