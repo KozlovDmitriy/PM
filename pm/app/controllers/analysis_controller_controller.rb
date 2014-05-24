@@ -57,7 +57,7 @@ class AnalysisControllerController < ApplicationController
                                       :consultant_id => params[:consultant][:id].to_i
       end
     end
-    sol = Problem.new :description => complex_text, :problem_type => 'complex'
+    sol = Problem.new :description => complex_text, :problem_type => 'complex', :uri => problems[:uri]
     sol.cut_description!
     cs = Problem.where :description => sol.description
     if cs.blank? and problems[:value].count > 1
@@ -82,9 +82,6 @@ class AnalysisControllerController < ApplicationController
       else
         solution = array.first
       end
-      AnalysisSolutionConnect.create :solution_id => solution.id,
-                                     :analysis_id => date_id,
-                                     :consultant_id => params[:consultant][:id].to_i
       if AnalysisSolutionConnect.where(:solution_id => solution.id,
                                        :analysis_id => date_id,
                                        :consultant_id => params[:consultant][:id].to_i).blank?
@@ -101,7 +98,7 @@ class AnalysisControllerController < ApplicationController
                                        :consultant_id => params[:consultant][:id].to_i
       end
     end
-    sol = Solution.new :description => complex_text, :solution_type => 'complex'
+    sol = Solution.new :description => complex_text, :solution_type => 'complex', :uri => solutions[:uri]
     sol.cut_description!
     cs = Solution.where :description => sol.description
     if cs.blank? && solutions[:value].count > 1
