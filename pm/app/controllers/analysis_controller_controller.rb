@@ -51,7 +51,10 @@ class AnalysisControllerController < ApplicationController
         objs = AnalysisProblemConnect.where(:problem_id => problem.id,
                                             :analysis_id => date_id,
                                             :consultant_id => params[:consultant][:id].to_i)
-        obj.each {|object| object.destroy }
+        objs.each {|object| object.destroy }
+        AnalysisProblemConnect.create :problem_id => problem.id,
+                                      :analysis_id => date_id,
+                                      :consultant_id => params[:consultant][:id].to_i
       end
     end
     sol = Problem.new :description => complex_text, :problem_type => 'complex'
