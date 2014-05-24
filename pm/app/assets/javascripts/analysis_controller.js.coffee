@@ -177,7 +177,17 @@ analyseApp.controller 'analyseAppController', ($scope, $http) ->
     promise = $http.get "/analyses/#{$scope.aid}.json"
     promise.success (data) ->
       $scope.aid_value = data.str_date
+      $scope.aid_status = data.status
       $scope.loadConsultants()
+    promise.error (data) ->
+      console.log data
+
+  # Метод подгрузки текущей даты.
+  $scope.uploadCurAnalyse = ->
+    promise = $http.get "/analyses/#{$scope.aid}.json"
+    promise.success (data) ->
+      $scope.aid_status = data.status
+      console.log data.status
     promise.error (data) ->
       console.log data
 
@@ -185,4 +195,5 @@ analyseApp.controller 'analyseAppController', ($scope, $http) ->
    $scope.formReport = ->
      window.location.href = "/form_report/get_report?analysis=#{$scope.aid}"
 
+  $scope.uploadCurAnalyse()
   $scope.loadConsultants()

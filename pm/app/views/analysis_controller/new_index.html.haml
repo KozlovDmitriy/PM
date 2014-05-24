@@ -1,6 +1,16 @@
 - title 'Новый вариант анализа работы консультантов'
 
 .row{:ng => {:app => 'analyseApp', :controller => 'analyseAppController'}}
+  .alert.alert-danger{:ng => {:if => 'aid_status=="empty_data" || aid_status==null || aid_status=="not_end_analysis" || aid_status=="empty_analysis" || aid_status=="full_data" || aid_status=="not_full_data"'}}
+    %strong Ошибка!
+    %p{:ng => {:if => 'aid_status==null'}} Статус анализа не известен! Возможно данные не введены!
+    %p{:ng => {:if => 'aid_status=="not_end_analysis"'}} Анализ не завершен!
+    %p{:ng => {:if => 'aid_status=="empty_analysis"'}} Анализ консультантов за данную дату не проводился.
+    %p{:ng => {:if => 'aid_status=="full_data"'}} Данные по консультантам введены полностью, но анализ не проводился.
+    %p{:ng => {:if => 'aid_status=="not_full_data"'}} Данные по консультантам введены не полностью! Полный анализ невозможен!
+    %p{:ng => {:if => 'aid_status=="empty_data"'}} Данные по консультантам не введены!
+  .alert.alert-success{:ng => {:if => 'aid_status=="end_analysis"'}}
+    %strong Анализ по данной дате завершен!
   .col-sm-2
     %ul.nav.nav-sidebar
       %li= link_to 'Список всех дат анализов', analyses_path
