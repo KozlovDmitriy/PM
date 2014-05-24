@@ -41,9 +41,42 @@ class Analysis < ActiveRecord::Base
   # full_data - Данные полностью введены
   # not_full_data - Данные введены частично
   # empty_data - Данные не введены
-
   def self.statuses
     %w[end_analysis not_end_analysis empty_analysis full_data not_full_data empty_data]
+  end
+
+  # Метод получения русского значения статуса.
+  def russian_status_label
+    case status
+      when 'end_analysis'
+        'Анализ завершен'
+      when 'not_end_analysis'
+        'Анализ не завершен'
+      when 'empty_analysis'
+        'Анализ не проводился'
+      when 'full_data'
+        'Данные полностью введены, но данные полностью введены'
+      when 'not_full_data'
+        'Данные введены частично'
+      when 'empty_data'
+        'Данные не введены'
+      else
+        'Не известно'
+    end
+  end
+
+  # Метод получения значения bootstrap класса для строки с анализом в зависимости от статуса.
+  def bootstrap_status_class
+    case status
+      when 'end_analysis'
+        'success'
+      when 'not_end_analysis' || 'not_full_data'
+        'warning'
+      when 'empty_analysis' || 'empty_data' || 'full_data'
+        'danger'
+      else
+        'danger'
+    end
   end
 
   # Метод получения даты в виде строки.

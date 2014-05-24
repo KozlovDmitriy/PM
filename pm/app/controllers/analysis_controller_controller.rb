@@ -41,9 +41,18 @@ class AnalysisControllerController < ApplicationController
       else
         problem = arr.first
       end
-      AnalysisProblemConnect.create :problem_id => problem.id,
-                                    :analysis_id => date_id,
-                                    :consultant_id => params[:consultant][:id].to_i
+      if AnalysisProblemConnect.where(:problem_id => problem.id,
+                                      :analysis_id => date_id,
+                                      :consultant_id => params[:consultant][:id].to_i).blank?
+        AnalysisProblemConnect.create :problem_id => problem.id,
+                                      :analysis_id => date_id,
+                                      :consultant_id => params[:consultant][:id].to_i
+      else
+        objs = AnalysisProblemConnect.where(:problem_id => problem.id,
+                                            :analysis_id => date_id,
+                                            :consultant_id => params[:consultant][:id].to_i)
+        obj.each {|object| object.destroy }
+      end
     end
     sol = Problem.new :description => complex_text, :problem_type => 'complex'
     sol.cut_description!

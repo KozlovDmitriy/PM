@@ -5,9 +5,9 @@
   %table.table
     %caption Выберите анализ по дате, для формирования отчета по нему.
     - @analyses.each do |item|
-      %tr
+      %tr{:class => "#{item.bootstrap_status_class}"}
         %td= Russian::strftime(item.date, '%d.%m.%Y')
-        %td{:title => 'Статус анализа'}= item.status
+        %td{:title => 'Статус анализа'}= item.russian_status_label
         %td
           = render :partial => 'form_report/modal', :locals => {:array => item.array, :analysis => item}
         %td
