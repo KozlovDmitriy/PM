@@ -85,6 +85,21 @@ class AnalysisControllerController < ApplicationController
       AnalysisSolutionConnect.create :solution_id => solution.id,
                                      :analysis_id => date_id,
                                      :consultant_id => params[:consultant][:id].to_i
+      if AnalysisSolutionConnect.where(:solution_id => solution.id,
+                                       :analysis_id => date_id,
+                                       :consultant_id => params[:consultant][:id].to_i).blank?
+        AnalysisSolutionConnect.create :solution_id => solution.id,
+                                       :analysis_id => date_id,
+                                       :consultant_id => params[:consultant][:id].to_i
+      else
+        objs = AnalysisSolutionConnect.where(:solution_id => solution.id,
+                                             :analysis_id => date_id,
+                                             :consultant_id => params[:consultant][:id].to_i)
+        objs.each {|object| object.destroy }
+        AnalysisSolutionConnect.create :solution_id => solution.id,
+                                       :analysis_id => date_id,
+                                       :consultant_id => params[:consultant][:id].to_i
+      end
     end
     sol = Solution.new :description => complex_text, :solution_type => 'complex'
     sol.cut_description!
