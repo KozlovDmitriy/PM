@@ -1,19 +1,15 @@
-%h1 Listing analyses
+- title 'Список анализов по датам'
+%h1 Список анализов
 
-%table
-  %tr
-    %th Date
-    %th
-    %th
-    %th
-
-  - @analyses.each do |analysis|
-    %tr
-      %td= analysis.date
-      %td= link_to 'Show', analysis
-      %td= link_to 'Edit', edit_analysis_path(analysis)
-      %td= link_to 'Destroy', analysis, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Analysis', new_analysis_path
+.row
+  %table.table
+    %caption Выберите анализ по дате, для формирования отчета по нему.
+    - @analyses.each do |item|
+      %tr
+        %td= Russian::strftime(item.date, '%d.%m.%Y')
+        %td{:title => 'Статус анализа'}= item.status
+        %td
+          = render :partial => 'form_report/modal', :locals => {:array => item.array, :analysis => item}
+        %td
+          != link_to 'Сформировать отчет', "/form_report/get_report?analysis=#{item.id}",
+          {:class => 'btn btn-warning', :target => '_blank'}

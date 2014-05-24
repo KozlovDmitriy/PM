@@ -3,7 +3,7 @@
 .row{:ng => {:app => 'analyseApp', :controller => 'analyseAppController'}}
   .col-sm-2
     %ul.nav.nav-sidebar
-      %li= link_to 'Список всех дат анализов', '#'
+      %li= link_to 'Список всех дат анализов', analyses_path
       %li= link_to 'Сравнить консультантов', '/compare'
   .col-sm-10
     %h1 Новый вариант анализа работы консультантов
