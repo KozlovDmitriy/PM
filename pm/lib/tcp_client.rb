@@ -35,7 +35,10 @@ class TcpClient
   TOTAL_CHECKS_COUNT = 0x13
   # Запрос на создание новой проблемы.
   CREATE_NEW_PROBLEM = 0x14
+  # Запрос на создание новой рекомендации.
+  CREATE_NEW_SOLUTION = 0x15
 
+  # Метод создания новой проблемы в решателе.
   def create_new_problem problem
     raise 'Connection already closed!' if @is_close
     log 'Create new problem start'
@@ -43,6 +46,16 @@ class TcpClient
     @socket.puts problem.problem_type
     @socket.puts problem.description
     log 'Create new problem end'
+  end
+
+  # Метод создания новой рекомендации в решателе.
+  def create_new_solution solution
+    rails 'Connection already closed!' if @is_close
+    log 'Create new solution start'
+    @socket.puts CREATE_NEW_SOLUTION
+    @socket.puts solution.solution_type
+    @socket.puts solution.description
+    log 'Create new solution end'
   end
 
   # Метод получения всех значений общего числа чеков в онтологии.

@@ -29,6 +29,11 @@ class SolutionsController < ApplicationController
     @solution.solution_type = params[:solution][:solution_type].to_s
     @solution.cut_description!
 
+    # require_relative '../../lib/tcp_client'
+    # client = TcpClient.new 50125, 'localhost'
+    # client.create_new_solution @solution
+    # client.close
+
     respond_to do |format|
       if @solution.save
         format.html { redirect_to solutions_path, notice: 'Solution was successfully created.' }

@@ -59,6 +59,8 @@ public class HttpConnect extends Thread {
     public static final int TOTAL_CHECKS_COUNT = 0x13;
     /** Запрос на создание новой проблемы. */
     public static final int CREATE_NEW_PROBLEM = 0x14;
+    /** Запрос на создание новой рекомендации. */
+    public static final int CREATE_NEW_SOLUTION = 0x15;
     
     /**
      * Метод ведения лога.
@@ -114,6 +116,18 @@ public class HttpConnect extends Thread {
     }
     
     /**
+     * Функция чтения новой рекомендации.
+     * @param br Чтение потока rails.
+     * @throws IOException 
+     */
+    private void createNewSolution(BufferedReader br) throws IOException {
+        
+        String type = br.readLine();
+        String description = br.readLine();
+        this.log("create new solution");
+    }
+    
+    /**
      * Метод чтения запросов клиента.
      * @param request Запрос клиента.
      * @param br Канал чтения.
@@ -138,6 +152,8 @@ public class HttpConnect extends Thread {
             this.getParam("TotalChecksCount", "totalChecksCountHasValue", pw);
         } else if (request.equals(Integer.toString(HttpConnect.CREATE_NEW_PROBLEM))) {
             this.createNewProblem(br);
+        } else if (request.equals(Integer.toString(HttpConnect.CREATE_NEW_SOLUTION))) {
+            this.createNewSolution(br);
         }
     }
         
