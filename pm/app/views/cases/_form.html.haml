@@ -1,0 +1,43 @@
+= form_for @case do |f|
+  - if @case.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@case.errors.count, "error")} prohibited this case from being saved:"
+      %ul
+        - @case.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :ind_plan
+    = f.text_field :ind_plan
+  .field
+    = f.label :impl_plan
+    = f.text_field :impl_plan
+  .field
+    = f.label :impl
+    = f.text_field :impl
+  .field
+    = f.label :av_check
+    = f.text_field :av_check
+  .field
+    = f.label :items_count
+    = f.text_field :items_count
+  .field
+    = f.label :total_checks
+    = f.number_field :total_checks
+  .field
+    = f.label :problems_uri
+    = f.text_field :problems_uri
+  .field
+    = f.label :problems_text
+    = f.text_field :problems_text
+  .field
+    = f.label :solutions_uri
+    = f.text_field :solutions_uri
+  .field
+    = f.label :solutions_text
+    = f.text_field :solutions_text
+  .field
+    = f.label :uri
+    = f.text_field :uri
+  .actions
+    = f.submit 'Save'

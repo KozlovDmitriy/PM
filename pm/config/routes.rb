@@ -1,5 +1,7 @@
 Pm::Application.routes.draw do
 
+  resources :cases
+
   resources :configures
 
   get 'compare' => 'analyses#compare'

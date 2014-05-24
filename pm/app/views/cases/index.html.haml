@@ -1,0 +1,39 @@
+%h1 Listing cases
+
+%table
+  %tr
+    %th Ind plan
+    %th Impl plan
+    %th Impl
+    %th Av check
+    %th Items count
+    %th Total checks
+    %th Problems uri
+    %th Problems text
+    %th Solutions uri
+    %th Solutions text
+    %th Uri
+    %th
+    %th
+    %th
+
+  - @cases.each do |case_itme|
+    %tr
+      %td= case_itme.ind_plan
+      %td= case_itme.impl_plan
+      %td= case_itme.impl
+      %td= case_itme.av_check
+      %td= case_itme.items_count
+      %td= case_itme.total_checks
+      %td= case_itme.problems_uri
+      %td= case_itme.problems_text
+      %td= case_itme.solutions_uri
+      %td= case_itme.solutions_text
+      %td= case_itme.uri
+      %td= link_to 'Show', case_itme
+      %td= link_to 'Edit', edit_case_path(case_itme)
+      %td= link_to 'Destroy', case_itme, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Case', new_case_path

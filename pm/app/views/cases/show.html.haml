@@ -1,0 +1,39 @@
+%p#notice= notice
+
+%p
+  %b Ind plan:
+  = @case.ind_plan
+%p
+  %b Impl plan:
+  = @case.impl_plan
+%p
+  %b Impl:
+  = @case.impl
+%p
+  %b Av check:
+  = @case.av_check
+%p
+  %b Items count:
+  = @case.items_count
+%p
+  %b Total checks:
+  = @case.total_checks
+%p
+  %b Problems uri:
+  = @case.problems_uri
+%p
+  %b Problems text:
+  = @case.problems_text
+%p
+  %b Solutions uri:
+  = @case.solutions_uri
+%p
+  %b Solutions text:
+  = @case.solutions_text
+%p
+  %b Uri:
+  = @case.uri
+
+= link_to 'Edit', edit_case_path(@case)
+\|
+= link_to 'Back', cases_path

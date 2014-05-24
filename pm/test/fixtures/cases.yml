@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ind_plan: 1.5
+  impl_plan: 1.5
+  impl: 1.5
+  av_check: 1.5
+  items_count: 1.5
+  total_checks: 1
+  problems_uri: MyString
+  problems_text: MyString
+  solutions_uri: MyString
+  solutions_text: MyString
+  uri: MyString
+
+two:
+  ind_plan: 1.5
+  impl_plan: 1.5
+  impl: 1.5
+  av_check: 1.5
+  items_count: 1.5
+  total_checks: 1
+  problems_uri: MyString
+  problems_text: MyString
+  solutions_uri: MyString
+  solutions_text: MyString
+  uri: MyString

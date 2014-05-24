@@ -1,9 +1,8 @@
 <div class="alert alert-info alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
     Реализовано:<ul>
-     <li>Анализ работы консультантов</li>
-     <li>Создание сложных проблем и рекомендаций</li>
-     <li>Сравнение консультантов</li>
-     <li>Реальное формирование отчетов.</li>
+     <li>Вывод статусов анализов</li>
+     <li>Страница всех анализов</li>
+     <li>SQL таблица прецедентов</li>
      </ul>
   </div>
