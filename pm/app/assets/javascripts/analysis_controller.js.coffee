@@ -107,6 +107,7 @@ analyseApp.controller 'analyseAppController', ($scope, $http) ->
         $scope.currentConsultant.solutions = data
         $scope.currentConsultant.isFinishSolution = true
         $scope.isFindSolutions = false
+        $scope.isEndAnalyse()
       promise.error (data) ->
         console.log data
         $scope.isFindSolutions = false
@@ -123,6 +124,7 @@ analyseApp.controller 'analyseAppController', ($scope, $http) ->
       $scope.currentConsultant.solutions = data
       $scope.currentConsultant.isFinishSolution = true
       $scope.isFindSolutions = false
+      $scope.isEndAnalyse()
     promise.error (data) ->
       console.log data
       $scope.isFindSolutions = false
@@ -139,6 +141,28 @@ analyseApp.controller 'analyseAppController', ($scope, $http) ->
     promise.error (data) ->
       console.log data
       $scope.isFindProblems = false
+
+  # Метод проверки, закончен анализ или нет.
+  $scope.isEndAnalyse = ->
+    count = 0
+    for item in $scope.consultants
+      if item.isFinishProblem is true and item.isFinishSolution is true
+        count = count + 1
+    if count is $scope.consultants.length
+      $scope.isF = true
+      promise = $http.post '/analyse/change_status.json', {is_full: true, id: $scope.aid}
+      promise.success (data) ->
+        console.log data
+      promise.error (data) ->
+        console.log data
+    else
+      $scope.isF = false
+    promise = $http.post '/analyse/change_status.json', {is_full: $scope.isF, id: $scope.aid}
+    promise.success (data) ->
+      console.log data
+    promise.error (data) ->
+      console.log data
+    $scope.aid_status = 'end_analysis' if $scope.isF
 
   # Функция смены текущего консультанта.
   $scope.changeCurrentConsultant = (item) ->
@@ -166,7 +190,12 @@ analyseApp.controller 'analyseAppController', ($scope, $http) ->
       console.log data
       for item in data
         if item.id?
+          if item.problems?
+            item.isFinishProblem = true
+          if item.solutions?
+            item.isFinishSolution = true
           $scope.consultants.push item
+      $scope.isEndAnalyse()
     promise.error (data) ->
       console.log data
 

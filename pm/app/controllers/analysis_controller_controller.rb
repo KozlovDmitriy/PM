@@ -104,6 +104,15 @@ class AnalysisControllerController < ApplicationController
     if cs.blank? && solutions[:value].count > 1
       sol.save
     end
+    if params[:is_full]
+      an = Analysis.find date_id
+      an.status = 'end_analysis'
+      an.save
+    else
+      an = Analysis.find date_id
+      an.status = 'not_end_analysis'
+      an.save
+    end
     render :json => solutions
   end
 
@@ -127,6 +136,15 @@ class AnalysisControllerController < ApplicationController
     respond_to do |format|
       format.json { render 'get_new_index' }
     end
+  end
+
+  def change_status
+    analyse = Analysis.find params[:id].to_i
+    analyse.status = 'end_analysis' if params[:is_full]
+    analyse.status = 'not_end_analysis' unless params[:is_full]
+    analyse.save
+
+    render :json => true
   end
 
   private

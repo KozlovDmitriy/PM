@@ -4,6 +4,7 @@ Pm::Application.routes.draw do
 
   resources :configures
 
+  post 'analyse/change_status.json' => 'analysis_controller#change_status'
   get 'compare' => 'analyses#compare'
   get 'department-plans.json' => 'pages#department_plans'
   get 'month' => 'pages#month'

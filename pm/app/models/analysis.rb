@@ -1,6 +1,6 @@
 class Analysis < ActiveRecord::Base
 
-  attr_accessor :status
+  # attr_accessor :status
 
   def array
     _id = self.id
