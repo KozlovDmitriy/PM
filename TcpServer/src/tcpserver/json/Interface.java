@@ -12,15 +12,37 @@ public class Interface {
     /* Поля класса. */
     /** Код запроса. */
     private String code;
-    /** Тело запроса. */
-    private String body;
+    /** Параметры. */
+    private Params params;
+    /** Проблемы. */
+    private Problems problems;
+    /** Рекомендации. */
+    private Solutions solutions;
     
     /**
-     * Конструктор создания объекта из json строки.
+     * Метод создания объекта из json строки.
      * @param json JSON строка.
+     * @return Объект класса.
      */
-    public Interface (String json) {
-        new Gson().fromJson(json, this.getClass());
+    public static Interface fromJson (String json) {
+        Interface result = new Gson().fromJson(json, Interface.class);
+        return result;
+    }
+
+    /**
+     * Метод изменения проблем.
+     * @param problems Проблемы в работе консультанта.
+     */
+    public void setProblems(Problems problems) {
+        this.problems = problems;
+    }
+
+    /**
+     * Метод получения параметров анализа.
+     * @return Параметры анализа.
+     */
+    public Params getParams() {
+        return params;
     }
 
     /**
@@ -28,10 +50,10 @@ public class Interface {
      * @param code Код запроса.
      * @param body Тело запроса.
      */
-    public Interface(String code, String body) {
-        this.code = code;
-        this.body = body;
-    }
+//    public Interface(String code, Params body) {
+//        this.code = code;
+//        this.body = body;
+//    }
 
     /**
      * Метод изменения кода запроса.
@@ -41,13 +63,13 @@ public class Interface {
         this.code = code;
     }
 
-    /**
-     * Метод изменения тела запроса.
-     * @param body Тело запроса.
-     */
-    public void setBody(String body) {
-        this.body = body;
-    }
+//    /**
+//     * Метод изменения тела запроса.
+//     * @param body Тело запроса.
+//     */
+//    public void setBody(Params body) {
+//        this.body = body;
+//    }
 
     /**
      * Метод преобразования в json строку.
@@ -66,12 +88,12 @@ public class Interface {
         return code;
     }
 
-    /**
-     * Метод получения тела запроса.
-     * @return Тело запроса в виде строки.
-     */
-    public String getBody() {
-        return body;
-    }
+//    /**
+//     * Метод получения тела запроса.
+//     * @return Тело запроса в виде строки.
+//     */
+//    public Params getBody() {
+//        return body;
+//    }
     
 }

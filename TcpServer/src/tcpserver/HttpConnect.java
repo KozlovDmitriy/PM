@@ -18,6 +18,9 @@ import java.util.logging.Logger;
 import owlreader.OwlReader;
 import simplecbrapp.cbr.problems.ProblemCbrApplication;
 import simplecbrapp.cbr.solutions.SolutionCbrApplication;
+import tcpserver.json.Interface;
+import tcpserver.json.Params;
+import tcpserver.json.Problems;
 
 /**
  * Класс создания сокетного соединения.
@@ -25,7 +28,6 @@ import simplecbrapp.cbr.solutions.SolutionCbrApplication;
  * @version 1.0
  * @deprecated см. пакет tcpserver.json
  */
-@Deprecated
 public class HttpConnect extends Thread {
     
     /* Поля класса. */
@@ -138,10 +140,13 @@ public class HttpConnect extends Thread {
     private void parseClientRequest
         (String request, BufferedReader br, PrintWriter pw) throws IOException {
         System.out.println(request);
+
+        Interface i = Interface.fromJson(request);
         
-        if (request.equals(Integer.toString(HttpConnect.PARAMS_BLOCK_START))) {
+        if (i.getCode().equals(Integer.toString(HttpConnect.PARAMS_BLOCK_START))) {
             // Чтение параметров и отправка ответа.
-            this.readParams(br, pw);
+//            this.readParams(br, pw);
+            this.findProblems(i.getParams(), pw);
         } else if (request.equals(Integer.toString(HttpConnect.PROBLEM_BLOCK_START))) {
             this.readProblems(br, pw);
         } else if (request.equals(Integer.toString(HttpConnect.IMPL_PLAN))) {
@@ -187,7 +192,9 @@ public class HttpConnect extends Thread {
      * @param br Канал чтения.
      * @param pw Канал записи.
      * @throws IOException Исключение ошибки чтения канала.
+     * @deprecated см. пакет tcpserver.json
      */
+    @Deprecated
     private void readParams(BufferedReader br, PrintWriter pw) throws IOException {
         String value;
         ArrayList params = new ArrayList();
@@ -206,10 +213,39 @@ public class HttpConnect extends Thread {
     }
     
     /**
+     * Метод поиска проблем.
+     * @param params Параметры анализа.
+     * @param pw Писатель в клиента.
+     */
+    private void findProblems (Params params, PrintWriter pw) {
+        // Анализ
+        String[] ps = ProblemCbrApplication.doAnalise(params.toArray());
+        // Отправка ответа.
+        this.sendFindedProblems(pw, ps);
+    }
+    
+    /**
+     * Отправка найденных проблем.
+     * @param pw Писатель в клиент.
+     * @param ps Массив проблем.
+     */
+    private void sendFindedProblems (PrintWriter pw, String[] ps) {
+        
+        String[] probs = new String[ps.length - 1];
+        System.arraycopy(ps, 1, probs, 0, ps.length - 1);
+        Problems problems = new Problems(ps[0], probs);
+        Interface i = new Interface();
+        i.setCode(Integer.toString(RESPONSE_PROBLEM_BLOCK_START));
+        i.setProblems(problems);
+        pw.println(i.toString());
+    }
+    
+    /**
      * Метод отсылки проблем клиенту.
      * @param pw Канал ответа клиенту.
      * @param ps Массив проблем после анализа.
      */
+    @Deprecated
     private void sendProblems(PrintWriter pw, String[] ps) throws IOException {
         String[] problems = ps;
         this.log("start write problems");

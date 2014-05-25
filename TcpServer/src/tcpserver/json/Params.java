@@ -18,6 +18,15 @@ public class Params {
     private String ItemsCount;
     /** Общее количество чеков. */
     private String TotalChecksCount;
+    
+    /**
+     * Метод преобразования в массив.
+     * @return Массив значений параметров.
+     */
+    public String[] toArray() {
+        String[] result = {this.ImplPlan,this.AvCheck,this.ItemsCount, this.TotalChecksCount};
+        return result;
+    }
 
     /**
      * Метод получения общего количества чеков.

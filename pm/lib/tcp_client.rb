@@ -110,7 +110,7 @@ class TcpClient
   # Метод закрытия соединения с сервером.
   def close
     raise 'Connection already closed!' if @is_close
-    json = JsonRequest.new :code => END_CONNECTION, :body => {}
+    json = JsonRequest.new END_CONNECTION, {}, {}, {}
     @socket.puts json.to_json
     @socket.close
     log 'Connection close!'
@@ -121,13 +121,13 @@ class TcpClient
     raise 'Connection already closed!' if @is_close
     log 'Analise params start'
     result = {}
-    params_hash.each { |item| result[item[:name].to_s] = item.value }
-    json = JsonRequest.new :code => PARAMS_BLOCK_START, result
+    params_hash.each { |item| result[item[:name].to_s] = item[:value] }
+    json = JsonRequest.new PARAMS_BLOCK_START, result, {}, {}
     @socket.puts json.to_json
     response = @socket.readline
     json.from_json response
     log 'Analise params end!'
-    {:uri => json.body[:uri], :value => json.body[:problems]}
+    pr = {:uri => json.problems['uri'], :value => json.problems['problems']}
   end
 
   # Метод проведения поиска проблем.
@@ -159,12 +159,12 @@ class TcpClient
   end
 
   # Метод проведения поиска рекомендаций.
-  def find_solutions problems_hash
+  def find_solutions solutions_hash
     raise 'Connection already closed!' if @is_close
     log 'Analise problems start'
     result = {}
-    problems_hash.each { |item| result[item[:name].to_s] = item.value }
-    json = JsonRequest.new :code => PROBLEM_BLOCK_START, result
+    solutions_hash.each { |item| result[item[:name].to_s] = item[:value] }
+    json = JsonRequest.new :code => PROBLEM_BLOCK_START, :body => result
     @socket.puts json.to_json
     response = @socket.readline
     json.from_json response
