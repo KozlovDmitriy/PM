@@ -23,7 +23,9 @@ import simplecbrapp.cbr.solutions.SolutionCbrApplication;
  * Класс создания сокетного соединения.
  * @author M.Navrotskiy
  * @version 1.0
+ * @deprecated см. пакет tcpserver.json
  */
+@Deprecated
 public class HttpConnect extends Thread {
     
     /* Поля класса. */
