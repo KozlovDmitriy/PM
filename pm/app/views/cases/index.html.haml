@@ -1,39 +1,67 @@
-%h1 Listing cases
+%p#notice= notice
 
-%table
-  %tr
-    %th Ind plan
-    %th Impl plan
-    %th Impl
-    %th Av check
-    %th Items count
-    %th Total checks
-    %th Problems uri
-    %th Problems text
-    %th Solutions uri
-    %th Solutions text
-    %th Uri
-    %th
-    %th
-    %th
+.blog-header
+  %h1 Добавление прецедента в онтологию
+  = title 'Добавление прецедента в онтологию'
 
-  - @cases.each do |case_itme|
-    %tr
-      %td= case_itme.ind_plan
-      %td= case_itme.impl_plan
-      %td= case_itme.impl
-      %td= case_itme.av_check
-      %td= case_itme.items_count
-      %td= case_itme.total_checks
-      %td= case_itme.problems_uri
-      %td= case_itme.problems_text
-      %td= case_itme.solutions_uri
-      %td= case_itme.solutions_text
-      %td= case_itme.uri
-      %td= link_to 'Show', case_itme
-      %td= link_to 'Edit', edit_case_path(case_itme)
-      %td= link_to 'Destroy', case_itme, :method => :delete, :data => { :confirm => 'Are you sure?' }
+%p= link_to 'Добавить', new_case_path
 
-%br
+.row
+  %ul.nav.nav-tabs
+    %li.active= link_to 'Основные', '#main', :data => {:toggle => 'tab'}
+    %li= link_to 'Дополнительные', '#add', :data => {:toggle => 'tab'}
+    %li= link_to 'Персональные', '#personal', :data => {:toggle => 'tab'}
 
-= link_to 'New Case', new_case_path
+.tab-content
+  .tab-pane.active#main
+    .row
+      %table.table.table-bordered
+        %tr
+          %th Индивидуальный план
+          %th Выполнение плана (руб.)
+          %th Выполнение плана (%)
+          %th Средний чек
+          %th Количество позиций в чеке
+          %th Общее количество чеков
+          %th Проблемы
+          %th Рекомендации
+          %th
+          %th
+          %th
+        - @cases.each do |case_item|
+          %tr
+            %td= case_item.ind_plan
+            %td= case_item.impl_plan
+            %td= case_item.impl
+            %td= case_item.av_check
+            %td= case_item.items_count
+            %td= case_item.total_checks
+            %td= case_item.problems_text
+            %td= case_item.solutions_text
+            %td= link_to 'Просмотр', case_item, :class => 'btn btn-info'
+            %td= link_to 'Изменить', edit_case_path(case_item), :class => 'btn btn-warning'
+            %td= link_to 'Удалить', case_item, :method => :delete, :data => { :confirm => 'Вы уверены, что хотите удалить прецедент из базы?' }, :class => 'btn btn-danger'
+  .tab-pane#add
+    .row
+      %table.table.table-bordered
+        %tr
+          %th
+          %th
+          %th
+        - @cases.each do |case_item|
+          %tr
+            %td= link_to 'Просмотр', case_item, :class => 'btn btn-info'
+            %td= link_to 'Изменить', edit_case_path(case_item), :class => 'btn btn-warning'
+            %td= link_to 'Удалить', case_item, :method => :delete, :data => { :confirm => 'Вы уверены, что хотите удалить прецедент из базы?' }, :class => 'btn btn-danger'
+  .tab-pane#personal
+    .row
+      %table.table.table-bordered
+        %tr
+          %th
+          %th
+          %th
+        - @cases.each do |case_item|
+          %tr
+            %td= link_to 'Просмотр', case_item, :class => 'btn btn-info'
+            %td= link_to 'Изменить', edit_case_path(case_item), :class => 'btn btn-warning'
+            %td= link_to 'Удалить', case_item, :method => :delete, :data => { :confirm => 'Вы уверены, что хотите удалить прецедент из базы?' }, :class => 'btn btn-danger'
