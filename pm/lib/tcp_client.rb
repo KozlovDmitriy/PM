@@ -1,6 +1,8 @@
 
 require 'socket'
 
+require 'json_request'
+
 # Класс доступа к Java TCP серверу.
 class TcpClient
 
@@ -42,9 +44,8 @@ class TcpClient
   def create_new_problem problem
     raise 'Connection already closed!' if @is_close
     log 'Create new problem start'
-    @socket.puts CREATE_NEW_PROBLEM
-    @socket.puts problem.problem_type
-    @socket.puts problem.description
+    json = JsonRequest.new :code => CREATE_NEW_PROBLEM, :body => problem.to_hash
+    @socket.puts json.to_json
     log 'Create new problem end'
   end
 
@@ -52,9 +53,8 @@ class TcpClient
   def create_new_solution solution
     rails 'Connection already closed!' if @is_close
     log 'Create new solution start'
-    @socket.puts CREATE_NEW_SOLUTION
-    @socket.puts solution.solution_type
-    @socket.puts solution.description
+    json = JsonRequest.new :code => CREATE_NEW_SOLUTION, :body => solution.to_hash
+    @socket.puts json.to_json
     log 'Create new solution end'
   end
 
@@ -110,12 +110,28 @@ class TcpClient
   # Метод закрытия соединения с сервером.
   def close
     raise 'Connection already closed!' if @is_close
-    @socket.puts END_CONNECTION
+    json = JsonRequest.new :code => END_CONNECTION, :body => {}
+    @socket.puts json.to_json
     @socket.close
     log 'Connection close!'
   end
 
   # Метод проведения поиска проблем.
+  def find_problems params_hash
+    raise 'Connection already closed!' if @is_close
+    log 'Analise params start'
+    result = {}
+    params_hash.each { |item| result[item[:name].to_s] = item.value }
+    json = JsonRequest.new :code => PARAMS_BLOCK_START, result
+    @socket.puts json.to_json
+    response = @socket.readline
+    json.from_json response
+    log 'Analise params end!'
+    {:uri => json.body[:uri], :value => json.body[:problems]}
+  end
+
+  # Метод проведения поиска проблем.
+  # @deprecated
   def analise_params params_hash
     raise 'Connection already closed!' if @is_close
     log 'Analise params start'
@@ -143,6 +159,21 @@ class TcpClient
   end
 
   # Метод проведения поиска рекомендаций.
+  def find_solutions problems_hash
+    raise 'Connection already closed!' if @is_close
+    log 'Analise problems start'
+    result = {}
+    problems_hash.each { |item| result[item[:name].to_s] = item.value }
+    json = JsonRequest.new :code => PROBLEM_BLOCK_START, result
+    @socket.puts json.to_json
+    response = @socket.readline
+    json.from_json response
+    log 'Read solutions end!'
+    {:uri => json.body[:uri], :value => json.body[:solutions]}
+  end
+
+  # Метод проведения поиска рекомендаций.
+  # @deprecated
   def analise_problems problems_hash
     raise 'Connection already closed' if @is_close
     log 'Analise problems start!'

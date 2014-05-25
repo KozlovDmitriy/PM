@@ -9,8 +9,8 @@ class JsonRequest
   # @param code [Integer] - код запроса
   # @param body [Hash] - тело запроса
   def initialize code, body
-    @code = code.to_s
-    @body = body.to_s
+    @code = code
+    @body = body
   end
 
   # Преобразование объекта в json-строку

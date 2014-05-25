@@ -6,6 +6,11 @@ class Solution < ActiveRecord::Base
     %w[simple complex]
   end
 
+  # Метод преобразования объекта в hash
+  def to_hash
+    {:id => id, :description => description, :solution_type => solution_type, :uri => uri}
+  end
+
   # Удаляет последнюю букву И у комплексных рекомендаций.
   def cut_description!
   	if self.solution_type == 'complex'

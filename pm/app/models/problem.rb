@@ -5,6 +5,11 @@ class Problem < ActiveRecord::Base
     %w[simple complex]
   end
 
+  # Метод формирования hash.
+  def to_hash
+    {:id => id, :description => description, :problem_type => problem_type, :uri => uri}
+  end
+
   # Метод удаления лишнего И из описания комплексной проблемы.
   def cut_description!
   	if self.problem_type == 'complex'
