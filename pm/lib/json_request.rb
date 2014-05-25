@@ -19,7 +19,7 @@ class JsonRequest
 
   # Преобразование объекта в json-строку
   def to_json
-    json = {:code => code, :params => params, :problems => problems, :solutions => solutions}
+    json = {:code => @code, :params => @params, :problems => @problems, :solutions => @solutions}
     require 'json'
     json.to_json
   end

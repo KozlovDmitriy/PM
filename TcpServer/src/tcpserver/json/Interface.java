@@ -38,6 +38,22 @@ public class Interface {
     }
 
     /**
+     * Метод изменения рекомендаций.
+     * @param solutions Рекомендации по устранению проблем.
+     */
+    public void setSolutions(Solutions solutions) {
+        this.solutions = solutions;
+    }
+
+    /**
+     * Метод получения проблем.
+     * @return Проблемы в работе консультанта.
+     */
+    public Problems getProblems() {
+        return problems;
+    }
+
+    /**
      * Метод получения параметров анализа.
      * @return Параметры анализа.
      */

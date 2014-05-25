@@ -71,7 +71,7 @@ class AnalysisControllerController < ApplicationController
     require_relative '../../lib/tcp_client'
     client = TcpClient.new 50125, 'localhost'
     date_id = params[:date].to_i
-    solutions = client.analise_problems [:name => params[:problems], :value => params[:problems]]
+    solutions = client.find_solutions :name => params[:problems], :value => params[:problems]
     client.close
     complex_text = ''
     solutions[:value].each do |item|

@@ -55,7 +55,7 @@ public class Problems {
      * Метод изменения массива проблем.
      * @param problems Массив проблем.
      */
-    public void setSolutions(String[] problems) {
+    public void setProblems(String[] problems) {
         this.problems = problems;
     }
 
@@ -71,7 +71,7 @@ public class Problems {
      * Метод получения проблем.
      * @return Массив проблем.
      */
-    public String[] getSolutions() {
+    public String[] getProblems() {
         return problems;
     }
 }

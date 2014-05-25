@@ -162,14 +162,14 @@ class TcpClient
   def find_solutions solutions_hash
     raise 'Connection already closed!' if @is_close
     log 'Analise problems start'
-    result = {}
-    solutions_hash.each { |item| result[item[:name].to_s] = item[:value] }
-    json = JsonRequest.new :code => PROBLEM_BLOCK_START, :body => result
+    File.open('debug.txt', "w") { |file| file.write solutions_hash.to_yaml }
+    result = {:uri => solutions_hash[:name], :problems => [solutions_hash[:value]]}
+    json = JsonRequest.new PROBLEM_BLOCK_START, {}, result, {}
     @socket.puts json.to_json
     response = @socket.readline
     json.from_json response
     log 'Read solutions end!'
-    {:uri => json.body[:uri], :value => json.body[:solutions]}
+    {:uri => json.solutions['uri'], :value => json.solutions['solutions']}
   end
 
   # Метод проведения поиска рекомендаций.

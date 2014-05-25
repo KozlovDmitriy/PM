@@ -21,6 +21,7 @@ import simplecbrapp.cbr.solutions.SolutionCbrApplication;
 import tcpserver.json.Interface;
 import tcpserver.json.Params;
 import tcpserver.json.Problems;
+import tcpserver.json.Solutions;
 
 /**
  * Класс создания сокетного соединения.
@@ -147,8 +148,8 @@ public class HttpConnect extends Thread {
             // Чтение параметров и отправка ответа.
 //            this.readParams(br, pw);
             this.findProblems(i.getParams(), pw);
-        } else if (request.equals(Integer.toString(HttpConnect.PROBLEM_BLOCK_START))) {
-            this.readProblems(br, pw);
+        } else if (i.getCode().equals(Integer.toString(HttpConnect.PROBLEM_BLOCK_START))) {
+            this.findSolutions(i.getProblems(), pw);
         } else if (request.equals(Integer.toString(HttpConnect.IMPL_PLAN))) {
             this.getParam("ImplPlan", "ImplPlan", pw);
         } else if (request.equals(Integer.toString(HttpConnect.AV_CHECK))) {
@@ -164,12 +165,31 @@ public class HttpConnect extends Thread {
         }
     }
         
+    private void findSolutions (Problems problems, PrintWriter pw) {
+        // Анализ
+        String[] ss = SolutionCbrApplication.doAnalise(problems.getUri());
+        // Отправка результата
+        this.sendFindedSolutions(pw, ss);
+    }
+    
+    private void sendFindedSolutions (PrintWriter pw, String[] ps) {
+        
+        String[] probs = new String[ps.length - 1];
+        System.arraycopy(ps, 1, probs, 0, ps.length - 1);
+        Solutions solutions = new Solutions(ps[0], probs);
+        Interface i = new Interface();
+        i.setCode(Integer.toString(RESPONSE_SOLUTION_BLOCK_START));
+        i.setSolutions(solutions);
+        pw.println(i.toString());
+    }
+        
     /**
      * Метод чтения проблем от клиента.
      * @param br Канал чтения.
      * @param pw Канал записи.
      * @throws IOException 
      */
+    @Deprecated
     private void readProblems (BufferedReader br, PrintWriter pw) throws IOException {
         String value;
         ArrayList problems = new ArrayList();
@@ -264,6 +284,7 @@ public class HttpConnect extends Thread {
      * @param pw Канал ответа клиенту.
      * @param solutions Массив рекомендаций после анализа.
      */
+    @Deprecated
     private void sendSolutions (PrintWriter pw, String[] solutions) {
         
         this.log("start write solutions");
