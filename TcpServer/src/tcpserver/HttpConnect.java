@@ -140,28 +140,33 @@ public class HttpConnect extends Thread {
      */
     private void parseClientRequest
         (String request, BufferedReader br, PrintWriter pw) throws IOException {
-        System.out.println(request);
+        try {
+            System.out.println(request);
 
-        Interface i = Interface.fromJson(request);
-        
-        if (i.getCode().equals(Integer.toString(HttpConnect.PARAMS_BLOCK_START))) {
-            // Чтение параметров и отправка ответа.
-//            this.readParams(br, pw);
-            this.findProblems(i.getParams(), pw);
-        } else if (i.getCode().equals(Integer.toString(HttpConnect.PROBLEM_BLOCK_START))) {
-            this.findSolutions(i.getProblems(), pw);
-        } else if (request.equals(Integer.toString(HttpConnect.IMPL_PLAN))) {
-            this.getParam("ImplPlan", "ImplPlan", pw);
-        } else if (request.equals(Integer.toString(HttpConnect.AV_CHECK))) {
-            this.getParam("AvCheck", "avCheckHasValue", pw);
-        } else if (request.equals(Integer.toString(HttpConnect.ITEMS_COUNT))) {
-            this.getParam("ItemsCount", "itemsCountHasValue", pw);
-        } else if (request.equals(Integer.toString(HttpConnect.TOTAL_CHECKS_COUNT))) {
-            this.getParam("TotalChecksCount", "totalChecksCountHasValue", pw);
-        } else if (request.equals(Integer.toString(HttpConnect.CREATE_NEW_PROBLEM))) {
-            this.createNewProblem(br);
-        } else if (request.equals(Integer.toString(HttpConnect.CREATE_NEW_SOLUTION))) {
-            this.createNewSolution(br);
+            Interface i = Interface.fromJson(request);
+
+            if (i.getCode().equals(Integer.toString(HttpConnect.PARAMS_BLOCK_START))) {
+                // Чтение параметров и отправка ответа.
+    //            this.readParams(br, pw);
+                this.findProblems(i.getParams(), pw);
+            } else if (i.getCode().equals(Integer.toString(HttpConnect.PROBLEM_BLOCK_START))) {
+                this.findSolutions(i.getProblems(), pw);
+            } else if (request.equals(Integer.toString(HttpConnect.IMPL_PLAN))) {
+                this.getParam("ImplPlan", "ImplPlan", pw);
+            } else if (request.equals(Integer.toString(HttpConnect.AV_CHECK))) {
+                this.getParam("AvCheck", "avCheckHasValue", pw);
+            } else if (request.equals(Integer.toString(HttpConnect.ITEMS_COUNT))) {
+                this.getParam("ItemsCount", "itemsCountHasValue", pw);
+            } else if (request.equals(Integer.toString(HttpConnect.TOTAL_CHECKS_COUNT))) {
+                this.getParam("TotalChecksCount", "totalChecksCountHasValue", pw);
+            } else if (request.equals(Integer.toString(HttpConnect.CREATE_NEW_PROBLEM))) {
+                this.createNewProblem(br);
+            } else if (request.equals(Integer.toString(HttpConnect.CREATE_NEW_SOLUTION))) {
+                this.createNewSolution(br);
+            }
+        } catch (Exception ex) {
+            System.out.println("req: " + request);
+            System.out.println("exc: " + ex.getMessage());
         }
     }
         
@@ -326,12 +331,14 @@ public class HttpConnect extends Thread {
             BufferedReader br = new BufferedReader(
                     new InputStreamReader(this.socket.getInputStream(), Charset.forName("UTF-8")));
             String req; // Строка запроса.
+            Interface i;
             
             do { // Чтение запросов клиента.
                 req = br.readLine();
                 this.log(req);
+                i = Interface.fromJson(req);
                 this.parseClientRequest(req, br, pw); // Парсинг команды.
-            } while (!req.equals(Integer.toString(HttpConnect.END_CONNECTION)));
+            } while (!i.getCode().equals(Integer.toString(HttpConnect.END_CONNECTION)));
             
         } catch (IOException exception) {
             System.out.println(exception);
