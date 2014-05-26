@@ -41,21 +41,6 @@ class AnalysisControllerController < ApplicationController
       else
         problem = arr.first
       end
-      if AnalysisProblemConnect.where(:problem_id => problem.id,
-                                      :analysis_id => date_id,
-                                      :consultant_id => params[:consultant][:id].to_i).blank?
-        AnalysisProblemConnect.create :problem_id => problem.id,
-                                      :analysis_id => date_id,
-                                      :consultant_id => params[:consultant][:id].to_i
-      else
-        objs = AnalysisProblemConnect.where(:problem_id => problem.id,
-                                            :analysis_id => date_id,
-                                            :consultant_id => params[:consultant][:id].to_i)
-        objs.each {|object| object.destroy }
-        AnalysisProblemConnect.create :problem_id => problem.id,
-                                      :analysis_id => date_id,
-                                      :consultant_id => params[:consultant][:id].to_i
-      end
     end
     sol = Problem.new :description => complex_text, :problem_type => 'complex', :uri => problems[:uri]
     sol.cut_description!
@@ -63,6 +48,21 @@ class AnalysisControllerController < ApplicationController
     if cs.blank? and problems[:value].count > 1
       sol.save
     end
+    if AnalysisProblemConnect.where(:problem_id => sol.id,
+                                      :analysis_id => date_id,
+                                      :consultant_id => params[:consultant][:id].to_i).blank?
+        AnalysisProblemConnect.create :problem_id => sol.id,
+                                      :analysis_id => date_id,
+                                      :consultant_id => params[:consultant][:id].to_i
+      else
+        objs = AnalysisProblemConnect.where(:problem_id => sol.id,
+                                            :analysis_id => date_id,
+                                            :consultant_id => params[:consultant][:id].to_i)
+        objs.each {|object| object.destroy }
+        AnalysisProblemConnect.create :problem_id => sol.id,
+                                      :analysis_id => date_id,
+                                      :consultant_id => params[:consultant][:id].to_i
+      end
     render :json => problems
   end
 

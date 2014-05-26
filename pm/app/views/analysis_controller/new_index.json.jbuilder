@@ -21,9 +21,13 @@ json.array! @consultants.each do |item|
         json.exp buffer.include?(10) ? buffer.find(8).value.to_i : false
         json.dismissal buffer.include?(11) ? buffer.find(8).value.to_i : false
     end
+    problems_string = ''
     problems = []
-    AnalysisProblemConnect.where(:analysis_id => @analyse.id, :consultant_id => item.id).each { |it| problems.push it.problem.description }
+    uri = ''
+    AnalysisProblemConnect.where(:analysis_id => @analyse.id, :consultant_id => item.id).each { |it| problems_string = it.problem.description; uri = it.problem.uri }
+    problems = problems_string.split(' И ')
     json.problems do
+      json.uri uri
       json.value do
         json.array! problems.uniq
       end
