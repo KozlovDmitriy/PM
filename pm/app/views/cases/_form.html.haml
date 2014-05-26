@@ -6,38 +6,61 @@
         - @case.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :ind_plan
-    = f.text_field :ind_plan
-  .field
-    = f.label :impl_plan
-    = f.text_field :impl_plan
-  .field
-    = f.label :impl
-    = f.text_field :impl
-  .field
-    = f.label :av_check
-    = f.text_field :av_check
-  .field
-    = f.label :items_count
-    = f.text_field :items_count
-  .field
-    = f.label :total_checks
-    = f.number_field :total_checks
-  .field
-    = f.label :problems_uri
-    = f.text_field :problems_uri
-  .field
-    = f.label :problems_text
-    = f.text_field :problems_text
-  .field
-    = f.label :solutions_uri
-    = f.text_field :solutions_uri
-  .field
-    = f.label :solutions_text
-    = f.text_field :solutions_text
-  .field
-    = f.label :uri
-    = f.text_field :uri
-  .actions
-    = f.submit 'Save'
+  .row
+    %ul.nav.nav-tabs
+      %li.active= link_to 'Основные', '#main', :data => {:toggle => 'tab'}
+      %li= link_to 'Дополнительные', '#add', :data => {:toggle => 'tab'}
+      %li= link_to 'Персональные', '#personal', :data => {:toggle => 'tab'}
+
+  .tab-content
+    .tab-pane.active#main
+      .row
+        .col-md-6.col-md-offset-3
+          .form-group
+            = f.label :ind_plan, 'Индивидуальный план'
+            = f.text_field :ind_plan, :class => 'form-control'
+
+          .form-group
+            = f.label :impl_plan, 'Выполнение плана (в руб.)'
+            = f.text_field :impl_plan, :class => 'form-control'
+
+          .form-group
+            = f.label :impl, 'Выполнение (в %)'
+            = f.text_field :impl, :class => 'form-control'
+
+          .form-group
+            = f.label :av_check, 'Средний чек'
+            = f.text_field :av_check, :class => 'form-control'
+
+          .form-group
+            = f.label :items_count, 'Среднее количество позиций в чеке'
+            = f.text_field :items_count, :class => 'form-control'
+
+          .form-group
+            = f.label :total_checks, 'Общее количество чеков'
+            = f.number_field :total_checks, :class => 'form-control'
+
+          .form-group
+            = f.label :problems_text, 'Текст проблемы'
+            = f.text_field :problems_text, :class => 'form-control'
+
+          .form-group
+            = f.label :solutions_text, 'Текст рекомендации'
+            = f.text_field :solutions_text, :class => 'form-control'
+
+    .tab-pane#add
+      .row
+        .col-md-6.col-md-offset-3
+
+    .tab-pane#personal
+      .row
+        .col-md-6.col-md-offset-3
+
+  .row
+    .col-md-6.col-md-offset-3
+      .col-md-offset-4
+        = f.submit 'Сохранить', :class => 'btn btn-primary'
+        = link_to 'Назад', consultants_path, :class => 'btn btn-default'
+
+
+
