@@ -13,3 +13,19 @@
  *= require bootstrap
  *= require blog
  */
+
+#goTop {
+
+    position: fixed;
+    right: 10px;
+    top: 100px;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+#goTop a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 10px;
+}

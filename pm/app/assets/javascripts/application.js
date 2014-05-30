@@ -23,3 +23,31 @@
 //= require angular.min
 //= require_tree .
 //= require turbolinks
+
+// Функция отлова события перемещения окна
+var changeScrollPosition = function() {
+
+    positionY = window.pageYOffset;
+
+    if (positionY > 0) {
+        $('#goTop').show();
+    } else {
+        $('#goTop').hide();
+    }
+};
+
+$(document).ready(function(){
+    $('#goTop').hide();
+
+    $('#goTop a').click(function(){
+
+        $('html, body').animate({
+            scrollTop: $('body').offset().top
+        }, 900);
+
+        return false;
+    });
+});
+
+// Подключение обработчика
+window.addEventListener('scroll', changeScrollPosition, false);
