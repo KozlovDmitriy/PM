@@ -101,6 +101,11 @@
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Рекомендации</rdfs:label>
   </owl:Class>
+  <owl:Class rdf:ID="Case">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Object"/>
+    </rdfs:subClassOf>
+  </owl:Class>
   <owl:Class rdf:ID="Motivators">
     <rdfs:subClassOf rdf:resource="#Recommendations"/>
   </owl:Class>
@@ -195,225 +200,364 @@
     &amp;#1072;&amp;#1085;&amp;#1072;&amp;#1083;&amp;#1080;&amp;#1079;&amp;#1072;&lt;/font&gt;&lt;/span&gt;</rdfs:comment>
     <rdfs:subClassOf rdf:resource="#Object"/>
   </owl:Class>
-  <owl:FunctionalProperty rdf:ID="db_id">
+  <owl:ObjectProperty rdf:ID="ObjectProperty_4">
+    <rdfs:range rdf:resource="#Problem_identification"/>
+    <rdfs:domain rdf:resource="#Case"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="index_sales_plan">
+    <rdfs:domain rdf:resource="#Case"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#Sales_plan"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="index_average_sale_value">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#Average_sale_value"/>
+    <rdfs:domain rdf:resource="#Case"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="index_sales_per_employee">
+    <rdfs:domain rdf:resource="#Case"/>
+    <rdfs:range rdf:resource="#Conversion_rate"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="index_average_values_of_account_sum">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Case"/>
+    <rdfs:range rdf:resource="#Average_values_of_account_sum"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="index_conversion_rate">
+    <rdfs:domain rdf:resource="#Case"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#Conversion_rate"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="solution_rec">
+    <rdfs:domain rdf:resource="#Case"/>
+    <rdfs:range rdf:resource="#Recommendations"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="index_sick_list">
+    <rdfs:range rdf:resource="#Sick-list"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Case"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="index_vacation">
+    <rdfs:domain rdf:resource="#Case"/>
+    <rdfs:range rdf:resource="#Vacation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="index_problems">
+    <rdfs:domain rdf:resource="#Case"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="db_id">
     <rdfs:domain rdf:resource="#Object"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:ID="id">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="solution_problems">
+    <rdfs:domain rdf:resource="#Case"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="id">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:domain rdf:resource="#Object"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:ID="value">
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="value">
     <rdfs:domain rdf:resource="#Object"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-  </owl:FunctionalProperty>
-  <Sales_plan rdf:ID="Sales_plan_77">
-    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >1</id>
-    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >very high</value>
-  </Sales_plan>
-  <Average_sale_value rdf:ID="Average_sale_value_61">
-    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >5</id>
-    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >very low</value>
-  </Average_sale_value>
-  <Sales_per_employee rdf:ID="Sales_per_employee_75">
-    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >low</value>
-    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >4</id>
-  </Sales_per_employee>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
   <Vacation rdf:ID="Vacation_56">
     <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >no</value>
     <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >2</id>
   </Vacation>
-  <Average_sale_value rdf:ID="Average_sale_value_57">
-    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >1</id>
+  <Motivators rdf:ID="Motivators_21">
     <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >very high</value>
-  </Average_sale_value>
+    >Дополнительный отпуск</value>
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >21</id>
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >21</db_id>
+  </Motivators>
+  <Certification rdf:ID="Certification_11">
+    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >По группе продуктов</value>
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >11</id>
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >11</db_id>
+  </Certification>
+  <Motivators rdf:ID="Motivators_25">
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >25</id>
+    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Карьерный рост</value>
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >25</db_id>
+  </Motivators>
   <EFFICIENCY rdf:ID="EFFICIENCY-medium">
     <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >medium</value>
     <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >3</id>
   </EFFICIENCY>
-  <Sales_plan rdf:ID="Sales_plan_81">
-    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >5</id>
+  <Organization_problems rdf:ID="Organization_problems_8">
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >8</db_id>
     <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >very low</value>
-  </Sales_plan>
+    >Опоздания</value>
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >8</id>
+  </Organization_problems>
+  <Training rdf:ID="Training_31">
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >31</id>
+    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Применение обучающего материала</value>
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >31</db_id>
+  </Training>
   <Sick-list rdf:ID="Sick-list_54">
     <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >no</value>
     <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >2</id>
   </Sick-list>
-  <Average_values_of_account_sum rdf:ID="Average_values_of_account_sum_65">
-    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >low</value>
+  <Training rdf:ID="Training_27">
     <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >4</id>
-  </Average_values_of_account_sum>
-  <Sales_per_employee rdf:ID="Sales_per_employee_72">
-    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >1</id>
+    >27</id>
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >27</db_id>
     <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >very high</value>
-  </Sales_per_employee>
-  <Sales_per_employee rdf:ID="Sales_per_employee_76">
-    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >very low</value>
+    >Участие в тренингах</value>
+  </Training>
+  <Financial_problems rdf:ID="Financial_problems_3">
     <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >5</id>
-  </Sales_per_employee>
+    >3</id>
+    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Отсутствие положительной динамики в плане продаж</value>
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >3</db_id>
+  </Financial_problems>
+  <Motivators rdf:ID="Motivators_20">
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >20</id>
+    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Денежная премия</value>
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >20</db_id>
+  </Motivators>
   <Vacation rdf:ID="Vacation_55">
     <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >yes</value>
     <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >1</id>
   </Vacation>
-  <Conversion_rate rdf:ID="Conversion_rate_70">
+  <Certification rdf:ID="Certification_12">
     <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >4</id>
+    >12</id>
     <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >low</value>
-  </Conversion_rate>
-  <Average_sale_value rdf:ID="Average_sale_value_58">
+    >По  марке продаж</value>
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >12</db_id>
+  </Certification>
+  <Motivators rdf:ID="Motivators_24">
     <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >high</value>
+    >Увеличение зарплаты</value>
     <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >2</id>
-  </Average_sale_value>
-  <Conversion_rate rdf:ID="Conversion_rate_67">
-    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >1</id>
+    >24</id>
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >24</db_id>
+  </Motivators>
+  <Disciplinary_action rdf:ID="Disciplinary_action_16">
     <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >very high</value>
-  </Conversion_rate>
+    >Штраф</value>
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >16</id>
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >16</db_id>
+  </Disciplinary_action>
   <EFFICIENCY rdf:ID="EFFICIENCY-very_hight">
     <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >very high</value>
     <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >4</id>
   </EFFICIENCY>
+  <Training rdf:ID="Training_32">
+    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Обучение работы с клиентами</value>
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >32</id>
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >32</db_id>
+  </Training>
   <EFFICIENCY rdf:ID="EFFICIENCY-high">
     <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >1</id>
     <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >high</value>
   </EFFICIENCY>
-  <Sales_plan rdf:ID="Sales_plan_80">
+  <Training rdf:ID="Training_28">
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >28</db_id>
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >28</id>
+    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Участие в семинарах</value>
+  </Training>
+  <Financial_problems rdf:ID="Financial_problems_2">
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >2</db_id>
+    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Невыполнение индивидуальных показателей продаж</value>
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >2</id>
+  </Financial_problems>
+  <Motivators rdf:ID="Motivators_19">
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >19</id>
+    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Объявление благодарности</value>
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >19</db_id>
+  </Motivators>
+  <Motivators rdf:ID="Motivators_23">
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >23</db_id>
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >23</id>
+    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Дополнительные бонусы в области здравоохранения</value>
+  </Motivators>
+  <Disciplinary_action rdf:ID="Disciplinary_action_13">
+    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Устное предупреждение</value>
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >13</id>
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >13</db_id>
+  </Disciplinary_action>
+  <Disciplinary_action rdf:ID="Disciplinary_action_17">
+    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Выговор</value>
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >17</id>
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >17</db_id>
+  </Disciplinary_action>
+  <Customer_service_problems rdf:ID="Customer_service_problems_7">
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >2</db_id>
+    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Отток клиентов</value>
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >2</id>
+  </Customer_service_problems>
+  <Training rdf:ID="Training_29">
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >29</db_id>
+    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Работа с напарником</value>
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >29</id>
+  </Training>
+  <Financial_problems rdf:ID="Financial_problems_5">
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >4</db_id>
     <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >4</id>
     <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >low</value>
-  </Sales_plan>
-  <Average_values_of_account_sum rdf:ID="Average_values_of_account_sum_62">
+    >Отсутствие положительной динамики в индивидуальных показателях продаж</value>
+  </Financial_problems>
+  <Financial_problems rdf:ID="Financial_problems_1">
+    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Невыполнение индивидуального плана продаж</value>
     <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >1</id>
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1</db_id>
+  </Financial_problems>
+  <Motivators rdf:ID="Motivators_22">
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >22</db_id>
     <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >very high</value>
-  </Average_values_of_account_sum>
-  <Average_values_of_account_sum rdf:ID="Average_values_of_account_sum_66">
+    >Дополнительные бонусы в области страхования</value>
     <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >5</id>
-    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >very low</value>
-  </Average_values_of_account_sum>
-  <Sales_per_employee rdf:ID="Sales_per_employee_73">
-    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >high</value>
-    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >2</id>
-  </Sales_per_employee>
-  <Average_sale_value rdf:ID="Average_sale_value_59">
-    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >medium</value>
-    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >3</id>
-  </Average_sale_value>
-  <Conversion_rate rdf:ID="Conversion_rate_71">
-    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >5</id>
-    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >very low</value>
-  </Conversion_rate>
-  <Sales_plan rdf:ID="Sales_plan_79">
-    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >3</id>
-    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >medium</value>
-  </Sales_plan>
-  <Conversion_rate rdf:ID="Conversion_rate_68">
-    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >2</id>
-    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >high</value>
-  </Conversion_rate>
-  <Average_values_of_account_sum rdf:ID="Average_values_of_account_sum_63">
-    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >2</id>
-    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >high</value>
-  </Average_values_of_account_sum>
-  <Sales_plan rdf:ID="Sales_plan_78">
-    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >high</value>
-    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >2</id>
-  </Sales_plan>
-  <Sales_per_employee rdf:ID="Sales_per_employee_74">
-    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >3</id>
-    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >medium</value>
-  </Sales_per_employee>
-  <Average_sale_value rdf:ID="Average_sale_value_60">
-    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >low</value>
-    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >4</id>
-  </Average_sale_value>
+    >22</id>
+  </Motivators>
   <EFFICIENCY rdf:ID="EFFICIENCY-very_low">
     <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >5</id>
     <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >very low</value>
   </EFFICIENCY>
-  <Conversion_rate rdf:ID="Conversion_rate_69">
+  <Disciplinary_action rdf:ID="Disciplinary_action_14">
     <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >medium</value>
+    >Письменное предупреждение</value>
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >14</db_id>
     <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >3</id>
-  </Conversion_rate>
+    >14</id>
+  </Disciplinary_action>
+  <Organization_problems rdf:ID="Organization_problems_9">
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >9</id>
+    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Несвоевременное выполнение видов работ</value>
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >9</db_id>
+  </Organization_problems>
+  <Training rdf:ID="Training_30">
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >30</db_id>
+    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Работа с наставником</value>
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >30</id>
+  </Training>
+  <Certification rdf:ID="Certification_10">
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >10</db_id>
+    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >По стандартам сети</value>
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >10</id>
+  </Certification>
+  <Disciplinary_action rdf:ID="Disciplinary_action_18">
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >18</db_id>
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >18</id>
+    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Увольнение</value>
+  </Disciplinary_action>
   <EFFICIENCY rdf:ID="EFFICIENCY-low">
     <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >low</value>
     <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >2</id>
   </EFFICIENCY>
+  <Customer_service_problems rdf:ID="Customer_service_problems_6">
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1</id>
+    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Количество жалоб клиентов</value>
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1</db_id>
+  </Customer_service_problems>
+  <Training rdf:ID="Training_26">
+    <db_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >26</db_id>
+    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Индивидуальная беседа</value>
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >26</id>
+  </Training>
   <Sick-list rdf:ID="Sick-list_53">
     <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >1</id>
     <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >yes</value>
   </Sick-list>
-  <Average_values_of_account_sum rdf:ID="Average_values_of_account_sum_64">
-    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >3</id>
-    <value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >medium</value>
-  </Average_values_of_account_sum>
 </rdf:RDF>
 
 <!-- Created with Protege (with OWL Plugin 3.5, Build 663)  http://protege.stanford.edu -->
