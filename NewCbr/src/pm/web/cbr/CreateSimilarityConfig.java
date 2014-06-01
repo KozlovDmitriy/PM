@@ -62,4 +62,52 @@ public class CreateSimilarityConfig {
         return result;
     }
 
+    /**
+     * Эксперимент 2 - использование своей меры близости: уточнение весов.
+     * @return Настройка для CBR.
+     */
+    public static NNConfig experiment_2() {
+
+        NNConfig result = new NNConfig();
+        Attribute attribute;
+        Double weight = 1.0;
+
+        // avCheck
+        attribute = new Attribute("avCheck", Description.class);
+        result.addMapping(attribute, new FloatLocalSimilarityFunction(5000));
+        result.setWeight(attribute, 0.1);
+
+        // itemsCount
+        attribute = new Attribute("itemsCount", Description.class);
+        result.addMapping(attribute, new FloatLocalSimilarityFunction(7));
+        result.setWeight(attribute, 0.1);
+
+        // checksCount
+        attribute = new Attribute("checksCount", Description.class);
+        result.addMapping(attribute, new IntegerLocalSimilarityFunction());
+        result.setWeight(attribute, 0.05);
+
+        // impl
+        attribute = new Attribute("impl", Description.class);
+        result.addMapping(attribute, new FloatLocalSimilarityFunction(100));
+        result.setWeight(attribute, 0.1);
+
+        // implPlan
+        attribute = new Attribute("implPlan", Description.class);
+        result.addMapping(attribute, new FloatLocalSimilarityFunction(100000));
+        result.setWeight(attribute, 0.05);
+
+        // sickList
+        attribute = new Attribute("sickList", Description.class);
+        result.addMapping(attribute, new Equal());
+        result.setWeight(attribute, 0.01);
+
+        // vacation
+        attribute = new Attribute("vacation", Description.class);
+        result.addMapping(attribute, new Equal());
+        result.setWeight(attribute, 0.01);
+
+        return result;
+    }
+
 }
