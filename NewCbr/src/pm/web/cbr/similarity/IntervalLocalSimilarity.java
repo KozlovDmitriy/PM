@@ -10,6 +10,7 @@ import pm.web.cbr.DescriptionQuery;
  * @author Mikhail Navrotskiy
  * @version 1.0
  */
+@Deprecated
 public class IntervalLocalSimilarity implements LocalSimilarityFunction {
 
     /**

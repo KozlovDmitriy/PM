@@ -2,7 +2,7 @@
     <!-- Описание онтологии. -->
     <MainOntology>
         <URL>http://www.owl-ontologies.com/pm-web.owl</URL>
-        <LocalCopy>vw_cbr.owl</LocalCopy>
+        <LocalCopy>pm-new.owl</LocalCopy>
     </MainOntology>
 
     <CaseMainConcept>Case</CaseMainConcept>
