@@ -102,8 +102,10 @@ public class Application implements StandardCBRApplication {
         }
     }
 
+    /**
+     * Метод действий, выполняемых после цикла.
+     * @throws ExecutionException
+     */
     @Override
-    public void postCycle() throws ExecutionException {
-
-    }
+    public void postCycle() throws ExecutionException {}
 }
