@@ -3,6 +3,8 @@ package pm.web.cbr;
 import jcolibri.cbrcore.Attribute;
 import jcolibri.method.retrieve.NNretrieval.NNConfig;
 import jcolibri.method.retrieve.NNretrieval.similarity.local.Equal;
+import pm.web.cbr.similarity.FloatLocalSimilarityFunction;
+import pm.web.cbr.similarity.IntegerLocalSimilarityFunction;
 import pm.web.cbr.similarity.IntervalLocalSimilarity;
 
 /**
@@ -24,27 +26,27 @@ public class CreateSimilarityConfig {
 
         // avCheck
         attribute = new Attribute("avCheck", Description.class);
-        result.addMapping(attribute, new IntervalLocalSimilarity());
+        result.addMapping(attribute, new FloatLocalSimilarityFunction());
         result.setWeight(attribute, weight);
 
         // itemsCount
         attribute = new Attribute("itemsCount", Description.class);
-        result.addMapping(attribute, new IntervalLocalSimilarity());
+        result.addMapping(attribute, new FloatLocalSimilarityFunction());
         result.setWeight(attribute, weight);
 
         // checksCount
         attribute = new Attribute("checksCount", Description.class);
-        result.addMapping(attribute, new IntervalLocalSimilarity());
+        result.addMapping(attribute, new IntegerLocalSimilarityFunction());
         result.setWeight(attribute, weight);
 
         // impl
         attribute = new Attribute("impl", Description.class);
-        result.addMapping(attribute, new IntervalLocalSimilarity());
+        result.addMapping(attribute, new FloatLocalSimilarityFunction());
         result.setWeight(attribute, weight);
 
         // implPlan
         attribute = new Attribute("implPlan", Description.class);
-        result.addMapping(attribute, new IntervalLocalSimilarity());
+        result.addMapping(attribute, new FloatLocalSimilarityFunction());
         result.setWeight(attribute, weight);
 
         // sickList
