@@ -33,6 +33,14 @@ public class Application implements StandardCBRApplication {
     /** Значение CBR (конкретный case). */
     private CBRCase result;
 
+    /**
+     * Метод получения значения результата.
+     * @return Значение результата CBR цикла.
+     */
+    public CBRCase getResult() {
+        return this.result;
+    }
+
     @Override
     public void configure() throws ExecutionException {
 
