@@ -196,6 +196,6 @@ public class DescriptionQuery implements CaseComponent {
 
     @Override
     public Attribute getIdAttribute() {
-        return null;
+        return new Attribute("mainConcept", this.getClass());
     }
 }
