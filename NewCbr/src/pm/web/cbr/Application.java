@@ -87,7 +87,7 @@ public class Application implements StandardCBRApplication {
     @Override
     public void cycle(CBRQuery cbrQuery) throws ExecutionException {
 
-        NNConfig config = null; // todo Класс, содержащий разные локальные меры сходства.
+        NNConfig config = CreateSimilarityConfig.experiment_1();
 
         config.setDescriptionSimFunction(new Average());
 
