@@ -34,8 +34,22 @@ public class IntervalLocalSimilarity implements LocalSimilarityFunction {
         return 0;
     }
 
+    /**
+     * Метод проверки корректности запросов.
+     * @param caseObject Объект прецедента из БД.
+     * @param queryObject Объект запроса.
+     * @return Факт корректности параметров.
+     */
     @Override
-    public boolean isApplicable(Object o, Object o2) {
-        return false;
+    public boolean isApplicable(Object caseObject, Object queryObject) {
+
+        if ((caseObject == null) && (queryObject == null))
+            return true;
+        else if (caseObject == null)
+            return queryObject instanceof DescriptionQuery;
+        else if (queryObject == null)
+            return caseObject instanceof Instance;
+        else
+            return (caseObject instanceof Instance) && (queryObject instanceof Instance);
     }
 }
