@@ -41,6 +41,11 @@ public class Application implements StandardCBRApplication {
         return this.result;
     }
 
+    /**
+     * Конструктор по умолчанию.
+     */
+    public Application(){}
+
     @Override
     public void configure() throws ExecutionException {
 
