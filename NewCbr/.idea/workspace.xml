@@ -71,11 +71,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FloatLocalSimilarityFunction.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="FloatLocalSimilarityFunction.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pm/web/cbr/similarity/FloatLocalSimilarityFunction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9132653" vertical-offset="364" max-vertical-offset="1054">
-              <caret line="53" column="87" selection-start-line="53" selection-start-column="87" selection-end-line="53" selection-end-column="87" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="449" max-vertical-offset="1037">
+              <caret line="53" column="5" selection-start-line="13" selection-start-column="4" selection-end-line="53" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IntegerLocalSimilarityFunction.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pm/web/cbr/similarity/IntegerLocalSimilarityFunction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.30612245" vertical-offset="347" max-vertical-offset="1054">
+              <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -239,6 +251,7 @@
         <option value="$PROJECT_DIR$/configure.xml" />
         <option value="$PROJECT_DIR$/src/pm/web/cbr/similarity/IntervalLocalSimilarity.java" />
         <option value="$PROJECT_DIR$/src/pm/web/cbr/similarity/FloatLocalSimilarityFunction.java" />
+        <option value="$PROJECT_DIR$/src/pm/web/cbr/similarity/IntegerLocalSimilarityFunction.java" />
       </list>
     </option>
   </component>
@@ -768,8 +781,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pm/web/cbr/similarity/FloatLocalSimilarityFunction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9132653" vertical-offset="364" max-vertical-offset="1054">
-          <caret line="53" column="87" selection-start-line="53" selection-start-column="87" selection-end-line="53" selection-end-column="87" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="449" max-vertical-offset="1037">
+          <caret line="53" column="5" selection-start-line="13" selection-start-column="4" selection-end-line="53" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pm/web/cbr/similarity/IntegerLocalSimilarityFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30612245" vertical-offset="347" max-vertical-offset="1054">
+          <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

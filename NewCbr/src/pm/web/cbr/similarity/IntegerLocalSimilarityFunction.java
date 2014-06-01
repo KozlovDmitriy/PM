@@ -5,18 +5,18 @@ import jcolibri.exception.NoApplicableSimilarityFunctionException;
 import jcolibri.method.retrieve.NNretrieval.similarity.LocalSimilarityFunction;
 
 /**
- * Локальная мера сходства для float чисел.
+ * Локальная мера сходства для int чисел.
  * @author Mikhail Navrotskiy
  * @version 1.0
  */
-public class FloatLocalSimilarityFunction implements LocalSimilarityFunction {
+public class IntegerLocalSimilarityFunction implements LocalSimilarityFunction {
 
     /**
      * Метод сравнения прецедентов.
      * @param caseObject Прецедент из бд.
      * @param queryObject Запрос.
      * @return Результат сравнения.
-     * @throws NoApplicableSimilarityFunctionException
+     * @throws jcolibri.exception.NoApplicableSimilarityFunctionException
      */
     @Override
     public double compute(Object caseObject, Object queryObject) throws NoApplicableSimilarityFunctionException {
@@ -25,11 +25,11 @@ public class FloatLocalSimilarityFunction implements LocalSimilarityFunction {
             return 0;
         if (!(caseObject instanceof Instance))
             throw new jcolibri.exception.NoApplicableSimilarityFunctionException(this.getClass(), caseObject.getClass());
-        if (!(queryObject instanceof Float))
+        if (!(queryObject instanceof Integer))
             throw new jcolibri.exception.NoApplicableSimilarityFunctionException(this.getClass(), queryObject.getClass());
 
         Instance c = (Instance) caseObject;
-        Float query = (Float) queryObject;
+        Integer query = (Integer) queryObject;
 
         return 0;
     }
@@ -52,4 +52,5 @@ public class FloatLocalSimilarityFunction implements LocalSimilarityFunction {
         else
             return (caseObject instanceof Instance) && (queryObject instanceof Float);
     }
+
 }
