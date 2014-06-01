@@ -1,8 +1,13 @@
 package pm.web.cbr.similarity;
 
+import es.ucm.fdi.gaia.ontobridge.OntoBridge;
 import jcolibri.datatypes.Instance;
 import jcolibri.exception.NoApplicableSimilarityFunctionException;
 import jcolibri.method.retrieve.NNretrieval.similarity.LocalSimilarityFunction;
+import jcolibri.util.OntoBridgeSingleton;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Локальная мера сходства для float чисел.
@@ -28,8 +33,10 @@ public class FloatLocalSimilarityFunction implements LocalSimilarityFunction {
         if (!(queryObject instanceof Float))
             throw new jcolibri.exception.NoApplicableSimilarityFunctionException(this.getClass(), queryObject.getClass());
 
+        OntoBridge ob = OntoBridgeSingleton.getOntoBridge();
         Instance c = (Instance) caseObject;
         Float query = (Float) queryObject;
+        String cValue = this.getProperty(ob, c, "value");
 
         return 0;
     }
@@ -51,5 +58,28 @@ public class FloatLocalSimilarityFunction implements LocalSimilarityFunction {
             return caseObject instanceof Instance;
         else
             return (caseObject instanceof Instance) && (queryObject instanceof Float);
+    }
+
+    /**
+     * Метод получения значения свойства прецедента.
+     * @param ob Объект для доступа к онтологии.
+     * @param ins Экземпляр класса.
+     * @param name Имя свойства.
+     * @return Значение свойства.
+     */
+    private String getProperty(OntoBridge ob, Instance ins, String name)
+    {
+        List<String> properties = new ArrayList<String>();
+        List<String> values = new ArrayList<String>();
+        String str="";
+
+        ob.listInstancePropertiesValues(ins.toString(), properties, values);
+        int i = properties.indexOf(ob.getURI(name));
+        if (i>-1) str = values.get(i).substring(0,values.get(i).indexOf('^'));
+        else {
+            str = ins.toString().substring(1).replace('_', '.');
+        }
+
+        return str;
     }
 }
