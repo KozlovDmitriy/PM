@@ -1,5 +1,6 @@
 package pm.web.cbr;
 
+import jcolibri.casebase.LinealCaseBase;
 import jcolibri.cbraplications.StandardCBRApplication;
 import jcolibri.cbrcore.CBRCase;
 import jcolibri.cbrcore.CBRCaseBase;
@@ -7,6 +8,7 @@ import jcolibri.cbrcore.CBRQuery;
 import jcolibri.connector.OntologyConnector;
 import jcolibri.exception.ExecutionException;
 import jcolibri.method.retrieve.RetrievalResult;
+import jcolibri.util.FileIO;
 
 import java.util.Collection;
 
@@ -46,9 +48,18 @@ public class Application implements StandardCBRApplication {
      */
     public Application(){}
 
+    /**
+     * Конфигурация.
+     * @throws ExecutionException
+     */
     @Override
     public void configure() throws ExecutionException {
 
+        this.connector = new OntologyConnector();
+
+        this.connector.initFromXMLfile(FileIO.findFile("configure.xml"));
+
+        this.caseBase = new LinealCaseBase();
     }
 
     @Override
