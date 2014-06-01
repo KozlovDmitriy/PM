@@ -62,9 +62,17 @@ public class Application implements StandardCBRApplication {
         this.caseBase = new LinealCaseBase();
     }
 
+    /**
+     * Метод действий, выполняемых перед циклом.
+     * @return База прецедентов.
+     * @throws ExecutionException
+     */
     @Override
     public CBRCaseBase preCycle() throws ExecutionException {
-        return null;
+
+        this.caseBase.init(this.connector);
+
+        return this.caseBase;
     }
 
     @Override
