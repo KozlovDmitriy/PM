@@ -1,5 +1,6 @@
 package pm.web.cbr;
 
+import com.google.gson.Gson;
 import jcolibri.cbrcore.Attribute;
 import jcolibri.cbrcore.CaseComponent;
 import jcolibri.datatypes.Instance;
@@ -18,6 +19,31 @@ public class Solution implements CaseComponent {
     private Instance problems;
     /** Множество рекомендаций. */
     private Instance solutions;
+
+    /**
+     * Метод преобразования объекта класса в строку.
+     * @return JSON строка.
+     */
+    @Override
+    public String toString() {
+        return new Gson().toJson(this);
+    }
+
+    /**
+     * Конструктор по умолчанию.
+     */
+    public Solution() {
+    }
+
+    /**
+     * Конструктор с параметрами.
+     * @param problems Значение проблем.
+     * @param solutions Значение рекомендаций.
+     */
+    public Solution(Instance problems, Instance solutions) {
+        this.problems = problems;
+        this.solutions = solutions;
+    }
 
     /**
      * Метод получения значения главного концепта.
@@ -69,6 +95,6 @@ public class Solution implements CaseComponent {
 
     @Override
     public Attribute getIdAttribute() {
-        return null;
+        return new Attribute("mainConcept", this.getClass());
     }
 }
