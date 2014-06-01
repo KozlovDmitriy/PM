@@ -3,7 +3,11 @@ package pm.web.cbr;
 import com.google.gson.Gson;
 import jcolibri.cbrcore.Attribute;
 import jcolibri.cbrcore.CaseComponent;
+import jcolibri.connector.OntologyConnector;
 import jcolibri.datatypes.Instance;
+import jcolibri.exception.InitializingException;
+import jcolibri.exception.OntologyAccessException;
+import jcolibri.util.FileIO;
 
 /**
  * Класс описания запроса к CBR.
@@ -34,6 +38,42 @@ public class DescriptionQuery implements CaseComponent {
      * Конструктор по умолчанию.
      */
     public  DescriptionQuery() {}
+
+    /**
+     * Конструктор класса с параметрами.
+     * @param avCheck Значение среднего чека.
+     * @param itemsCount Количество позиций в чеке.
+     * @param checksCount Количество чеков.
+     * @param impl Выполнение плана в %.
+     * @param implPlan Выполнение плана в рублях.
+     */
+    public DescriptionQuery (float avCheck, float itemsCount, int checksCount, float impl, float implPlan) {
+
+        OntologyConnector connector = new OntologyConnector();
+
+        try {
+            connector.initFromXMLfile(FileIO.findFile("configure.xml"));
+        } catch (InitializingException e) {
+            e.printStackTrace();
+        }
+
+        this.avCheck = avCheck;
+        this.itemsCount = itemsCount;
+        this.checksCount = checksCount;
+        this.impl = impl;
+        this.implPlan = implPlan;
+        try {
+            this.sickList = new Instance("Sick-list_NO");
+        } catch (OntologyAccessException e) {
+            e.printStackTrace();
+        }
+        try {
+            this.vacation = new Instance("Vacation_NO");
+        } catch (OntologyAccessException e) {
+            e.printStackTrace();
+        }
+        this.mainConcept = new Instance();
+    }
 
     /**
      * Конструктор класса с параметрами.

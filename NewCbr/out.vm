@@ -1,7 +1,24 @@
-<html>
+﻿<html>
 <head>
+	<title>$experiment_label</title>
 </head>
 <body>
-<h1>Hello $name World!</h1>
+<h1>$experiment_label</h1>
+<table>
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>$table_head_1</th>
+			<th>$table_head_2</th>
+			<th>$table_head_3</th>
+			<th>$table_head_4</th>
+		</tr>
+	</thead>
+	<tbody>
+		#foreach( $item in $results )
+			<tr><td>$foreach.count</td><td>$item.getCbrProblem()</td><td>$item.getRealProblem()</td><td>$item.getCbrSolution()</td><td>$item.getRealSolution()</td></tr>
+		#end
+	</tbody>
+</table>
 </body>
 </html>

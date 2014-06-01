@@ -1,4 +1,4 @@
-; Sun Jun 01 09:47:58 MSK 2014
+; Sun Jun 01 14:23:20 MSK 2014
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -6,12 +6,12 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[pm-new_ProjectKB_Class10055]
-		[pm-new_ProjectKB_Class10056]
-		[pm-new_ProjectKB_Class10057]
-		[pm-new_ProjectKB_Class10058]
-		[pm-new_ProjectKB_Class10059]
-		[pm-new_ProjectKB_Class10060]))
+		[pm-new_ProjectKB_Class20177]
+		[pm-new_ProjectKB_Class20178]
+		[pm-new_ProjectKB_Class20179]
+		[pm-new_ProjectKB_Class20180]
+		[pm-new_ProjectKB_Class20181]
+		[pm-new_ProjectKB_Class20182]))
 
 ([CLSES_TAB] of  Widget
 
@@ -5363,36 +5363,6 @@
 	(x 760)
 	(y 20))
 
-([pm-new_ProjectKB_Class10055] of  String
-
-	(name ":INSTANCE-ANNOTATION")
-	(string_value "%3AANNOTATION-TEXT"))
-
-([pm-new_ProjectKB_Class10056] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Thing")
-	(string_value "%3ANAME"))
-
-([pm-new_ProjectKB_Class10057] of  String
-
-	(name "http://www.owl-ontologies.com/pm-web.owl#Average_values_of_account_sum")
-	(string_value "http%3A%2F%2Fwww.owl-ontologies.com%2Fpm-web.owl%23value"))
-
-([pm-new_ProjectKB_Class10058] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Class")
-	(string_value "%3ANAME"))
-
-([pm-new_ProjectKB_Class10059] of  String
-
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
-
-([pm-new_ProjectKB_Class10060] of  String
-
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
-
 ([pm-new_ProjectKB_Class101] of  Property_List
 )
 
@@ -6050,6 +6020,36 @@
 
 ([pm-new_ProjectKB_Class20] of  Property_List
 )
+
+([pm-new_ProjectKB_Class20177] of  String
+
+	(name ":INSTANCE-ANNOTATION")
+	(string_value "%3AANNOTATION-TEXT"))
+
+([pm-new_ProjectKB_Class20178] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Thing")
+	(string_value "%3ANAME"))
+
+([pm-new_ProjectKB_Class20179] of  String
+
+	(name "http://www.owl-ontologies.com/pm-web.owl#Average_values_of_account_sum")
+	(string_value "http%3A%2F%2Fwww.owl-ontologies.com%2Fpm-web.owl%23value"))
+
+([pm-new_ProjectKB_Class20180] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Class")
+	(string_value "%3ANAME"))
+
+([pm-new_ProjectKB_Class20181] of  String
+
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
+
+([pm-new_ProjectKB_Class20182] of  String
+
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
 
 ([pm-new_ProjectKB_Class21] of  Widget
 
