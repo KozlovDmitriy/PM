@@ -5,6 +5,7 @@ import jcolibri.datatypes.Instance;
 import jcolibri.exception.NoApplicableSimilarityFunctionException;
 import jcolibri.method.retrieve.NNretrieval.similarity.LocalSimilarityFunction;
 import jcolibri.method.retrieve.NNretrieval.similarity.local.Interval;
+import jcolibri.method.retrieve.NNretrieval.similarity.local.recommenders.InrecaLessIsBetter;
 import jcolibri.util.OntoBridgeSingleton;
 
 import java.util.ArrayList;
@@ -52,9 +53,13 @@ public class FloatLocalSimilarityFunction implements LocalSimilarityFunction {
         String cValue = this.getProperty(ob, c, "value");
         Float value = Float.parseFloat(cValue);
 
-        Interval interval = new Interval(this.interval);
+//        Interval interval = new Interval(this.interval);
+//
+//        double result = interval.compute(value, query);
 
-        double result = interval.compute(value, query);
+        // Эксперимент 3: InrecaLessIsBetter
+        InrecaLessIsBetter inrecaLessIsBetter = new InrecaLessIsBetter(this.interval, 0.01);
+        double result = inrecaLessIsBetter.compute(value, query);
 
         return result;
     }
