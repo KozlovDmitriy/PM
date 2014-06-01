@@ -1,4 +1,4 @@
-; Sat May 31 21:55:19 MSK 2014
+; Sun Jun 01 09:47:58 MSK 2014
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -6,12 +6,12 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[pm-new_ProjectKB_Class10874]
-		[pm-new_ProjectKB_Class10875]
-		[pm-new_ProjectKB_Class10876]
-		[pm-new_ProjectKB_Class10877]
-		[pm-new_ProjectKB_Class10878]
-		[pm-new_ProjectKB_Class10879]))
+		[pm-new_ProjectKB_Class10055]
+		[pm-new_ProjectKB_Class10056]
+		[pm-new_ProjectKB_Class10057]
+		[pm-new_ProjectKB_Class10058]
+		[pm-new_ProjectKB_Class10059]
+		[pm-new_ProjectKB_Class10060]))
 
 ([CLSES_TAB] of  Widget
 
@@ -753,6 +753,9 @@
 	(name "owl_file_name")
 	(string_value "pm-new.owl"))
 
+([KB_418078_Class0] of  Map
+)
+
 ([KB_444675_Instance_0] of  String
 
 	(name "SwitchableClassDefinitionType")
@@ -945,9 +948,6 @@
 	(property_list [KB_635552_Instance_9]))
 
 ([KB_635552_Instance_9] of  Property_List
-)
-
-([KB_677743_Class0] of  Map
 )
 
 ([KB_691299_Instance_398] of  Widget
@@ -5363,6 +5363,36 @@
 	(x 760)
 	(y 20))
 
+([pm-new_ProjectKB_Class10055] of  String
+
+	(name ":INSTANCE-ANNOTATION")
+	(string_value "%3AANNOTATION-TEXT"))
+
+([pm-new_ProjectKB_Class10056] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Thing")
+	(string_value "%3ANAME"))
+
+([pm-new_ProjectKB_Class10057] of  String
+
+	(name "http://www.owl-ontologies.com/pm-web.owl#Average_values_of_account_sum")
+	(string_value "http%3A%2F%2Fwww.owl-ontologies.com%2Fpm-web.owl%23value"))
+
+([pm-new_ProjectKB_Class10058] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Class")
+	(string_value "%3ANAME"))
+
+([pm-new_ProjectKB_Class10059] of  String
+
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
+
+([pm-new_ProjectKB_Class10060] of  String
+
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
+
 ([pm-new_ProjectKB_Class101] of  Property_List
 )
 
@@ -5769,54 +5799,10 @@
 		[pm-new_ProjectKB_Class10460]
 		[pm-new_ProjectKB_Class10461]))
 
-([pm-new_ProjectKB_Class10734] of  Widget
-
-	(height 120)
-	(is_hidden FALSE)
-	(name "http://www.owl-ontologies.com/pm-web.owl#index_expierience")
-	(property_list [pm-new_ProjectKB_Class10735])
-	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.MultiResourceWidget")
-	(width 200)
-	(x 0)
-	(y 550))
-
-([pm-new_ProjectKB_Class10735] of  Property_List
-)
-
 ([pm-new_ProjectKB_Class10855] of  Boolean
 
 	(boolean_value FALSE)
 	(name "DisabledByUser"))
-
-([pm-new_ProjectKB_Class10874] of  String
-
-	(name ":INSTANCE-ANNOTATION")
-	(string_value "%3AANNOTATION-TEXT"))
-
-([pm-new_ProjectKB_Class10875] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Thing")
-	(string_value "%3ANAME"))
-
-([pm-new_ProjectKB_Class10876] of  String
-
-	(name "http://www.owl-ontologies.com/pm-web.owl#Average_values_of_account_sum")
-	(string_value "http%3A%2F%2Fwww.owl-ontologies.com%2Fpm-web.owl%23value"))
-
-([pm-new_ProjectKB_Class10877] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Class")
-	(string_value "%3ANAME"))
-
-([pm-new_ProjectKB_Class10878] of  String
-
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
-
-([pm-new_ProjectKB_Class10879] of  String
-
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
 
 ([pm-new_ProjectKB_Class11] of  Widget
 
