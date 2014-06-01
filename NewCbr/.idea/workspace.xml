@@ -81,10 +81,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Description.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Description.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pm/web/cbr/Description.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.88870704" vertical-offset="103" max-vertical-offset="3519">
+            <state vertical-scroll-proportion="0.0" vertical-offset="103" max-vertical-offset="3519">
               <caret line="38" column="33" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -129,6 +129,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Solution.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pm/web/cbr/Solution.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5286416" vertical-offset="0" max-vertical-offset="611">
+              <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#553#554#0" expanded="true" />
+                <element signature="e#580#581#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -142,6 +156,7 @@
         <option value="$PROJECT_DIR$/src/pm/web/cbr/Main.java" />
         <option value="$PROJECT_DIR$/src/pm/web/cbr/DescriptionQuery.java" />
         <option value="$PROJECT_DIR$/src/pm/web/cbr/Description.java" />
+        <option value="$PROJECT_DIR$/src/pm/web/cbr/Solution.java" />
       </list>
     </option>
   </component>
@@ -492,7 +507,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pm/web/cbr/Description.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.88870704" vertical-offset="103" max-vertical-offset="3519">
+        <state vertical-scroll-proportion="0.0" vertical-offset="103" max-vertical-offset="3519">
           <caret line="38" column="33" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -532,6 +547,18 @@
             <element signature="e#5056#5057#0" expanded="true" />
             <element signature="e#5111#5112#0" expanded="true" />
             <element signature="e#5179#5180#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pm/web/cbr/Solution.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5286416" vertical-offset="0" max-vertical-offset="611">
+          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#553#554#0" expanded="true" />
+            <element signature="e#580#581#0" expanded="true" />
           </folding>
         </state>
       </provider>
