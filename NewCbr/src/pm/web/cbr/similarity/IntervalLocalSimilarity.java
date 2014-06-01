@@ -1,8 +1,9 @@
-package pm.web.cbr;
+package pm.web.cbr.similarity;
 
 import jcolibri.datatypes.Instance;
 import jcolibri.exception.NoApplicableSimilarityFunctionException;
 import jcolibri.method.retrieve.NNretrieval.similarity.LocalSimilarityFunction;
+import pm.web.cbr.DescriptionQuery;
 
 /**
  * Локальная интервальная мера сходства.
