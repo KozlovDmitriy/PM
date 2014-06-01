@@ -96,8 +96,8 @@ public class Main {
         for (DescriptionQuery query : data) {
             Solution result = cbr(query);
 
-            results.add(new ExperimentResult(result.getProblems().toString(), dataResult.get(index)[0],
-                    result.getSolutions().toString(), dataResult.get(index)[1]));
+            results.add(new ExperimentResult(result.getProbelmsString(), dataResult.get(index)[0],
+                    result.getSolutionsString(), dataResult.get(index)[1]));
             index++;
         }
 
@@ -105,7 +105,7 @@ public class Main {
 
         VelocityContext context = new VelocityContext();
 
-        context.put("experiment_label", "Проведение эксперимента Эксперимент 1: своя простая мера близости (разность между значениями)");
+        context.put("experiment_label", "Проведение эксперимента Эксперимент 1: своя простая мера близости (интервальная шкала)");
         context.put("table_head_1", "Полученное значение проблемы");
         context.put("table_head_2", "Значение проблемы из отчета");
         context.put("table_head_3", "Полученное значение рекомендации");

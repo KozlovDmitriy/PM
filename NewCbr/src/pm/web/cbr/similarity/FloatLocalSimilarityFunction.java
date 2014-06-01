@@ -4,6 +4,7 @@ import es.ucm.fdi.gaia.ontobridge.OntoBridge;
 import jcolibri.datatypes.Instance;
 import jcolibri.exception.NoApplicableSimilarityFunctionException;
 import jcolibri.method.retrieve.NNretrieval.similarity.LocalSimilarityFunction;
+import jcolibri.method.retrieve.NNretrieval.similarity.local.Interval;
 import jcolibri.util.OntoBridgeSingleton;
 
 import java.util.ArrayList;
@@ -15,6 +16,18 @@ import java.util.List;
  * @version 1.0
  */
 public class FloatLocalSimilarityFunction implements LocalSimilarityFunction {
+
+    /* Поле класса. */
+    /** Значение интервала. */
+    private double interval;
+
+    /**
+     * Конструктор с параметром.
+     * @param interval Значение интервала для меры сходства.
+     */
+    public FloatLocalSimilarityFunction(double interval) {
+        this.interval = interval;
+    }
 
     /**
      * Метод сравнения прецедентов.
@@ -37,8 +50,13 @@ public class FloatLocalSimilarityFunction implements LocalSimilarityFunction {
         Instance c = (Instance) caseObject;
         Float query = (Float) queryObject;
         String cValue = this.getProperty(ob, c, "value");
+        Float value = Float.parseFloat(cValue);
 
-        return 0;
+        Interval interval = new Interval(this.interval);
+
+        double result = interval.compute(value, query);
+
+        return result;
     }
 
     /**

@@ -26,12 +26,12 @@ public class CreateSimilarityConfig {
 
         // avCheck
         attribute = new Attribute("avCheck", Description.class);
-        result.addMapping(attribute, new FloatLocalSimilarityFunction());
+        result.addMapping(attribute, new FloatLocalSimilarityFunction(5000));
         result.setWeight(attribute, weight);
 
         // itemsCount
         attribute = new Attribute("itemsCount", Description.class);
-        result.addMapping(attribute, new FloatLocalSimilarityFunction());
+        result.addMapping(attribute, new FloatLocalSimilarityFunction(7));
         result.setWeight(attribute, weight);
 
         // checksCount
@@ -41,12 +41,12 @@ public class CreateSimilarityConfig {
 
         // impl
         attribute = new Attribute("impl", Description.class);
-        result.addMapping(attribute, new FloatLocalSimilarityFunction());
+        result.addMapping(attribute, new FloatLocalSimilarityFunction(100));
         result.setWeight(attribute, weight);
 
         // implPlan
         attribute = new Attribute("implPlan", Description.class);
-        result.addMapping(attribute, new FloatLocalSimilarityFunction());
+        result.addMapping(attribute, new FloatLocalSimilarityFunction(100000));
         result.setWeight(attribute, weight);
 
         // sickList

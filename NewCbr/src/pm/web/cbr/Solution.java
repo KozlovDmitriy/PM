@@ -5,6 +5,10 @@ import jcolibri.cbrcore.Attribute;
 import jcolibri.cbrcore.CaseComponent;
 import jcolibri.datatypes.Instance;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * Класс части решения прецедента (case solution).
  * @author Mikhail Navrotskiy
@@ -17,8 +21,10 @@ public class Solution implements CaseComponent {
     private Instance mainConcept;
     /** Множество проблем. */
     private Instance problems;
+    private Instance[] problemsArray;
     /** Множество рекомендаций. */
     private Instance solutions;
+    private Instance[] solutionsArray;
 
     /**
      * Метод преобразования объекта класса в строку.
@@ -26,7 +32,11 @@ public class Solution implements CaseComponent {
      */
     @Override
     public String toString() {
-        return new Gson().toJson(this);
+        return "Solution{" +
+                "solutions=" + solutions +
+                ", problems=" + problems +
+                ", mainConcept=" + mainConcept +
+                '}';
     }
 
     /**
@@ -41,8 +51,11 @@ public class Solution implements CaseComponent {
      * @param solutions Значение рекомендаций.
      */
     public Solution(Instance problems, Instance solutions) {
+
         this.problems = problems;
+        this.problemsArray = new Instance[]{this.problems};
         this.solutions = solutions;
+        this.solutionsArray = new Instance[]{this.solutions};
     }
 
     /**
@@ -74,6 +87,14 @@ public class Solution implements CaseComponent {
      * @param problems Новое значение проблем.
      */
     public void setProblems(Instance problems) {
+
+        List<Instance> temp = new ArrayList<Instance>();
+        if (this.problemsArray != null) {Collections.addAll(temp, this.problemsArray);}
+
+        if (!temp.contains(problems)) {temp.add(problems);}
+        this.problemsArray = new Instance[temp.size()];
+        temp.toArray(this.problemsArray);
+
         this.problems = problems;
     }
 
@@ -86,10 +107,36 @@ public class Solution implements CaseComponent {
     }
 
     /**
+     * Метод проеобразования в строку проблем.
+     * @return Строка проблем.
+     */
+    public String getProbelmsString() {
+        return new Gson().toJson(this.problemsArray);
+    }
+
+    /**
+     * Метод преобразования в строку рекомендаций.
+     * @return Строка рекомендаций.
+     */
+    public String getSolutionsString() {
+        return new Gson().toJson(this.solutionsArray);
+    }
+
+    /**
      * Метод изменения значения рекомендаций.
      * @param solutions Новое значение рекомендаций.
      */
     public void setSolutions(Instance solutions) {
+
+        List<Instance> temp = new ArrayList<Instance>();
+        if (this.solutionsArray != null) {
+            Collections.addAll(temp, this.solutionsArray);
+        }
+
+        if (!temp.contains(solutions)) temp.add(solutions);
+        this.solutionsArray = new Instance[temp.size()];
+        temp.toArray(this.solutionsArray);
+
         this.solutions = solutions;
     }
 
