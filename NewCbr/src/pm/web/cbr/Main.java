@@ -18,6 +18,8 @@ import java.util.List;
  */
 public class Main {
 
+    private static double eval;
+
     private static Solution cbr(DescriptionQuery request) {
 
         Application app = new Application();
@@ -35,6 +37,7 @@ public class Main {
             app.cycle(q);
 
             CBRCase result = app.getResult();
+            eval = app.getEvalValue();
 
             return (Solution) result.getSolution();
         } catch (ExecutionException e) {
@@ -97,7 +100,7 @@ public class Main {
             Solution result = cbr(query);
 
             results.add(new ExperimentResult(result.getProbelmsString(), dataResult.get(index)[0],
-                    result.getSolutionsString(), dataResult.get(index)[1]));
+                    result.getSolutionsString(), dataResult.get(index)[1], eval));
             index++;
         }
 
@@ -105,7 +108,7 @@ public class Main {
 
         VelocityContext context = new VelocityContext();
 
-        context.put("experiment_label", "Проведение эксперимента Эксперимент 2: своя простая мера близости (интервальная шкала): уточнение весов");
+        context.put("experiment_label", "Проведение эксперимента Эксперимент 1: своя простая мера близости (интервальная шкала)");
         context.put("table_head_1", "Полученное значение проблемы");
         context.put("table_head_2", "Значение проблемы из отчета");
         context.put("table_head_3", "Полученное значение рекомендации");

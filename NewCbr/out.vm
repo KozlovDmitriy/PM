@@ -21,11 +21,12 @@
 			<th>$table_head_2</th>
 			<th>$table_head_3</th>
 			<th>$table_head_4</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
 		#foreach( $item in $results )
-			<tr><td>$foreach.count</td><td>$item.getCbrProblem()</td><td>$item.getRealProblem()</td><td>$item.getCbrSolution()</td><td>$item.getRealSolution()</td></tr>
+			<tr><td>$foreach.count</td><td>$item.getCbrProblem()</td><td>$item.getRealProblem()</td><td>$item.getCbrSolution()</td><td>$item.getRealSolution()</td><td>$item.getEval()</td></tr>
 		#end
 	</tbody>
 </table>

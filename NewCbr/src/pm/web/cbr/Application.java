@@ -46,6 +46,12 @@ public class Application implements StandardCBRApplication {
     /** Значение CBR (конкретный case). */
     private CBRCase result;
 
+    private double evalValue;
+
+    public double getEvalValue() {
+        return evalValue;
+    }
+
     /**
      * Метод получения значения результата.
      * @return Значение результата CBR цикла.
@@ -140,9 +146,14 @@ public class Application implements StandardCBRApplication {
         this.eval = NNScoringMethod.evaluateSimilarity(this.caseBase.getCases(), this.query, config);
 
         this.selectedCase = SelectCases.selectTopK(this.eval, 1);
+        Collection<RetrievalResult> retResultArray = SelectCases.selectTopKRR(this.eval, 1);
 
         for (CBRCase item : this.selectedCase) {
             this.result = item;
+        }
+
+        for (RetrievalResult rr : retResultArray) {
+            this.evalValue = rr.getEval();
         }
     }
 

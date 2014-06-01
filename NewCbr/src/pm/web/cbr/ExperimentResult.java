@@ -15,6 +15,12 @@ public class ExperimentResult {
     /** Значение рекомендации из отчета. */
     private String realSolution;
 
+    private double eval;
+
+    public double getEval() {
+        return eval;
+    }
+
     /**
      * Конструктор с параметрами.
      * @param cbrProblem Новое значение проблемы из CBR.
@@ -22,11 +28,12 @@ public class ExperimentResult {
      * @param cbrSolution Новое значение рекомендации из CBR.
      * @param realSolution Новое значение рекомендации из отчета.
      */
-    ExperimentResult(String cbrProblem, String realProblem, String cbrSolution, String realSolution) {
+    ExperimentResult(String cbrProblem, String realProblem, String cbrSolution, String realSolution, double eval) {
         this.cbrProblem = cbrProblem;
         this.realProblem = realProblem;
         this.cbrSolution = cbrSolution;
         this.realSolution = realSolution;
+        this.eval = eval;
     }
 
     /**
