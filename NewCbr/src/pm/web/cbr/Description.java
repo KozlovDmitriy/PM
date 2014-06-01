@@ -1,5 +1,6 @@
 package pm.web.cbr;
 
+import com.google.gson.Gson;
 import jcolibri.cbrcore.Attribute;
 import jcolibri.cbrcore.CaseComponent;
 import jcolibri.datatypes.Instance;
@@ -28,6 +29,42 @@ public class Description implements CaseComponent {
     private Instance vacation;
     /** Главный концепт. */
     private Instance mainConcept;
+
+    /**
+     * Конструктор по умолчанию.
+     */
+    public Description() {}
+
+    /**
+     * Конструктор с параметрами.
+     * @param avCheck Значение среднего чека.
+     * @param itemsCount Значение количества позиций в чеке.
+     * @param checksCount Значение количества чеков.
+     * @param impl Значение выполнения плана в %.
+     * @param implPlan Значение выполнения плана в руб.
+     * @param sickList Значение больничного.
+     * @param vacation Значение отпуска.
+     */
+    public Description(Instance avCheck, Instance itemsCount, Instance checksCount, Instance impl, Instance implPlan,
+                       Instance sickList, Instance vacation) {
+
+        this.avCheck = avCheck;
+        this.itemsCount = itemsCount;
+        this.checksCount = checksCount;
+        this.impl = impl;
+        this.implPlan = implPlan;
+        this.sickList = sickList;
+        this.vacation = vacation;
+    }
+
+    /**
+     * Метод преобразования объекта класса в строку.
+     * @return JSON строка.
+     */
+    @Override
+    public String toString() {
+        return new Gson().toJson(this);
+    }
 
     /**
      * Метод получения значения среднего чека.
