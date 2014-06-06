@@ -27,8 +27,38 @@ public class Description implements CaseComponent {
     private Instance sickList;
     /** Отпуск. */
     private Instance vacation;
+    /** Опыт работы. */
+    private Instance expierence;
+    /** Динамика. */
+    private Instance dynamics;
+    /** Лидерство. */
+    private Instance leadership;
     /** Главный концепт. */
     private Instance mainConcept;
+
+    public Instance getExpierence() {
+        return expierence;
+    }
+
+    public void setExpierence(Instance expierence) {
+        this.expierence = expierence;
+    }
+
+    public Instance getLeadership() {
+        return leadership;
+    }
+
+    public void setLeadership(Instance leadership) {
+        this.leadership = leadership;
+    }
+
+    public Instance getDynamics() {
+        return dynamics;
+    }
+
+    public void setDynamics(Instance dynamics) {
+        this.dynamics = dynamics;
+    }
 
     /**
      * Конструктор по умолчанию.

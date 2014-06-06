@@ -54,24 +54,50 @@ public class Main {
     public static void main(String[] args) {
 
         // Формирование тестовых запросов.
+//        List<DescriptionQuery> data = Lists.newArrayList(
+//                new DescriptionQuery(3065.65f, 3.47f, 0, 111.33f, 0f),
+//                new DescriptionQuery(1835.79f, 3.2f, 0, 77.65f, 0f),
+//                new DescriptionQuery(2201.45f, 3.62f, 0,49.85f, 0f),
+//                new DescriptionQuery(2387.03f, 2.49f, 0, 81.54f, 0f),
+//                new DescriptionQuery(1727.67f, 2.97f, 0, 61.23f, 0f),
+//                new DescriptionQuery(1412.97f, 1.97f, 0, 52.91f, 0f),
+//                new DescriptionQuery(3326.18f, 3.73f, 0, 98.14f, 0f),
+//                new DescriptionQuery(1718.43f, 2.5f, 0, 41.29f, 0f),
+//                new DescriptionQuery(2962.95f, 3.7f, 0, 60.24f, 0f),
+//                new DescriptionQuery(3553.60f, 3.78f, 0, 48.4f, 0f),
+//                new DescriptionQuery(1961.75f, 2.42f, 0, 55.32f, 0),
+//                new DescriptionQuery(2956.61f, 4.8f, 0, 102.9f, 0),
+//                new DescriptionQuery(2273.37f, 3f,0, 74.03f, 0),
+//                new DescriptionQuery(2954.23f, 3.8f, 0, 56.4f, 0),
+//                new DescriptionQuery(1203.37f, 2.7f, 0, 48.62f, 0),
+//                new DescriptionQuery(1606.38f, 3f, 0, 127.23f, 0),
+//                new DescriptionQuery(2330.54f, 3.7f, 0, 55.49f, 0),
+//                new DescriptionQuery(1866.15f, 3.3f, 0, 74.19f, 0),
+//                new DescriptionQuery(2106.32f, 3.1f, 0, 55.82f, 0),
+//                new DescriptionQuery(1783.61f, 2.8f, 0, 57.69f, 0)
+//            );
         List<DescriptionQuery> data = Lists.newArrayList(
-                new DescriptionQuery(3428.57f, 4.03f, 175, 82.84f, 600000.55f),
-                new DescriptionQuery(3553.6f, 3.78f, 71, 48.4f, 252306.19f),
-                new DescriptionQuery(2121.48f, 2.31f, 27, 19.78f, 57280.05f),
-                new DescriptionQuery(1961.75f, 2.42f, 169, 55.32f, 331536.1f),
-                new DescriptionQuery(2247.43f, 3, 15, 14.58f, 33711.45f),
-                new DescriptionQuery(2286.18f, 3.01f, 256, 49.89f, 356643.64f),
-                new DescriptionQuery(2408.91f, 4.06f, 173, 91.55f, 464920.56f),
-                new DescriptionQuery(3104.56f, 3.88f, 200, 120.48f, 620912.51f),
-                new DescriptionQuery(2609.16f, 3.85f, 157, 94.96f, 508786.21f),
-                new DescriptionQuery(2248.86f, 3.58f, 233, 95.97f, 521734.93f),
-                new DescriptionQuery(1762.36f, 2.76f, 169, 60.11f, 320749.32f),
-                new DescriptionQuery(2284.93f, 4.32f, 149, 73.96f, 342740.08f),
-                new DescriptionQuery(2387.35f, 4.3f, 74, 82.36f, 176664.18f),
-                new DescriptionQuery(1910f, 2.8f, 91, 81.03f, 173809.64f),
-                new DescriptionQuery(2059.88f, 3.5f, 82, 78.74f, 168910.3f),
-                new DescriptionQuery(2178.03f, 3.4f, 40, 40.61f, 87121.15f),
-                new DescriptionQuery(2070.28f, 2.9f, 55, 53.08f, 113865.15f));
+                new DescriptionQuery(3065.65f, 3.47f, 111.33f, "", "", "Leadership_qualities_high"),
+                new DescriptionQuery(1835.79f, 3.2f, 77.65f, "", "", "Leadership_qualities_middle"),
+                new DescriptionQuery(2201.45f, 3.62f, 49.85f, "Expierence_low", "Dynamics_negative", "Leadership_qualities_middle"),
+                new DescriptionQuery(2387.03f, 2.49f, 81.54f, "Expierence_high", "", "Leadership_qualities_high"),
+                new DescriptionQuery(1727.67f, 2.97f, 61.23f, "", "", "Leadership_qualities_middle"),
+                new DescriptionQuery(1412.97f, 1.97f, 52.91f, "Expierence_low", "", "Leadership_qualities_low"),
+                new DescriptionQuery(3326.18f, 3.73f, 98.14f, "", "", "Leadership_qualities_high"),
+                new DescriptionQuery(1718.43f, 2.5f, 41.29f, "Expierence_low", "", "Leadership_qualities_low"),
+                new DescriptionQuery(2962.95f, 3.7f, 60.24f, "", "", "Leadership_qualities_middle"),
+                new DescriptionQuery(3553.60f, 3.78f, 48.4f, "", "", "Leadership_qualities_middle"),
+                new DescriptionQuery(1961.75f, 2.42f, 55.32f, "", "", "Leadership_qualities_middle"),
+                new DescriptionQuery(2956.61f, 4.8f, 102.9f, "", "", "Leadership_qualities_high"),
+                new DescriptionQuery(2273.37f, 3f, 74.03f, "", "", "Leadership_qualities_middle"),
+                new DescriptionQuery(2954.23f, 3.8f, 56.4f, "", "", "Leadership_qualities_middle"),
+                new DescriptionQuery(1203.37f, 2.7f, 48.62f, "", "", "Leadership_qualities_middle"),
+                new DescriptionQuery(1606.38f, 3f, 127.23f, "", "", "Leadership_qualities_high"),
+                new DescriptionQuery(2330.54f, 3.7f, 55.49f, "", "", "Leadership_qualities_high"),
+                new DescriptionQuery(1866.15f, 3.3f, 74.19f, "", "", "Leadership_qualities_middle"),
+                new DescriptionQuery(2106.32f, 3.1f, 55.82f, "", "", "Leadership_qualities_middle"),
+                new DescriptionQuery(1783.61f, 2.8f, 57.69f, "", "", "Leadership_qualities_middle")
+            );
 
         List<String[]> dataResult = Lists.newArrayList(
                 new String[]{"-","A.d F"},
@@ -99,8 +125,8 @@ public class Main {
         for (DescriptionQuery query : data) {
             Solution result = cbr(query);
 
-            results.add(new ExperimentResult(result.getProbelmsString(), dataResult.get(index)[0],
-                    result.getSolutionsString(), dataResult.get(index)[1], eval));
+//            results.add(new ExperimentResult(result.getProbelmsString(), dataResult.get(index)[0],
+//                    result.getSolutionsString(), dataResult.get(index)[1], eval));
             index++;
         }
 
@@ -108,7 +134,7 @@ public class Main {
 
         VelocityContext context = new VelocityContext();
 
-        context.put("experiment_label", "Проведение эксперимента Эксперимент 3: InrecaLessIsBetter");
+        context.put("experiment_label", "Проведение эксперимента Эксперимент 5: McSherryLessIsBetter");
         context.put("table_head_1", "Полученное значение проблемы");
         context.put("table_head_2", "Значение проблемы из отчета");
         context.put("table_head_3", "Полученное значение рекомендации");

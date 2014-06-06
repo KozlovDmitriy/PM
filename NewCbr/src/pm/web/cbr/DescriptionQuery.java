@@ -31,8 +31,62 @@ public class DescriptionQuery implements CaseComponent {
     private Instance sickList;
     /** Отпуск. */
     private Instance vacation;
+    /** Опыт работы. */
+    private Instance expierence;
+    /** Динамика. */
+    private Instance dynamics;
+    /** Лидерство. */
+    private Instance leadership;
     /** Главный концепт. */
     private Instance mainConcept;
+
+    public Instance getExpierence() {
+        return expierence;
+    }
+
+    public void setExpierence(Instance expierence) {
+        this.expierence = expierence;
+    }
+
+    public DescriptionQuery(Float avCheck, Float itemsCount, Float impl, String experience, String dynamics, String leadership) {
+
+        OntologyConnector connector = new OntologyConnector();
+
+        try {
+            connector.initFromXMLfile(FileIO.findFile("configure.xml"));
+        } catch (InitializingException e) {
+            e.printStackTrace();
+        }
+
+        this.avCheck = avCheck;
+        this.itemsCount = itemsCount;
+        this.impl = impl;
+        if (experience.equals("")) { experience = "Expierence_middle"; }
+        if (dynamics.equals("")) { dynamics = "Dynamics_neutral"; }
+        try {
+            this.expierence = new Instance(experience);
+            this.dynamics = new Instance(dynamics);
+            this.leadership = new Instance(leadership);
+        } catch (OntologyAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Instance getDynamics() {
+        return dynamics;
+    }
+
+    public void setDynamics(Instance dynamics) {
+        this.dynamics = dynamics;
+    }
+
+    public Instance getLeadership() {
+        return leadership;
+    }
+
+    public void setLeadership(Instance leadership) {
+        this.leadership = leadership;
+    }
 
     /**
      * Конструктор по умолчанию.

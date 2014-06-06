@@ -6,6 +6,8 @@ import jcolibri.exception.NoApplicableSimilarityFunctionException;
 import jcolibri.method.retrieve.NNretrieval.similarity.LocalSimilarityFunction;
 import jcolibri.method.retrieve.NNretrieval.similarity.local.Interval;
 import jcolibri.method.retrieve.NNretrieval.similarity.local.recommenders.InrecaLessIsBetter;
+import jcolibri.method.retrieve.NNretrieval.similarity.local.recommenders.InrecaMoreIsBetter;
+import jcolibri.method.retrieve.NNretrieval.similarity.local.recommenders.McSherryLessIsBetter;
 import jcolibri.util.OntoBridgeSingleton;
 
 import java.util.ArrayList;
@@ -22,12 +24,15 @@ public class FloatLocalSimilarityFunction implements LocalSimilarityFunction {
     /** Значение интервала. */
     private double interval;
 
+    private double weight;
+
     /**
      * Конструктор с параметром.
      * @param interval Значение интервала для меры сходства.
      */
-    public FloatLocalSimilarityFunction(double interval) {
+    public FloatLocalSimilarityFunction(double interval, double weight) {
         this.interval = interval;
+        this.weight = weight;
     }
 
     /**
@@ -53,15 +58,24 @@ public class FloatLocalSimilarityFunction implements LocalSimilarityFunction {
         String cValue = this.getProperty(ob, c, "value");
         Float value = Float.parseFloat(cValue);
 
-//        Interval interval = new Interval(this.interval);
+        Interval interval = new Interval(this.interval);
+//        float percent;
 //
-//        double result = interval.compute(value, query);
+//        if (query > value) {
+//            percent = value / query;
+//        } else if (query < value) {
+//            percent = query / value;
+//        } else {
+//            percent = 1;
+//        }
 
-        // Эксперимент 3: InrecaLessIsBetter
-        InrecaLessIsBetter inrecaLessIsBetter = new InrecaLessIsBetter(this.interval, 0.01);
-        double result = inrecaLessIsBetter.compute(value, query);
+//        double result = percent;
+          double result = interval.compute(query, value);
+//        // Эксперимент 3: InrecaLessIsBetter
+//        McSherryLessIsBetter inrecaLessIsBetter = new McSherryLessIsBetter(this.interval,1);
+//        double result = inrecaLessIsBetter.compute(value, query);
 
-        return result;
+        return result * weight;
     }
 
     /**

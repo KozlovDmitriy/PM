@@ -2,7 +2,7 @@
     <!-- Описание онтологии. -->
     <MainOntology>
         <URL>http://www.owl-ontologies.com/pm-web.owl</URL>
-        <LocalCopy>pm-new.owl</LocalCopy>
+        <LocalCopy>pm-new-simple.owl</LocalCopy>
     </MainOntology>
 
     <CaseMainConcept>Case</CaseMainConcept>
@@ -21,30 +21,35 @@
             <Attribute>itemsCount</Attribute>
         </Map>
         <Map>
-            <Property>index_conversion_rate</Property>
-            <Concept>Conversion_rate</Concept>
-            <Attribute>checksCount</Attribute>
-        </Map>
-        <Map>
-            <Property>index_sales_plan</Property>
+            <Property>index_sales_per_employee</Property>
             <Concept>Conversion_rate</Concept>
             <Attribute>impl</Attribute>
         </Map>
         <Map>
-            <Property>index_sales_per_employee</Property>
-            <Concept>Sales_per_employee</Concept>
-            <Attribute>implPlan</Attribute>
+            <Property>index_expierence</Property>
+            <Concept>Expierence</Concept>
+            <Attribute>expierence</Attribute>
         </Map>
         <Map>
-            <Property>index_sick_list</Property>
-            <Concept>Sick-list</Concept>
-            <Attribute>sickList</Attribute>
+            <Property>index_dynamics</Property>
+            <Concept>Dynamics</Concept>
+            <Attribute>dynamics</Attribute>
         </Map>
         <Map>
-            <Property>index_vacation</Property>
-            <Concept>Vacation</Concept>
-            <Attribute>vacation</Attribute>
+            <Property>index_leadership</Property>
+            <Concept>Leadership_qualities</Concept>
+            <Attribute>leadership</Attribute>
         </Map>
+        <!--<Map>-->
+            <!--<Property>index_sick_list</Property>-->
+            <!--<Concept>Sick-list</Concept>-->
+            <!--<Attribute>sickList</Attribute>-->
+        <!--</Map>-->
+        <!--<Map>-->
+            <!--<Property>index_vacation</Property>-->
+            <!--<Concept>Vacation</Concept>-->
+            <!--<Attribute>vacation</Attribute>-->
+        <!--</Map>-->
     </DescriptionMappings>
     <SolutionClassName>pm.web.cbr.Solution</SolutionClassName>
     <SolutionMappings>

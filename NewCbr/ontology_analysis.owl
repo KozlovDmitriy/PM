@@ -1,0 +1,1153 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.owl-ontologies.com/OntologyAnalysis.owl#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.owl-ontologies.com/OntologyAnalysis.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Manager">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="User"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Minimum">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Value"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Period"/>
+  <owl:Class rdf:ID="Discussion">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Recommendation"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:ID="CommonDiscussion"/>
+          <owl:Class rdf:ID="IndividualDiscussion"/>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="CommonPlan">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ParameterOfShop"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ReceiptSum">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="FinancialParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="IndividualPlanDone">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#FinancialParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Problem"/>
+  <owl:Class rdf:ID="ParameterOfWorker"/>
+  <owl:Class rdf:ID="Less">
+    <rdfs:subClassOf rdf:resource="#Value"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CommonPlanSum">
+    <rdfs:subClassOf rdf:resource="#ParameterOfShop"/>
+  </owl:Class>
+  <owl:Class rdf:about="#User">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:ID="Analyst"/>
+          <owl:Class rdf:about="#Manager"/>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="Maximum">
+    <rdfs:subClassOf rdf:resource="#Value"/>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#Recommendation"/>
+      <owl:Class rdf:ID="Topic"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:ID="PersonalParameter">
+    <rdfs:subClassOf rdf:resource="#ParameterOfWorker"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ReceiptNum">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#FinancialParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Other">
+    <rdfs:subClassOf rdf:resource="#Recommendation"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Training">
+    <rdfs:subClassOf rdf:resource="#Recommendation"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ReceiptQuantityMin">
+    <rdfs:subClassOf rdf:resource="#ParameterOfShop"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Analyst">
+    <rdfs:subClassOf rdf:resource="#User"/>
+  </owl:Class>
+  <owl:Class rdf:ID="IndividualPlan">
+    <rdfs:subClassOf rdf:resource="#Minimum"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#FinancialParameter"/>
+    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="ru"></rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Consultant">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Worker"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ReceiptSumMin">
+    <rdfs:subClassOf rdf:resource="#ParameterOfShop"/>
+  </owl:Class>
+  <owl:Class rdf:ID="RecommendationText"/>
+  <owl:Class rdf:ID="Increase">
+    <rdfs:subClassOf rdf:resource="#ParameterOfShop"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Fine">
+    <rdfs:subClassOf rdf:resource="#Recommendation"/>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#IndividualPlan"/>
+      <owl:Class rdf:ID="ReceiptQuantity"/>
+      <owl:Class rdf:about="#ReceiptSum"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:about="#CommonDiscussion">
+    <rdfs:subClassOf rdf:resource="#Discussion"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CommonPlanDone">
+    <rdfs:subClassOf rdf:resource="#ParameterOfShop"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Medium">
+    <rdfs:subClassOf rdf:resource="#Value"/>
+  </owl:Class>
+  <owl:Class rdf:ID="IndividualPlanSum">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#FinancialParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#FinancialParameter">
+    <rdfs:subClassOf rdf:resource="#ParameterOfWorker"/>
+  </owl:Class>
+  <owl:Class rdf:ID="IndividualPlanMin">
+    <rdfs:subClassOf rdf:resource="#ParameterOfShop"/>
+  </owl:Class>
+  <owl:Class rdf:about="#IndividualDiscussion">
+    <rdfs:subClassOf rdf:resource="#Discussion"/>
+  </owl:Class>
+  <owl:Class rdf:ID="More">
+    <rdfs:subClassOf rdf:resource="#Value"/>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <owl:Class rdf:ID="Analysis"/>
+      <owl:Class rdf:ID="Experience"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#IndividualPlan"/>
+      <owl:Class rdf:about="#ReceiptQuantity"/>
+      <owl:Class rdf:about="#ReceiptSum"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Certification">
+    <rdfs:subClassOf rdf:resource="#Recommendation"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Experience">
+    <rdfs:subClassOf rdf:resource="#PersonalParameter"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Conversion">
+    <rdfs:subClassOf rdf:resource="#ParameterOfShop"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ReceiptQuantity">
+    <rdfs:subClassOf rdf:resource="#FinancialParameter"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="hasReceiptQuantity">
+    <rdfs:range rdf:resource="#ReceiptQuantity"/>
+    <rdfs:domain rdf:resource="#Analysis"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasReceiptSumMin">
+    <rdfs:range rdf:resource="#ReceiptSumMin"/>
+    <rdfs:domain rdf:resource="#Analysis"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasIndividualPlan">
+    <rdfs:range rdf:resource="#IndividualPlan"/>
+    <rdfs:domain rdf:resource="#Analysis"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasRecomendationText">
+    <rdfs:domain rdf:resource="#Recommendation"/>
+    <rdfs:range rdf:resource="#RecommendationText"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasTopic">
+    <rdfs:range rdf:resource="#Topic"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Certification"/>
+          <owl:Class rdf:about="#Discussion"/>
+          <owl:Class rdf:about="#Training"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasReceiptSum">
+    <rdfs:range rdf:resource="#ReceiptSum"/>
+    <rdfs:domain rdf:resource="#Analysis"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasIndividualPlanMin">
+    <rdfs:range rdf:resource="#IndividualPlanMin"/>
+    <rdfs:domain rdf:resource="#Analysis"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasExperience">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Consultant"/>
+          <owl:Class rdf:about="#Analysis"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Experience"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasWorker">
+    <rdfs:range rdf:resource="#Worker"/>
+    <rdfs:domain rdf:resource="#Analysis"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasConversation">
+    <rdfs:domain rdf:resource="#Analysis"/>
+    <rdfs:range rdf:resource="#Conversion"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasIndividualPlanSum">
+    <rdfs:range rdf:resource="#IndividualPlanSum"/>
+    <rdfs:domain rdf:resource="#Analysis"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasPeriod">
+    <rdfs:domain rdf:resource="#Analysis"/>
+    <rdfs:range rdf:resource="#Period"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasCommonPlanDone">
+    <rdfs:range rdf:resource="#CommonPlanDone"/>
+    <rdfs:domain rdf:resource="#Analysis"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasReceiptQuantityMin">
+    <rdfs:range rdf:resource="#ReceiptQuantityMin"/>
+    <rdfs:domain rdf:resource="#Analysis"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasIncrease">
+    <rdfs:range rdf:resource="#Increase"/>
+    <rdfs:domain rdf:resource="#Analysis"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasUser">
+    <rdfs:range rdf:resource="#User"/>
+    <rdfs:domain rdf:resource="#Analysis"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasRecommendation">
+    <rdfs:range rdf:resource="#Recommendation"/>
+    <rdfs:domain rdf:resource="#Analysis"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasReceiptNum">
+    <rdfs:range rdf:resource="#ReceiptNum"/>
+    <rdfs:domain rdf:resource="#Analysis"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasProblem">
+    <rdfs:range rdf:resource="#Problem"/>
+    <rdfs:domain rdf:resource="#Analysis"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasCommonPlan">
+    <rdfs:range rdf:resource="#CommonPlan"/>
+    <rdfs:domain rdf:resource="#Analysis"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasCommonPlanSum">
+    <rdfs:range rdf:resource="#CommonPlanSum"/>
+    <rdfs:domain rdf:resource="#Analysis"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasIndividualPlanDone">
+    <rdfs:range rdf:resource="#IndividualPlanDone"/>
+    <rdfs:domain rdf:resource="#Analysis"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="hasDate">
+    <rdfs:domain rdf:resource="#Analysis"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasEffectiveness">
+    <rdfs:domain rdf:resource="#Analysis"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasIntValue">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#ReceiptNum"/>
+          <owl:Class rdf:about="#ReceiptSumMin"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasText">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#RecommendationText"/>
+          <owl:Class rdf:about="#Topic"/>
+          <owl:Class rdf:about="#Problem"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasValue">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Fine"/>
+          <owl:Class rdf:about="#IndividualPlan"/>
+          <owl:Class rdf:about="#ReceiptQuantity"/>
+          <owl:Class rdf:about="#ReceiptSum"/>
+          <owl:Class rdf:about="#IndividualPlanSum"/>
+          <owl:Class rdf:about="#IndividualPlanDone"/>
+          <owl:Class rdf:about="#CommonPlanDone"/>
+          <owl:Class rdf:about="#Conversion"/>
+          <owl:Class rdf:about="#CommonPlan"/>
+          <owl:Class rdf:about="#Increase"/>
+          <owl:Class rdf:about="#CommonPlanSum"/>
+          <owl:Class rdf:about="#ReceiptQuantityMin"/>
+          <owl:Class rdf:about="#ReceiptSumMin"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Worker"/>
+          <owl:Class rdf:about="#User"/>
+          <owl:Class rdf:about="#ParameterOfWorker"/>
+          <owl:Class rdf:about="#ParameterOfShop"/>
+          <owl:Class rdf:about="#Period"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <Analysis rdf:ID="Analysis_10">
+    <hasIndividualPlan>
+      <IndividualPlan rdf:ID="IndividualPlan_42">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >77.64</hasValue>
+      </IndividualPlan>
+    </hasIndividualPlan>
+    <hasDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2010-10-15</hasDate>
+    <hasConversation>
+      <Conversion rdf:ID="Conversion_20">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >33.18</hasValue>
+      </Conversion>
+    </hasConversation>
+    <hasReceiptNum>
+      <ReceiptNum rdf:ID="ReceiptNum_45">
+        <hasIntValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >99</hasIntValue>
+      </ReceiptNum>
+    </hasReceiptNum>
+    <hasIncrease>
+      <Increase rdf:ID="Increase_21">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >16.72</hasValue>
+      </Increase>
+    </hasIncrease>
+    <hasUser>
+      <Manager rdf:ID="Manager_01">
+        <hasName xml:lang="ru">Турбина Е. А.</hasName>
+      </Manager>
+    </hasUser>
+    <hasCommonPlanDone>
+      <CommonPlanDone rdf:ID="CommonPlanDone_18">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >1195092.2</hasValue>
+      </CommonPlanDone>
+    </hasCommonPlanDone>
+    <hasIndividualPlanSum>
+      <IndividualPlanSum rdf:ID="IndividualPlanSum_7">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >234057.0</hasValue>
+      </IndividualPlanSum>
+    </hasIndividualPlanSum>
+    <hasReceiptQuantity>
+      <ReceiptQuantity rdf:ID="ReceiptQuantity_44">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >3.2</hasValue>
+      </ReceiptQuantity>
+    </hasReceiptQuantity>
+    <hasPeriod>
+      <Period rdf:ID="TwoWeeks">
+        <hasName xml:lang="ru">Две недели</hasName>
+      </Period>
+    </hasPeriod>
+    <hasRecommendation>
+      <IndividualDiscussion rdf:ID="D1T8">
+        <hasTopic>
+          <Topic rdf:ID="T8">
+            <hasText xml:lang="ru">Эксклюзивы сети</hasText>
+          </Topic>
+        </hasTopic>
+        <hasRecomendationText>
+          <RecommendationText rdf:ID="D1">
+            <hasText xml:lang="ru">Проведение индивидуальной беседы на тему</hasText>
+          </RecommendationText>
+        </hasRecomendationText>
+      </IndividualDiscussion>
+    </hasRecommendation>
+    <hasWorker>
+      <Consultant rdf:ID="Consultant_04">
+        <hasName xml:lang="ru">Меншутина Е. Н.</hasName>
+      </Consultant>
+    </hasWorker>
+    <hasRecommendation>
+      <IndividualDiscussion rdf:ID="D1T6">
+        <hasRecomendationText rdf:resource="#D1"/>
+        <hasTopic>
+          <Topic rdf:ID="T6">
+            <hasText xml:lang="ru">Повышение сумм продаж за счет предложения люкс-марок</hasText>
+          </Topic>
+        </hasTopic>
+      </IndividualDiscussion>
+    </hasRecommendation>
+    <hasCommonPlanSum>
+      <CommonPlanSum rdf:ID="CommonPlanSum_19">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >1494725.0</hasValue>
+      </CommonPlanSum>
+    </hasCommonPlanSum>
+    <hasReceiptSum>
+      <ReceiptSum rdf:ID="ReceiptSum_43">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >1835.79</hasValue>
+      </ReceiptSum>
+    </hasReceiptSum>
+    <hasCommonPlan>
+      <CommonPlan rdf:ID="CommonPlan_17">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >79.95</hasValue>
+      </CommonPlan>
+    </hasCommonPlan>
+    <hasIndividualPlanDone>
+      <IndividualPlanDone rdf:ID="IndividualPlanDone_41">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >181743.58</hasValue>
+      </IndividualPlanDone>
+    </hasIndividualPlanDone>
+    <hasExperience>
+      <Experience rdf:ID="ExperienceLarge">
+        <hasName xml:lang="ru">Большой</hasName>
+      </Experience>
+    </hasExperience>
+  </Analysis>
+  <Analysis rdf:ID="Analysis_05">
+    <hasCommonPlanSum>
+      <CommonPlanSum rdf:ID="CommonPlanSum_63">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >3443050.0</hasValue>
+      </CommonPlanSum>
+    </hasCommonPlanSum>
+    <hasCommonPlan>
+      <CommonPlan rdf:ID="CommonPlan_61">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >68.07</hasValue>
+      </CommonPlan>
+    </hasCommonPlan>
+    <hasIndividualPlanSum>
+      <IndividualPlanSum rdf:ID="IndividualPlanSum_5">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >623500.0</hasValue>
+        <hasName xml:lang="ru">Индивидуальный план (руб)</hasName>
+      </IndividualPlanSum>
+    </hasIndividualPlanSum>
+    <hasConversation>
+      <Conversion rdf:ID="Conversion_64">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >29.2</hasValue>
+      </Conversion>
+    </hasConversation>
+    <hasReceiptQuantity>
+      <ReceiptQuantity rdf:ID="ReceiptQuantity_19">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >2.49</hasValue>
+      </ReceiptQuantity>
+    </hasReceiptQuantity>
+    <hasReceiptSum>
+      <ReceiptSum rdf:ID="ReceiptSum_18">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >2387.03</hasValue>
+      </ReceiptSum>
+    </hasReceiptSum>
+    <hasExperience>
+      <Experience rdf:ID="ExperienceSmall">
+        <hasName xml:lang="ru">Малый</hasName>
+      </Experience>
+    </hasExperience>
+    <hasDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2010-09-30</hasDate>
+    <hasIndividualPlan>
+      <IndividualPlan rdf:ID="IndividualPlan_17">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >81.55</hasValue>
+      </IndividualPlan>
+    </hasIndividualPlan>
+    <hasWorker>
+      <Consultant rdf:ID="Consultant_05">
+        <hasName xml:lang="ru">Тюрина К. Н.</hasName>
+      </Consultant>
+    </hasWorker>
+    <hasReceiptNum>
+      <ReceiptNum rdf:ID="ReceiptNum_20">
+        <hasIntValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >213</hasIntValue>
+      </ReceiptNum>
+    </hasReceiptNum>
+    <hasIndividualPlanDone>
+      <IndividualPlanDone rdf:ID="IndividualPlanDone_16">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >508436.53</hasValue>
+      </IndividualPlanDone>
+    </hasIndividualPlanDone>
+    <hasIncrease>
+      <Increase rdf:ID="Increase_65">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >89.96</hasValue>
+      </Increase>
+    </hasIncrease>
+    <hasUser rdf:resource="#Manager_01"/>
+    <hasCommonPlanDone>
+      <CommonPlanDone rdf:ID="CommonPlanDone_62">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >2343885.2</hasValue>
+      </CommonPlanDone>
+    </hasCommonPlanDone>
+    <hasRecommendation>
+      <IndividualDiscussion rdf:ID="IndividualDiscussion_14">
+        <hasTopic>
+          <Topic rdf:ID="T10">
+            <hasText xml:lang="ru">В случае отсутствия положительных результатов консультант будет подвергнут штрафу</hasText>
+          </Topic>
+        </hasTopic>
+        <hasRecomendationText>
+          <RecommendationText rdf:ID="D5">
+            <hasText xml:lang="ru">Устное предупреждение консультанту</hasText>
+          </RecommendationText>
+        </hasRecomendationText>
+      </IndividualDiscussion>
+    </hasRecommendation>
+    <hasPeriod>
+      <Period rdf:ID="Month">
+        <hasName xml:lang="ru">Месяц</hasName>
+      </Period>
+    </hasPeriod>
+    <hasReceiptSumMin>
+      <ReceiptSumMin rdf:ID="ReсeiptSumMin_34">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >3.0</hasValue>
+      </ReceiptSumMin>
+    </hasReceiptSumMin>
+  </Analysis>
+  <Problem rdf:ID="Problem_5">
+    <hasText xml:lang="ru">Индивидуальный план не выполнен</hasText>
+  </Problem>
+  <Topic rdf:ID="T7">
+    <hasText xml:lang="ru">Необходимость повышения сумм  продаж</hasText>
+  </Topic>
+  <Analysis rdf:ID="Analysis_11">
+    <hasRecommendation>
+      <IndividualDiscussion rdf:ID="D1T2">
+        <hasTopic>
+          <Topic rdf:ID="T2">
+            <hasText xml:lang="ru">Повышение сумм продаж за счет предложения дополнительных и сопутствующих товаров</hasText>
+          </Topic>
+        </hasTopic>
+        <hasRecomendationText rdf:resource="#D1"/>
+      </IndividualDiscussion>
+    </hasRecommendation>
+    <hasUser rdf:resource="#Manager_01"/>
+    <hasReceiptQuantity>
+      <ReceiptQuantity rdf:ID="ReceiptQuantity_51">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >2.76</hasValue>
+      </ReceiptQuantity>
+    </hasReceiptQuantity>
+    <hasIndividualPlanSum rdf:resource="#IndividualPlanSum_7"/>
+    <hasCommonPlanSum rdf:resource="#CommonPlanSum_19"/>
+    <hasCommonPlan rdf:resource="#CommonPlan_17"/>
+    <hasExperience rdf:resource="#ExperienceSmall"/>
+    <hasWorker rdf:resource="#Consultant_05"/>
+    <hasIndividualPlanDone>
+      <IndividualPlanDone rdf:ID="IndividualPlanDone_48">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >96630.9</hasValue>
+      </IndividualPlanDone>
+    </hasIndividualPlanDone>
+    <hasRecommendation>
+      <IndividualDiscussion rdf:ID="D50">
+        <hasRecomendationText rdf:resource="#D5"/>
+      </IndividualDiscussion>
+    </hasRecommendation>
+    <hasDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2010-10-15</hasDate>
+    <hasReceiptNum>
+      <ReceiptNum rdf:ID="ReceiptNum_52">
+        <hasIntValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >74</hasIntValue>
+      </ReceiptNum>
+    </hasReceiptNum>
+    <hasConversation rdf:resource="#Conversion_20"/>
+    <hasReceiptSum>
+      <ReceiptSum rdf:ID="ReceiptSum_50">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >1323.71</hasValue>
+      </ReceiptSum>
+    </hasReceiptSum>
+    <hasRecommendation>
+      <IndividualDiscussion rdf:ID="D1T9">
+        <hasTopic>
+          <Topic rdf:ID="T9">
+            <hasText xml:lang="ru">Показатели консультанта, работающего такой же период времени, выше</hasText>
+          </Topic>
+        </hasTopic>
+        <hasRecomendationText rdf:resource="#D1"/>
+      </IndividualDiscussion>
+    </hasRecommendation>
+    <hasIndividualPlan>
+      <IndividualPlan rdf:ID="IndividualPlan_49">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >41.28</hasValue>
+      </IndividualPlan>
+    </hasIndividualPlan>
+    <hasCommonPlanDone rdf:resource="#CommonPlanDone_18"/>
+    <hasPeriod rdf:resource="#TwoWeeks"/>
+    <hasIncrease rdf:resource="#Increase_21"/>
+  </Analysis>
+  <Period rdf:ID="ThreeWeeks">
+    <hasName xml:lang="ru">Три недели</hasName>
+  </Period>
+  <Analysis rdf:ID="Analysis_06">
+    <hasIndividualPlan rdf:resource="#IndividualPlan_17"/>
+    <hasWorker>
+      <Consultant rdf:ID="Consultant_06">
+        <hasName xml:lang="ru">Мендбаева А. С.</hasName>
+      </Consultant>
+    </hasWorker>
+    <hasRecommendation rdf:resource="#IndividualDiscussion_14"/>
+    <hasCommonPlanSum rdf:resource="#CommonPlanSum_63"/>
+    <hasConversation rdf:resource="#Conversion_64"/>
+    <hasIndividualPlanDone rdf:resource="#IndividualPlanDone_16"/>
+    <hasIncrease rdf:resource="#Increase_65"/>
+    <hasUser rdf:resource="#Manager_01"/>
+    <hasReceiptSum rdf:resource="#ReceiptSum_18"/>
+    <hasExperience rdf:resource="#ExperienceSmall"/>
+    <hasDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2010-09-30</hasDate>
+    <hasCommonPlanDone rdf:resource="#CommonPlanDone_62"/>
+    <hasPeriod rdf:resource="#Month"/>
+    <hasReceiptSumMin rdf:resource="#ReсeiptSumMin_34"/>
+    <hasIndividualPlanSum rdf:resource="#IndividualPlanSum_5"/>
+    <hasCommonPlan rdf:resource="#CommonPlan_61"/>
+    <hasReceiptNum rdf:resource="#ReceiptNum_20"/>
+    <hasReceiptQuantity rdf:resource="#ReceiptQuantity_19"/>
+  </Analysis>
+  <Analysis rdf:ID="Analysis_12">
+    <hasUser rdf:resource="#Manager_01"/>
+    <hasCommonPlan rdf:resource="#CommonPlan_17"/>
+    <hasDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2010-10-15</hasDate>
+    <hasIncrease rdf:resource="#Increase_21"/>
+    <hasIndividualPlanSum rdf:resource="#IndividualPlanSum_7"/>
+    <hasWorker rdf:resource="#Consultant_06"/>
+    <hasCommonPlanSum rdf:resource="#CommonPlanSum_19"/>
+    <hasReceiptSum>
+      <ReceiptSum rdf:ID="ReceiptSum_57">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >2201.45</hasValue>
+      </ReceiptSum>
+    </hasReceiptSum>
+    <hasReceiptQuantity>
+      <ReceiptQuantity rdf:ID="ReceiptQuantity_58">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >3.62</hasValue>
+      </ReceiptQuantity>
+    </hasReceiptQuantity>
+    <hasRecommendation rdf:resource="#D1T2"/>
+    <hasPeriod rdf:resource="#TwoWeeks"/>
+    <hasIndividualPlanDone>
+      <IndividualPlanDone rdf:ID="IndividualPlanDone_55">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >116676.8</hasValue>
+      </IndividualPlanDone>
+    </hasIndividualPlanDone>
+    <hasConversation rdf:resource="#Conversion_20"/>
+    <hasReceiptNum>
+      <ReceiptNum rdf:ID="ReceiptNum_59">
+        <hasIntValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >53</hasIntValue>
+      </ReceiptNum>
+    </hasReceiptNum>
+    <hasCommonPlanDone rdf:resource="#CommonPlanDone_18"/>
+    <hasExperience rdf:resource="#ExperienceSmall"/>
+    <hasRecommendation rdf:resource="#D1T8"/>
+    <hasIndividualPlan>
+      <IndividualPlan rdf:ID="IndividualPlan_56">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >49.84</hasValue>
+      </IndividualPlan>
+    </hasIndividualPlan>
+  </Analysis>
+  <IndividualPlanSum rdf:ID="IndividualPlanSum_35"/>
+  <Analysis rdf:ID="Analysis_03">
+    <hasReceiptSumMin rdf:resource="#ReсeiptSumMin_34"/>
+    <hasCommonPlanSum rdf:resource="#CommonPlanSum_63"/>
+    <hasReceiptNum>
+      <ReceiptNum rdf:ID="ReceiptNum_11">
+        <hasIntValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >193</hasIntValue>
+      </ReceiptNum>
+    </hasReceiptNum>
+    <hasIncrease rdf:resource="#Increase_65"/>
+    <hasDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2010-09-30</hasDate>
+    <hasRecommendation>
+      <IndividualDiscussion rdf:ID="IndividualDiscussion_12">
+        <hasTopic>
+          <Topic rdf:ID="T12">
+            <hasText xml:lang="ru">Повышение количества позиций в чеке за счет продуктов дополнительного ассортимента</hasText>
+          </Topic>
+        </hasTopic>
+        <hasRecomendationText rdf:resource="#D1"/>
+      </IndividualDiscussion>
+    </hasRecommendation>
+    <hasRecommendation>
+      <Fine rdf:ID="Fine_12">
+        <hasRecomendationText>
+          <RecommendationText rdf:ID="D6">
+            <hasText xml:lang="ru">Оштрафовать консультанта</hasText>
+          </RecommendationText>
+        </hasRecomendationText>
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >1000.0</hasValue>
+      </Fine>
+    </hasRecommendation>
+    <hasIndividualPlanDone>
+      <IndividualPlanDone rdf:ID="IndividualPlanDone_7">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >421229.8</hasValue>
+      </IndividualPlanDone>
+    </hasIndividualPlanDone>
+    <hasReceiptSum>
+      <ReceiptSum rdf:ID="ReceiptSum_9">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >2182.54</hasValue>
+      </ReceiptSum>
+    </hasReceiptSum>
+    <hasWorker>
+      <Consultant rdf:ID="Consultant_03">
+        <hasName xml:lang="ru">Гасанова Д. Р.</hasName>
+      </Consultant>
+    </hasWorker>
+    <hasUser rdf:resource="#Manager_01"/>
+    <hasPeriod rdf:resource="#Month"/>
+    <hasIndividualPlanSum rdf:resource="#IndividualPlanSum_5"/>
+    <hasIndividualPlan>
+      <IndividualPlan rdf:ID="IndividualPlan_8">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >67.56</hasValue>
+      </IndividualPlan>
+    </hasIndividualPlan>
+    <hasConversation rdf:resource="#Conversion_64"/>
+    <hasCommonPlan rdf:resource="#CommonPlan_61"/>
+    <hasCommonPlanDone rdf:resource="#CommonPlanDone_62"/>
+    <hasReceiptQuantity>
+      <ReceiptQuantity rdf:ID="ReceiptQuantity_10">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >1.97</hasValue>
+      </ReceiptQuantity>
+    </hasReceiptQuantity>
+  </Analysis>
+  <IndividualPlan rdf:ID="IndividualPlan_28">
+    <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >111.33</hasValue>
+  </IndividualPlan>
+  <Topic rdf:ID="T13">
+    <hasText xml:lang="ru">Текущие акции магазина</hasText>
+  </Topic>
+  <Analysis rdf:ID="Analysis_04">
+    <hasRecommendation rdf:resource="#Fine_12"/>
+    <hasIndividualPlanSum>
+      <IndividualPlanSum rdf:ID="IndividualPlanSum_15">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >589750.0</hasValue>
+      </IndividualPlanSum>
+    </hasIndividualPlanSum>
+    <hasConversation rdf:resource="#Conversion_64"/>
+    <hasUser rdf:resource="#Manager_01"/>
+    <hasPeriod rdf:resource="#Month"/>
+    <hasCommonPlanSum rdf:resource="#CommonPlanSum_63"/>
+    <hasReceiptSum>
+      <ReceiptSum rdf:ID="ReceiptSum_19">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >1727.67</hasValue>
+      </ReceiptSum>
+    </hasReceiptSum>
+    <hasReceiptNum>
+      <ReceiptNum rdf:ID="ReceiptNum_21">
+        <hasIntValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >209</hasIntValue>
+      </ReceiptNum>
+    </hasReceiptNum>
+    <hasIndividualPlanDone>
+      <IndividualPlanDone rdf:ID="IndividualPlanDone_17">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >361082.84</hasValue>
+      </IndividualPlanDone>
+    </hasIndividualPlanDone>
+    <hasIndividualPlan>
+      <IndividualPlan rdf:ID="IndividualPlan_18">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >61.23</hasValue>
+      </IndividualPlan>
+    </hasIndividualPlan>
+    <hasDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2010-09-30</hasDate>
+    <hasCommonPlan rdf:resource="#CommonPlan_61"/>
+    <hasCommonPlanDone rdf:resource="#CommonPlanDone_62"/>
+    <hasReceiptSumMin rdf:resource="#ReсeiptSumMin_34"/>
+    <hasWorker rdf:resource="#Consultant_04"/>
+    <hasReceiptQuantity>
+      <ReceiptQuantity rdf:ID="ReceiptQuantity_20">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >2.97</hasValue>
+      </ReceiptQuantity>
+    </hasReceiptQuantity>
+    <hasIncrease rdf:resource="#Increase_65"/>
+  </Analysis>
+  <Analysis rdf:ID="Analysis_01">
+    <hasConversation rdf:resource="#Conversion_64"/>
+    <hasReceiptQuantity>
+      <ReceiptQuantity rdf:ID="ReceiptQuantity_4">
+        <hasName xml:lang="ru">Средний чек по количеству</hasName>
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >2.07</hasValue>
+      </ReceiptQuantity>
+    </hasReceiptQuantity>
+    <hasReceiptSumMin rdf:resource="#ReсeiptSumMin_34"/>
+    <hasIncrease rdf:resource="#Increase_65"/>
+    <hasDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2010-09-30</hasDate>
+    <hasIndividualPlan>
+      <IndividualPlan rdf:ID="IndividualPlan_7">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >55.0</hasValue>
+      </IndividualPlan>
+    </hasIndividualPlan>
+    <hasReceiptNum>
+      <ReceiptNum rdf:ID="ReceiptNum_10">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0</hasValue>
+        <hasIntValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >222</hasIntValue>
+        <hasName xml:lang="ru">Количество товаров в чеке</hasName>
+      </ReceiptNum>
+    </hasReceiptNum>
+    <hasCommonPlanSum rdf:resource="#CommonPlanSum_63"/>
+    <hasIndividualPlanDone>
+      <IndividualPlanDone rdf:ID="IndividualPlanDone_8">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >343144.44</hasValue>
+        <hasName xml:lang="ru">Выполнение индивидуального плана (руб)</hasName>
+      </IndividualPlanDone>
+    </hasIndividualPlanDone>
+    <hasRecommendation rdf:resource="#Fine_12"/>
+    <hasCommonPlanDone rdf:resource="#CommonPlanDone_62"/>
+    <hasPeriod rdf:resource="#Month"/>
+    <hasWorker>
+      <Consultant rdf:ID="Consultant_01">
+        <hasName xml:lang="ru">Семенская Ю. А.</hasName>
+      </Consultant>
+    </hasWorker>
+    <hasCommonPlan rdf:resource="#CommonPlan_61"/>
+    <hasUser rdf:resource="#Manager_01"/>
+    <hasRecommendation>
+      <IndividualDiscussion rdf:ID="IndividualDiscussion_13">
+        <hasRecomendationText rdf:resource="#D1"/>
+        <hasTopic>
+          <Topic rdf:ID="T11">
+            <hasText xml:lang="ru">Отсутствие положительной динамики показателей работы</hasText>
+          </Topic>
+        </hasTopic>
+      </IndividualDiscussion>
+    </hasRecommendation>
+    <hasIndividualPlanSum rdf:resource="#IndividualPlanSum_5"/>
+    <hasReceiptSum>
+      <ReceiptSum rdf:ID="ReceiptSum_5">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >1545.7</hasValue>
+        <hasName xml:lang="ru">Средний чек по сумме</hasName>
+      </ReceiptSum>
+    </hasReceiptSum>
+  </Analysis>
+  <IndividualPlan rdf:ID="IndividualPlan_9"/>
+  <Experience rdf:ID="ExperienceMedium">
+    <hasName xml:lang="ru">Средний</hasName>
+  </Experience>
+  <Analysis rdf:ID="Analysis_02">
+    <hasRecommendation rdf:resource="#IndividualDiscussion_13"/>
+    <hasRecommendation rdf:resource="#Fine_12"/>
+    <hasConversation rdf:resource="#Conversion_64"/>
+    <hasPeriod rdf:resource="#Month"/>
+    <hasCommonPlanDone rdf:resource="#CommonPlanDone_62"/>
+    <hasIndividualPlanDone rdf:resource="#IndividualPlanDone_16"/>
+    <hasCommonPlan rdf:resource="#CommonPlan_61"/>
+    <hasUser rdf:resource="#Manager_01"/>
+    <hasReceiptSum rdf:resource="#ReceiptSum_18"/>
+    <hasReceiptNum rdf:resource="#ReceiptNum_20"/>
+    <hasDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2010-09-30</hasDate>
+    <hasCommonPlanSum rdf:resource="#CommonPlanSum_63"/>
+    <hasIndividualPlanSum rdf:resource="#IndividualPlanSum_5"/>
+    <hasReceiptQuantity rdf:resource="#ReceiptQuantity_19"/>
+    <hasIndividualPlan rdf:resource="#IndividualPlan_17"/>
+    <hasReceiptSumMin rdf:resource="#ReсeiptSumMin_34"/>
+    <hasIncrease rdf:resource="#Increase_65"/>
+    <hasWorker>
+      <Consultant rdf:ID="Consultant_02">
+        <hasName xml:lang="ru">Ночевная И. В.</hasName>
+      </Consultant>
+    </hasWorker>
+  </Analysis>
+  <RecommendationText rdf:ID="D10">
+    <hasText xml:lang="ru">Увольнение консультанта</hasText>
+  </RecommendationText>
+  <RecommendationText rdf:ID="D2">
+    <hasText xml:lang="ru">Проведение общей беседы на тему</hasText>
+  </RecommendationText>
+  <Period rdf:ID="OneWeek">
+    <hasName xml:lang="ru">Одна неделя</hasName>
+  </Period>
+  <IndividualPlanDone rdf:ID="IndividualPlanDone_6"/>
+  <RecommendationText rdf:ID="D4">
+    <hasText xml:lang="ru">Работа консультанта в паре с наставником</hasText>
+  </RecommendationText>
+  <Consultant rdf:ID="Consultant_07">
+    <hasName xml:lang="ru">Кузьмина С. А.</hasName>
+  </Consultant>
+  <Training rdf:ID="Training_3">
+    <hasTopic rdf:resource="#T6"/>
+    <hasRecomendationText>
+      <RecommendationText rdf:ID="D3">
+        <hasText xml:lang="ru">Посещение консультантом тренинга на тему</hasText>
+      </RecommendationText>
+    </hasRecomendationText>
+  </Training>
+  <Discussion rdf:ID="Discussion_1">
+    <hasTopic>
+      <Topic rdf:ID="T1">
+        <hasText xml:lang="ru">Этапы продаж</hasText>
+      </Topic>
+    </hasTopic>
+    <hasRecomendationText rdf:resource="#D1"/>
+  </Discussion>
+  <Certification rdf:ID="Certification_2">
+    <hasRecomendationText>
+      <RecommendationText rdf:ID="D9">
+        <hasText xml:lang="ru">Проведение аттестации консультанта по теме</hasText>
+      </RecommendationText>
+    </hasRecomendationText>
+    <hasTopic rdf:resource="#T10"/>
+  </Certification>
+  <IndividualPlan rdf:ID="IndividualPlan_61">
+    <hasName xml:lang="ru">Процент выполнения индавидуального плана</hasName>
+    <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >71.0</hasValue>
+  </IndividualPlan>
+  <RecommendationText rdf:ID="D7">
+    <hasText xml:lang="ru">Выдать обучающий материал по разным маркам товаров, в том числе, по эксклюзивам сети</hasText>
+  </RecommendationText>
+  <Consultant rdf:ID="Consultant_09">
+    <hasName xml:lang="ru">Искалова Р. М.</hasName>
+  </Consultant>
+  <RecommendationText rdf:ID="D8">
+    <hasText xml:lang="ru">Контроль работы консультанта на кассе</hasText>
+  </RecommendationText>
+  <Consultant rdf:ID="Consultant_08">
+    <hasName xml:lang="ru">Ахмедгариева С. М.</hasName>
+  </Consultant>
+  <Problem rdf:ID="Problem_6">
+    <hasText xml:lang="ru">Значиение показателя меньше планового</hasText>
+  </Problem>
+  <Analysis rdf:ID="Analysis_09">
+    <hasCommonPlan rdf:resource="#CommonPlan_17"/>
+    <hasWorker rdf:resource="#Consultant_03"/>
+    <hasCommonPlanDone rdf:resource="#CommonPlanDone_18"/>
+    <hasCommonPlanSum rdf:resource="#CommonPlanSum_19"/>
+    <hasDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2010-10-15</hasDate>
+    <hasReceiptSum>
+      <ReceiptSum rdf:ID="ReceiptSum_38">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >2733.61</hasValue>
+      </ReceiptSum>
+    </hasReceiptSum>
+    <hasIncrease rdf:resource="#Increase_21"/>
+    <hasRecommendation rdf:resource="#D1T2"/>
+    <hasExperience rdf:resource="#ExperienceLarge"/>
+    <hasUser rdf:resource="#Manager_01"/>
+    <hasConversation rdf:resource="#Conversion_20"/>
+    <hasIndividualPlan>
+      <IndividualPlan rdf:ID="IndividualPlan_37">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >80.58</hasValue>
+      </IndividualPlan>
+    </hasIndividualPlan>
+    <hasIndividualPlanSum rdf:resource="#IndividualPlanSum_7"/>
+    <hasPeriod rdf:resource="#TwoWeeks"/>
+    <hasReceiptNum>
+      <ReceiptNum rdf:ID="ReceiptNum_40">
+        <hasIntValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >69</hasIntValue>
+      </ReceiptNum>
+    </hasReceiptNum>
+    <hasIndividualPlanDone>
+      <IndividualPlanDone rdf:ID="IndividualPlanDone_36">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >188619.38</hasValue>
+      </IndividualPlanDone>
+    </hasIndividualPlanDone>
+    <hasReceiptQuantity>
+      <ReceiptQuantity rdf:ID="ReceiptQuantity_39">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >3.85</hasValue>
+      </ReceiptQuantity>
+    </hasReceiptQuantity>
+  </Analysis>
+  <Analysis rdf:ID="Analysis_08">
+    <hasRecommendation rdf:resource="#D1T2"/>
+    <hasCommonPlanDone rdf:resource="#CommonPlanDone_18"/>
+    <hasCommonPlanSum rdf:resource="#CommonPlanSum_19"/>
+    <hasPeriod rdf:resource="#TwoWeeks"/>
+    <hasDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2010-10-15</hasDate>
+    <hasExperience rdf:resource="#ExperienceLarge"/>
+    <hasReceiptSum>
+      <ReceiptSum rdf:ID="ReceiptSum_29">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >3065.65</hasValue>
+      </ReceiptSum>
+    </hasReceiptSum>
+    <hasIncrease rdf:resource="#Increase_21"/>
+    <hasConversation rdf:resource="#Conversion_20"/>
+    <hasReceiptNum>
+      <ReceiptNum rdf:ID="ReceiptNum_32">
+        <hasIntValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >85</hasIntValue>
+      </ReceiptNum>
+    </hasReceiptNum>
+    <hasCommonPlan rdf:resource="#CommonPlan_17"/>
+    <hasReceiptQuantity>
+      <ReceiptQuantity rdf:ID="ReceiptQuantity_30">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >3.47</hasValue>
+      </ReceiptQuantity>
+    </hasReceiptQuantity>
+    <hasIndividualPlanSum rdf:resource="#IndividualPlanSum_7"/>
+    <hasUser rdf:resource="#Manager_01"/>
+    <hasIndividualPlan>
+      <IndividualPlan rdf:ID="IndividualPlan_31">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >111.33</hasValue>
+      </IndividualPlan>
+    </hasIndividualPlan>
+    <hasIndividualPlanDone>
+      <IndividualPlanDone rdf:ID="IndividualPlanDone_27">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >260580.4</hasValue>
+      </IndividualPlanDone>
+    </hasIndividualPlanDone>
+    <hasWorker rdf:resource="#Consultant_02"/>
+  </Analysis>
+  <Analysis rdf:ID="Analysis_07">
+    <hasRecommendation>
+      <IndividualDiscussion rdf:ID="D1T1">
+        <hasRecomendationText rdf:resource="#D1"/>
+        <hasTopic rdf:resource="#T1"/>
+      </IndividualDiscussion>
+    </hasRecommendation>
+    <hasDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2010-10-15</hasDate>
+    <hasUser rdf:resource="#Manager_01"/>
+    <hasIndividualPlanSum rdf:resource="#IndividualPlanSum_7"/>
+    <hasExperience rdf:resource="#ExperienceLarge"/>
+    <hasReceiptQuantity>
+      <ReceiptQuantity rdf:ID="ReceiptQuantity_12">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >3.66</hasValue>
+      </ReceiptQuantity>
+    </hasReceiptQuantity>
+    <hasRecommendation>
+      <IndividualDiscussion rdf:ID="D1T3">
+        <hasRecomendationText rdf:resource="#D1"/>
+        <hasTopic>
+          <Topic rdf:ID="T3">
+            <hasText xml:lang="ru">Необходимость охвата большего ассортимента</hasText>
+          </Topic>
+        </hasTopic>
+      </IndividualDiscussion>
+    </hasRecommendation>
+    <hasConversation rdf:resource="#Conversion_20"/>
+    <hasIndividualPlan>
+      <IndividualPlan rdf:ID="IndividualPlan_10">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >83.56</hasValue>
+      </IndividualPlan>
+    </hasIndividualPlan>
+    <hasReceiptNum>
+      <ReceiptNum rdf:ID="ReceiptNum_13">
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >86</hasName>
+      </ReceiptNum>
+    </hasReceiptNum>
+    <hasReceiptSum>
+      <ReceiptSum rdf:ID="ReceiptSum_11">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >2274.3</hasValue>
+      </ReceiptSum>
+    </hasReceiptSum>
+    <hasCommonPlan rdf:resource="#CommonPlan_17"/>
+    <hasWorker rdf:resource="#Consultant_01"/>
+    <hasIndividualPlanDone>
+      <IndividualPlanDone rdf:ID="IndividualPlanDone_9">
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >195589.88</hasValue>
+      </IndividualPlanDone>
+    </hasIndividualPlanDone>
+    <hasCommonPlanDone rdf:resource="#CommonPlanDone_18"/>
+    <hasIncrease rdf:resource="#Increase_21"/>
+    <hasCommonPlanSum rdf:resource="#CommonPlanSum_19"/>
+    <hasPeriod rdf:resource="#TwoWeeks"/>
+  </Analysis>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4.7, Build 620)  http://protege.stanford.edu -->

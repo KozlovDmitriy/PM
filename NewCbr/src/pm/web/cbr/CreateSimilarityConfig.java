@@ -24,40 +24,43 @@ public class CreateSimilarityConfig {
         Attribute attribute;
         Double weight = 1.0;
 
+        // begin{ЭКОНОМИЧЕСКИЕ ПАРАМЕТРЫ}
+
         // avCheck
         attribute = new Attribute("avCheck", Description.class);
-        result.addMapping(attribute, new FloatLocalSimilarityFunction(5000));
-        result.setWeight(attribute, weight);
+        result.addMapping(attribute, new FloatLocalSimilarityFunction(1000, 1)); // 0.9! - interval and %
+        result.setWeight(attribute, 0.3);
 
         // itemsCount
         attribute = new Attribute("itemsCount", Description.class);
-        result.addMapping(attribute, new FloatLocalSimilarityFunction(7));
-        result.setWeight(attribute, weight);
-
-        // checksCount
-        attribute = new Attribute("checksCount", Description.class);
-        result.addMapping(attribute, new IntegerLocalSimilarityFunction());
-        result.setWeight(attribute, weight);
+        result.addMapping(attribute, new FloatLocalSimilarityFunction(10, 1)); //0.05! - interval and %
+        result.setWeight(attribute, 0.5);
 
         // impl
         attribute = new Attribute("impl", Description.class);
-        result.addMapping(attribute, new FloatLocalSimilarityFunction(100));
-        result.setWeight(attribute, weight);
+        result.addMapping(attribute, new FloatLocalSimilarityFunction(100, 1.0));
+        result.setWeight(attribute, 0.8);
 
-        // implPlan
-        attribute = new Attribute("implPlan", Description.class);
-        result.addMapping(attribute, new FloatLocalSimilarityFunction(100000));
-        result.setWeight(attribute, weight);
+//        // dynamics
+//        attribute = new Attribute("dynamics", Description.class);
+//        result.addMapping(attribute, new Equal());
+//        result.setWeight(attribute, 0.16);
+//
+//        // leadership
+//        attribute = new Attribute("leadership", Description.class);
+//        result.addMapping(attribute, new Equal());
+//        result.setWeight(attribute, 0.16);
 
-        // sickList
-        attribute = new Attribute("sickList", Description.class);
-        result.addMapping(attribute, new Equal());
-        result.setWeight(attribute, weight);
+        // end
 
-        // vacation
-        attribute = new Attribute("vacation", Description.class);
-        result.addMapping(attribute, new Equal());
-        result.setWeight(attribute, weight);
+        // begin{ПЕРСОНАЛЬНЫЕ ПАРАМЕТРЫ}
+
+//        // expierence
+//        attribute = new Attribute("expierence", Description.class);
+//        result.addMapping(attribute, new Equal());
+//        result.setWeight(attribute, 0.1);
+
+        // end
 
         return result;
     }
@@ -74,38 +77,38 @@ public class CreateSimilarityConfig {
 
         // avCheck
         attribute = new Attribute("avCheck", Description.class);
-        result.addMapping(attribute, new FloatLocalSimilarityFunction(5000));
+        result.addMapping(attribute, new FloatLocalSimilarityFunction(5000, 1.0));
         result.setWeight(attribute, 0.1);
 
         // itemsCount
         attribute = new Attribute("itemsCount", Description.class);
-        result.addMapping(attribute, new FloatLocalSimilarityFunction(7));
+        result.addMapping(attribute, new FloatLocalSimilarityFunction(7, 1.0));
         result.setWeight(attribute, 0.1);
 
-        // checksCount
-        attribute = new Attribute("checksCount", Description.class);
-        result.addMapping(attribute, new IntegerLocalSimilarityFunction());
-        result.setWeight(attribute, 0.05);
+//        // checksCount
+//        attribute = new Attribute("checksCount", Description.class);
+//        result.addMapping(attribute, new IntegerLocalSimilarityFunction());
+//        result.setWeight(attribute, 0.05);
 
         // impl
         attribute = new Attribute("impl", Description.class);
-        result.addMapping(attribute, new FloatLocalSimilarityFunction(100));
+        result.addMapping(attribute, new FloatLocalSimilarityFunction(100, 1.0));
         result.setWeight(attribute, 0.1);
 
-        // implPlan
-        attribute = new Attribute("implPlan", Description.class);
-        result.addMapping(attribute, new FloatLocalSimilarityFunction(100000));
-        result.setWeight(attribute, 0.05);
-
-        // sickList
-        attribute = new Attribute("sickList", Description.class);
-        result.addMapping(attribute, new Equal());
-        result.setWeight(attribute, 0.01);
-
-        // vacation
-        attribute = new Attribute("vacation", Description.class);
-        result.addMapping(attribute, new Equal());
-        result.setWeight(attribute, 0.01);
+//        // implPlan
+//        attribute = new Attribute("implPlan", Description.class);
+//        result.addMapping(attribute, new FloatLocalSimilarityFunction(100000));
+//        result.setWeight(attribute, 0.05);
+//
+//        // sickList
+//        attribute = new Attribute("sickList", Description.class);
+//        result.addMapping(attribute, new Equal());
+//        result.setWeight(attribute, 0.01);
+//
+//        // vacation
+//        attribute = new Attribute("vacation", Description.class);
+//        result.addMapping(attribute, new Equal());
+//        result.setWeight(attribute, 0.01);
 
         return result;
     }

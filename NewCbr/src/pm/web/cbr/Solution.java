@@ -21,9 +21,11 @@ public class Solution implements CaseComponent {
     private Instance mainConcept;
     /** Множество проблем. */
     private Instance problems;
+    /** Массив проблем. */
     private Instance[] problemsArray;
     /** Множество рекомендаций. */
     private Instance solutions;
+    /** Массив рекомендаций. */
     private Instance[] solutionsArray;
 
     /**
