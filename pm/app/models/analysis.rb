@@ -8,9 +8,9 @@ class Analysis < ActiveRecord::Base
     Consultant.all.each do |consultant|
       unless ParamValue.find_by(:consultant_id => consultant.id, :date_id => _id, :param_id => [1, 2, 3, 4, 5, 6]).nil?
         problems = []
-        AnalysisProblemConnect.where(:analysis_id => _id, :consultant_id => consultant.id).each { |it| problems.push it.problem.description }
+        AnalysisProblemConnect.where(:analysis_id => _id, :consultant_id => consultant.id).each { |it| problems.push it.problem.description if it.problem.present? }
         solutions = []
-        AnalysisSolutionConnect.where(:analysis_id => _id, :consultant_id => consultant.id).each { |it| solutions.push it.solution.description }
+        AnalysisSolutionConnect.where(:analysis_id => _id, :consultant_id => consultant.id).each { |it| solutions.push it.solution.description if it.solution.present? }
         hash = {}
         hash[:name] = consultant.short_name
         ind_plan = ParamValue.find_by(:consultant_id => consultant.id, :date_id => _id, :param_id => 1)

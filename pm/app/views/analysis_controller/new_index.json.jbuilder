@@ -24,7 +24,8 @@ json.array! @consultants.each do |item|
     problems_string = ''
     problems = []
     uri = ''
-    AnalysisProblemConnect.where(:analysis_id => @analyse.id, :consultant_id => item.id).each { |it| problems_string = it.problem.description; uri = it.problem.uri }
+    buffer = AnalysisProblemConnect.where(:analysis_id => @analyse.id, :consultant_id => item.id)
+    buffer.each { |it| problems_string = it.problem.description; uri = it.problem.uri } if buffer.present?
     problems = problems_string.split(' И ')
     json.problems do
       json.uri uri
@@ -33,7 +34,8 @@ json.array! @consultants.each do |item|
       end
     end
     solutions = []
-    AnalysisSolutionConnect.where(:analysis_id => @analyse.id, :consultant_id => item.id).each { |it| solutions.push it.solution.description }
+    sln = AnalysisSolutionConnect.where(:analysis_id => @analyse.id, :consultant_id => item.id)
+    sln.each { |it| solutions.push it.solution.description } if sln.present?
     json.solutions do
       json.value do
         json.array! solutions.uniq
