@@ -1,4 +1,4 @@
-; Wed Jun 04 09:50:30 MSK 2014
+; Sat Jun 07 10:45:31 MSK 2014
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -6,14 +6,14 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[pm-new-simple_ProjectKB_Class10055]
-		[pm-new-simple_ProjectKB_Class10056]
-		[pm-new-simple_ProjectKB_Class10057]
-		[pm-new-simple_ProjectKB_Class10058]
-		[pm-new-simple_ProjectKB_Class10059]
-		[pm-new-simple_ProjectKB_Class10060]
-		[pm-new-simple_ProjectKB_Class10061]
-		[pm-new-simple_ProjectKB_Class10062]))
+		[pm-new-simple_ProjectKB_Class30345]
+		[pm-new-simple_ProjectKB_Class30346]
+		[pm-new-simple_ProjectKB_Class30347]
+		[pm-new-simple_ProjectKB_Class30348]
+		[pm-new-simple_ProjectKB_Class30349]
+		[pm-new-simple_ProjectKB_Class30350]
+		[pm-new-simple_ProjectKB_Class30351]
+		[pm-new-simple_ProjectKB_Class30352]))
 
 ([CLSES_TAB] of  Widget
 
@@ -3009,7 +3009,7 @@
 ([KB_713803_Instance_981] of  Property_List
 )
 
-([KB_720845_Class0] of  Map
+([KB_740363_Class0] of  Map
 )
 
 ([KB_764103_Instance_545] of  Widget
@@ -5365,46 +5365,6 @@
 	(x 890)
 	(y 220))
 
-([pm-new-simple_ProjectKB_Class10055] of  String
-
-	(name ":INSTANCE-ANNOTATION")
-	(string_value "%3AANNOTATION-TEXT"))
-
-([pm-new-simple_ProjectKB_Class10056] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Thing")
-	(string_value "%3ANAME"))
-
-([pm-new-simple_ProjectKB_Class10057] of  String
-
-	(name "http://www.owl-ontologies.com/pm-web.owl#Leadership_qualities")
-	(string_value "http%3A%2F%2Fwww.owl-ontologies.com%2Fpm-web.owl%23value"))
-
-([pm-new-simple_ProjectKB_Class10058] of  String
-
-	(name "http://www.owl-ontologies.com/pm-web.owl#Dynamics")
-	(string_value "http%3A%2F%2Fwww.owl-ontologies.com%2Fpm-web.owl%23value"))
-
-([pm-new-simple_ProjectKB_Class10059] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Class")
-	(string_value "%3ANAME"))
-
-([pm-new-simple_ProjectKB_Class10060] of  String
-
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
-
-([pm-new-simple_ProjectKB_Class10061] of  String
-
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
-
-([pm-new-simple_ProjectKB_Class10062] of  String
-
-	(name "http://www.owl-ontologies.com/pm-web.owl#Expierence")
-	(string_value "http%3A%2F%2Fwww.owl-ontologies.com%2Fpm-web.owl%23value"))
-
 ([pm-new-simple_ProjectKB_Class10099] of  Widget
 
 	(height 60)
@@ -5430,8 +5390,8 @@
 	(property_list [pm-new-simple_ProjectKB_Class103])
 	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.MultiResourceWidget")
 	(width 200)
-	(x 400)
-	(y 180))
+	(x 640)
+	(y 150))
 
 ([pm-new-simple_ProjectKB_Class103] of  Property_List
 )
@@ -5444,8 +5404,8 @@
 	(property_list [pm-new-simple_ProjectKB_Class105])
 	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.MultiResourceWidget")
 	(width 200)
-	(x 540)
-	(y 320))
+	(x 220)
+	(y 150))
 
 ([pm-new-simple_ProjectKB_Class105] of  Property_List
 )
@@ -5577,6 +5537,46 @@
 ([pm-new-simple_ProjectKB_Class30] of  Property_List
 )
 
+([pm-new-simple_ProjectKB_Class30345] of  String
+
+	(name ":INSTANCE-ANNOTATION")
+	(string_value "%3AANNOTATION-TEXT"))
+
+([pm-new-simple_ProjectKB_Class30346] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Thing")
+	(string_value "%3ANAME"))
+
+([pm-new-simple_ProjectKB_Class30347] of  String
+
+	(name "http://www.owl-ontologies.com/pm-web.owl#Leadership_qualities")
+	(string_value "http%3A%2F%2Fwww.owl-ontologies.com%2Fpm-web.owl%23value"))
+
+([pm-new-simple_ProjectKB_Class30348] of  String
+
+	(name "http://www.owl-ontologies.com/pm-web.owl#Dynamics")
+	(string_value "http%3A%2F%2Fwww.owl-ontologies.com%2Fpm-web.owl%23value"))
+
+([pm-new-simple_ProjectKB_Class30349] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Class")
+	(string_value "%3ANAME"))
+
+([pm-new-simple_ProjectKB_Class30350] of  String
+
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
+
+([pm-new-simple_ProjectKB_Class30351] of  String
+
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
+
+([pm-new-simple_ProjectKB_Class30352] of  String
+
+	(name "http://www.owl-ontologies.com/pm-web.owl#Expierence")
+	(string_value "http%3A%2F%2Fwww.owl-ontologies.com%2Fpm-web.owl%23value"))
+
 ([pm-new-simple_ProjectKB_Class31] of  Widget
 
 	(is_hidden TRUE)
@@ -5591,8 +5591,8 @@
 	(property_list [pm-new-simple_ProjectKB_Class320])
 	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.SingleLiteralWidget")
 	(width 200)
-	(x 10)
-	(y 420))
+	(x 670)
+	(y 80))
 
 ([pm-new-simple_ProjectKB_Class32] of  Property_List
 )
@@ -5864,7 +5864,7 @@
 	(property_list [pm-new-simple_ProjectKB_Class79])
 	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.SingleResourceWidget")
 	(width 200)
-	(x 320)
+	(x 220)
 	(y 20))
 
 ([pm-new-simple_ProjectKB_Class79] of  Property_List
@@ -5909,8 +5909,8 @@
 	(property_list [pm-new-simple_ProjectKB_Class85])
 	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.SingleResourceWidget")
 	(width 200)
-	(x 450)
-	(y 90))
+	(x 220)
+	(y 80))
 
 ([pm-new-simple_ProjectKB_Class85] of  Property_List
 )
@@ -5937,8 +5937,8 @@
 	(property_list [pm-new-simple_ProjectKB_Class89])
 	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.MultiResourceWidget")
 	(width 200)
-	(x 650)
-	(y 250))
+	(x 220)
+	(y 290))
 
 ([pm-new-simple_ProjectKB_Class89] of  Property_List
 )
