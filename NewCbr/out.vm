@@ -1,0 +1,34 @@
+﻿<html>
+<head>
+	<title>$experiment_label</title>
+	<style>
+		.table td {
+			border: 1px solid black;
+			background-color: #FFCCCC;
+		}
+		.table th {
+			background-color: #FF6633;
+		}
+	</style>
+</head>
+<body>
+<h1>$experiment_label</h1>
+<table class="table">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>$table_head_1</th>
+			<th>$table_head_2</th>
+			<th>$table_head_3</th>
+			<th>$table_head_4</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		#foreach( $item in $results )
+			<tr><td>$foreach.count</td><td>$item.getCbrProblem()</td><td>$item.getRealProblem()</td><td>$item.getCbrSolution()</td><td>$item.getRealSolution()</td><td>$item.getEval()</td></tr>
+		#end
+	</tbody>
+</table>
+</body>
+</html>

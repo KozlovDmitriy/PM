@@ -1,0 +1,38 @@
+<component name="libraryTable">
+  <library name="jcolibri2">
+    <CLASSES>
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/jcolibri2.jar!/" />
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/ontobridge/ontobridge.jar!/" />
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/ontobridge/pellet/aterm-java-1.6.jar!/" />
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/ontobridge/pellet/pellet.jar!/" />
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/ontobridge/pellet/servlet.jar!/" />
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/ontobridge/pellet/xsdlib/relaxngDatatype.jar!/" />
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/ontobridge/pellet/xsdlib/xsdlib.jar!/" />
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/ontobridge/pellet/owlapi/abstractparser.jar!/" />
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/ontobridge/pellet/owlapi/api.jar!/" />
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/ontobridge/pellet/owlapi/impl.jar!/" />
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/ontobridge/pellet/owlapi/inference.jar!/" />
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/ontobridge/pellet/owlapi/io.jar!/" />
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/ontobridge/pellet/owlapi/owl-servlet.jar!/" />
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/ontobridge/pellet/owlapi/rdfapi.jar!/" />
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/ontobridge/pellet/owlapi/rdfparser.jar!/" />
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/ontobridge/pellet/owlapi/rules.jar!/" />
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/ontobridge/pellet/owlapi/validation.jar!/" />
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/ontobridge/pellet/jetty/jetty.jar!/" />
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/ontobridge/jena/arq.jar!/" />
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/ontobridge/jena/concurrent.jar!/" />
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/ontobridge/jena/icu4j_3_4.jar!/" />
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/ontobridge/jena/iri.jar!/" />
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/ontobridge/jena/jena.jar!/" />
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/ontobridge/jena/json.jar!/" />
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/ontobridge/jena/wstx-asl-2.8.jar!/" />
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/ontobridge/jena/xercesImpl.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/ontobridge/ontobridge.jar!/doc" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://C:/Program Files (x86)/jCOLIBRI2/lib/ontobridge/ontobridge.jar!/" />
+    </SOURCES>
+  </library>
+</component>

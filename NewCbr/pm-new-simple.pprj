@@ -1,4 +1,4 @@
-; Sun Jun 01 14:23:20 MSK 2014
+; Sat Jun 07 10:45:31 MSK 2014
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -6,12 +6,14 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[pm-new_ProjectKB_Class20177]
-		[pm-new_ProjectKB_Class20178]
-		[pm-new_ProjectKB_Class20179]
-		[pm-new_ProjectKB_Class20180]
-		[pm-new_ProjectKB_Class20181]
-		[pm-new_ProjectKB_Class20182]))
+		[pm-new-simple_ProjectKB_Class30345]
+		[pm-new-simple_ProjectKB_Class30346]
+		[pm-new-simple_ProjectKB_Class30347]
+		[pm-new-simple_ProjectKB_Class30348]
+		[pm-new-simple_ProjectKB_Class30349]
+		[pm-new-simple_ProjectKB_Class30350]
+		[pm-new-simple_ProjectKB_Class30351]
+		[pm-new-simple_ProjectKB_Class30352]))
 
 ([CLSES_TAB] of  Widget
 
@@ -751,15 +753,12 @@
 ([KB_325529_Class4] of  String
 
 	(name "owl_file_name")
-	(string_value "pm-new.owl"))
-
-([KB_418078_Class0] of  Map
-)
+	(string_value "pm-new-simple.owl"))
 
 ([KB_444675_Instance_0] of  String
 
 	(name "SwitchableClassDefinitionType")
-	(string_value "edu.stanford.smi.protegex.owl.ui.cls.PropertiesClassDefinitionWidget"))
+	(string_value "edu.stanford.smi.protegex.owl.ui.cls.PropertiesClassDefinitionWidgetType"))
 
 ([KB_465546_Instance_567] of  Widget
 
@@ -3008,6 +3007,9 @@
 	(property_list [KB_713803_Instance_981]))
 
 ([KB_713803_Instance_981] of  Property_List
+)
+
+([KB_740363_Class0] of  Map
 )
 
 ([KB_764103_Instance_545] of  Widget
@@ -5343,1229 +5345,688 @@
 	(x 0)
 	(y 0))
 
-([pm-new_ProjectKB_Class1] of  Widget
+([pm-new-simple_ProjectKB_Class1] of  Widget
 
 	(is_hidden TRUE)
-	(property_list [pm-new_ProjectKB_Class2])
+	(property_list [pm-new-simple_ProjectKB_Class2])
 	(widget_class_name "org.protege.owl.mm.portability.protege3.MappingMasterTab"))
 
-([pm-new_ProjectKB_Class10] of  Property_List
+([pm-new-simple_ProjectKB_Class10] of  Property_List
 )
 
-([pm-new_ProjectKB_Class100] of  Widget
+([pm-new-simple_ProjectKB_Class100] of  Widget
 
 	(height 60)
 	(is_hidden FALSE)
 	(name "http://www.owl-ontologies.com/pm-web.owl#id")
-	(property_list [pm-new_ProjectKB_Class101])
+	(property_list [pm-new-simple_ProjectKB_Class101])
 	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.SingleLiteralWidget")
 	(width 200)
-	(x 760)
-	(y 20))
+	(x 890)
+	(y 220))
 
-([pm-new_ProjectKB_Class101] of  Property_List
-)
-
-([pm-new_ProjectKB_Class10150] of  Property_List
-
-	(properties [pm-new_ProjectKB_Class10151]))
-
-([pm-new_ProjectKB_Class10151] of  Boolean
-
-	(boolean_value TRUE)
-	(name "DisabledByUser"))
-
-([pm-new_ProjectKB_Class10152] of  Property_List
-
-	(name "layout properties")
-	(properties
-		[pm-new_ProjectKB_Class10153]
-		[pm-new_ProjectKB_Class10154]))
-
-([pm-new_ProjectKB_Class10153] of  String
-
-	(name "horizontal_stretcher")
-	(string_value "<<all>>"))
-
-([pm-new_ProjectKB_Class10154] of  String
-
-	(name "vertical_stretcher")
-	(string_value "<<none>>"))
-
-([pm-new_ProjectKB_Class10155] of  Widget
-
-	(height 180)
-	(is_hidden FALSE)
-	(name "http://protege.stanford.edu/plugins/owl/protege#inferredType")
-	(property_list [pm-new_ProjectKB_Class10156])
-	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.HeaderWidget")
-	(width 550)
-	(x 0)
-	(y 0))
-
-([pm-new_ProjectKB_Class10156] of  Property_List
-
-	(properties [pm-new_ProjectKB_Class10157]))
-
-([pm-new_ProjectKB_Class10157] of  Boolean
-
-	(boolean_value FALSE)
-	(name "DisabledByUser"))
-
-([pm-new_ProjectKB_Class10158] of  Widget
-
-	(is_hidden FALSE)
-	(name "http://www.w3.org/2002/07/owl#versionInfo")
-	(property_list [pm-new_ProjectKB_Class10159]))
-
-([pm-new_ProjectKB_Class10159] of  Property_List
-)
-
-([pm-new_ProjectKB_Class10160] of  Widget
-
-	(is_hidden FALSE)
-	(name "http://www.w3.org/2000/01/rdf-schema#isDefinedBy")
-	(property_list [pm-new_ProjectKB_Class10161]))
-
-([pm-new_ProjectKB_Class10161] of  Property_List
-)
-
-([pm-new_ProjectKB_Class10162] of  Widget
-
-	(is_hidden FALSE)
-	(name "http://www.w3.org/2000/01/rdf-schema#comment")
-	(property_list [pm-new_ProjectKB_Class10163]))
-
-([pm-new_ProjectKB_Class10163] of  Property_List
-)
-
-([pm-new_ProjectKB_Class10164] of  Widget
-
-	(is_hidden FALSE)
-	(name "http://www.w3.org/2000/01/rdf-schema#seeAlso")
-	(property_list [pm-new_ProjectKB_Class10165]))
-
-([pm-new_ProjectKB_Class10165] of  Property_List
-)
-
-([pm-new_ProjectKB_Class10166] of  Widget
-
-	(is_hidden FALSE)
-	(name "http://www.w3.org/2000/01/rdf-schema#label")
-	(property_list [pm-new_ProjectKB_Class10167]))
-
-([pm-new_ProjectKB_Class10167] of  Property_List
-)
-
-([pm-new_ProjectKB_Class10168] of  Widget
+([pm-new-simple_ProjectKB_Class10099] of  Widget
 
 	(height 60)
 	(is_hidden FALSE)
-	(name "http://www.owl-ontologies.com/pm-web.owl#db_id")
-	(property_list [pm-new_ProjectKB_Class10169])
-	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.SingleLiteralWidget")
+	(name "http://www.owl-ontologies.com/pm-web.owl#index_expierence")
+	(property_list [pm-new-simple_ProjectKB_Class10100])
+	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.SingleResourceWidget")
 	(width 200)
-	(x 0)
-	(y 180))
+	(x 10)
+	(y 210))
 
-([pm-new_ProjectKB_Class10169] of  Property_List
+([pm-new-simple_ProjectKB_Class101] of  Property_List
 )
 
-([pm-new_ProjectKB_Class10170] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "http://www.owl-ontologies.com/pm-web.owl#value")
-	(property_list [pm-new_ProjectKB_Class10171])
-	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.SingleLiteralWidget")
-	(width 540)
-	(x 0)
-	(y 300))
-
-([pm-new_ProjectKB_Class10171] of  Property_List
+([pm-new-simple_ProjectKB_Class10100] of  Property_List
 )
 
-([pm-new_ProjectKB_Class10172] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "http://www.owl-ontologies.com/pm-web.owl#id")
-	(property_list [pm-new_ProjectKB_Class10173])
-	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.SingleLiteralWidget")
-	(width 200)
-	(x 0)
-	(y 240))
-
-([pm-new_ProjectKB_Class10173] of  Property_List
-)
-
-([pm-new_ProjectKB_Class10179] of  Widget
-
-	(is_hidden FALSE)
-	(name "http://www.owl-ontologies.com/pm-web.owl#Object")
-	(property_list [pm-new_ProjectKB_Class10182])
-	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.OWLFormWidget"))
-
-([pm-new_ProjectKB_Class10182] of  Property_List
-
-	(properties
-		[pm-new_ProjectKB_Class10183]
-		[pm-new_ProjectKB_Class10186]
-		[pm-new_ProjectKB_Class10189]
-		[pm-new_ProjectKB_Class10192]
-		[pm-new_ProjectKB_Class10194]
-		[pm-new_ProjectKB_Class10196]
-		[pm-new_ProjectKB_Class10198]
-		[pm-new_ProjectKB_Class10200]
-		[pm-new_ProjectKB_Class10202]
-		[pm-new_ProjectKB_Class10204]
-		[pm-new_ProjectKB_Class10206]))
-
-([pm-new_ProjectKB_Class10183] of  Widget
-
-	(height 0)
-	(is_hidden FALSE)
-	(label "Name")
-	(name ":NAME")
-	(property_list [pm-new_ProjectKB_Class10184])
-	(width 0)
-	(x 0)
-	(y 0))
-
-([pm-new_ProjectKB_Class10184] of  Property_List
-
-	(properties [pm-new_ProjectKB_Class10185]))
-
-([pm-new_ProjectKB_Class10185] of  Boolean
-
-	(boolean_value TRUE)
-	(name "DisabledByUser"))
-
-([pm-new_ProjectKB_Class10186] of  Property_List
-
-	(name "layout properties")
-	(properties
-		[pm-new_ProjectKB_Class10187]
-		[pm-new_ProjectKB_Class10188]))
-
-([pm-new_ProjectKB_Class10187] of  String
-
-	(name "horizontal_stretcher")
-	(string_value "<<all>>"))
-
-([pm-new_ProjectKB_Class10188] of  String
-
-	(name "vertical_stretcher")
-	(string_value "<<none>>"))
-
-([pm-new_ProjectKB_Class10189] of  Widget
-
-	(height 180)
-	(is_hidden FALSE)
-	(name "http://protege.stanford.edu/plugins/owl/protege#inferredType")
-	(property_list [pm-new_ProjectKB_Class10190])
-	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.HeaderWidget")
-	(width 550)
-	(x 0)
-	(y 0))
-
-([pm-new_ProjectKB_Class10190] of  Property_List
-
-	(properties [pm-new_ProjectKB_Class10191]))
-
-([pm-new_ProjectKB_Class10191] of  Boolean
-
-	(boolean_value FALSE)
-	(name "DisabledByUser"))
-
-([pm-new_ProjectKB_Class10192] of  Widget
-
-	(is_hidden FALSE)
-	(name "http://www.w3.org/2002/07/owl#versionInfo")
-	(property_list [pm-new_ProjectKB_Class10193]))
-
-([pm-new_ProjectKB_Class10193] of  Property_List
-)
-
-([pm-new_ProjectKB_Class10194] of  Widget
-
-	(is_hidden FALSE)
-	(name "http://www.w3.org/2000/01/rdf-schema#isDefinedBy")
-	(property_list [pm-new_ProjectKB_Class10195]))
-
-([pm-new_ProjectKB_Class10195] of  Property_List
-)
-
-([pm-new_ProjectKB_Class10196] of  Widget
-
-	(is_hidden FALSE)
-	(name "http://www.w3.org/2000/01/rdf-schema#comment")
-	(property_list [pm-new_ProjectKB_Class10197]))
-
-([pm-new_ProjectKB_Class10197] of  Property_List
-)
-
-([pm-new_ProjectKB_Class10198] of  Widget
-
-	(is_hidden FALSE)
-	(name "http://www.w3.org/2000/01/rdf-schema#seeAlso")
-	(property_list [pm-new_ProjectKB_Class10199]))
-
-([pm-new_ProjectKB_Class10199] of  Property_List
-)
-
-([pm-new_ProjectKB_Class102] of  Widget
+([pm-new-simple_ProjectKB_Class102] of  Widget
 
 	(height 120)
 	(is_hidden FALSE)
 	(name "http://www.owl-ontologies.com/pm-web.owl#ObjectProperty_4")
-	(property_list [pm-new_ProjectKB_Class103])
+	(property_list [pm-new-simple_ProjectKB_Class103])
 	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.MultiResourceWidget")
 	(width 200)
-	(x 570)
-	(y 90))
+	(x 640)
+	(y 150))
 
-([pm-new_ProjectKB_Class10200] of  Widget
-
-	(is_hidden FALSE)
-	(name "http://www.w3.org/2000/01/rdf-schema#label")
-	(property_list [pm-new_ProjectKB_Class10201]))
-
-([pm-new_ProjectKB_Class10201] of  Property_List
+([pm-new-simple_ProjectKB_Class103] of  Property_List
 )
 
-([pm-new_ProjectKB_Class10202] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "http://www.owl-ontologies.com/pm-web.owl#db_id")
-	(property_list [pm-new_ProjectKB_Class10203])
-	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.SingleLiteralWidget")
-	(width 200)
-	(x 0)
-	(y 180))
-
-([pm-new_ProjectKB_Class10203] of  Property_List
-)
-
-([pm-new_ProjectKB_Class10204] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "http://www.owl-ontologies.com/pm-web.owl#value")
-	(property_list [pm-new_ProjectKB_Class10205])
-	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.SingleLiteralWidget")
-	(width 550)
-	(x 0)
-	(y 300))
-
-([pm-new_ProjectKB_Class10205] of  Property_List
-)
-
-([pm-new_ProjectKB_Class10206] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "http://www.owl-ontologies.com/pm-web.owl#id")
-	(property_list [pm-new_ProjectKB_Class10207])
-	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.SingleLiteralWidget")
-	(width 200)
-	(x 0)
-	(y 240))
-
-([pm-new_ProjectKB_Class10207] of  Property_List
-)
-
-([pm-new_ProjectKB_Class103] of  Property_List
-)
-
-([pm-new_ProjectKB_Class104] of  Widget
+([pm-new-simple_ProjectKB_Class104] of  Widget
 
 	(height 120)
 	(is_hidden FALSE)
-	(label "Проблемы")
 	(name "http://www.owl-ontologies.com/pm-web.owl#index_problems")
-	(property_list [pm-new_ProjectKB_Class105])
+	(property_list [pm-new-simple_ProjectKB_Class105])
 	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.MultiResourceWidget")
 	(width 200)
-	(x 200)
-	(y 300))
+	(x 220)
+	(y 150))
 
-([pm-new_ProjectKB_Class10441] of  String
+([pm-new-simple_ProjectKB_Class105] of  Property_List
+)
 
-	(name "tooltip_text"))
-
-([pm-new_ProjectKB_Class10442] of  Boolean
-
-	(boolean_value FALSE)
-	(name "readOnly_configured"))
-
-([pm-new_ProjectKB_Class10443] of  String
-
-	(name "tooltip_text"))
-
-([pm-new_ProjectKB_Class10444] of  Boolean
-
-	(boolean_value FALSE)
-	(name "readOnly_configured"))
-
-([pm-new_ProjectKB_Class10450] of  String
-
-	(name "tooltip_text"))
-
-([pm-new_ProjectKB_Class10451] of  Boolean
-
-	(boolean_value FALSE)
-	(name "readOnly_configured"))
-
-([pm-new_ProjectKB_Class10452] of  String
-
-	(name "tooltip_text"))
-
-([pm-new_ProjectKB_Class10453] of  Boolean
-
-	(boolean_value FALSE)
-	(name "readOnly_configured"))
-
-([pm-new_ProjectKB_Class10454] of  String
-
-	(name "tooltip_text"))
-
-([pm-new_ProjectKB_Class10455] of  Boolean
-
-	(boolean_value FALSE)
-	(name "readOnly_configured"))
-
-([pm-new_ProjectKB_Class10458] of  String
-
-	(name "tooltip_text"))
-
-([pm-new_ProjectKB_Class10459] of  Boolean
-
-	(boolean_value FALSE)
-	(name "readOnly_configured"))
-
-([pm-new_ProjectKB_Class10460] of  String
-
-	(name "tooltip_text"))
-
-([pm-new_ProjectKB_Class10461] of  Boolean
-
-	(boolean_value FALSE)
-	(name "readOnly_configured"))
-
-([pm-new_ProjectKB_Class10462] of  String
-
-	(name "tooltip_text"))
-
-([pm-new_ProjectKB_Class10463] of  Boolean
-
-	(boolean_value FALSE)
-	(name "readOnly_configured"))
-
-([pm-new_ProjectKB_Class105] of  Property_List
-
-	(properties
-		[pm-new_ProjectKB_Class10460]
-		[pm-new_ProjectKB_Class10461]))
-
-([pm-new_ProjectKB_Class10855] of  Boolean
-
-	(boolean_value FALSE)
-	(name "DisabledByUser"))
-
-([pm-new_ProjectKB_Class11] of  Widget
+([pm-new-simple_ProjectKB_Class11] of  Widget
 
 	(is_hidden TRUE)
-	(property_list [pm-new_ProjectKB_Class12])
+	(property_list [pm-new-simple_ProjectKB_Class12])
 	(widget_class_name "edu.stanford.smi.protege.query.LuceneQueryPlugin"))
 
-([pm-new_ProjectKB_Class12] of  Property_List
+([pm-new-simple_ProjectKB_Class12] of  Property_List
 )
 
-([pm-new_ProjectKB_Class13] of  Widget
+([pm-new-simple_ProjectKB_Class13] of  Widget
 
 	(is_hidden TRUE)
-	(property_list [pm-new_ProjectKB_Class14])
+	(property_list [pm-new-simple_ProjectKB_Class14])
 	(widget_class_name "edu.stanford.smi.protege.widget.instance_tree.KnowledgeTreeTab"))
 
-([pm-new_ProjectKB_Class14] of  Property_List
+([pm-new-simple_ProjectKB_Class14] of  Property_List
 )
 
-([pm-new_ProjectKB_Class145] of  Widget
-
-	(is_hidden FALSE)
-	(name "http://www.owl-ontologies.com/pm-web.owl#Motivators")
-	(property_list [pm-new_ProjectKB_Class148])
-	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.OWLFormWidget"))
-
-([pm-new_ProjectKB_Class148] of  Property_List
-
-	(properties
-		[pm-new_ProjectKB_Class149]
-		[pm-new_ProjectKB_Class10152]
-		[pm-new_ProjectKB_Class10155]
-		[pm-new_ProjectKB_Class10158]
-		[pm-new_ProjectKB_Class10160]
-		[pm-new_ProjectKB_Class10162]
-		[pm-new_ProjectKB_Class10164]
-		[pm-new_ProjectKB_Class10166]
-		[pm-new_ProjectKB_Class10168]
-		[pm-new_ProjectKB_Class10170]
-		[pm-new_ProjectKB_Class10172]))
-
-([pm-new_ProjectKB_Class149] of  Widget
-
-	(height 0)
-	(is_hidden FALSE)
-	(label "Name")
-	(name ":NAME")
-	(property_list [pm-new_ProjectKB_Class10150])
-	(width 0)
-	(x 0)
-	(y 0))
-
-([pm-new_ProjectKB_Class15] of  Widget
+([pm-new-simple_ProjectKB_Class15] of  Widget
 
 	(is_hidden TRUE)
-	(property_list [pm-new_ProjectKB_Class16])
+	(property_list [pm-new-simple_ProjectKB_Class16])
 	(widget_class_name "edu.stanford.smi.protege.keywordsearch.StringSearch"))
 
-([pm-new_ProjectKB_Class150] of  Widget
-
-	(is_hidden FALSE)
-	(name "http://www.owl-ontologies.com/pm-web.owl#Financial_problems")
-	(property_list [pm-new_ProjectKB_Class153])
-	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.OWLFormWidget"))
-
-([pm-new_ProjectKB_Class153] of  Property_List
-
-	(properties
-		[pm-new_ProjectKB_Class154]
-		[pm-new_ProjectKB_Class157]
-		[pm-new_ProjectKB_Class160]
-		[pm-new_ProjectKB_Class163]
-		[pm-new_ProjectKB_Class165]
-		[pm-new_ProjectKB_Class167]
-		[pm-new_ProjectKB_Class169]
-		[pm-new_ProjectKB_Class171]
-		[pm-new_ProjectKB_Class173]
-		[pm-new_ProjectKB_Class175]
-		[pm-new_ProjectKB_Class177]))
-
-([pm-new_ProjectKB_Class154] of  Widget
-
-	(height 0)
-	(is_hidden FALSE)
-	(label "Name")
-	(name ":NAME")
-	(property_list [pm-new_ProjectKB_Class155])
-	(width 0)
-	(x 0)
-	(y 0))
-
-([pm-new_ProjectKB_Class155] of  Property_List
-
-	(properties [pm-new_ProjectKB_Class156]))
-
-([pm-new_ProjectKB_Class156] of  Boolean
-
-	(boolean_value TRUE)
-	(name "DisabledByUser"))
-
-([pm-new_ProjectKB_Class157] of  Property_List
-
-	(name "layout properties")
-	(properties
-		[pm-new_ProjectKB_Class158]
-		[pm-new_ProjectKB_Class159]))
-
-([pm-new_ProjectKB_Class158] of  String
-
-	(name "horizontal_stretcher")
-	(string_value "<<all>>"))
-
-([pm-new_ProjectKB_Class159] of  String
-
-	(name "vertical_stretcher")
-	(string_value "<<none>>"))
-
-([pm-new_ProjectKB_Class16] of  Property_List
+([pm-new-simple_ProjectKB_Class16] of  Property_List
 )
 
-([pm-new_ProjectKB_Class160] of  Widget
-
-	(height 180)
-	(is_hidden FALSE)
-	(name "http://protege.stanford.edu/plugins/owl/protege#inferredType")
-	(property_list [pm-new_ProjectKB_Class161])
-	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.HeaderWidget")
-	(width 550)
-	(x 0)
-	(y 0))
-
-([pm-new_ProjectKB_Class161] of  Property_List
-
-	(properties [pm-new_ProjectKB_Class162]))
-
-([pm-new_ProjectKB_Class162] of  Boolean
-
-	(boolean_value FALSE)
-	(name "DisabledByUser"))
-
-([pm-new_ProjectKB_Class163] of  Widget
-
-	(is_hidden FALSE)
-	(name "http://www.w3.org/2002/07/owl#versionInfo")
-	(property_list [pm-new_ProjectKB_Class164]))
-
-([pm-new_ProjectKB_Class164] of  Property_List
-)
-
-([pm-new_ProjectKB_Class165] of  Widget
-
-	(is_hidden FALSE)
-	(name "http://www.w3.org/2000/01/rdf-schema#isDefinedBy")
-	(property_list [pm-new_ProjectKB_Class166]))
-
-([pm-new_ProjectKB_Class166] of  Property_List
-)
-
-([pm-new_ProjectKB_Class167] of  Widget
-
-	(is_hidden FALSE)
-	(name "http://www.w3.org/2000/01/rdf-schema#comment")
-	(property_list [pm-new_ProjectKB_Class168]))
-
-([pm-new_ProjectKB_Class168] of  Property_List
-)
-
-([pm-new_ProjectKB_Class169] of  Widget
-
-	(is_hidden FALSE)
-	(name "http://www.w3.org/2000/01/rdf-schema#seeAlso")
-	(property_list [pm-new_ProjectKB_Class170]))
-
-([pm-new_ProjectKB_Class17] of  Widget
+([pm-new-simple_ProjectKB_Class17] of  Widget
 
 	(is_hidden TRUE)
-	(property_list [pm-new_ProjectKB_Class18])
+	(property_list [pm-new-simple_ProjectKB_Class18])
 	(widget_class_name "edu.stanford.smi.protegex.prompt.PromptTab"))
 
-([pm-new_ProjectKB_Class170] of  Property_List
+([pm-new-simple_ProjectKB_Class18] of  Property_List
 )
 
-([pm-new_ProjectKB_Class171] of  Widget
-
-	(is_hidden FALSE)
-	(name "http://www.w3.org/2000/01/rdf-schema#label")
-	(property_list [pm-new_ProjectKB_Class172]))
-
-([pm-new_ProjectKB_Class172] of  Property_List
-)
-
-([pm-new_ProjectKB_Class173] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "http://www.owl-ontologies.com/pm-web.owl#db_id")
-	(property_list [pm-new_ProjectKB_Class174])
-	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.SingleLiteralWidget")
-	(width 200)
-	(x 0)
-	(y 180))
-
-([pm-new_ProjectKB_Class174] of  Property_List
-)
-
-([pm-new_ProjectKB_Class175] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "http://www.owl-ontologies.com/pm-web.owl#value")
-	(property_list [pm-new_ProjectKB_Class176])
-	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.SingleLiteralWidget")
-	(width 570)
-	(x 0)
-	(y 300))
-
-([pm-new_ProjectKB_Class176] of  Property_List
-)
-
-([pm-new_ProjectKB_Class177] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "http://www.owl-ontologies.com/pm-web.owl#id")
-	(property_list [pm-new_ProjectKB_Class178])
-	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.SingleLiteralWidget")
-	(width 200)
-	(x 0)
-	(y 240))
-
-([pm-new_ProjectKB_Class178] of  Property_List
-)
-
-([pm-new_ProjectKB_Class18] of  Property_List
-)
-
-([pm-new_ProjectKB_Class19] of  Widget
+([pm-new-simple_ProjectKB_Class19] of  Widget
 
 	(is_hidden TRUE)
-	(property_list [pm-new_ProjectKB_Class20])
+	(property_list [pm-new-simple_ProjectKB_Class20])
 	(widget_class_name "edu.stanford.smi.protegex.widget.pal.PalConstraintsTab"))
 
-([pm-new_ProjectKB_Class2] of  Property_List
+([pm-new-simple_ProjectKB_Class2] of  Property_List
 )
 
-([pm-new_ProjectKB_Class20] of  Property_List
+([pm-new-simple_ProjectKB_Class20] of  Property_List
 )
 
-([pm-new_ProjectKB_Class20177] of  String
+([pm-new-simple_ProjectKB_Class20125] of  Widget
+
+	(height 60)
+	(is_hidden FALSE)
+	(name "http://www.owl-ontologies.com/pm-web.owl#index_leadership")
+	(property_list [pm-new-simple_ProjectKB_Class20126])
+	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.SingleResourceWidget")
+	(width 200)
+	(x 10)
+	(y 350))
+
+([pm-new-simple_ProjectKB_Class20126] of  Property_List
+)
+
+([pm-new-simple_ProjectKB_Class20156] of  Widget
+
+	(height 60)
+	(is_hidden FALSE)
+	(name "http://www.owl-ontologies.com/pm-web.owl#index_dynamics")
+	(property_list [pm-new-simple_ProjectKB_Class20157])
+	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.SingleResourceWidget")
+	(width 200)
+	(x 10)
+	(y 280))
+
+([pm-new-simple_ProjectKB_Class20157] of  Property_List
+)
+
+([pm-new-simple_ProjectKB_Class21] of  Widget
+
+	(is_hidden TRUE)
+	(property_list [pm-new-simple_ProjectKB_Class22])
+	(widget_class_name "ca.uvic.csr.shrimp.jambalaya.JambalayaTab"))
+
+([pm-new-simple_ProjectKB_Class22] of  Property_List
+)
+
+([pm-new-simple_ProjectKB_Class23] of  Widget
+
+	(is_hidden TRUE)
+	(property_list [pm-new-simple_ProjectKB_Class24])
+	(widget_class_name "edu.stanford.smi.protegex.changes.ChangesTab"))
+
+([pm-new-simple_ProjectKB_Class24] of  Property_List
+)
+
+([pm-new-simple_ProjectKB_Class25] of  Widget
+
+	(is_hidden TRUE)
+	(property_list [pm-new-simple_ProjectKB_Class26])
+	(widget_class_name "org.protege.owl.axiome.ui.AxiomeTab"))
+
+([pm-new-simple_ProjectKB_Class26] of  Property_List
+)
+
+([pm-new-simple_ProjectKB_Class27] of  Widget
+
+	(is_hidden TRUE)
+	(property_list [pm-new-simple_ProjectKB_Class28])
+	(widget_class_name "TGViztab.TGVizTab"))
+
+([pm-new-simple_ProjectKB_Class28] of  Property_List
+)
+
+([pm-new-simple_ProjectKB_Class29] of  Widget
+
+	(is_hidden TRUE)
+	(property_list [pm-new-simple_ProjectKB_Class30])
+	(widget_class_name "edu.stanford.smi.protege.widget.instance_tree.InstanceTreeTab"))
+
+([pm-new-simple_ProjectKB_Class3] of  Widget
+
+	(is_hidden TRUE)
+	(property_list [pm-new-simple_ProjectKB_Class4])
+	(widget_class_name "edu.stanford.smi.protege.widget.ProtegePropertiesTab"))
+
+([pm-new-simple_ProjectKB_Class30] of  Property_List
+)
+
+([pm-new-simple_ProjectKB_Class30345] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([pm-new_ProjectKB_Class20178] of  String
+([pm-new-simple_ProjectKB_Class30346] of  String
 
 	(name "http://www.w3.org/2002/07/owl#Thing")
 	(string_value "%3ANAME"))
 
-([pm-new_ProjectKB_Class20179] of  String
+([pm-new-simple_ProjectKB_Class30347] of  String
 
-	(name "http://www.owl-ontologies.com/pm-web.owl#Average_values_of_account_sum")
+	(name "http://www.owl-ontologies.com/pm-web.owl#Leadership_qualities")
 	(string_value "http%3A%2F%2Fwww.owl-ontologies.com%2Fpm-web.owl%23value"))
 
-([pm-new_ProjectKB_Class20180] of  String
+([pm-new-simple_ProjectKB_Class30348] of  String
+
+	(name "http://www.owl-ontologies.com/pm-web.owl#Dynamics")
+	(string_value "http%3A%2F%2Fwww.owl-ontologies.com%2Fpm-web.owl%23value"))
+
+([pm-new-simple_ProjectKB_Class30349] of  String
 
 	(name "http://www.w3.org/2002/07/owl#Class")
 	(string_value "%3ANAME"))
 
-([pm-new_ProjectKB_Class20181] of  String
+([pm-new-simple_ProjectKB_Class30350] of  String
 
 	(name ":PAL-CONSTRAINT")
 	(string_value "%3APAL-NAME"))
 
-([pm-new_ProjectKB_Class20182] of  String
+([pm-new-simple_ProjectKB_Class30351] of  String
 
 	(name ":META-CLASS")
 	(string_value "%3ANAME"))
 
-([pm-new_ProjectKB_Class21] of  Widget
+([pm-new-simple_ProjectKB_Class30352] of  String
+
+	(name "http://www.owl-ontologies.com/pm-web.owl#Expierence")
+	(string_value "http%3A%2F%2Fwww.owl-ontologies.com%2Fpm-web.owl%23value"))
+
+([pm-new-simple_ProjectKB_Class31] of  Widget
 
 	(is_hidden TRUE)
-	(property_list [pm-new_ProjectKB_Class22])
-	(widget_class_name "ca.uvic.csr.shrimp.jambalaya.JambalayaTab"))
-
-([pm-new_ProjectKB_Class22] of  Property_List
-)
-
-([pm-new_ProjectKB_Class23] of  Widget
-
-	(is_hidden TRUE)
-	(property_list [pm-new_ProjectKB_Class24])
-	(widget_class_name "edu.stanford.smi.protegex.changes.ChangesTab"))
-
-([pm-new_ProjectKB_Class24] of  Property_List
-)
-
-([pm-new_ProjectKB_Class25] of  Widget
-
-	(is_hidden TRUE)
-	(property_list [pm-new_ProjectKB_Class26])
-	(widget_class_name "org.protege.owl.axiome.ui.AxiomeTab"))
-
-([pm-new_ProjectKB_Class26] of  Property_List
-)
-
-([pm-new_ProjectKB_Class27] of  Widget
-
-	(is_hidden TRUE)
-	(property_list [pm-new_ProjectKB_Class28])
-	(widget_class_name "TGViztab.TGVizTab"))
-
-([pm-new_ProjectKB_Class28] of  Property_List
-)
-
-([pm-new_ProjectKB_Class29] of  Widget
-
-	(is_hidden TRUE)
-	(property_list [pm-new_ProjectKB_Class30])
-	(widget_class_name "edu.stanford.smi.protege.widget.instance_tree.InstanceTreeTab"))
-
-([pm-new_ProjectKB_Class3] of  Widget
-
-	(is_hidden TRUE)
-	(property_list [pm-new_ProjectKB_Class4])
-	(widget_class_name "edu.stanford.smi.protege.widget.ProtegePropertiesTab"))
-
-([pm-new_ProjectKB_Class30] of  Property_List
-)
-
-([pm-new_ProjectKB_Class31] of  Widget
-
-	(is_hidden TRUE)
-	(property_list [pm-new_ProjectKB_Class32])
+	(property_list [pm-new-simple_ProjectKB_Class32])
 	(widget_class_name "edu.stanford.smi.protegex.evaluation.MetaAnalysis"))
 
-([pm-new_ProjectKB_Class32] of  Property_List
+([pm-new-simple_ProjectKB_Class319] of  Widget
+
+	(height 60)
+	(is_hidden FALSE)
+	(name "http://www.owl-ontologies.com/pm-web.owl#recommendations")
+	(property_list [pm-new-simple_ProjectKB_Class320])
+	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.SingleLiteralWidget")
+	(width 200)
+	(x 670)
+	(y 80))
+
+([pm-new-simple_ProjectKB_Class32] of  Property_List
 )
 
-([pm-new_ProjectKB_Class33] of  Widget
+([pm-new-simple_ProjectKB_Class320] of  Property_List
+)
+
+([pm-new-simple_ProjectKB_Class33] of  Widget
 
 	(is_hidden TRUE)
-	(property_list [pm-new_ProjectKB_Class34])
+	(property_list [pm-new-simple_ProjectKB_Class34])
 	(widget_class_name "edu.stanford.smi.protegex.changes.changesKBViewTab.ChangesKBViewTab"))
 
-([pm-new_ProjectKB_Class34] of  Property_List
+([pm-new-simple_ProjectKB_Class34] of  Property_List
 )
 
-([pm-new_ProjectKB_Class35] of  Widget
+([pm-new-simple_ProjectKB_Class35] of  Widget
 
 	(is_hidden TRUE)
-	(property_list [pm-new_ProjectKB_Class36])
+	(property_list [pm-new-simple_ProjectKB_Class36])
 	(widget_class_name "se.liu.ida.JessTab.JessTab"))
 
-([pm-new_ProjectKB_Class36] of  Property_List
+([pm-new-simple_ProjectKB_Class36] of  Property_List
 )
 
-([pm-new_ProjectKB_Class37] of  Widget
+([pm-new-simple_ProjectKB_Class37] of  Widget
 
 	(is_hidden TRUE)
-	(property_list [pm-new_ProjectKB_Class38])
+	(property_list [pm-new-simple_ProjectKB_Class38])
 	(widget_class_name "edu.stanford.smi.protegex.changeanalysis.ChangeAnalysisTab"))
 
-([pm-new_ProjectKB_Class38] of  Property_List
+([pm-new-simple_ProjectKB_Class38] of  Property_List
 )
 
-([pm-new_ProjectKB_Class39] of  Widget
+([pm-new-simple_ProjectKB_Class39] of  Widget
 
 	(is_hidden TRUE)
-	(property_list [pm-new_ProjectKB_Class40])
+	(property_list [pm-new-simple_ProjectKB_Class40])
 	(widget_class_name "uk.ac.man.cs.mig.coode.owlviz.ui.OWLVizTab"))
 
-([pm-new_ProjectKB_Class4] of  Property_List
+([pm-new-simple_ProjectKB_Class4] of  Property_List
 )
 
-([pm-new_ProjectKB_Class40] of  Property_List
+([pm-new-simple_ProjectKB_Class40] of  Property_List
 )
 
-([pm-new_ProjectKB_Class41] of  Widget
+([pm-new-simple_ProjectKB_Class41] of  Widget
 
 	(is_hidden TRUE)
-	(property_list [pm-new_ProjectKB_Class42])
+	(property_list [pm-new-simple_ProjectKB_Class42])
 	(widget_class_name "edu.stanford.smi.protegex.changes.stats.ChangeStatisticsTab"))
 
-([pm-new_ProjectKB_Class42] of  Property_List
+([pm-new-simple_ProjectKB_Class42] of  Property_List
 )
 
-([pm-new_ProjectKB_Class43] of  Widget
+([pm-new-simple_ProjectKB_Class43] of  Widget
 
 	(is_hidden TRUE)
-	(property_list [pm-new_ProjectKB_Class44])
+	(property_list [pm-new-simple_ProjectKB_Class44])
 	(widget_class_name "script.ProtegeScriptTab"))
 
-([pm-new_ProjectKB_Class44] of  Property_List
+([pm-new-simple_ProjectKB_Class44] of  Property_List
 )
 
-([pm-new_ProjectKB_Class45] of  Widget
+([pm-new-simple_ProjectKB_Class45] of  Widget
 
 	(is_hidden TRUE)
-	(property_list [pm-new_ProjectKB_Class46])
+	(property_list [pm-new-simple_ProjectKB_Class46])
 	(widget_class_name "edu.stanford.smi.protegex.chatPlugin.ChatTab"))
 
-([pm-new_ProjectKB_Class46] of  Property_List
+([pm-new-simple_ProjectKB_Class46] of  Property_List
 )
 
-([pm-new_ProjectKB_Class47] of  Widget
+([pm-new-simple_ProjectKB_Class47] of  Widget
 
 	(is_hidden TRUE)
-	(property_list [pm-new_ProjectKB_Class48])
+	(property_list [pm-new-simple_ProjectKB_Class48])
 	(widget_class_name "edu.stanford.smi.protegex.fctab.FacetConstraintsTab"))
 
-([pm-new_ProjectKB_Class48] of  Property_List
+([pm-new-simple_ProjectKB_Class48] of  Property_List
 )
 
-([pm-new_ProjectKB_Class49] of  Widget
+([pm-new-simple_ProjectKB_Class49] of  Widget
 
 	(is_hidden TRUE)
-	(property_list [pm-new_ProjectKB_Class50])
+	(property_list [pm-new-simple_ProjectKB_Class50])
 	(widget_class_name "edu.stanford.smi.protegex.xml.tab.XMLTab"))
 
-([pm-new_ProjectKB_Class5] of  Widget
+([pm-new-simple_ProjectKB_Class5] of  Widget
 
 	(is_hidden TRUE)
-	(property_list [pm-new_ProjectKB_Class6])
+	(property_list [pm-new-simple_ProjectKB_Class6])
 	(widget_class_name "edu.stanford.smi.protegex.widget.pal.PalQueriesTab"))
 
-([pm-new_ProjectKB_Class50] of  Property_List
+([pm-new-simple_ProjectKB_Class50] of  Property_List
 )
 
-([pm-new_ProjectKB_Class51] of  Widget
+([pm-new-simple_ProjectKB_Class51] of  Widget
 
 	(is_hidden TRUE)
-	(property_list [pm-new_ProjectKB_Class52])
+	(property_list [pm-new-simple_ProjectKB_Class52])
 	(widget_class_name "edu.stanford.smi.protegex.datamaster.DataMasterTab"))
 
-([pm-new_ProjectKB_Class52] of  Property_List
+([pm-new-simple_ProjectKB_Class52] of  Property_List
 )
 
-([pm-new_ProjectKB_Class53] of  Widget
+([pm-new-simple_ProjectKB_Class53] of  Widget
 
 	(is_hidden TRUE)
-	(property_list [pm-new_ProjectKB_Class54])
+	(property_list [pm-new-simple_ProjectKB_Class54])
 	(widget_class_name "ezpal.EZPalTab"))
 
-([pm-new_ProjectKB_Class54] of  Property_List
+([pm-new-simple_ProjectKB_Class54] of  Property_List
 )
 
-([pm-new_ProjectKB_Class55] of  Widget
+([pm-new-simple_ProjectKB_Class55] of  Widget
 
 	(is_hidden FALSE)
 	(name "http://www.owl-ontologies.com/pm-web.owl#Case")
-	(property_list [pm-new_ProjectKB_Class58])
+	(property_list [pm-new-simple_ProjectKB_Class58])
 	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.OWLFormWidget"))
 
-([pm-new_ProjectKB_Class58] of  Property_List
+([pm-new-simple_ProjectKB_Class58] of  Property_List
 
 	(properties
-		[pm-new_ProjectKB_Class59]
-		[pm-new_ProjectKB_Class62]
-		[pm-new_ProjectKB_Class65]
-		[pm-new_ProjectKB_Class68]
-		[pm-new_ProjectKB_Class70]
-		[pm-new_ProjectKB_Class72]
-		[pm-new_ProjectKB_Class74]
-		[pm-new_ProjectKB_Class76]
-		[pm-new_ProjectKB_Class78]
-		[pm-new_ProjectKB_Class80]
-		[pm-new_ProjectKB_Class82]
-		[pm-new_ProjectKB_Class84]
-		[pm-new_ProjectKB_Class86]
-		[pm-new_ProjectKB_Class88]
-		[pm-new_ProjectKB_Class90]
-		[pm-new_ProjectKB_Class92]
-		[pm-new_ProjectKB_Class94]
-		[pm-new_ProjectKB_Class96]
-		[pm-new_ProjectKB_Class98]
-		[pm-new_ProjectKB_Class100]
-		[pm-new_ProjectKB_Class102]
-		[pm-new_ProjectKB_Class104]))
+		[pm-new-simple_ProjectKB_Class59]
+		[pm-new-simple_ProjectKB_Class62]
+		[pm-new-simple_ProjectKB_Class65]
+		[pm-new-simple_ProjectKB_Class68]
+		[pm-new-simple_ProjectKB_Class70]
+		[pm-new-simple_ProjectKB_Class72]
+		[pm-new-simple_ProjectKB_Class74]
+		[pm-new-simple_ProjectKB_Class76]
+		[pm-new-simple_ProjectKB_Class78]
+		[pm-new-simple_ProjectKB_Class80]
+		[pm-new-simple_ProjectKB_Class82]
+		[pm-new-simple_ProjectKB_Class84]
+		[pm-new-simple_ProjectKB_Class86]
+		[pm-new-simple_ProjectKB_Class88]
+		[pm-new-simple_ProjectKB_Class90]
+		[pm-new-simple_ProjectKB_Class92]
+		[pm-new-simple_ProjectKB_Class94]
+		[pm-new-simple_ProjectKB_Class96]
+		[pm-new-simple_ProjectKB_Class98]
+		[pm-new-simple_ProjectKB_Class100]
+		[pm-new-simple_ProjectKB_Class102]
+		[pm-new-simple_ProjectKB_Class104]
+		[pm-new-simple_ProjectKB_Class319]
+		[pm-new-simple_ProjectKB_Class10099]
+		[pm-new-simple_ProjectKB_Class20125]
+		[pm-new-simple_ProjectKB_Class20156]))
 
-([pm-new_ProjectKB_Class59] of  Widget
+([pm-new-simple_ProjectKB_Class59] of  Widget
 
 	(height 0)
 	(is_hidden FALSE)
 	(label "Name")
 	(name ":NAME")
-	(property_list [pm-new_ProjectKB_Class60])
+	(property_list [pm-new-simple_ProjectKB_Class60])
 	(width 0)
 	(x 0)
 	(y 0))
 
-([pm-new_ProjectKB_Class6] of  Property_List
+([pm-new-simple_ProjectKB_Class6] of  Property_List
 )
 
-([pm-new_ProjectKB_Class60] of  Property_List
+([pm-new-simple_ProjectKB_Class60] of  Property_List
 
-	(properties [pm-new_ProjectKB_Class61]))
+	(properties [pm-new-simple_ProjectKB_Class61]))
 
-([pm-new_ProjectKB_Class61] of  Boolean
+([pm-new-simple_ProjectKB_Class61] of  Boolean
 
 	(boolean_value TRUE)
 	(name "DisabledByUser"))
 
-([pm-new_ProjectKB_Class62] of  Property_List
+([pm-new-simple_ProjectKB_Class62] of  Property_List
 
 	(name "layout properties")
 	(properties
-		[pm-new_ProjectKB_Class63]
-		[pm-new_ProjectKB_Class64]))
+		[pm-new-simple_ProjectKB_Class63]
+		[pm-new-simple_ProjectKB_Class64]))
 
-([pm-new_ProjectKB_Class63] of  String
+([pm-new-simple_ProjectKB_Class63] of  String
 
 	(name "horizontal_stretcher")
 	(string_value "<<all>>"))
 
-([pm-new_ProjectKB_Class64] of  String
+([pm-new-simple_ProjectKB_Class64] of  String
 
 	(name "vertical_stretcher")
 	(string_value "<<none>>"))
 
-([pm-new_ProjectKB_Class65] of  Widget
+([pm-new-simple_ProjectKB_Class65] of  Widget
 
 	(height 180)
 	(is_hidden FALSE)
 	(name "http://protege.stanford.edu/plugins/owl/protege#inferredType")
-	(property_list [pm-new_ProjectKB_Class66])
+	(property_list [pm-new-simple_ProjectKB_Class66])
 	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.HeaderWidget")
 	(width 550)
-	(x 0)
-	(y 0))
+	(x 900)
+	(y 40))
 
-([pm-new_ProjectKB_Class66] of  Property_List
+([pm-new-simple_ProjectKB_Class66] of  Property_List
 
-	(properties [pm-new_ProjectKB_Class67]))
+	(properties [pm-new-simple_ProjectKB_Class67]))
 
-([pm-new_ProjectKB_Class67] of  Boolean
+([pm-new-simple_ProjectKB_Class67] of  Boolean
 
 	(boolean_value FALSE)
 	(name "DisabledByUser"))
 
-([pm-new_ProjectKB_Class68] of  Widget
+([pm-new-simple_ProjectKB_Class68] of  Widget
 
 	(is_hidden FALSE)
 	(name "http://www.w3.org/2002/07/owl#versionInfo")
-	(property_list [pm-new_ProjectKB_Class69]))
+	(property_list [pm-new-simple_ProjectKB_Class69]))
 
-([pm-new_ProjectKB_Class69] of  Property_List
+([pm-new-simple_ProjectKB_Class69] of  Property_List
 )
 
-([pm-new_ProjectKB_Class7] of  Widget
+([pm-new-simple_ProjectKB_Class7] of  Widget
 
 	(is_hidden TRUE)
-	(property_list [pm-new_ProjectKB_Class8])
+	(property_list [pm-new-simple_ProjectKB_Class8])
 	(widget_class_name "dfki.protege.ontoviz_tab.OntovizTab"))
 
-([pm-new_ProjectKB_Class70] of  Widget
+([pm-new-simple_ProjectKB_Class70] of  Widget
 
 	(is_hidden FALSE)
 	(name "http://www.w3.org/2000/01/rdf-schema#isDefinedBy")
-	(property_list [pm-new_ProjectKB_Class71]))
+	(property_list [pm-new-simple_ProjectKB_Class71]))
 
-([pm-new_ProjectKB_Class71] of  Property_List
+([pm-new-simple_ProjectKB_Class71] of  Property_List
 )
 
-([pm-new_ProjectKB_Class72] of  Widget
+([pm-new-simple_ProjectKB_Class72] of  Widget
 
 	(is_hidden FALSE)
 	(name "http://www.w3.org/2000/01/rdf-schema#comment")
-	(property_list [pm-new_ProjectKB_Class73]))
+	(property_list [pm-new-simple_ProjectKB_Class73]))
 
-([pm-new_ProjectKB_Class73] of  Property_List
+([pm-new-simple_ProjectKB_Class73] of  Property_List
 )
 
-([pm-new_ProjectKB_Class74] of  Widget
+([pm-new-simple_ProjectKB_Class74] of  Widget
 
 	(is_hidden FALSE)
 	(name "http://www.w3.org/2000/01/rdf-schema#seeAlso")
-	(property_list [pm-new_ProjectKB_Class75]))
+	(property_list [pm-new-simple_ProjectKB_Class75]))
 
-([pm-new_ProjectKB_Class75] of  Property_List
+([pm-new-simple_ProjectKB_Class75] of  Property_List
 )
 
-([pm-new_ProjectKB_Class76] of  Widget
+([pm-new-simple_ProjectKB_Class76] of  Widget
 
 	(is_hidden FALSE)
 	(name "http://www.w3.org/2000/01/rdf-schema#label")
-	(property_list [pm-new_ProjectKB_Class77]))
+	(property_list [pm-new-simple_ProjectKB_Class77]))
 
-([pm-new_ProjectKB_Class77] of  Property_List
+([pm-new-simple_ProjectKB_Class77] of  Property_List
 )
 
-([pm-new_ProjectKB_Class78] of  Widget
+([pm-new-simple_ProjectKB_Class78] of  Widget
 
 	(height 60)
 	(is_hidden FALSE)
-	(label "Отпуск")
 	(name "http://www.owl-ontologies.com/pm-web.owl#index_vacation")
-	(property_list [pm-new_ProjectKB_Class79])
+	(property_list [pm-new-simple_ProjectKB_Class79])
 	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.SingleResourceWidget")
 	(width 200)
-	(x 200)
-	(y 240))
+	(x 220)
+	(y 20))
 
-([pm-new_ProjectKB_Class79] of  Property_List
-
-	(properties
-		[pm-new_ProjectKB_Class10458]
-		[pm-new_ProjectKB_Class10459]))
-
-([pm-new_ProjectKB_Class8] of  Property_List
+([pm-new-simple_ProjectKB_Class79] of  Property_List
 )
 
-([pm-new_ProjectKB_Class80] of  Widget
+([pm-new-simple_ProjectKB_Class8] of  Property_List
+)
+
+([pm-new-simple_ProjectKB_Class80] of  Widget
 
 	(height 60)
 	(is_hidden FALSE)
-	(label "Выполнение в руб")
 	(name "http://www.owl-ontologies.com/pm-web.owl#index_sales_per_employee")
-	(property_list [pm-new_ProjectKB_Class81])
+	(property_list [pm-new-simple_ProjectKB_Class81])
 	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.SingleResourceWidget")
 	(width 200)
-	(x 0)
-	(y 430))
+	(x 10)
+	(y 140))
 
-([pm-new_ProjectKB_Class81] of  Property_List
+([pm-new-simple_ProjectKB_Class81] of  Property_List
+)
 
-	(properties
-		[pm-new_ProjectKB_Class10454]
-		[pm-new_ProjectKB_Class10455]))
-
-([pm-new_ProjectKB_Class82] of  Widget
+([pm-new-simple_ProjectKB_Class82] of  Widget
 
 	(height 60)
 	(is_hidden FALSE)
 	(name "http://www.owl-ontologies.com/pm-web.owl#value")
-	(property_list [pm-new_ProjectKB_Class83])
+	(property_list [pm-new-simple_ProjectKB_Class83])
 	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.SingleLiteralWidget")
 	(width 200)
-	(x 770)
-	(y 90))
+	(x 780)
+	(y 410))
 
-([pm-new_ProjectKB_Class83] of  Property_List
+([pm-new-simple_ProjectKB_Class83] of  Property_List
 )
 
-([pm-new_ProjectKB_Class84] of  Widget
+([pm-new-simple_ProjectKB_Class84] of  Widget
 
 	(height 60)
 	(is_hidden FALSE)
-	(label "Больничный")
 	(name "http://www.owl-ontologies.com/pm-web.owl#index_sick_list")
-	(property_list [pm-new_ProjectKB_Class85])
+	(property_list [pm-new-simple_ProjectKB_Class85])
 	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.SingleResourceWidget")
 	(width 200)
-	(x 200)
-	(y 180))
+	(x 220)
+	(y 80))
 
-([pm-new_ProjectKB_Class85] of  Property_List
+([pm-new-simple_ProjectKB_Class85] of  Property_List
+)
 
-	(properties [pm-new_ProjectKB_Class10855]))
-
-([pm-new_ProjectKB_Class86] of  Widget
+([pm-new-simple_ProjectKB_Class86] of  Widget
 
 	(height 60)
 	(is_hidden FALSE)
-	(label "Средний чек")
 	(name "http://www.owl-ontologies.com/pm-web.owl#index_average_values_of_account_sum")
-	(property_list [pm-new_ProjectKB_Class87])
+	(property_list [pm-new-simple_ProjectKB_Class87])
 	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.SingleResourceWidget")
 	(width 200)
-	(x 0)
-	(y 180))
+	(x 10)
+	(y 20))
 
-([pm-new_ProjectKB_Class87] of  Property_List
+([pm-new-simple_ProjectKB_Class87] of  Property_List
+)
 
-	(properties
-		[pm-new_ProjectKB_Class10441]
-		[pm-new_ProjectKB_Class10442]))
-
-([pm-new_ProjectKB_Class88] of  Widget
+([pm-new-simple_ProjectKB_Class88] of  Widget
 
 	(height 120)
 	(is_hidden FALSE)
-	(label "Рекомендации")
 	(name "http://www.owl-ontologies.com/pm-web.owl#solution_rec")
-	(property_list [pm-new_ProjectKB_Class89])
+	(property_list [pm-new-simple_ProjectKB_Class89])
 	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.MultiResourceWidget")
 	(width 200)
-	(x 200)
-	(y 430))
+	(x 220)
+	(y 290))
 
-([pm-new_ProjectKB_Class89] of  Property_List
+([pm-new-simple_ProjectKB_Class89] of  Property_List
+)
 
-	(properties
-		[pm-new_ProjectKB_Class10462]
-		[pm-new_ProjectKB_Class10463]))
-
-([pm-new_ProjectKB_Class9] of  Widget
+([pm-new-simple_ProjectKB_Class9] of  Widget
 
 	(is_hidden TRUE)
-	(property_list [pm-new_ProjectKB_Class10])
+	(property_list [pm-new-simple_ProjectKB_Class10])
 	(widget_class_name "edu.stanford.smi.protegex.server_changes.prompt.UsersTab"))
 
-([pm-new_ProjectKB_Class90] of  Widget
+([pm-new-simple_ProjectKB_Class90] of  Widget
 
 	(height 60)
 	(is_hidden FALSE)
-	(label "Количество чеков")
 	(name "http://www.owl-ontologies.com/pm-web.owl#index_conversion_rate")
-	(property_list [pm-new_ProjectKB_Class91])
+	(property_list [pm-new-simple_ProjectKB_Class91])
 	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.SingleResourceWidget")
 	(width 200)
-	(x 0)
-	(y 300))
+	(x 670)
+	(y 200))
 
-([pm-new_ProjectKB_Class91] of  Property_List
+([pm-new-simple_ProjectKB_Class91] of  Property_List
+)
 
-	(properties
-		[pm-new_ProjectKB_Class10450]
-		[pm-new_ProjectKB_Class10451]))
-
-([pm-new_ProjectKB_Class92] of  Widget
+([pm-new-simple_ProjectKB_Class92] of  Widget
 
 	(height 60)
 	(is_hidden FALSE)
 	(name "http://www.owl-ontologies.com/pm-web.owl#db_id")
-	(property_list [pm-new_ProjectKB_Class93])
+	(property_list [pm-new-simple_ProjectKB_Class93])
 	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.SingleLiteralWidget")
 	(width 200)
-	(x 560)
-	(y 20))
+	(x 970)
+	(y 360))
 
-([pm-new_ProjectKB_Class93] of  Property_List
+([pm-new-simple_ProjectKB_Class93] of  Property_List
 )
 
-([pm-new_ProjectKB_Class94] of  Widget
+([pm-new-simple_ProjectKB_Class94] of  Widget
 
 	(height 60)
 	(is_hidden FALSE)
-	(label "Количество позиций в чеке")
 	(name "http://www.owl-ontologies.com/pm-web.owl#index_average_sale_value")
-	(property_list [pm-new_ProjectKB_Class95])
+	(property_list [pm-new-simple_ProjectKB_Class95])
 	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.SingleResourceWidget")
 	(width 200)
-	(x 0)
-	(y 240))
+	(x 10)
+	(y 80))
 
-([pm-new_ProjectKB_Class95] of  Property_List
+([pm-new-simple_ProjectKB_Class95] of  Property_List
+)
 
-	(properties
-		[pm-new_ProjectKB_Class10443]
-		[pm-new_ProjectKB_Class10444]))
-
-([pm-new_ProjectKB_Class96] of  Widget
+([pm-new-simple_ProjectKB_Class96] of  Widget
 
 	(height 120)
 	(is_hidden FALSE)
 	(name "http://www.owl-ontologies.com/pm-web.owl#solution_problems")
-	(property_list [pm-new_ProjectKB_Class97])
+	(property_list [pm-new-simple_ProjectKB_Class97])
 	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.MultiLiteralWidget")
 	(width 200)
-	(x 750)
-	(y 200))
+	(x 400)
+	(y 420))
 
-([pm-new_ProjectKB_Class97] of  Property_List
+([pm-new-simple_ProjectKB_Class97] of  Property_List
 )
 
-([pm-new_ProjectKB_Class98] of  Widget
+([pm-new-simple_ProjectKB_Class98] of  Widget
 
 	(height 60)
 	(is_hidden FALSE)
-	(label "Выполнение в %")
 	(name "http://www.owl-ontologies.com/pm-web.owl#index_sales_plan")
-	(property_list [pm-new_ProjectKB_Class99])
+	(property_list [pm-new-simple_ProjectKB_Class99])
 	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.SingleResourceWidget")
 	(width 200)
-	(x 0)
-	(y 360))
+	(x 490)
+	(y 20))
 
-([pm-new_ProjectKB_Class99] of  Property_List
-
-	(properties
-		[pm-new_ProjectKB_Class10452]
-		[pm-new_ProjectKB_Class10453]))
+([pm-new-simple_ProjectKB_Class99] of  Property_List
+)
 
 ([PROJECT] of  Project
 
 	(browser_slot_names [BROWSER_SLOT_NAMES])
 	(customized_instance_widgets
 		[STANDARD_CLASS_FORM_WIDGET]
-		[pm-new_ProjectKB_Class145]
 		[KB_868747_Instance_76]
 		[KB_313796_Instance_852]
 		[STANDARD_SLOT_FORM_WIDGET]
-		[pm-new_ProjectKB_Class10179]
 		[KB_938545_Instance_329]
 		[KB_313796_Instance_943]
 		[KB_301165_Instance_856]
@@ -6583,8 +6044,7 @@
 		[KB_938545_Instance_661]
 		[KB_465546_Instance_567]
 		[KB_713803_Instance_648]
-		[pm-new_ProjectKB_Class55]
-		[pm-new_ProjectKB_Class150]
+		[pm-new-simple_ProjectKB_Class55]
 		[KB_713803_Instance_693]
 		[KB_301165_Instance_1013]
 		[Instance_581]

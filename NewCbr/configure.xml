@@ -1,0 +1,67 @@
+<OntologyConfiguration>
+    <!-- Описание онтологии. -->
+    <MainOntology>
+        <URL>http://www.owl-ontologies.com/pm-web.owl</URL>
+        <LocalCopy>pm-new-simple.owl</LocalCopy>
+    </MainOntology>
+
+    <CaseMainConcept>Case</CaseMainConcept>
+
+    <DescriptionClassName>pm.web.cbr.Description</DescriptionClassName>
+
+    <DescriptionMappings>
+        <Map>
+            <Property>index_average_values_of_account_sum</Property>
+            <Concept>Average_values_of_account_sum</Concept>
+            <Attribute>avCheck</Attribute>
+        </Map>
+        <Map>
+            <Property>index_average_sale_value</Property>
+            <Concept>Average_sale_value</Concept>
+            <Attribute>itemsCount</Attribute>
+        </Map>
+        <Map>
+            <Property>index_sales_per_employee</Property>
+            <Concept>Conversion_rate</Concept>
+            <Attribute>impl</Attribute>
+        </Map>
+        <Map>
+            <Property>index_expierence</Property>
+            <Concept>Expierence</Concept>
+            <Attribute>expierence</Attribute>
+        </Map>
+        <Map>
+            <Property>index_dynamics</Property>
+            <Concept>Dynamics</Concept>
+            <Attribute>dynamics</Attribute>
+        </Map>
+        <Map>
+            <Property>index_leadership</Property>
+            <Concept>Leadership_qualities</Concept>
+            <Attribute>leadership</Attribute>
+        </Map>
+        <!--<Map>-->
+            <!--<Property>index_sick_list</Property>-->
+            <!--<Concept>Sick-list</Concept>-->
+            <!--<Attribute>sickList</Attribute>-->
+        <!--</Map>-->
+        <!--<Map>-->
+            <!--<Property>index_vacation</Property>-->
+            <!--<Concept>Vacation</Concept>-->
+            <!--<Attribute>vacation</Attribute>-->
+        <!--</Map>-->
+    </DescriptionMappings>
+    <SolutionClassName>pm.web.cbr.Solution</SolutionClassName>
+    <SolutionMappings>
+        <Map>
+            <Property>index_problems</Property>
+            <Concept>Problem_identification</Concept>
+            <Attribute>problems</Attribute>
+        </Map>
+        <Map>
+            <Property>solution_rec</Property>
+            <Concept>Recommendations</Concept>
+            <Attribute>solutions</Attribute>
+        </Map>
+    </SolutionMappings>
+</OntologyConfiguration>
