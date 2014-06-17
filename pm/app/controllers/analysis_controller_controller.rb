@@ -26,10 +26,10 @@ class AnalysisControllerController < ApplicationController
     client = TcpClient.new 50125, 'localhost'
     date_id = params[:date].to_i
 
-    problems = client.find_problems [{:name => 'ImplPlan', :value => get_impl_plan_value(params[:consultant][:main][:impl].to_f)},
-                                      {:name => 'AvCheck', :value => get_av_check_value(params[:consultant][:main][:avCheck].to_f)},
-                                      {:name => 'ItemsCount', :value => get_items_count_value(params[:consultant][:main][:itemsCount].to_f)},
-                                      {:name => 'TotalChecksCount', :value => get_total_checks_value(params[:consultant][:main][:totalChecks].to_f)}]
+    problems = client.find_problems [{:name => 'ImplPlan', :value => params[:consultant][:main][:impl].to_f},
+                                      {:name => 'AvCheck', :value => params[:consultant][:main][:avCheck].to_f},
+                                      {:name => 'ItemsCount', :value => params[:consultant][:main][:itemsCount].to_f},
+                                      {:name => 'TotalChecksCount', :value => params[:consultant][:main][:totalChecks].to_f}]
 
     client.close
     complex_text = ''

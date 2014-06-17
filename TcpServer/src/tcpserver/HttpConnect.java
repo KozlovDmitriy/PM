@@ -15,7 +15,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import jcolibri.cbrcore.CBRCase;
+import jcolibri.cbrcore.CBRQuery;
+import jcolibri.exception.ExecutionException;
 import owlreader.OwlReader;
+import pm.web.cbr.Application;
+import pm.web.cbr.DescriptionQuery;
 import simplecbrapp.cbr.problems.ProblemCbrApplication;
 import simplecbrapp.cbr.solutions.SolutionCbrApplication;
 import tcpserver.json.Interface;
@@ -243,10 +248,31 @@ public class HttpConnect extends Thread {
      * @param pw Писатель в клиента.
      */
     private void findProblems (Params params, PrintWriter pw) {
-        // Анализ
-        String[] ps = ProblemCbrApplication.doAnalise(params.toArray());
-        // Отправка ответа.
-        this.sendFindedProblems(pw, ps);
+        try {
+            // Анализ
+            DescriptionQuery dq = new DescriptionQuery(Float.parseFloat(params.getAvCheck()),
+                    Float.parseFloat(params.getItemsCount()), Float.parseFloat(params.getImplPlan()));
+            Application app = new Application();
+            
+            app.configure();
+            
+            app.preCycle();
+            
+            CBRQuery q = new CBRQuery();
+            q.setDescription(dq);
+            
+            app.cycle(q);
+            
+            CBRCase result = app.getResult();
+            
+            pm.web.cbr.Solution sol = (pm.web.cbr.Solution) result.getSolution();
+            String[] ps = new String[1];
+//        String[] ps = ProblemCbrApplication.doAnalise(params.toArray());
+            // Отправка ответа.
+//        this.sendFindedProblems(pw, ps);
+        } catch (ExecutionException ex) {
+            Logger.getLogger(HttpConnect.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     /**

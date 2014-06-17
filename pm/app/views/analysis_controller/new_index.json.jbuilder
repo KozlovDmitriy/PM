@@ -25,7 +25,8 @@ json.array! @consultants.each do |item|
     problems = []
     uri = ''
     buffer = AnalysisProblemConnect.where(:analysis_id => @analyse.id, :consultant_id => item.id)
-    buffer.each { |it| problems_string = it.problem.description; uri = it.problem.uri } if buffer.present?
+    buffer.each { |it| problems_string = it.problem.description if it.problem.present?
+      uri = it.problem.uri if it.problem.present? } if buffer.present?
     problems = problems_string.split(' И ')
     json.problems do
       json.uri uri
