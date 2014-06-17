@@ -66,6 +66,33 @@
         .panel.panel-default
           .panel-heading
             .panel-title
+              %h4 Персональные параметры
+          .panel-body
+            %form.form-horizontal{:role => 'form'}
+              .form-group
+                %label.control-label.col-sm-3{:for => 'expa'} Опыт работы
+                .col-sm-3
+                  %select.form-control#expa{:ng => {:model => 'currentConsultant.personal.expa'}, :disabled => 'disabled'}
+                    %option{:value => -1} Малый
+                    %option{:value => 0, :selected => 'selected'} Средний (или неизвестно)
+                    %option{:value => 1} Большой
+              .form-group
+                %label.control-label.col-sm-3{:for => 'dynamics'} Динамика
+                .col-sm-3
+                  %select.form-control#dynamics{:ng => {:model => 'currentConsultant.personal.dynamics'}, :disabled => 'disabled'}
+                    %option{:value => -1} Отрицательная
+                    %option{:value => 0, :selected => 'selected'} Нейтральная (или неизвестная)
+                    %option{:value => 1} Положительная
+              .form-group
+                %label.control-label.col-sm-3{:for => 'lidership'} Лидерство/отставание
+                .col-sm-3
+                  %select.form-control#lisdership{:ng => {:model => 'currentConsultant.personal.lidership'}, :disabled => 'disabled'}
+                    %option{:value => -1} Отстающий по одному из показателей (или нескольким)
+                    %option{:value => 0} Середнячок по всем показателям
+                    %option{:value => 1} Лидер по одному из показателей (или нескольким)
+        .panel.panel-default
+          .panel-heading
+            .panel-title
               %h4 Дополнительные параметры
           .panel-body
             %form.form-horizontal{:role => 'form'}
@@ -77,18 +104,18 @@
                 %label.control-label.col-sm-3{:for => 'impl-plan'} Больничный
                 .col-sm-3
                   %input.form-control#impl-plan{:type => 'checkbox', :ng => {:model => 'currentConsultant.main.hospital', :disabled => 'currentConsultant == null'}, :onclick => 'return false'}
-              .form-group
-                %label.control-label.col-sm-3{:for => 'impl'} Декретный отпуск
-                .col-sm-3
-                  %input.form-control#impl{:type => 'checkbox', :ng => {:model => 'currentConsultant.main.mleave', :disabled => 'currentConsultant == null'}, :onclick => 'return false'}
-              .form-group
-                %label.control-label.col-sm-3{:for => 'av-check'} Низкий стаж
-                .col-sm-3
-                  %input.form-control#av-check{:type => 'checkbox', :ng => {:model => 'currentConsultant.main.exp', :disabled => 'currentConsultant == null'}, :onclick => 'return false'}
-              .form-group
-                %label.control-label.col-sm-3{:for => 'items-count'} Увольнение
-                .col-sm-3
-                  %input.form-control#items-count{:type => 'checkbox', :ng => {:model => 'currentConsultant.main.dismissal', :disabled => 'currentConsultant == null'}, :onclick => 'readonly'}
+              / .form-group
+              /   %label.control-label.col-sm-3{:for => 'impl'} Декретный отпуск
+              /   .col-sm-3
+              /     %input.form-control#impl{:type => 'checkbox', :ng => {:model => 'currentConsultant.main.mleave', :disabled => 'currentConsultant == null'}, :onclick => 'return false'}
+              / .form-group
+              /   %label.control-label.col-sm-3{:for => 'av-check'} Низкий стаж
+              /   .col-sm-3
+              /     %input.form-control#av-check{:type => 'checkbox', :ng => {:model => 'currentConsultant.main.exp', :disabled => 'currentConsultant == null'}, :onclick => 'return false'}
+              / .form-group
+              /   %label.control-label.col-sm-3{:for => 'items-count'} Увольнение
+              /   .col-sm-3
+              /     %input.form-control#items-count{:type => 'checkbox', :ng => {:model => 'currentConsultant.main.dismissal', :disabled => 'currentConsultant == null'}, :onclick => 'readonly'}
         .panel.panel-default
           .panel-heading
             .panel-title
