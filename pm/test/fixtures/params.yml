@@ -132,3 +132,39 @@ r:
   local_similarity: "equal"
   role: "additional"
   sorting: 11
+
+p1:
+  id: 12
+  name: "Опыт работы"
+  data_type: "float"
+  input_type: "select"
+  label: "Опыт работы"
+  excel_label: ""
+  owl_class: "Experience"
+  local_similarity: "equal"
+  role: "personal"
+  sorting: 12
+
+p2: 
+  id: 13
+  name: "Динамика"
+  data_type: "float"
+  input_type: "select"
+  label: "Динамика"
+  excel_label: ""
+  owl_class: "Dynamics"
+  local_similarity: "equal"
+  role: "personal"
+  sorting: 13
+
+p3:
+  id: 14
+  name: "Лидерство"
+  data_type: "float"
+  input_type: "select"
+  label: "Лидерство/отставание"
+  excel_label: ""
+  owl_class: "Lidership"
+  local_similarity: "equal"
+  role: "personal"
+  sorting: 14
