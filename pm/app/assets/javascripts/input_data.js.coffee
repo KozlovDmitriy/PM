@@ -82,7 +82,6 @@ appInputData.controller 'inputDataController', ($scope, $http) ->
       alert 'Сохранение данных прошло успешно!'
       window.location.href = '/new-analyse' if $scope.isFinish is true
     promise.error (data) ->
-      console.log data
       $scope.isProcess = false
       alert 'Ошибка сохранения данных!'
 

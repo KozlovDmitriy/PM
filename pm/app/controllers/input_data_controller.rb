@@ -70,6 +70,8 @@ class InputDataController < ApplicationController
   def save_form_params
     # /save_params
 
+    File.open('debug.txt', 'w') { |file| file.write params.to_yaml }
+
     analyse = Analysis.new :date => params[:date]
     if params[:isFinish]
       analyse.status = 'full_data'
@@ -114,6 +116,14 @@ class InputDataController < ApplicationController
       v10 = ParamValue.create :value => item[:additional][:exp], :param_id => 10, :date_id => a_id, :consultant_id => c_id
       # Увольнение
       v11 = ParamValue.create :value => item[:additional][:dismissal], :param_id => 11, :date_id => a_id, :consultant_id => c_id
+      if item[:personal].present?
+        # Опыт работы
+        v12 = ParamValue.create :value => item[:personal][:expa], :param_id => 12, :date_id => a_id, :consultant_id => c_id
+        # Динамика
+        v13 = ParamValue.create :value => item[:personal][:dynamics], :param_id => 13, :date_id => a_id, :consultant_id => c_id
+        # Лидерство/отствание
+        v14 = ParamValue.create :value => item[:personal][:lidership], :param_id => 14, :date_id => a_id, :consultant_id => c_id
+      end
     end
 
     render :json => true
