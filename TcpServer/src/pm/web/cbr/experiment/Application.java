@@ -25,7 +25,8 @@ import jcolibri.method.retrieve.selection.SelectCases;
 import jcolibri.util.FileIO;
 import jcolibri.util.OntoBridgeSingleton;
 import pm.web.cbr.*;
-
+import org.apache.poi.util.POILogFactory;
+import org.apache.poi.util.CommonsLogger;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -219,7 +220,7 @@ public class Application implements StandardCBRApplication {
             return new OntDoubleMeasure(param);
         else
         {
-            org.apache.commons.logging.LogFactory.getLog(this.getClass()).error("Simil Function not found");
+            POILogFactory.getLogger(this.getClass()).log(CommonsLogger.ERROR,"Simil Function not found");
             return null;
         }
     }

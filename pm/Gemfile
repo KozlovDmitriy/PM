@@ -8,8 +8,7 @@ gem 'sqlite3'
 
 # Hirb for show cool db result
 gem 'hirb'
-
-gem 'debugger' # debug app
+#gem 'debugger' # debug app
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'

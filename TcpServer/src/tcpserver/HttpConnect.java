@@ -1,4 +1,3 @@
-
 package tcpserver;
 
 import java.io.BufferedReader;
@@ -143,8 +142,7 @@ public class HttpConnect extends Thread {
      * @param br Канал чтения.
      * @param pw Канал ответа.
      */
-    private void parseClientRequest
-        (String request, BufferedReader br, PrintWriter pw) throws IOException {
+    private void parseClientRequest (String request, BufferedReader br, PrintWriter pw) throws IOException {
         try {
             System.out.println(request);
 
@@ -352,10 +350,11 @@ public class HttpConnect extends Thread {
      */
     public void run() {
         try {
-            PrintWriter pw = new PrintWriter(
-                    new OutputStreamWriter(this.socket.getOutputStream(), "UTF8"), true);
+            PrintWriter pw = new PrintWriter( new OutputStreamWriter(this.socket.getOutputStream(), "UTF8"), true );
             BufferedReader br = new BufferedReader(
-                    new InputStreamReader(this.socket.getInputStream(), Charset.forName("UTF-8")));
+                new InputStreamReader(this.socket.getInputStream(),
+                Charset.forName("UTF-8"))
+            );
             String req; // Строка запроса.
             Interface i;
             
